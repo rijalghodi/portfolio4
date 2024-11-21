@@ -1,0 +1,29 @@
+<svg width="32" height="32" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">  <!-- Outer Pulsing Circle -->
+  <circle 
+    cx="50" 
+    cy="50" 
+    r="20" 
+    fill="#1bba55" 
+    stroke="#1bba55" 
+    opacity="0.5">
+    <animate 
+      attributeName="r" 
+      from="20" 
+      to="45" 
+      dur="1.5s" 
+      repeatCount="indefinite" />
+    <animate 
+      attributeName="opacity" 
+      from="0.5" 
+      to="0" 
+      dur="1.5s" 
+      repeatCount="indefinite" />
+  </circle>
+
+  <!-- Inner Static Dot -->
+  <circle 
+    cx="50" 
+    cy="50" 
+    r="10" 
+    fill="#1bba55" />
+</svg>

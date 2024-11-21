@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Define Gradient for Opacity -->
+  <defs>
+    <linearGradient id="fadeOpacity" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1bba55; stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1bba55; stop-opacity:0" />
+    </linearGradient>
+  </defs>
+
+   <defs>
+    <linearGradient id="fadeOpacityOuter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1bba55; stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1bba55; stop-opacity:0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Circle -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#333333" stroke-opacity="0.25" stroke-width="0.1" />
+  
+  <!-- Inner Circle -->
+  <circle cx="100" cy="100" r="50" fill="none" stroke="#333333" stroke-opacity="0.25" stroke-width="0.1" />
+
+  <!-- First 1/4 Circle Arch on Outer Circle (90 degrees clockwise) -->
+  <path d="M 20 100 A 80 80 0 0 1 100 20" fill="none" stroke="url(#fadeOpacityOuter)" stroke-width="0.4">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="5s" repeatCount="indefinite" />
+  </path>
+  
+  <!-- Second 1/4 Circle Arch on Inner Circle (90 degrees counterclockwise) -->
+  <path d="M 50 100 A 50 50 0 0 1 100 50" fill="none" stroke="url(#fadeOpacity)" stroke-width="0.4">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="-360 100 100" dur="4s" repeatCount="indefinite" />
+  </path>
+</svg>

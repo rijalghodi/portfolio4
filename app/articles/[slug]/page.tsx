@@ -49,7 +49,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
           </h1>
 
           {article.tags && (
-            <div className="mb-6">
+            <div className="mb-6 flex gap-2 flex-wrap">
               {article.tags.map((tag) => (
                 <span
                   key={tag}

@@ -42,7 +42,7 @@ export function ExperienceCard(props: Props) {
         </CardTitle>
         <CardDescription>
           <div className="flex justify-between items-center flex-wrap gap-3">
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-1 flex-wrap">
               <span>{props.company}</span>
               <span className="before:content-['•'] before:mx-2">
                 {props.experienceCategory}

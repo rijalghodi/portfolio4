@@ -77,7 +77,7 @@ export function Header() {
           ) : (
             <LogoLight width={28} height={28} />
           )}
-          <div className="font-semibold">Rijal Ghodi</div>
+          <div className="font-bold font-mono">Rijal Ghodi</div>
         </Link>
         <div className="hidden sm:flex gap-6 items-center ">
           <nav>
@@ -89,7 +89,7 @@ export function Header() {
                     className={cn(
                       'text-foreground hover:text-primary dark:text-muted-foreground dark:hover:text-foreground',
                       activeMenu === menu.link &&
-                        'text-primary dark:text-primary',
+                        'text-primary dark:text-primary dark:hover:text-primary',
                     )}
                   >
                     {menu.title}

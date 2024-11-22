@@ -28,12 +28,9 @@ export default function Home() {
   const { theme } = useTheme();
 
   const scrollToContent = () => {
-    const content = document.getElementById('projects');
-    scrollTo({
-      behavior: 'smooth',
-      top: (content?.getBoundingClientRect().top as number) - 70,
-    });
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
+
   return (
     <div>
       <section
@@ -42,7 +39,7 @@ export default function Home() {
         className="relative pt-16 pb-16 flex items-center"
       >
         <div className="max-w-screen-md w-full mx-auto">
-          <p className="font-bold text-3xl py-2 font-sp tracking-wider leading-relaxed">
+          <p className="font-extrabold font-mono text-4xl py-2 tracking-wider leading-relaxed">
             Hey, I&apos;m Rijal 👋
           </p>
           <p className="text-xl py-2 leading-relaxed">
@@ -105,13 +102,10 @@ export default function Home() {
       <section className="z-0 bg-background pt-16 pb-16" id="projects">
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold">My Projects</h1>
-            <Button
-              variant="ghost"
-              radius="full"
-              className="dark:text-muted-foreground dark:hover:text-foreground"
-            >
-              All Projects <IconArrowRight />
+            <h1 className="font-extrabold font-mono text-3xl">Projects</h1>
+            <Button variant="ghost" radius="full" className="group">
+              All Projects
+              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
             </Button>
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -123,23 +117,21 @@ export default function Home() {
           </ul>
         </div>
       </section>
+      {/* Tech Stack */}
       {/* --- Articles */}
-      <section className="z-0 bg-background pt-16 pb-16" id="projects">
+      <section className="z-0 bg-background pt-16 pb-16" id="articles">
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold">Articles</h1>
-            <Button
-              variant="ghost"
-              radius="full"
-              className="dark:text-muted-foreground dark:hover:text-foreground"
-            >
-              All Articles <IconArrowRight />
+            <h1 className="text-3xl font-extrabold font-mono">Articles</h1>
+            <Button variant="ghost" radius="full" className="group">
+              All Articles{' '}
+              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
             </Button>
           </div>
           <ul>
             {experiences.slice(0, 4).map((ex, i) => (
               <Link key={i} href="#">
-                <li className="border-b border-border py-4 flex justify-between items-center hover:text-primary">
+                <li className="border-b border-border py-4 flex flex-wrap gap-2 justify-between items-center hover:text-primary">
                   <div className="font-semibold ">Title</div>
                   <div className="font-mono">25 Agustus 2020</div>
                 </li>
@@ -149,16 +141,13 @@ export default function Home() {
         </div>
       </section>
       {/* --- Experience */}
-      <section className="z-0 bg-background pt-16 pb-16" id="projects">
+      <section className="z-0 bg-background pt-16 pb-16" id="experiences">
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold">Work Experiences</h1>
-            <Button
-              variant="ghost"
-              radius="full"
-              className="dark:text-muted-foreground dark:hover:text-foreground"
-            >
-              More About Me <IconArrowRight />
+            <h1 className="text-3xl font-extrabold font-mono">Experiences</h1>
+            <Button variant="ghost" radius="full" className="group">
+              More About Me
+              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
             </Button>
           </div>
           <ul className="grid grid-cols-1 gap-6">

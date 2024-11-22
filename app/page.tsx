@@ -60,7 +60,7 @@ export default function Home() {
             </Link>
           </p>
 
-          <div className="flex gap-8 mt-6 sm:gap-4 items-center flex-wrap">
+          <div className="flex gap-6 mt-6 xs:gap-1 items-center flex-wrap">
             <div className="flex gap-4">
               <Button radius="full">
                 <IconArrowUpRight />

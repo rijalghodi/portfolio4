@@ -16,13 +16,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Load the stored theme from localStorage (if available)
-    const savedTheme =
-      (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
-    setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+
+    const initialTheme = savedTheme || 'dark'; // Default to 'dark' if no theme is saved
+    setTheme(initialTheme);
+    document.documentElement.setAttribute('data-theme', initialTheme);
 
     // Add or remove the dark class on the body element
-    if (savedTheme === 'dark') {
+    if (initialTheme === 'dark') {
       document.body.classList.add('dark');
     } else {
       document.body.classList.remove('dark');
@@ -45,7 +46,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div>{children}</div>
+      {children}
     </ThemeContext.Provider>
   );
 }

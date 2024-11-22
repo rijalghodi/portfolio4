@@ -11,9 +11,8 @@ export default function Project() {
         <div className="max-w-screen-md w-full mx-auto">
           <div className="mb-8">
             <h1 className="text-3xl font-extrabold font-mono mb-4">Projects</h1>
-            <p className="text-lg text-muted-foreground">
-              Projects I&apos;ve created over the years include this website,
-              personal apps, client-requested apps, and artificial intelligence
+            <p className="text-base text-muted-foreground">
+              Personal apps, client-requested apps, and artificial intelligence
               applications.
             </p>
           </div>

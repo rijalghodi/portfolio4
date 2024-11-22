@@ -20,7 +20,7 @@ export function ProjectCard(props: Props) {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle className="tracking-wide">{props.name}</CardTitle>
+        <CardTitle className="text-lg font-mono">{props.name}</CardTitle>
       </CardHeader>
       <CardContent className="text-muted-foreground">
         {props.shortDesc}

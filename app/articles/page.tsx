@@ -39,9 +39,9 @@ export default function Articles() {
       <div className="max-w-screen-md w-full mx-auto">
         <div className="mb-8">
           <h1 className="text-3xl font-extrabold font-mono mb-4">Articles</h1>
-          <p className="text-lg text-muted-foreground">
-            Articles I&apos;ve written over the years on pragmatic code,
-            software development, artificial intelligence, and self-improvement.
+          <p className="text-base text-muted-foreground">
+            Articles on software development, artificial intelligence, and
+            self-improvement.
           </p>
         </div>
         {isLoading ? (

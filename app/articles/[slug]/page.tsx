@@ -53,7 +53,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-accent text-accent-foreground text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  className="bg-accent text-accent-foreground text-xs font-semibold px-2.5 py-0.5 rounded-full"
                 >
                   #{tag}
                 </span>

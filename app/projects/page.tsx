@@ -17,7 +17,7 @@ export default function Project() {
               applications.
             </p>
           </div>
-          <ul className="grid grid-cols-2 gap-6">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {projects.map((project, i) => (
               <li key={i}>
                 <ProjectCard {...project} />

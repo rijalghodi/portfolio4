@@ -114,7 +114,7 @@ export default function Home() {
               All Projects <IconArrowRight />
             </Button>
           </div>
-          <ul className="grid grid-cols-2 gap-6">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {projects.slice(0, 4).map((project, i) => (
               <li key={i}>
                 <ProjectCard {...project} />

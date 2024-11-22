@@ -51,7 +51,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="w-full">
             <Header />
-            <main className="mt-14 py-4">{children}</main>
+            <main className="mt-14 py-4 px-5">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

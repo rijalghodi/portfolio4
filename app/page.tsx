@@ -48,9 +48,9 @@ export default function Home() {
         className="relative pt-16 pb-16 flex items-center"
       >
         <div className="max-w-screen-md w-full mx-auto">
-          <p className="font-extrabold font-mono text-4xl py-2 tracking-wider leading-relaxed">
+          <h1 className="font-extrabold font-mono text-4xl py-2 tracking-wider leading-relaxed">
             Hey, I&apos;m Rijal 👋
-          </p>
+          </h1>
           <p className="text-xl py-2 leading-relaxed">
             I build{' '}
             <Link href="/project" className="text-primary hover:underline">

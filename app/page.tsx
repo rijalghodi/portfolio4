@@ -9,11 +9,11 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconChevronsDown,
-  IconCopy,
 } from '@tabler/icons-react';
 import { cn } from '@/lib/utils';
 import { useTheme } from '@/contexts/theme-context';
 import {
+  contactEmail,
   contactGithubLink,
   contactIgLink,
   contactLinkedIn,
@@ -22,6 +22,7 @@ import {
 } from '@/data';
 import { ProjectCard } from '@/components/molecules/ProjectCard';
 import { ExperienceCard } from '@/components/molecules/ExperienceCard';
+import CopyButton from '@/components/ui/copy-button';
 
 export default function Home() {
   const { theme } = useTheme();
@@ -49,11 +50,14 @@ export default function Home() {
             <Link href="/project" className="text-primary">
               software and artificial intelligence
             </Link>{' '}
-            to benefit humanity. I also enjoy{' '}
-            <Link href="/blog" className="text-primary">
-              writing notes
+            to benefit humanity. On this site, you can check out all the{' '}
+            <Link href="/articles" className="text-primary">
+              articles
             </Link>{' '}
-            on coding and self-improvement.
+            I&apos;ve written or learn more{' '}
+            <Link href="/about" className="text-primary">
+              about me.
+            </Link>
           </p>
 
           <div className="flex gap-8 mt-6">
@@ -62,10 +66,13 @@ export default function Home() {
                 <IconArrowUpRight />
                 Hire Me
               </Button>
-              <Button variant="secondary" radius="full">
-                <IconCopy />
-                Copy Email
-              </Button>
+              <CopyButton
+                value={contactEmail}
+                labelDefault="Copy Email"
+                labelCopied="Email Copied"
+                variant="secondary"
+                radius="full"
+              ></CopyButton>
             </div>
             <div className="flex gap-4">
               <Link href={contactGithubLink}>

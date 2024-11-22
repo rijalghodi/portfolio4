@@ -7,6 +7,8 @@ import Pulse from '@/public/icons/pulse.svg';
 import { Button } from '../ui/button';
 import ThemeSwitcher from '../ui/ThemeSwitcher';
 import { useTheme } from '@/contexts/theme-context';
+import Link from 'next/link';
+import { contactLinkedIn } from '@/data';
 
 type Menu = {
   title: string;
@@ -16,17 +18,16 @@ type Menu = {
 
 export const MENUS: Menu[] = [
   {
-    title: 'Project',
-    link: '/project',
+    title: 'Projects',
+    link: '/projects',
   },
   {
-    title: 'Article',
-    link: '/blog',
+    title: 'Articles',
+    link: '/articles',
   },
   {
     title: 'About Me',
-    link: 'https://github.com/rijalghodi',
-    openInNewTab: true,
+    link: '/about',
   },
 ];
 
@@ -52,25 +53,25 @@ export function Header() {
         "
     >
       <div className="flex justify-between items-center w-full max-w-screen-md mx-auto">
-        <div className="flex gap-2 items-center">
+        <Link href="/" className="flex gap-2 items-center">
           {theme === 'dark' ? (
             <LogoDark width={28} height={28} />
           ) : (
             <LogoLight width={28} height={28} />
           )}
           <div className="font-semibold">Rijal Ghodi</div>
-        </div>
+        </Link>
         <div className="flex gap-6 items-center">
           <nav>
             <ul className="flex gap-6">
               {MENUS.map((menu) => (
                 <li key={menu.link}>
-                  <a
-                    href="#"
+                  <Link
+                    href={menu.link}
                     className="text-foreground hover:text-primary dark:text-muted-foreground dark:hover:text-foreground"
                   >
                     {menu.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -79,9 +80,12 @@ export function Header() {
             size="sm"
             variant="secondary"
             className="rounded-full py-0.5 pl-2"
+            asChild
           >
-            <Pulse width={40} height={40} />
-            Open
+            <Link href={contactLinkedIn}>
+              <Pulse width={40} height={40} />
+              Open
+            </Link>
           </Button>
         </div>
         <ThemeSwitcher />

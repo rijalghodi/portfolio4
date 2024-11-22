@@ -11,11 +11,11 @@ export const menus: Menu[] = [
   },
   {
     title: 'Project',
-    link: '/project',
+    link: '/projects',
   },
   {
     title: 'Article',
-    link: '/blog',
+    link: '/articles',
   },
   {
     title: 'Github',

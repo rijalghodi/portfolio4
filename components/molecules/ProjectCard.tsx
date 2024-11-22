@@ -26,10 +26,12 @@ export function ProjectCard(props: Props) {
       <CardHeader>
         <CardTitle className="tracking-wide">{props.name}</CardTitle>
       </CardHeader>
-      <CardContent>{props.shortDesc}</CardContent>
+      <CardContent className="text-muted-foreground">
+        {props.shortDesc}
+      </CardContent>
       <CardFooter className="flex gap-2">
         {props.slug && (
-          <Button variant="secondary" size="sm" radius="full" asChild>
+          <Button variant="outline" size="sm" radius="full" asChild>
             <Link href={`/projects/${props.slug}`}>
               <div className="flex gap-2 items-center">
                 <IconFile />
@@ -39,11 +41,11 @@ export function ProjectCard(props: Props) {
           </Button>
         )}
 
-        <Button variant="secondary" size="sm" radius="full">
+        <Button variant="outline" size="sm" radius="full">
           <IconExternalLink />
           Demo
         </Button>
-        <Button variant="secondary" size="sm" radius="full">
+        <Button variant="outline" size="sm" radius="full">
           <IconBrandGithub /> Code
         </Button>
       </CardFooter>

@@ -19,7 +19,7 @@ const config: Config = {
           '500': 'hsl(211, 91%, 50%)',
           '600': 'hsl(211, 97%, 40%)',
           '700': 'hsl(211 31.2% 30.2%)', // border dark
-          '800': 'hsl(211, 32%, 20%)',
+          '800': 'hsl(211, 32%, 20%)', // accent dark
           '900': 'hsl(211 36.6% 16.1%)', // secondary dark
           '950': 'hsl(211, 80%, 10%)', // background dark
         },

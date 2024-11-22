@@ -47,15 +47,15 @@ export default function Home() {
           </p>
           <p className="text-xl py-2 leading-relaxed">
             I build{' '}
-            <Link href="/project" className="text-primary">
+            <Link href="/project" className="text-primary hover:underline">
               software and artificial intelligence
             </Link>{' '}
             to benefit humanity. On this site, you can check out all the{' '}
-            <Link href="/articles" className="text-primary">
+            <Link href="/articles" className="text-primary hover:underline">
               articles
             </Link>{' '}
             I&apos;ve written or learn more{' '}
-            <Link href="/about" className="text-primary">
+            <Link href="/about" className="text-primary hover:underline">
               about me.
             </Link>
           </p>
@@ -104,8 +104,8 @@ export default function Home() {
       {/* --- Projects */}
       <section className="z-0 bg-background pt-16 pb-16" id="projects">
         <div className="max-w-screen-md w-full mx-auto ">
-          <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold mb-8">My Projects</h1>
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold">My Projects</h1>
             <Button
               variant="ghost"
               radius="full"
@@ -126,8 +126,8 @@ export default function Home() {
       {/* --- Articles */}
       <section className="z-0 bg-background pt-16 pb-16" id="projects">
         <div className="max-w-screen-md w-full mx-auto ">
-          <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold mb-8">Articles</h1>
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold">Articles</h1>
             <Button
               variant="ghost"
               radius="full"
@@ -151,8 +151,8 @@ export default function Home() {
       {/* --- Experience */}
       <section className="z-0 bg-background pt-16 pb-16" id="projects">
         <div className="max-w-screen-md w-full mx-auto ">
-          <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold mb-8">Work Experiences</h1>
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold">Work Experiences</h1>
             <Button
               variant="ghost"
               radius="full"

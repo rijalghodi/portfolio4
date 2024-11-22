@@ -68,9 +68,11 @@ export default function Home() {
 
           <div className="flex gap-6 mt-6 xs:gap-1 items-center flex-wrap">
             <div className="flex gap-4">
-              <Button radius="full">
-                <IconArrowUpRight />
-                Hire Me
+              <Button radius="full" asChild>
+                <Link href={contactLinkedIn} target="_blank">
+                  <IconArrowUpRight />
+                  Hire Me
+                </Link>
               </Button>
               <CopyButton
                 value={contactEmail}
@@ -81,20 +83,32 @@ export default function Home() {
               ></CopyButton>
             </div>
             <div className="flex gap-4">
-              <Link href={contactGithubLink} aria-label="Github">
+              <Link
+                href={contactGithubLink}
+                aria-label="Github"
+                target="_blank"
+              >
                 <IconBrandGithub />
               </Link>
-              <Link href={contactLinkedIn} aria-label="LinkedIn">
+              <Link
+                href={contactLinkedIn}
+                aria-label="LinkedIn"
+                target="_blank"
+              >
                 <IconBrandLinkedin />
               </Link>
-              <Link href={contactIgLink} aria-label="Instagram">
+              <Link href={contactIgLink} aria-label="Instagram" target="_blank">
                 <IconBrandInstagram />
               </Link>
             </div>
           </div>
         </div>
         <div className="absolute left-1/2 bottom-4 transform -translate-x-1/2">
-          <button className="animate-bounce" onClick={scrollToContent}>
+          <button
+            className="animate-bounce"
+            aria-label="Scroll To Content"
+            onClick={scrollToContent}
+          >
             <IconChevronsDown size={24} />
           </button>
         </div>
@@ -110,10 +124,12 @@ export default function Home() {
       {/* --- Projects */}
       <section className="z-0 bg-background pt-16 pb-16" id="projects">
         <div className="max-w-screen-md w-full mx-auto ">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="font-extrabold font-mono text-3xl">Projects</h1>
+          <div className="flex justify-between items-center flex-wrap mb-8">
+            <h1 className="font-extrabold font-mono text-2xl sm:text-3xl">
+              Projects
+            </h1>
             <Button variant="ghost" className="group" asChild>
-              <Link href="/project">
+              <Link href="/projects">
                 All Projects
                 <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
               </Link>
@@ -131,9 +147,11 @@ export default function Home() {
       {/* Tech Stack */}
       {/* --- Articles */}
       <section className="z-0 bg-background pt-16 pb-16" id="articles">
-        <div className="max-w-screen-md w-full mx-auto ">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-extrabold font-mono">Articles</h1>
+        <div className="max-w-screen-md w-full mx-auto">
+          <div className="flex justify-between items-center flex-wrap mb-8">
+            <h1 className="text-2xl sm:text-3xl font-extrabold font-mono">
+              Articles
+            </h1>
             <Button variant="ghost" className="group" asChild>
               <Link href="/articles">
                 All Articles{' '}
@@ -151,7 +169,7 @@ export default function Home() {
                 <li key={i}>
                   <Link
                     href={`/articles/${article.slug}`}
-                    className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center"
+                    className="group border-b border-border py-3 flex flex-col sm:flex-row flex-wrap gap-2 justify-between sm:items-center"
                   >
                     <div className="font-semibold text-foreground group-hover:text-primary">
                       {article.title}
@@ -173,8 +191,10 @@ export default function Home() {
       {/* --- Experience */}
       <section className="z-0 bg-background pt-16 pb-16" id="experiences">
         <div className="max-w-screen-md w-full mx-auto ">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-extrabold font-mono">Experiences</h1>
+          <div className="flex justify-between items-center flex-wrap mb-8">
+            <h1 className="text-2xl sm:text-3xl font-extrabold font-mono">
+              Experiences
+            </h1>
             <Button variant="ghost" className="group" asChild>
               <Link href="/about">
                 More About Me{' '}

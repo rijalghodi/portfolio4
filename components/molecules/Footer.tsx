@@ -34,7 +34,7 @@ export function Footer() {
         <p className="text-lg font-semibold">Let&apos;s Work Together</p>
         <div className="flex gap-4">
           <Button radius="full" asChild>
-            <Link href={contactLinkedIn}>
+            <Link href={contactLinkedIn} target="_blank">
               <IconArrowUpRight />
               Hire Me
             </Link>
@@ -50,13 +50,13 @@ export function Footer() {
         <div className="flex gap-8 items-center">
           <p>Follow My Journey</p>
           <div className="flex gap-4">
-            <Link href={contactGithubLink} aria-label="Github">
+            <Link href={contactGithubLink} aria-label="Github" target="_blank">
               <IconBrandGithub />
             </Link>
-            <Link href={contactLinkedIn} aria-label="LinkedIn">
+            <Link href={contactLinkedIn} aria-label="LinkedIn" target="_blank">
               <IconBrandLinkedin />
             </Link>
-            <Link href={contactIgLink} aria-label="Instagram">
+            <Link href={contactIgLink} aria-label="Instagram" target="_blank">
               <IconBrandInstagram />
             </Link>
           </div>

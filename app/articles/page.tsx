@@ -54,7 +54,7 @@ export default function Articles() {
               <li key={i}>
                 <Link
                   href={`/articles/${article.slug}`}
-                  className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center"
+                  className="group border-b border-border py-3 flex flex-col sm:flex-row flex-wrap gap-2 justify-between sm:items-center"
                 >
                   <div className="font-semibold text-foreground group-hover:text-primary">
                     {article.title}

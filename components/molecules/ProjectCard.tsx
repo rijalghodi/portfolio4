@@ -32,7 +32,7 @@ export function ProjectCard(props: Props) {
       <CardFooter className="flex gap-2 flex-wrap">
         {props.slug && (
           <Button variant="outline" size="sm" radius="full" asChild>
-            <Link href={`/projects/${props.slug}`}>
+            <Link href={`/projects/${props.slug}`} target="_blank">
               <div className="flex gap-2 items-center">
                 <IconFile />
                 Article
@@ -40,14 +40,21 @@ export function ProjectCard(props: Props) {
             </Link>
           </Button>
         )}
-
-        <Button variant="outline" size="sm" radius="full">
-          <IconExternalLink />
-          Demo
-        </Button>
-        <Button variant="outline" size="sm" radius="full">
-          <IconBrandGithub /> Code
-        </Button>
+        {props.demoLink && (
+          <Button variant="outline" size="sm" radius="full" asChild>
+            <Link href={props.demoLink} target="_blank">
+              <IconExternalLink />
+              Demo
+            </Link>
+          </Button>
+        )}
+        {props.sourceLink && (
+          <Button variant="outline" size="sm" radius="full" asChild>
+            <Link href={props.sourceLink} target="_blank">
+              <IconBrandGithub /> Source
+            </Link>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

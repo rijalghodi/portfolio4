@@ -10,7 +10,7 @@ import {
   IconBrandLinkedin,
   IconChevronsDown,
 } from '@tabler/icons-react';
-import { cn } from '@/lib/utils';
+import { cn, fetchArticles } from '@/lib/utils';
 import { useTheme } from '@/contexts/theme-context';
 import {
   contactEmail,
@@ -23,9 +23,18 @@ import {
 import { ProjectCard } from '@/components/molecules/ProjectCard';
 import { ExperienceCard } from '@/components/molecules/ExperienceCard';
 import CopyButton from '@/components/ui/copy-button';
+import { useQuery } from '@tanstack/react-query';
+import { Article } from '@/types/article';
+import { Loader } from '@/components/ui/loader';
 
 export default function Home() {
   const { theme } = useTheme();
+
+  const { data: articles, isLoading } = useQuery<Article[]>({
+    queryKey: ['articles'],
+    queryFn: () => fetchArticles(1, 5),
+    placeholderData: (previousData) => previousData,
+  });
 
   const scrollToContent = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -103,7 +112,7 @@ export default function Home() {
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
             <h1 className="font-extrabold font-mono text-3xl">Projects</h1>
-            <Button variant="ghost" radius="full" className="group">
+            <Button variant="ghost" className="group">
               All Projects
               <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
             </Button>
@@ -123,21 +132,35 @@ export default function Home() {
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-3xl font-extrabold font-mono">Articles</h1>
-            <Button variant="ghost" radius="full" className="group">
+            <Button variant="ghost" className="group">
               All Articles{' '}
               <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
             </Button>
           </div>
-          <ul>
-            {experiences.slice(0, 4).map((ex, i) => (
-              <Link key={i} href="#">
-                <li className="border-b border-border py-4 flex flex-wrap gap-2 justify-between items-center hover:text-primary">
-                  <div className="font-semibold ">Title</div>
-                  <div className="font-mono">25 Agustus 2020</div>
-                </li>
-              </Link>
-            ))}
-          </ul>
+          {isLoading ? (
+            <div className="flex items-center justify-center min-h-60 w-full">
+              <Loader />
+            </div>
+          ) : (
+            <ul>
+              {articles?.map((article, i) => (
+                <Link key={i} href="#">
+                  <li className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center">
+                    <div className="font-semibold text-foreground group-hover:text-primary">
+                      {article.title}
+                    </div>
+                    <div className="font-mono text-sm ">
+                      {new Date(article.published_at).toLocaleDateString('en', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                      })}
+                    </div>
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
       {/* --- Experience */}
@@ -145,7 +168,7 @@ export default function Home() {
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-3xl font-extrabold font-mono">Experiences</h1>
-            <Button variant="ghost" radius="full" className="group">
+            <Button variant="ghost" className="group">
               More About Me
               <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
             </Button>

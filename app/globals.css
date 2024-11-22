@@ -11,18 +11,18 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 210 80% 9.8%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 210 80% 9.8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 210 80% 9.8%;
     --primary: 96 70.6% 44%;
     --primary-foreground: 355.7 100% 97.3%;
     --secondary: 240 4.8% 90%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 90%;
     --muted-foreground: 240 3.8% 36.1%;
-    --accent: 240 4.8% 90%;
+    --accent: 240 4.8% 94%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -80,19 +80,53 @@ keyframes moveTopToBottom {
   }
 
   body {
-    @apply bg-background text-foreground text-base;
+    @apply bg-background text-foreground text-base leading-relaxed;
     font-family: var(--font-geist-sans);
-    line-height: 1.5;
   }
 
-  p,
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    @apply pt-2 pb-2;
+  }
+
+  hr {
+    @apply pt-3 pb-3;
+  }
+
+  p,
+  li,
+  ul {
     @apply pt-1 pb-1;
+  }
+
+  p,
+  li,
+  ul {
+    @apply text-muted-foreground;
+  }
+
+  h1 {
+    @apply text-foreground font-bold text-3xl;
+  }
+
+  h2 {
+    @apply text-foreground font-bold text-2xl;
+  }
+
+  h3 {
+    @apply text-foreground font-bold text-xl;
+  }
+
+  h4 {
+    @apply text-foreground font-semibold text-lg;
+  }
+
+  h5 {
+    @apply text-foreground font-semibold text-base;
   }
 
   .animate-bounce {

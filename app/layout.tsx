@@ -5,6 +5,7 @@ import { Header } from '@/components/molecules/Header';
 import { ThemeProvider } from '@/contexts/theme-context';
 import { Inter } from 'next/font/google';
 import { Footer } from '@/components/molecules/Footer';
+import { ReactQueryProvider } from '@/contexts/react-query-context';
 
 const inter = Inter({
   weight: ['400', '500', '600', '700', '800', '900'],
@@ -68,11 +69,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
-          <div className="w-full">
-            <Header />
-            <main className="mt-14 py-4 px-5">{children}</main>
-            <Footer />
-          </div>
+          <ReactQueryProvider>
+            <div className="w-full">
+              <Header />
+              <main className="mt-14 py-4 px-5">{children}</main>
+              <Footer />
+            </div>
+          </ReactQueryProvider>
         </ThemeProvider>
       </body>
     </html>

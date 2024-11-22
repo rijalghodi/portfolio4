@@ -80,7 +80,7 @@ keyframes moveTopToBottom {
   }
 
   body {
-    @apply bg-background text-foreground text-base leading-relaxed;
+    @apply bg-background text-foreground text-base;
     font-family: var(--font-geist-sans);
   }
 
@@ -111,23 +111,23 @@ keyframes moveTopToBottom {
   }
 
   h1 {
-    @apply text-foreground font-bold text-3xl;
+    @apply text-foreground font-bold text-3xl leading-relaxed;
   }
 
   h2 {
-    @apply text-foreground font-bold text-2xl;
+    @apply text-foreground font-semibold text-2xl leading-relaxed;
   }
 
   h3 {
-    @apply text-foreground font-bold text-xl;
+    @apply text-foreground font-semibold text-xl leading-relaxed;
   }
 
   h4 {
-    @apply text-foreground font-semibold text-lg;
+    @apply text-foreground font-semibold text-lg leading-relaxed;
   }
 
   h5 {
-    @apply text-foreground font-semibold text-base;
+    @apply text-foreground font-semibold text-base leading-relaxed;
   }
 
   .animate-bounce {

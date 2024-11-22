@@ -7,6 +7,14 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'dev.to',
+        protocol: 'https:',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

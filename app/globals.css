@@ -84,28 +84,29 @@ keyframes moveTopToBottom {
     font-family: var(--font-geist-sans);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply pt-2 pb-2;
+  .article h1,
+  .article h2,
+  .article h3,
+  .article h4,
+  .article h5,
+  .article h6 {
+    @apply pb-6 pt-2;
+  }
+  .article p,
+  .article li {
+    @apply pb-6;
   }
 
-  hr {
+  .article ul {
+    @apply list-disc pl-6;
+  }
+
+  .article hr {
     @apply pt-3 pb-3;
   }
 
   p,
-  li,
-  ul {
-    @apply pt-1 pb-1;
-  }
-
-  p,
-  li,
-  ul {
+  li {
     @apply text-muted-foreground;
   }
 

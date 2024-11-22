@@ -31,7 +31,7 @@ export function Footer() {
           <LogoLight width={40} height={40} />
         )}
 
-        <p className="text-lg font-semibold">Let&apos;s Work Together</p>
+        <div className="text-lg font-semibold">Let&apos;s Work Together</div>
         <div className="flex gap-4">
           <Button radius="full" asChild>
             <Link href={contactLinkedIn} target="_blank">
@@ -48,7 +48,7 @@ export function Footer() {
           ></CopyButton>
         </div>
         <div className="flex gap-8 items-center">
-          <p>Follow My Journey</p>
+          <div>Follow My Journey</div>
           <div className="flex gap-4">
             <Link href={contactGithubLink} aria-label="Github" target="_blank">
               <IconBrandGithub />

@@ -7,11 +7,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '../ui/button';
-import {
-  IconBrandGithub,
-  IconExternalLink,
-  IconFile,
-} from '@tabler/icons-react';
+import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 import Link from 'next/link';
 type Props = {
   name: string;
@@ -30,7 +26,7 @@ export function ProjectCard(props: Props) {
         {props.shortDesc}
       </CardContent>
       <CardFooter className="flex gap-2 flex-wrap">
-        {props.slug && (
+        {/* {props.slug && (
           <Button variant="outline" size="sm" radius="full" asChild>
             <Link href={`/projects/${props.slug}`} target="_blank">
               <div className="flex gap-2 items-center">
@@ -39,7 +35,7 @@ export function ProjectCard(props: Props) {
               </div>
             </Link>
           </Button>
-        )}
+        )} */}
         {props.demoLink && (
           <Button variant="outline" size="sm" radius="full" asChild>
             <Link href={props.demoLink} target="_blank">

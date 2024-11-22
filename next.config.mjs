@@ -11,7 +11,7 @@ const nextConfig = {
     remotePatterns: [
       {
         hostname: 'dev.to',
-        protocol: 'https:',
+        protocol: 'https',
       },
     ],
   },

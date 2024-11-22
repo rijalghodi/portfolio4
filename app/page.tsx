@@ -112,9 +112,11 @@ export default function Home() {
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
             <h1 className="font-extrabold font-mono text-3xl">Projects</h1>
-            <Button variant="ghost" className="group">
-              All Projects
-              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
+            <Button variant="ghost" className="group" asChild>
+              <Link href="/project">
+                All Projects
+                <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -132,9 +134,11 @@ export default function Home() {
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-3xl font-extrabold font-mono">Articles</h1>
-            <Button variant="ghost" className="group">
-              All Articles{' '}
-              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
+            <Button variant="ghost" className="group" asChild>
+              <Link href="/articles">
+                All Articles{' '}
+                <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
           {isLoading ? (
@@ -144,9 +148,8 @@ export default function Home() {
           ) : (
             <ul>
               {articles?.map((article, i) => (
-                <li>
+                <li key={i}>
                   <Link
-                    key={i}
                     href={`/articles/${article.slug}`}
                     className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center"
                   >
@@ -172,9 +175,11 @@ export default function Home() {
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-3xl font-extrabold font-mono">Experiences</h1>
-            <Button variant="ghost" className="group">
-              More About Me
-              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
+            <Button variant="ghost" className="group" asChild>
+              <Link href="/about">
+                More About Me{' '}
+                <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
           <ul className="grid grid-cols-1 gap-6">

@@ -8,7 +8,13 @@ function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Button variant="outline" size="sm" onClick={toggleTheme} className="p-2">
+    <Button
+      aria-label="Theme Switcher"
+      variant="outline"
+      size="sm"
+      onClick={toggleTheme}
+      className="p-2"
+    >
       {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
     </Button>
   );

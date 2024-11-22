@@ -22,7 +22,11 @@ export default function Articles() {
   const tag = undefined; // Set a specific tag (optional)
   const category = undefined; // Set a specific category (optional)
 
-  const { data, error, isLoading } = useQuery<Article[]>({
+  const {
+    data: articles,
+    error,
+    isLoading,
+  } = useQuery<Article[]>({
     queryKey: ['articles', page, perPage, tag, category],
     queryFn: () => fetchArticles(page, perPage, tag, category),
     placeholderData: (previousData) => previousData,
@@ -45,10 +49,14 @@ export default function Articles() {
             <Loader />
           </div>
         ) : (
-          <ul className="flex flex-col">
-            {data?.map((article, i) => (
-              <Link key={i} href={`/articles/${article.slug}`}>
-                <li className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center">
+          <ul>
+            {articles?.map((article, i) => (
+              <li>
+                <Link
+                  key={i}
+                  href={`/articles/${article.slug}`}
+                  className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center"
+                >
                   <div className="font-semibold text-foreground group-hover:text-primary">
                     {article.title}
                   </div>
@@ -59,8 +67,8 @@ export default function Articles() {
                       year: 'numeric',
                     })}
                   </div>
-                </li>
-              </Link>
+                </Link>
+              </li>
             ))}
           </ul>
         )}

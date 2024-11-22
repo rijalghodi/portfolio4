@@ -81,13 +81,13 @@ export default function Home() {
               ></CopyButton>
             </div>
             <div className="flex gap-4">
-              <Link href={contactGithubLink}>
+              <Link href={contactGithubLink} aria-label="Github">
                 <IconBrandGithub />
               </Link>
-              <Link href={contactLinkedIn}>
+              <Link href={contactLinkedIn} aria-label="LinkedIn">
                 <IconBrandLinkedin />
               </Link>
-              <Link href={contactIgLink}>
+              <Link href={contactIgLink} aria-label="Instagram">
                 <IconBrandInstagram />
               </Link>
             </div>
@@ -144,8 +144,12 @@ export default function Home() {
           ) : (
             <ul>
               {articles?.map((article, i) => (
-                <Link key={i} href="#">
-                  <li className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center">
+                <li>
+                  <Link
+                    key={i}
+                    href={`/articles/${article.slug}`}
+                    className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center"
+                  >
                     <div className="font-semibold text-foreground group-hover:text-primary">
                       {article.title}
                     </div>
@@ -156,8 +160,8 @@ export default function Home() {
                         year: 'numeric',
                       })}
                     </div>
-                  </li>
-                </Link>
+                  </Link>
+                </li>
               ))}
             </ul>
           )}

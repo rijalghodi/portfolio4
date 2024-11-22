@@ -50,14 +50,14 @@ export function Footer() {
         <div className="flex gap-8 items-center">
           <p>Follow My Journey</p>
           <div className="flex gap-4">
-            <Link href={contactGithubLink}>
-              <IconBrandGithub size={20} />
+            <Link href={contactGithubLink} aria-label="Github">
+              <IconBrandGithub />
             </Link>
-            <Link href={contactLinkedIn}>
-              <IconBrandLinkedin size={20} />
+            <Link href={contactLinkedIn} aria-label="LinkedIn">
+              <IconBrandLinkedin />
             </Link>
-            <Link href={contactIgLink}>
-              <IconBrandInstagram size={20} />
+            <Link href={contactIgLink} aria-label="Instagram">
+              <IconBrandInstagram />
             </Link>
           </div>
         </div>

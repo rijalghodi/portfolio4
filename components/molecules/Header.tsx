@@ -115,7 +115,12 @@ export function Header() {
           <div className="block sm:hidden">
             <Drawer>
               <DrawerTrigger asChild>
-                <Button variant="outline" size="sm" className="p-2">
+                <Button
+                  aria-label="Menu"
+                  variant="outline"
+                  size="sm"
+                  className="p-2"
+                >
                   <IconMenu4 />
                 </Button>
               </DrawerTrigger>

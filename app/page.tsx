@@ -39,9 +39,9 @@ export default function Home() {
       <section
         id="intro"
         style={{ minHeight: 'calc(100vh - 80px)' }}
-        className="relative pt-16 pb-16"
+        className="relative pt-16 pb-16 flex items-center"
       >
-        <div className="max-w-screen-md w-full mx-auto absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+        <div className="max-w-screen-md w-full mx-auto">
           <p className="font-bold text-3xl py-2 font-sp tracking-wider leading-relaxed">
             Hey, I&apos;m Rijal 👋
           </p>
@@ -60,7 +60,7 @@ export default function Home() {
             </Link>
           </p>
 
-          <div className="flex gap-8 mt-6">
+          <div className="flex gap-8 mt-6 sm:gap-4 items-center flex-wrap">
             <div className="flex gap-4">
               <Button radius="full">
                 <IconArrowUpRight />

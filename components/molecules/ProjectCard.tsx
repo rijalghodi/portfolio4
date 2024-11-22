@@ -29,7 +29,7 @@ export function ProjectCard(props: Props) {
       <CardContent className="text-muted-foreground">
         {props.shortDesc}
       </CardContent>
-      <CardFooter className="flex gap-2">
+      <CardFooter className="flex gap-2 flex-wrap">
         {props.slug && (
           <Button variant="outline" size="sm" radius="full" asChild>
             <Link href={`/projects/${props.slug}`}>

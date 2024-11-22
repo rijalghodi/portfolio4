@@ -31,24 +31,24 @@ export default async function ArticlePage({ params }: ArticleProps) {
         <meta property="og:description" content={article.description} />
       </Head>
 
-      <article className="max-w-screen-md w-full mx-auto leading-relaxed pt-4 pb-4 ">
+      <article className="max-w-[712px] w-full mx-auto">
         {article.cover_image && (
-          <div className="relative w-full max-w-2xl aspect-video mx-auto">
+          <div className="relative w-full aspect-video mt-5">
             <Image
               src={article.cover_image}
               alt={article.title}
               fill
               objectFit="cover"
-              className="w-full h-auto mb-6 rounded-xl"
+              className="w-full h-auto rounded-xl"
             />
           </div>
         )}
-        <div className="pt-6 pb-10">
-          <h1 className="text-text-2xl sm:text-3xl font-bold mb-4 leading-relaxed">
+        <div className="pt-12 pb-12 flex flex-col gap-6">
+          <h1 className="text-text-2xl sm:text-3xl font-bold leading-relaxed">
             {article.title}
           </h1>
 
-          {article.tags && (
+          {article.tags && article.tags.length > 1 && (
             <div className="flex gap-2 flex-wrap">
               {article.tags.map((tag) => (
                 <span

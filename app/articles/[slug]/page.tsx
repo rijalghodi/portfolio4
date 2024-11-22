@@ -43,13 +43,13 @@ export default async function ArticlePage({ params }: ArticleProps) {
             />
           </div>
         )}
-        <div className="pt-10">
+        <div className="pt-6 pb-10">
           <h1 className="text-text-2xl sm:text-3xl font-bold mb-4 leading-relaxed">
             {article.title}
           </h1>
 
           {article.tags && (
-            <div className="mb-6 flex gap-2 flex-wrap">
+            <div className="flex gap-2 flex-wrap">
               {article.tags.map((tag) => (
                 <span
                   key={tag}

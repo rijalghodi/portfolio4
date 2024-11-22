@@ -51,9 +51,8 @@ export default function Articles() {
         ) : (
           <ul>
             {articles?.map((article, i) => (
-              <li>
+              <li key={i}>
                 <Link
-                  key={i}
                   href={`/articles/${article.slug}`}
                   className="group border-b border-border py-3 flex flex-wrap gap-2 justify-between items-center"
                 >

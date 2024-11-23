@@ -2,7 +2,7 @@
 import { useTheme } from '@/contexts/theme-context';
 import React from 'react';
 import { Button } from './button';
-import { Moon, Sun } from 'lucide-react';
+import { IconMoon, IconSun } from '@tabler/icons-react';
 
 function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
@@ -10,12 +10,13 @@ function ThemeSwitcher() {
   return (
     <Button
       aria-label="Theme Switcher"
+      title="Switch Theme"
       variant="outline"
       size="sm"
       onClick={toggleTheme}
       className="p-2"
     >
-      {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+      {theme === 'light' ? <IconMoon size={18} /> : <IconSun size={18} />}
     </Button>
   );
 }

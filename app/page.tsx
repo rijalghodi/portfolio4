@@ -107,6 +107,7 @@ export default function Home() {
           <button
             className="animate-bounce"
             aria-label="Scroll To Content"
+            title="Scroll To Content"
             onClick={scrollToContent}
           >
             <IconChevronsDown size={24} />

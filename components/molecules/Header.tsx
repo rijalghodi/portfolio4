@@ -117,6 +117,7 @@ export function Header() {
               <DrawerTrigger asChild>
                 <Button
                   aria-label="Menu"
+                  title="Menu"
                   variant="outline"
                   size="sm"
                   className="p-2"
@@ -125,9 +126,9 @@ export function Header() {
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
-                <div className="px-6 py-12 flex flex-col gap-6 items-start">
+                <div className="px-6 py-12 flex flex-col gap-8 items-start">
                   <nav>
-                    <ul className="flex flex-col gap-6">
+                    <ul className="flex flex-col gap-8">
                       {MENUS.map((menu) => (
                         <li key={menu.link}>
                           <DrawerClose asChild>

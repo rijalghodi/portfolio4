@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import React from 'react';
 
 import axios from 'axios';
@@ -26,20 +25,56 @@ export async function generateMetadata(
   );
 
   const article = res.data;
+  const siteName = "Rijal Ghodi's Portfolio";
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: `${article.title ?? 'Article'} | Rijal Ghodi's Portfolio`,
+    title: `${article.title ?? 'Article'} | ${siteName}`,
     description: article.description,
     openGraph: {
+      type: 'website',
+      url: process.env.NEXT_PUBLIC_SITE_URL,
+      title: `${article.title ?? 'Article'} | ${siteName}`,
+      description: article.description,
+      siteName: siteName,
       images: [
         article.cover_image ??
           `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
         ...previousImages,
       ],
     },
+    twitter: {
+      title: `${article.title ?? 'Article'} | ${siteName}`,
+      images: [
+        article.cover_image ??
+          `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
+        ...previousImages,
+      ],
+      description: article.description,
+      site: '@zalcode_id',
+      card: 'summary_large_image',
+      creator: '@zalcode_id',
+    },
+    authors: [{ name: 'Rijal Ghodi', url: 'rijalghodi.dev@gmail.com' }],
+    creator: 'Rijal Ghodi',
+    applicationName: "Rijal Ghodi's Portfolio",
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_SITE_URL ?? 'https://rijalghodi.dev',
+    ),
+    keywords: [
+      'Rijal Ghodi',
+      'Rijal',
+      'Ghodi',
+      'Software Developer',
+      'Software Engineer',
+      'Frontend Developer',
+      'Backend Developer',
+      'FullStack Developer',
+      'ML Engineer',
+      'AI Engineer',
+    ],
   };
 }
 
@@ -61,13 +96,6 @@ export default async function ArticlePage({ params }: ArticleProps) {
 
   return (
     <>
-      <Head>
-        <title>{article.title} | Rijal Ghodi&apos;s Portfolio</title>
-        <meta name="description" content={article.description} />
-        <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.description} />
-      </Head>
-
       <article className="max-w-[712px] w-full mx-auto">
         {article.cover_image && (
           <div className="relative w-full aspect-video mt-5">

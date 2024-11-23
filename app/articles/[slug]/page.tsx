@@ -6,6 +6,43 @@ import axios from 'axios';
 import { Article } from '@/types/article';
 import Image from 'next/image';
 
+import type { Metadata, ResolvingMetadata } from 'next';
+
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // read route params
+  const slug = (await params).slug;
+
+  // Fetch article data from the backend route
+  const res = await axios.get<Article>(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${slug}`,
+  );
+
+  const article = res.data;
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: `${article.title ?? 'Article'} | Rijal Ghodi's Portfolio`,
+    description: article.description,
+    openGraph: {
+      images: [
+        article.cover_image ??
+          `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
+        ...previousImages,
+      ],
+    },
+  };
+}
+
 type ArticleProps = {
   params: {
     slug: string;
@@ -25,7 +62,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
   return (
     <>
       <Head>
-        <title>{article.title}</title>
+        <title>{article.title} | Rijal Ghodi&apos;s Portfolio</title>
         <meta name="description" content={article.description} />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.description} />

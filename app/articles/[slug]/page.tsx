@@ -5,17 +5,14 @@ import axios from 'axios';
 import { Article } from '@/types/article';
 import Image from 'next/image';
 
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 
 type Props = {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
   const slug = (await params).slug;
 
@@ -26,9 +23,6 @@ export async function generateMetadata(
 
   const article = res.data;
   const siteName = "Rijal Ghodi's Portfolio";
-
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
 
   return {
     title: `${article.title ?? 'Article'} | ${siteName}`,
@@ -42,7 +36,6 @@ export async function generateMetadata(
       images: [
         article.cover_image ??
           `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
-        ...previousImages,
       ],
     },
     twitter: {
@@ -50,7 +43,6 @@ export async function generateMetadata(
       images: [
         article.cover_image ??
           `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
-        ...previousImages,
       ],
       description: article.description,
       site: '@zalcode_id',

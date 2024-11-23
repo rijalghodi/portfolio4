@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     url: process.env.NEXT_PUBLIC_SITE_URL,
     title: title,
     description,
+    siteName: title,
   },
   keywords: [
     'Rijal Ghodi',

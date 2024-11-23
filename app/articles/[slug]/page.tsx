@@ -35,7 +35,7 @@ export async function generateMetadata(
     description: article.description,
     openGraph: {
       type: 'website',
-      url: process.env.NEXT_PUBLIC_SITE_URL,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/articles/${slug}`,
       title: `${article.title ?? 'Article'} | ${siteName}`,
       description: article.description,
       siteName: siteName,

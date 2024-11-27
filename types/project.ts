@@ -1,19 +1,20 @@
 import { PortableTextBlock } from 'next-sanity';
+import { ITechnology } from './technology';
 
 export interface IProject {
   _id: string;
   _createdAt: string; // ISO string format for date
   name: string;
-  slug: string;
-  description: string;
-  icon_url: string; // URL to the icon image
-  cover_image_url: string; // URL to the cover image
+  slug?: string;
+  description?: string;
+  icon_url?: string; // URL to the icon image
+  cover_image_url?: string; // URL to the cover image
   cover_image_alt?: string; // Optional, as "alt" might not always be provided
-  technologies: string[]; // Array of technology strings
-  date: string; // ISO string format for date
-  demo_link: string; // URL to the demo
-  source_link: string; // URL to the source
-  content: Array<
+  technologies?: ITechnology[]; // Array of technology strings
+  date?: string; // ISO string format for date
+  demo_link?: string; // URL to the demo
+  source_link?: string; // URL to the source
+  content?: Array<
     | PortableTextBlock
     | {
         _type: 'code'; // Code block

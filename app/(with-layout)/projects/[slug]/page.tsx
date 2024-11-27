@@ -78,6 +78,8 @@ export default async function ProjectPage({ params }: ProjectProps) {
   // Fetch project data from the backend route
   const project = await getProjectBySlug(slug);
 
+  console.log(project);
+
   return (
     <>
       <div className="max-w-screen-md w-full mx-auto">
@@ -97,13 +99,14 @@ export default async function ProjectPage({ params }: ProjectProps) {
             {project?.name}
           </h1>
           {project?.technologies && project?.technologies.length > 1 && (
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-2 flex-wrap items-center">
+              <span className="text-base font-medium">Techs :</span>
               {project?.technologies.map((tag) => (
                 <span
-                  key={tag}
-                  className="bg-accent text-accent-foreground text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                  key={tag.name}
+                  className="bg-accent text-accent-foreground text-xs font-semibold px-3 py-2 rounded-full"
                 >
-                  #{tag}
+                  {tag.name}
                 </span>
               ))}
             </div>

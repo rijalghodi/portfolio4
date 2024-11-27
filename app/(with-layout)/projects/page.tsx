@@ -2,6 +2,8 @@
 import { ProjectCard } from '@/components/elements/ProjectCard';
 import { getProjects } from '@/sanity/sanity-utils';
 
+export const revalidate = 60;
+
 export default async function Project() {
   const projects = await getProjects();
 

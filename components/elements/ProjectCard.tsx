@@ -18,7 +18,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 export type ProjectGlimps = {
   name: string;
-  description: string;
+  description?: string;
   demo_link?: string;
   source_link?: string;
   slug?: string;

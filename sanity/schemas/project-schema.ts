@@ -20,6 +20,9 @@ export const project: SchemaTypeDefinition = {
       name: 'description',
       title: 'Description',
       type: 'text',
+      validation(rule) {
+        return rule.max(100);
+      },
     },
     {
       name: 'icon',

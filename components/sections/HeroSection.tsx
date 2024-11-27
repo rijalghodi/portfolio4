@@ -16,12 +16,7 @@ export function HeroSection() {
   const typedText = useRef(null);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
-      strings: [
-        'Web Developer',
-        'Full Stack Dev',
-        'AI Newbie Dev',
-        'Freelancer',
-      ],
+      strings: ['Web Developer', 'Full Stack Dev', 'Freelancer'],
       typeSpeed: 100,
       loop: true,
     });

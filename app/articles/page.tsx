@@ -38,7 +38,7 @@ export default function Articles() {
     <section className="z-0 bg-background pt-8 pb-16" id="projects">
       <div className="max-w-screen-md w-full mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-extrabold font-mono mb-4">Articles</h1>
+          <h1 className="text-3xl font-bold  mb-4">Articles</h1>
           <p className="text-base text-muted-foreground">
             Articles on software development, artificial intelligence, and
             self-improvement.
@@ -59,7 +59,7 @@ export default function Articles() {
                   <div className="font-semibold text-foreground group-hover:text-primary">
                     {article.title}
                   </div>
-                  <div className="font-mono text-sm ">
+                  <div className=" text-sm ">
                     {new Date(article.published_at).toLocaleDateString('en', {
                       day: '2-digit',
                       month: 'short',

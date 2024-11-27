@@ -11,12 +11,12 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 80% 9.8%;
+    --foreground: 211 36.6% 16.1%;
     --card: 0 0% 100%;
-    --card-foreground: 210 80% 9.8%;
+    --card-foreground: 211 36.6% 16.1%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 80% 9.8%;
-    --primary: 96, 71%, 40%;
+    --popover-foreground: 211 36.6% 16.1%;
+    --primary: 96 71% 40%;
     --primary-foreground: 355.7 100% 97.3%;
     --secondary: 240 4.8% 90%;
     --secondary-foreground: 240 5.9% 10%;
@@ -74,13 +74,24 @@ keyframes moveTopToBottom {
   }
 }
 
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground text-base;
+    @apply bg-background text-foreground text-base tracking-normal;
     font-family: var(--font-geist-sans);
   }
 
@@ -90,7 +101,7 @@ keyframes moveTopToBottom {
   .article h4,
   .article h5,
   .article h6 {
-    @apply pb-6 pt-2;
+    @apply pb-6 pt-2 font-semibold;
   }
   .article p,
   .article li {
@@ -111,26 +122,26 @@ keyframes moveTopToBottom {
   }
 
   h1 {
-    @apply text-foreground font-bold text-3xl leading-relaxed;
+    @apply text-foreground font-bold text-3xl leading-tight;
   }
 
   h2 {
-    @apply text-foreground font-semibold text-2xl leading-relaxed;
+    @apply text-foreground font-semibold text-2xl leading-tight;
   }
 
   h3 {
-    @apply text-foreground font-semibold text-xl leading-relaxed;
+    @apply text-foreground font-semibold text-xl leading-normal;
   }
 
   h4 {
-    @apply text-foreground font-semibold text-lg leading-relaxed;
+    @apply text-foreground font-semibold text-lg leading-normal;
   }
 
   h5 {
-    @apply text-foreground font-semibold text-base leading-relaxed;
+    @apply text-foreground font-semibold text-base leading-normal;
   }
 
-  .animate-bounce {
-    animation: moveTopToBottom infinite ease-in-out forwards;
+  .animate-slide-up {
+    animation: fadeInScale 0.5s ease-out forwards;
   }
 }

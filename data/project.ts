@@ -8,6 +8,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: 'Jaya Surgitech',
+    shortDesc: 'Surgical equipments company landing page',
+    demoLink: 'https://jayasurgitech.com/',
+    slug: 'jayasurgitech',
+  },
+  {
+    name: 'Esqarada',
+    shortDesc: 'Container delivery company business process web app',
+    demoLink: 'https://esqarada.dev01.optimap.id/',
+    slug: 'esqarada',
+  },
+  {
     name: 'TOEFL PAL',
     shortDesc: 'Reliable TOEFL Test Simulation',
     demoLink: 'https://toeflpal.vercel.app',

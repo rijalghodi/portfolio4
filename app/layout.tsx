@@ -24,9 +24,10 @@ const geistMono = localFont({
   variable: '--font-geist-mono',
   weight: '100 900',
 });
+
 const title = "Rijal Ghodi's Portfolio";
 const description =
-  "Hey, I'm Rijal Ghodi 👋 I build software and artificial intelligence to benefit humanity. On this site, you can check out all the articles I've written or learn more about me.";
+  "Hello, I'm Rijal Ghodi 👋 I build software and artificial intelligence to benefit humanity. On this site, you can check out all the articles I've written or learn more about me.";
 
 export const metadata: Metadata = {
   title: {
@@ -68,7 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${geistMono.variable} antialiased`}>
+      <body className={` ${inter.className} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <ReactQueryProvider>
             <div className="w-full">

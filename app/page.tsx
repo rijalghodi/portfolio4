@@ -26,9 +26,22 @@ import CopyButton from '@/components/ui/copy-button';
 import { useQuery } from '@tanstack/react-query';
 import { Article } from '@/types/article';
 import { Loader } from '@/components/ui/loader';
+import Typed from 'typed.js';
+import { useEffect, useRef } from 'react';
 
 export default function Home() {
   const { theme } = useTheme();
+  const typedText = useRef(null);
+  useEffect(() => {
+    const typed = new Typed(typedText.current, {
+      // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
+      strings: ['Web Developer', 'Full Stack Dev', 'Freelancer'],
+      typeSpeed: 100,
+      loop: true,
+    });
+
+    return () => typed.destroy();
+  }, []);
 
   const { data: articles, isLoading } = useQuery<Article[]>({
     queryKey: ['articles'],
@@ -47,11 +60,12 @@ export default function Home() {
         style={{ minHeight: 'calc(100vh - 80px)' }}
         className="relative pt-16 pb-16 flex items-center"
       >
-        <div className="max-w-screen-md w-full mx-auto">
-          <h1 className="font-extrabold font-mono text-4xl py-2 tracking-wider leading-relaxed">
-            Hey, I&apos;m Rijal 👋
+        <div className="max-w-screen-md w-full mx-auto " data-taos-offset="300">
+          <h1 className="font-bold text-5xl py-2 font-mono tracking-tight leading-tight">
+            Hello, I&apos;m Rijal 👋
+            <br />A <span ref={typedText}></span>
           </h1>
-          <p className="text-xl py-2 leading-relaxed">
+          <p className="text-xl py-2 leading-relaxed text-foreground">
             I build{' '}
             <Link href="/project" className="text-primary hover:underline">
               software and artificial intelligence
@@ -68,7 +82,12 @@ export default function Home() {
 
           <div className="flex gap-6 mt-6 xs:gap-1 items-center flex-wrap">
             <div className="flex gap-4">
-              <Button radius="full" asChild>
+              <Button
+                radius="full"
+                asChild
+                variant="default"
+                className="bg-primary/90"
+              >
                 <Link href={contactLinkedIn} target="_blank">
                   <IconArrowUpRight />
                   Hire Me
@@ -126,9 +145,7 @@ export default function Home() {
       <section className="z-0 bg-background pt-16 pb-16" id="projects">
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center flex-wrap mb-8">
-            <h1 className="font-extrabold font-mono text-2xl sm:text-3xl">
-              Projects
-            </h1>
+            <h2 className="font-bold  text-2xl sm:text-3xl">Projects</h2>
             <Button variant="ghost" className="group" asChild>
               <Link href="/projects">
                 All Projects
@@ -150,9 +167,7 @@ export default function Home() {
       <section className="z-0 bg-background pt-16 pb-16" id="articles">
         <div className="max-w-screen-md w-full mx-auto">
           <div className="flex justify-between items-center flex-wrap mb-8">
-            <h1 className="text-2xl sm:text-3xl font-extrabold font-mono">
-              Articles
-            </h1>
+            <h2 className="text-2xl sm:text-3xl font-bold ">Articles</h2>
             <Button variant="ghost" className="group" asChild>
               <Link href="/articles">
                 All Articles{' '}
@@ -172,10 +187,10 @@ export default function Home() {
                     href={`/articles/${article.slug}`}
                     className="group border-b border-border py-4 flex flex-col sm:flex-row flex-wrap gap-2 justify-between sm:items-center"
                   >
-                    <div className="font-semibold text-foreground group-hover:text-primary">
+                    <div className="font-semibold text-foreground tracking-wide group-hover:text-primary">
                       {article.title}
                     </div>
-                    <div className="font-mono text-sm ">
+                    <div className=" text-sm ">
                       {new Date(article.published_at).toLocaleDateString('en', {
                         day: '2-digit',
                         month: 'short',
@@ -193,9 +208,7 @@ export default function Home() {
       <section className="z-0 bg-background pt-16 pb-16" id="experiences">
         <div className="max-w-screen-md w-full mx-auto ">
           <div className="flex justify-between items-center flex-wrap mb-8">
-            <h1 className="text-2xl sm:text-3xl font-extrabold font-mono">
-              Experiences
-            </h1>
+            <h2 className="text-2xl sm:text-3xl font-bold ">Experiences</h2>
             <Button variant="ghost" className="group" asChild>
               <Link href="/about">
                 More About Me{' '}

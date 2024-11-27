@@ -8,7 +8,7 @@ import { Button } from '../ui/button';
 import ThemeSwitcher from '../ui/ThemeSwitcher';
 import { useTheme } from '@/contexts/theme-context';
 import Link from 'next/link';
-import { contactLinkedIn } from '@/data';
+import { contactLinkedIn } from '@/data/contact';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
@@ -81,13 +81,13 @@ export function Header() {
         </Link>
         <div className="hidden sm:flex gap-6 items-center ">
           <nav>
-            <ul className="flex gap-6">
+            <ul className="flex gap-2">
               {MENUS.map((menu) => (
                 <li key={menu.link}>
                   <Link
                     href={menu.link}
                     className={cn(
-                      'text-foreground hover:text-primary dark:text-muted-foreground dark:hover:text-foreground',
+                      'px-3 py-2 text-muted-foreground hover:bg-secondary/40 rounded-md dark:text-muted-foreground dark:hover:text-foreground',
                       activeMenu === menu.link &&
                         'text-primary dark:text-primary dark:hover:text-primary',
                     )}
@@ -128,14 +128,14 @@ export function Header() {
               <DrawerContent>
                 <div className="px-6 py-12 flex flex-col gap-8 items-start">
                   <nav>
-                    <ul className="flex flex-col gap-8">
+                    <ul className="flex flex-col gap-6">
                       {MENUS.map((menu) => (
                         <li key={menu.link}>
                           <DrawerClose asChild>
                             <Link
                               href={menu.link}
                               className={cn(
-                                'text-xl text-foreground hover:text-primary dark:text-muted-foreground dark:hover:text-foreground',
+                                'text-lg text-foreground hover:text-primary dark:text-muted-foreground dark:hover:text-foreground',
                                 activeMenu === menu.link &&
                                   'text-primary dark:text-primary',
                               )}

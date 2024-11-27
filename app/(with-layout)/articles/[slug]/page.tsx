@@ -88,7 +88,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
 
   return (
     <>
-      <article className="max-w-[712px] w-full mx-auto">
+      <article className="w-full mx-auto">
         {article.cover_image && (
           <div className="relative w-full aspect-video mt-5">
             <Image

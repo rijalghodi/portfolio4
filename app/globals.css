@@ -52,7 +52,7 @@
     --muted-foreground: 0, 0%, 76%;
     --accent: 211, 32%, 20%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 62%;
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 211 31.2% 30.2%;
     --input: 216 36.6% 16.1%;
@@ -139,6 +139,10 @@ keyframes moveTopToBottom {
 
   h5 {
     @apply text-foreground font-semibold text-base leading-normal;
+  }
+
+  code:not(pre code) {
+    @apply text-destructive bg-secondary/70 px-[3px] dark:bg-secondary;
   }
 
   .animate-slide-up {

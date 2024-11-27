@@ -1,3 +1,4 @@
+import { env } from '@/lib/env';
 import { Article } from '@/types/article';
 import axios from 'axios';
 
@@ -10,7 +11,7 @@ export async function GET(request: Request): Promise<Response> {
   const tag: string | null = searchParams.get('tag');
   const category: string | null = searchParams.get('category');
 
-  const apiKey: string | undefined = process.env.DEVTO_API_KEY;
+  const apiKey: string | undefined = env.DEVTO_API_KEY;
   const apiUrl = 'https://dev.to/api/articles/me';
 
   if (!apiKey) {

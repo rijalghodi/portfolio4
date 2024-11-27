@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 import { Article } from '@/types/article';
-import Link from 'next/link';
 import { Loader } from '@/components/ui/loader';
 import { fetchArticles } from '@/lib/utils';
 import {
@@ -14,6 +13,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination';
+import { ArticleItem } from '@/components/elements/ArticleItem';
 
 export default function Articles() {
   // Query parameters
@@ -31,6 +31,11 @@ export default function Articles() {
     queryFn: () => fetchArticles(page, perPage, tag, category),
     placeholderData: (previousData) => previousData,
   });
+
+  // const {} = useQuery<any>({
+  //   queryKey: ['articles'],
+  //   queryFn: () => getProjects(),
+  // });
 
   if (error instanceof Error) return <p>Error: {error.message}</p>;
 
@@ -52,21 +57,11 @@ export default function Articles() {
           <ul>
             {articles?.map((article, i) => (
               <li key={i}>
-                <Link
-                  href={`/articles/${article.slug}`}
-                  className="group border-b border-border py-4 flex flex-col sm:flex-row flex-wrap gap-2 justify-between sm:items-center"
-                >
-                  <div className="font-semibold text-foreground group-hover:text-primary">
-                    {article.title}
-                  </div>
-                  <div className=" text-sm ">
-                    {new Date(article.published_at).toLocaleDateString('en', {
-                      day: '2-digit',
-                      month: 'short',
-                      year: 'numeric',
-                    })}
-                  </div>
-                </Link>
+                <ArticleItem
+                  title={article.title}
+                  published_at={article.published_at}
+                  url={`/articles/${article.slug}`}
+                />
               </li>
             ))}
           </ul>

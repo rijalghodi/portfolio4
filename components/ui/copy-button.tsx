@@ -10,10 +10,10 @@ interface CopyButtonProps extends ButtonProps {
   labelCopied?: string;
 }
 
-export default function CopyButton({
+export function CopyButton({
   value,
-  labelCopied = 'Copied!',
-  labelDefault = 'Copy',
+  labelCopied,
+  labelDefault,
   ...props
 }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);

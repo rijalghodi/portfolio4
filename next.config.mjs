@@ -17,6 +17,10 @@ const nextConfig = {
         hostname: 'media2.dev.to',
         protocol: 'https',
       },
+      {
+        hostname: 'cdn.sanity.io',
+        protocol: 'https',
+      },
     ],
   },
 };

@@ -1,9 +1,10 @@
-'use client';
+// import { projects } from '@/data/project';
+import { ProjectCard } from '@/components/elements/ProjectCard';
+import { getProjects } from '@/sanity/sanity-utils';
 
-import { projects } from '@/data';
-import { ProjectCard } from '@/components/molecules/ProjectCard';
+export default async function Project() {
+  const projects = await getProjects();
 
-export default function Project() {
   return (
     <div>
       {/* --- Articles */}
@@ -19,7 +20,13 @@ export default function Project() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {projects.map((project, i) => (
               <li key={i}>
-                <ProjectCard {...project} />
+                <ProjectCard
+                  name={project.name}
+                  description={project.description}
+                  slug={project.slug}
+                  demo_link={project.demo_link}
+                  source_link={project.source_link}
+                />
               </li>
             ))}
           </ul>

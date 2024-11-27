@@ -1,16 +1,19 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import './globals.css';
-import { Header } from '@/components/molecules/Header';
 import { ThemeProvider } from '@/contexts/theme-context';
-import { Inter } from 'next/font/google';
-import { Footer } from '@/components/molecules/Footer';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ReactQueryProvider } from '@/contexts/react-query-context';
+// import 'highlight.js/styles/nord.css'; // Example theme, you can choose others
 
 const inter = Inter({
   weight: ['400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-inter',
+});
+const jetbrains = JetBrains_Mono({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
 });
 
 // const geistSans = localFont({
@@ -19,11 +22,11 @@ const inter = Inter({
 //   weight: '100 900',
 // });
 
-const geistMono = localFont({
-  src: './fonts/GeistMono.ttf',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-});
+// const geistMono = localFont({
+//   src: './fonts/GeistMono.ttf',
+//   variable: '--font-geist-mono',
+//   weight: '100 900',
+// });
 
 const title = "Rijal Ghodi's Portfolio";
 const description =
@@ -69,15 +72,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${inter.className} ${geistMono.variable} antialiased`}>
+      <body className={` ${inter.className} ${jetbrains.variable} antialiased`}>
         <ThemeProvider>
-          <ReactQueryProvider>
-            <div className="w-full">
-              <Header />
-              <main className="mt-14 py-4 px-5">{children}</main>
-              <Footer />
-            </div>
-          </ReactQueryProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
         </ThemeProvider>
       </body>
     </html>

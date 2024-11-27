@@ -74,7 +74,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
-        mono: ['var(--font-geist-mono)', ...fontFamily.mono],
+        mono: ['var(--font-jetbrains)', ...fontFamily.mono],
       },
     },
   },

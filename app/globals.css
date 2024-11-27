@@ -142,7 +142,7 @@ keyframes moveTopToBottom {
   }
 
   code:not(pre code) {
-    @apply text-destructive bg-secondary/70 px-[3px] dark:bg-secondary;
+    @apply text-destructive;
   }
 
   .animate-slide-up {

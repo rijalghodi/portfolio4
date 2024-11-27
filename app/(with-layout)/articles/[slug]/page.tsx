@@ -1,11 +1,10 @@
 import React from 'react';
 
-import axios from 'axios';
-
-import { Article } from '@/types/article';
 import Image from 'next/image';
 
 import type { Metadata } from 'next';
+import PortableTextRenderer from '@/components/ui/PortableTextRenderer';
+import { getArticleBySlug } from '@/sanity/sanity-utils';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -17,11 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = (await params).slug;
 
   // Fetch article data from the backend route
-  const res = await axios.get<Article>(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${slug}`,
-  );
+  const article = await getArticleBySlug(slug);
 
-  const article = res.data;
   const siteName = "Rijal Ghodi's Portfolio";
 
   return {
@@ -34,14 +30,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: article.description,
       siteName: siteName,
       images: [
-        article.cover_image ??
+        article.cover_image_url ??
           `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
       ],
     },
     twitter: {
       title: `${article.title ?? 'Article'} | ${siteName}`,
       images: [
-        article.cover_image ??
+        article.cover_image_url ??
           `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
       ],
       description: article.description,
@@ -79,20 +75,15 @@ type ArticleProps = {
 export default async function ArticlePage({ params }: ArticleProps) {
   const { slug } = params;
 
-  // Fetch article data from the backend route
-  const res = await axios.get<Article>(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${slug}`,
-  );
-
-  const article = res.data;
+  const article = await getArticleBySlug(slug);
 
   return (
     <>
-      <article className="w-full mx-auto">
-        {article.cover_image && (
+      <article className="max-w-screen-md w-full mx-auto">
+        {article.cover_image_url && (
           <div className="relative w-full aspect-video mt-5">
             <Image
-              src={article.cover_image}
+              src={article.cover_image_url}
               alt={article.title}
               fill
               objectFit="cover"
@@ -118,10 +109,9 @@ export default async function ArticlePage({ params }: ArticleProps) {
             </div>
           )}
         </div>
-        <section
-          className="prose prose-lg article"
-          dangerouslySetInnerHTML={{ __html: article.body_html }}
-        />
+        <div className="article">
+          <PortableTextRenderer value={article?.content} />
+        </div>
       </article>
     </>
   );

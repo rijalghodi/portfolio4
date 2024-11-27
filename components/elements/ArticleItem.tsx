@@ -3,7 +3,7 @@ import React from 'react';
 type Props = {
   url: string;
   title: string;
-  published_at: string;
+  date?: string;
 };
 export function ArticleItem(props: Props) {
   return (
@@ -14,13 +14,15 @@ export function ArticleItem(props: Props) {
       <div className="font-medium text-foreground tracking-wide">
         {props.title}
       </div>
-      <div className=" text-sm">
-        {new Date(props.published_at).toLocaleDateString('en', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-        })}
-      </div>
+      {props.date && (
+        <div className=" text-sm">
+          {new Date(props.date).toLocaleDateString('en', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+          })}
+        </div>
+      )}
     </Link>
   );
 }

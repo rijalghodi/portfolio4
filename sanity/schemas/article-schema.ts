@@ -1,33 +1,25 @@
 import { SchemaTypeDefinition } from 'sanity';
 
-export const project: SchemaTypeDefinition = {
-  name: 'project',
-  title: 'Projects',
+export const article: SchemaTypeDefinition = {
+  name: 'article',
+  title: 'Articles',
   type: 'document',
   fields: [
     {
-      name: 'name',
-      title: 'Name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: { source: 'name' },
+      options: { source: 'title' },
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
-    },
-    {
-      name: 'icon',
-      title: 'Icon',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
     },
     {
       name: 'cover_image',
@@ -45,18 +37,12 @@ export const project: SchemaTypeDefinition = {
       ],
     },
     {
-      name: 'technologies',
-      title: 'Technologies',
+      name: 'tags',
+      title: 'Tags',
       type: 'array',
       of: [
         {
-          type: 'reference',
-          name: 'Technology',
-          to: [
-            {
-              type: 'tech',
-            },
-          ],
+          type: 'string',
         },
       ],
     },
@@ -64,16 +50,6 @@ export const project: SchemaTypeDefinition = {
       name: 'date',
       title: 'Date',
       type: 'date',
-    },
-    {
-      name: 'demo_link',
-      title: 'Demo Link',
-      type: 'url',
-    },
-    {
-      name: 'source_link',
-      title: 'Source Link',
-      type: 'url',
     },
     {
       name: 'content',

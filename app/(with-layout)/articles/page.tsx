@@ -3,9 +3,8 @@
 import { useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
-import { Article } from '@/types/article';
+import { IArticle } from '@/types/article';
 import { Loader } from '@/components/ui/loader';
-import { fetchArticles } from '@/lib/utils';
 import {
   Pagination,
   PaginationContent,
@@ -14,11 +13,12 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 import { ArticleItem } from '@/components/elements/ArticleItem';
+import { getArticles } from '@/sanity/sanity-utils';
 
 export default function Articles() {
   // Query parameters
   const [page, setPage] = useState(1); // Set the current page
-  const perPage = 100; // Set the number of articles per page
+  const limit = 20; // Set the number of articles per page
   const tag = undefined; // Set a specific tag (optional)
   const category = undefined; // Set a specific category (optional)
 
@@ -26,12 +26,13 @@ export default function Articles() {
     data: articles,
     error,
     isLoading,
-  } = useQuery<Article[]>({
-    queryKey: ['articles', page, perPage, tag, category],
-    queryFn: () => fetchArticles(page, perPage, tag, category),
+  } = useQuery<IArticle[]>({
+    queryKey: ['articles', page, limit, tag, category],
+    queryFn: () => getArticles(page, limit),
     placeholderData: (previousData) => previousData,
   });
 
+  console.log(articles);
   // const {} = useQuery<any>({
   //   queryKey: ['articles'],
   //   queryFn: () => getProjects(),
@@ -59,7 +60,7 @@ export default function Articles() {
               <li key={i}>
                 <ArticleItem
                   title={article.title}
-                  published_at={article.published_at}
+                  date={article.date}
                   url={`/articles/${article.slug}`}
                 />
               </li>

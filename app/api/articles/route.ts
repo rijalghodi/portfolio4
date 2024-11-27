@@ -1,5 +1,5 @@
 import { env } from '@/lib/env';
-import { Article } from '@/types/article';
+import { IArticle } from '@/types/article';
 import axios from 'axios';
 
 export async function GET(request: Request): Promise<Response> {
@@ -29,7 +29,7 @@ export async function GET(request: Request): Promise<Response> {
     if (category) queryParams.append('category', category);
 
     // Fetch data from dev.to API
-    const response = await axios.get<{ data: Article[] }>(
+    const response = await axios.get<{ data: IArticle[] }>(
       `${apiUrl}?${queryParams.toString()}`,
       {
         headers: {

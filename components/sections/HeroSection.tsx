@@ -34,9 +34,10 @@ export function HeroSection() {
       className="relative pt-16 pb-16 flex items-center"
     >
       <div className="max-w-screen-md w-full mx-auto ">
-        <h1 className="font-bold text-3xl sm:text-5xl py-2 font-mono tracking-tight leading-normal sm:leading-normal">
+        <h1 className="text-3xl font-mono font-medium sm:text-5xl py-2 tracking-normal sm:leading-normal">
           👋
-          <br /> Hello, I&apos;m Rijal
+          <br /> Hello, I&apos;m{' '}
+          <span className="font-mono tracking-tight">Rijal</span>
           <br />
           <span ref={typedText}></span>
         </h1>

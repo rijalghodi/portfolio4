@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/contexts/theme-context';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
+import { JetBrains_Mono } from 'next/font/google';
 import { ReactQueryProvider } from '@/contexts/react-query-context';
 // import 'highlight.js/styles/nord.css'; // Example theme, you can choose others
 
-const inter = Inter({
-  weight: ['400', '500', '600', '700', '800', '900'],
-  subsets: ['latin'],
-  variable: '--font-inter',
-});
+// const inter = Inter({
+//   weight: ['400', '500', '600', '700', '800', '900'],
+//   subsets: ['latin'],
+//   variable: '--font-inter',
+// });
+
 const jetbrains = JetBrains_Mono({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
@@ -27,6 +29,13 @@ const jetbrains = JetBrains_Mono({
 //   variable: '--font-geist-mono',
 //   weight: '100 900',
 // });
+
+const inter = localFont({
+  src: './fonts/Inter.ttf',
+  variable: '--font-inter-visual',
+  weight: '100 900',
+  fallback: ['sans-serif'],
+});
 
 const title = "Rijal Ghodi's Portfolio";
 const description =
@@ -72,7 +81,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${inter.className} ${jetbrains.variable} antialiased`}>
+      <body
+        className={`${inter.className} ${inter.variable} ${jetbrains.variable} antialiased`}
+      >
         <ThemeProvider>
           <ReactQueryProvider>{children}</ReactQueryProvider>
         </ThemeProvider>

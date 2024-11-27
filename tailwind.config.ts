@@ -73,9 +73,13 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
+        sans: ['var(--font-inter-visual)', ...fontFamily.sans],
         mono: ['var(--font-jetbrains)', ...fontFamily.mono],
       },
+      // backgroundImage: {
+      //   'image-standout-gradient':
+      //     'linear-gradient(0deg, rgba(5,25,45,1) 0%, rgba(5,25,45,0.8) 80%, rgba(6,20,35,1) 100%)',
+      // },
     },
   },
 

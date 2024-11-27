@@ -92,7 +92,6 @@ keyframes moveTopToBottom {
 
   body {
     @apply bg-background text-foreground text-base tracking-normal;
-    font-family: var(--font-geist-sans);
   }
 
   .article h1,

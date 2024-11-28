@@ -23,7 +23,7 @@ export function ProjectPreviewCarousel({ previews }: Props) {
       className="w-full max-w-[680px] shadow-lg rounded-lg"
       plugins={[
         Autoplay({
-          delay: 4000,
+          delay: 10000,
         }),
       ]}
     >

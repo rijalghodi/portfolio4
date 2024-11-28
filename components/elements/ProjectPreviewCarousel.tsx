@@ -27,11 +27,11 @@ export function ProjectPreviewCarousel({ previews }: Props) {
         }),
       ]}
     >
-      <CarouselContent className="rounded-lg">
+      <CarouselContent>
         {previews.map((preview, index) => (
-          <CarouselItem key={index} className="rounded-lg">
-            <Card>
-              <CardContent className="flex aspect-video items-center justify-center p-0 relative rounded-lg">
+          <CarouselItem key={index}>
+            <Card className="rounded-xl overflow-hidden">
+              <CardContent className="flex aspect-video items-center justify-center p-0 relative">
                 <Image
                   src={preview.imageUrl}
                   alt={preview.imageAlt ?? 'Preview' + index + 1}

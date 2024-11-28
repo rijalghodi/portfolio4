@@ -60,8 +60,11 @@ export default function Articles() {
               <li key={i}>
                 <ArticleItem
                   title={article.title}
+                  description={article.description}
                   date={article.date}
                   url={`/articles/${article.slug}`}
+                  coverImageUrl={article.cover_image_url}
+                  coverImageAlt={article.cover_image_alt}
                 />
               </li>
             ))}

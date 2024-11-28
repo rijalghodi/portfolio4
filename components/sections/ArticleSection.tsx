@@ -27,6 +27,9 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
                 title={article.title}
                 url={`/articles/${article.slug}`}
                 date={article.date}
+                description={article.description}
+                coverImageUrl={article.cover_image_url}
+                coverImageAlt={article.cover_image_alt}
               />
             </li>
           ))}

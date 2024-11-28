@@ -47,6 +47,29 @@ export const project: SchemaTypeDefinition = {
         },
       ],
     },
+
+    {
+      name: 'previews',
+      title: 'Previews',
+      type: 'array',
+      of: [
+        {
+          name: 'image',
+          title: 'Preview Image',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alternative Text',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    },
     {
       name: 'technologies',
       title: 'Technologies',
@@ -79,12 +102,16 @@ export const project: SchemaTypeDefinition = {
       type: 'url',
     },
     {
+      name: 'role',
+      title: 'Role',
+      type: 'string',
+    },
+    {
       name: 'content',
       title: 'Content',
       type: 'array',
       of: [
         { type: 'block' },
-
         {
           name: 'code',
           title: 'Code Block',

@@ -25,6 +25,8 @@
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.5.1",
+    "embla-carousel-react": "^8.5.1",
     "next": "14.2.16",
     "next-sanity": "^9.8.16",
     "next-sitemap": "^4.2.3",

@@ -28,6 +28,7 @@ export default async function Home() {
           description: project.description,
           slug: project.slug,
           iconUrl: project.icon_url,
+          role: project.role,
         }))}
       />
       <ArticleSection articles={articles} />

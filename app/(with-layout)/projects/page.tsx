@@ -28,6 +28,7 @@ export default async function Project() {
                   slug={project.slug}
                   iconUrl={project.icon_url}
                   coverImageUrl={project.cover_image_url}
+                  role={project.role}
                 />
               </li>
             ))}

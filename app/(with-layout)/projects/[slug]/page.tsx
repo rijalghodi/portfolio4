@@ -5,6 +5,11 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getProjectBySlug } from '@/sanity/sanity-utils';
 import PortableTextRenderer from '@/components/ui/PortableTextRenderer';
+import { badgeVariants } from '@/components/ui/badge';
+import { ProjectPreviewCarousel } from '@/components/elements/ProjectPreviewCarousel';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -82,34 +87,82 @@ export default async function ProjectPage({ params }: ProjectProps) {
 
   return (
     <>
-      <div className="max-w-screen-md w-full mx-auto">
-        {project?.icon_url && (
-          <div className="relative w-20 aspect-square mt-5">
-            <Image
-              src={project.icon_url}
-              alt={project.name}
-              fill
-              objectFit="cover"
-              className="w-full h-auto rounded-xl"
+      <div className="max-w-screen-md w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
+        <div className=" flex flex-col gap-5">
+          {project?.icon_url && (
+            <div className="h-9 w-9 relative rounded-full overflow-clip">
+              <Image
+                src={project?.icon_url}
+                fill
+                alt="Icon"
+                className="object-cover"
+              />
+            </div>
+          )}
+          <h1 className="text-3xl sm:text-4xl font-medium leading-tight">
+            {project?.name}
+          </h1>
+          <p className="sm:text-lg">{project?.description}</p>
+          <div className="flex justify-between flex-wrap-reverse">
+            {project?.technologies && project?.technologies.length > 1 && (
+              <div className="flex gap-2 flex-wrap items-center">
+                {project?.technologies.map((tech) => (
+                  <Link
+                    key={tech.name}
+                    href={tech.link ?? '#'}
+                    className={badgeVariants({ variant: 'outline' })}
+                    target={tech.link && '_blank'}
+                  >
+                    {tech.icon_url && (
+                      <Image
+                        src={tech.icon_url}
+                        width={18}
+                        height={18}
+                        alt="Icon"
+                        className="rounded-full overflow-clip object-fill"
+                      />
+                    )}
+                    <span className="text-accent-foreground text-xs font-semibold">
+                      {tech.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+            {project?.role && (
+              <div className="text-sm font-semibold font-mono uppercase">
+                {project.role}
+              </div>
+            )}
+          </div>
+        </div>
+        {/* Gallery */}
+        {project?.previews && (
+          <div className="flex items-center w-full justify-center">
+            <ProjectPreviewCarousel
+              previews={project.previews.map((v) => ({
+                imageAlt: v.alt,
+                imageUrl: v.image_url,
+              }))}
             />
           </div>
         )}
-        <div className="pt-8 pb-12 flex flex-col gap-10">
-          <h1 className="text-3xl sm:text-4xl font-semibold leading-tight">
-            {project?.name}
-          </h1>
-          {project?.technologies && project?.technologies.length > 1 && (
-            <div className="flex gap-2 flex-wrap items-center">
-              <span className="text-base font-medium">Techs :</span>
-              {project?.technologies.map((tag) => (
-                <span
-                  key={tag.name}
-                  className="bg-accent text-accent-foreground text-xs font-semibold px-3 py-2 rounded-full"
-                >
-                  {tag.name}
-                </span>
-              ))}
-            </div>
+        <div className="flex gap-2 items-center justify-center w-full">
+          {project?.demo_link && (
+            <Button asChild variant="default" className="rounded-full">
+              <Link href={project?.demo_link} target="_blank">
+                <IconExternalLink size={16} />
+                See Demo
+              </Link>
+            </Button>
+          )}
+          {project?.source_link && (
+            <Button asChild variant="outline" className="rounded-full">
+              <Link href={project?.source_link} target="_blank">
+                <IconBrandGithub size={16} />
+                Source Code
+              </Link>
+            </Button>
           )}
         </div>
         <div className="article">

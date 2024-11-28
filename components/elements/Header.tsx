@@ -58,8 +58,8 @@ export function Header() {
         left-0
         right-0
         h-14
-        bg-background/60
-        backdrop-blur-sm
+        bg-background/80
+        backdrop-blur-md
         border-b
         border-border
         border-opacity-40
@@ -79,15 +79,15 @@ export function Header() {
           )}
           <div className="font-semibold font-mono">Rijal Ghodi</div>
         </Link>
-        <div className="hidden sm:flex gap-6 items-center ">
+        <div className="hidden sm:flex gap-6 items-center">
           <nav>
-            <ul className="flex gap-2">
+            <ul className="flex gap-2 items-center">
               {MENUS.map((menu) => (
                 <li key={menu.link}>
                   <Link
                     href={menu.link}
                     className={cn(
-                      'px-3 py-2 hover:bg-secondary/80 rounded-md dark:text-muted-foreground dark:hover:text-foreground',
+                      'font-medium px-3 py-2 hover:bg-secondary/80 rounded-md dark:text-muted-foreground dark:hover:text-foreground',
                       activeMenu === menu.link &&
                         'text-primary dark:text-primary dark:hover:text-primary',
                     )}

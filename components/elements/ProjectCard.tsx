@@ -12,6 +12,7 @@ export type ProjectGlimps = {
   slug?: string;
   iconUrl?: string;
   coverImageUrl?: string;
+  role?: string;
 };
 export function ProjectCard({
   description: shortDesc,
@@ -19,6 +20,7 @@ export function ProjectCard({
   slug,
   iconUrl,
   coverImageUrl,
+  role,
 }: ProjectGlimps) {
   const Wrapper = ({ children }: any) => {
     return slug ? (
@@ -38,8 +40,8 @@ export function ProjectCard({
       {/* Image background */}
       <div
         className={cn(
-          'h-64 w-full rounded-xl border overflow-clip relative px-6 py-6 flex flex-col justify-end',
-          coverImageUrl && `bg-center bg-cover]`,
+          'h-72 w-full rounded-xl border overflow-clip relative px-6 py-6 flex flex-col justify-end',
+          coverImageUrl && `bg-center bg-cover] border-0`,
         )}
         style={{
           backgroundImage: coverImageUrl ? `url(${coverImageUrl})` : 'none',
@@ -58,7 +60,7 @@ export function ProjectCard({
           <div className="flex flex-col gap-2">
             <div className="h-9 w-9 relative rounded-full overflow-clip">
               {iconUrl && (
-                <Image src={iconUrl} fill alt="Icon" objectFit="cover" />
+                <Image src={iconUrl} fill alt="Icon" className="object-fill" />
               )}
             </div>
             <div className="flex justify-between group">
@@ -72,8 +74,11 @@ export function ProjectCard({
             </div>
           </div>
 
-          <div className="text-secondary dark:text-muted-foreground">
+          <div className="text-gray-300 dark:text-muted-foreground">
             {shortDesc}
+          </div>
+          <div className="text-gray-300 dark:text-muted-foreground font-medium text-xs font-mono uppercase">
+            {role}
           </div>
         </div>
       </div>

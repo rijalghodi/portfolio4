@@ -14,6 +14,8 @@ export interface IProject {
   date?: string; // ISO string format for date
   demo_link?: string; // URL to the demo
   source_link?: string; // URL to the source
+  role?: string;
+  previews: { image_url: string; alt?: string }[];
   content?: Array<
     | PortableTextBlock
     | {

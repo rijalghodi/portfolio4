@@ -24,18 +24,10 @@ export async function getProjects(
           name,
           "icon_url": icon.asset->url,
         },
+        role,
         date,
         demo_link,
         source_link,
-        content[]{
-          ...,
-          _type == "code" => {
-            "language": language,
-            "code": code,
-            "filename": filename,
-            "highlightedLines": highlightedLines
-          }
-        }
       }`,
   );
 }
@@ -55,7 +47,13 @@ export async function getProjectBySlug(slug: string): Promise<IProject | null> {
           _id,
           name,
           "icon_url": icon.asset->url,
+          link,
         },
+        previews[] {
+          "image_url": asset -> url,
+          alt
+        },
+        role,
         date,
         demo_link,
         source_link,

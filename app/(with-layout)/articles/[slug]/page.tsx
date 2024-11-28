@@ -86,8 +86,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
               src={article.cover_image_url}
               alt={article.title}
               fill
-              objectFit="cover"
-              className="w-full h-auto rounded-xl"
+              className="w-full h-auto rounded-xl object-cover"
             />
           </div>
         )}

@@ -11,6 +11,8 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 
+export const revalidate = 60 * 4;
+
 type Props = {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

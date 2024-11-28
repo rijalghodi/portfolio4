@@ -36,7 +36,9 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
         </ul>
         <div className="flex justify-center mt-8 sm:hidden">
           <Button variant="outline" radius="full">
-            All Articles <IconArrowRight />
+            <Link href="/articles">
+              All Articles <IconArrowRight />
+            </Link>
           </Button>
         </div>
       </div>

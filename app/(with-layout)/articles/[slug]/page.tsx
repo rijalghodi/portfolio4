@@ -102,7 +102,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
           </p>
         </header>
         {article.cover_image_url && (
-          <div className="relative max-w-2xl aspect-video">
+          <div className="relative max-w-2xl aspect-[5/4] sm:aspect-video">
             <Image
               src={article.cover_image_url}
               alt={article.title}

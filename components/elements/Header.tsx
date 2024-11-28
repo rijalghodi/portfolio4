@@ -77,7 +77,7 @@ export function Header() {
           ) : (
             <LogoLight width={28} height={28} />
           )}
-          <div className="font-semibold font-mono">Rijal Ghodi</div>
+          <div className="uppercase font-mono">Rijal Ghodi</div>
         </Link>
         <div className="hidden sm:flex gap-6 items-center">
           <nav>

@@ -84,7 +84,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
     <>
       <article className="max-w-[680px] w-full mx-auto pt-10 pb-12  flex flex-col gap-9">
         <header className="flex flex-col gap-5">
-          <h1 className="text-3xl sm:text-4xl font-normal leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-medium leading-tight">
             {article.title}
           </h1>
           <p className="sm:text-xl">{article?.description}</p>

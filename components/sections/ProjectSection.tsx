@@ -8,7 +8,7 @@ export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
     <section className="z-0 bg-background pt-16 pb-16" id="projects">
       <div className="max-w-screen-md w-full mx-auto ">
         <div className="flex justify-between items-center flex-wrap mb-8">
-          <h2 className="font-semibold  text-2xl sm:text-3xl">Projects</h2>
+          <h2 className="font-medium  text-2xl sm:text-3xl">Projects</h2>
           <Button variant="ghost" className="group" asChild>
             <Link href="/projects">
               All Projects

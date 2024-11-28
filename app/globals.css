@@ -100,7 +100,7 @@ keyframes moveTopToBottom {
   .article h4,
   .article h5,
   .article h6 {
-    @apply pb-6 pt-2 font-semibold;
+    @apply pb-6 pt-2 font-medium;
   }
   .article p,
   .article ul,

@@ -23,6 +23,11 @@ export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
             </li>
           ))}
         </ul>
+        <div className="flex justify-center mt-8 sm:hidden">
+          <Button variant="outline" radius="full">
+            All Projects <IconArrowRight />
+          </Button>
+        </div>
       </div>
     </section>
   );

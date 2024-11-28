@@ -114,7 +114,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
         <div className="article">
           <PortableTextRenderer value={article?.content} />
         </div>
-        {article.tags && article.tags.length > 1 && (
+        {article.tags && article.tags.length > 0 && (
           <div className="flex gap-2 flex-wrap">
             {article.tags.map((tag) => (
               <Badge variant="outline" key={tag}>

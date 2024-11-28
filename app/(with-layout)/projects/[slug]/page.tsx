@@ -106,7 +106,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
           </h1>
           <p className="sm:text-lg">{project?.description}</p>
           <div className="flex justify-between flex-wrap-reverse gap-5 items-center">
-            {project?.technologies && project?.technologies.length > 1 && (
+            {project?.technologies && project?.technologies.length > 0 && (
               <div className="flex gap-2 flex-wrap items-center">
                 {project?.technologies.map((tech) => (
                   <Link

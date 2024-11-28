@@ -105,7 +105,7 @@ keyframes moveTopToBottom {
   .article p,
   .article ul,
   .article ol {
-    @apply pb-6;
+    @apply md:text-lg pb-6;
   }
 
   .article li {

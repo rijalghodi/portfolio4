@@ -42,6 +42,7 @@ export function ProjectCard({
         className={cn(
           'h-72 w-full rounded-xl border overflow-clip relative px-6 py-6 flex flex-col justify-end dark:bg-secondary hover:bg-secondary/50 dark:hover:bg-slate-800',
         )}
+        data-aos="fade-up"
         // style={{
         //   backgroundImage: coverImageUrl ? `url(${coverImageUrl})` : 'none',
         // }}

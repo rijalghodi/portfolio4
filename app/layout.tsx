@@ -4,7 +4,8 @@ import { ThemeProvider } from '@/contexts/theme-context';
 import localFont from 'next/font/local';
 import { JetBrains_Mono } from 'next/font/google';
 import { ReactQueryProvider } from '@/contexts/react-query-context';
-// import 'highlight.js/styles/nord.css'; // Example theme, you can choose others
+import { AOSInit } from '@/contexts/aos-init';
+import 'aos/dist/aos.css';
 
 // const inter = Inter({
 //   weight: ['400', '500', '600', '700', '800', '900'],
@@ -85,7 +86,9 @@ export default function RootLayout({
         className={`${inter.className} ${inter.variable} ${jetbrains.variable} antialiased`}
       >
         <ThemeProvider>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
+          <ReactQueryProvider>
+            <AOSInit>{children}</AOSInit>
+          </ReactQueryProvider>
         </ThemeProvider>
       </body>
     </html>

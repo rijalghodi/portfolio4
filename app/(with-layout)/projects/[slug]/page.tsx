@@ -85,8 +85,6 @@ export default async function ProjectPage({ params }: ProjectProps) {
   // Fetch project data from the backend route
   const project = await getProjectBySlug(slug);
 
-  console.log(project);
-
   return (
     <>
       <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">

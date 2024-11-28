@@ -33,7 +33,6 @@ export default function Articles() {
     placeholderData: (previousData) => previousData,
   });
 
-  console.log(articles);
   // const {} = useQuery<any>({
   //   queryKey: ['articles'],
   //   queryFn: () => getProjects(),
@@ -80,7 +79,7 @@ export default function Articles() {
             ))}
           </ul>
         )}
-        <Pagination className="w-full py-3">
+        <Pagination className="w-full py-6">
           <PaginationContent className="w-full flex items-center justify-between">
             <PaginationItem>
               <PaginationPrevious

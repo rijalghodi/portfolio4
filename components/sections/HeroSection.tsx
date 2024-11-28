@@ -34,14 +34,21 @@ export function HeroSection() {
       className="relative pt-16 pb-16 flex items-center"
     >
       <div className="max-w-screen-md w-full mx-auto ">
-        <h1 className="text-3xl font-mono font-medium sm:text-5xl py-2 tracking-normal sm:leading-normal">
+        <h1
+          data-aos="fade-up"
+          className="text-3xl font-mono font-medium sm:text-5xl py-2 tracking-normal sm:leading-normal"
+        >
           👋
           <br /> Hello, I&apos;m{' '}
           <span className="font-mono tracking-tight">Rijal</span>
           <br />
           <span ref={typedText}></span>
         </h1>
-        <p className="text-lg sm:text-xl py-2 leading-relaxed text-foreground">
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="text-lg sm:text-xl py-2 leading-relaxed text-foreground"
+        >
           I build{' '}
           <Link href="/project" className="text-primary hover:underline">
             software and artificial intelligence
@@ -63,6 +70,8 @@ export function HeroSection() {
               asChild
               variant="default"
               className="bg-primary/90"
+              data-aos="fade-up"
+              data-aos-delay="200"
             >
               <Link href={contactLinkedIn} target="_blank">
                 <IconArrowUpRight />
@@ -75,9 +84,13 @@ export function HeroSection() {
               labelCopied="Email Copied"
               variant="secondary"
               radius="full"
+              data-aos-delay="300"
+              data-aos="fade-up"
             ></CopyButton>
           </div>
-          <SocialLinks />
+          <div data-aos-delay="400" data-aos="fade-up">
+            <SocialLinks />
+          </div>
         </div>
       </div>
       <div className="absolute left-1/2 bottom-4 transform -translate-x-1/2">

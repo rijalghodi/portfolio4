@@ -22,7 +22,7 @@ type Props = {
 
 export function ExperienceCard(props: Props) {
   return (
-    <Card className="w-full">
+    <Card className="w-full" data-aos="fade-up">
       <CardHeader>
         <CardTitle className="flex flex-col gap-3">
           {props.logo && (

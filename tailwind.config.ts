@@ -76,10 +76,10 @@ const config: Config = {
         sans: ['var(--font-inter-visual)', ...fontFamily.sans],
         mono: ['var(--font-jetbrains)', ...fontFamily.mono],
       },
-      // backgroundImage: {
-      //   'image-standout-gradient':
-      //     'linear-gradient(0deg, rgba(5,25,45,1) 0%, rgba(5,25,45,0.8) 80%, rgba(6,20,35,1) 100%)',
-      // },
+      backgroundImage: {
+        'dark-image-gradient':
+          'linear-gradient(0deg, rgba(6,20,35,1) 0%, rgba(6,20,35,0.8) 57%, rgba(0,0,0,0.3) 100%)',
+      },
     },
   },
 

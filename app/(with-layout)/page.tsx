@@ -21,7 +21,15 @@ export default async function Home() {
   return (
     <div>
       <HeroSection />
-      <ProjectSection projects={projects} />
+      <ProjectSection
+        projects={projects.map((project) => ({
+          name: project.name,
+          coverImageUrl: project.cover_image_url,
+          description: project.description,
+          slug: project.slug,
+          iconUrl: project.icon_url,
+        }))}
+      />
       <ArticleSection articles={articles} />
       <ExperienceSection />
     </div>

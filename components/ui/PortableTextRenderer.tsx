@@ -72,8 +72,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     },
     block: {
       normal: ({ children }) => <p>{children}</p>,
-      h1: ({ children }) => <h1 className="text-3xl font-bold">{children}</h1>,
-      h2: ({ children }) => <h2 className="text-2xl font-bold">{children}</h2>,
+      h1: ({ children }) => (
+        <h1 className="text-3xl font-semibold">{children}</h1>
+      ),
+      h2: ({ children }) => (
+        <h2 className="text-2xl font-semibold">{children}</h2>
+      ),
     },
     list: {
       bullet: ({ children }) => <ul className="list-disc pl-5">{children}</ul>,

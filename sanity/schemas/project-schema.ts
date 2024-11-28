@@ -21,7 +21,7 @@ export const project: SchemaTypeDefinition = {
       title: 'Description',
       type: 'text',
       validation(rule) {
-        return rule.max(100);
+        return rule.max(80);
       },
     },
     {

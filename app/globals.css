@@ -121,7 +121,7 @@ keyframes moveTopToBottom {
   }
 
   h1 {
-    @apply text-foreground font-bold text-3xl leading-tight;
+    @apply text-foreground font-semibold text-3xl leading-tight;
   }
 
   h2 {

@@ -95,7 +95,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
           </div>
         )}
         <div className="pt-8 pb-12 flex flex-col gap-10">
-          <h1 className="text-3xl sm:text-4xl font-bold leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-semibold leading-tight">
             {project?.name}
           </h1>
           {project?.technologies && project?.technologies.length > 1 && (

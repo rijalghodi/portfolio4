@@ -91,7 +91,7 @@ keyframes moveTopToBottom {
   }
 
   body {
-    @apply bg-background text-foreground text-base tracking-normal;
+    @apply bg-background text-foreground text-base tracking-normal leading-normal;
   }
 
   .article h1,

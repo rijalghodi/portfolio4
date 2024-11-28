@@ -28,7 +28,7 @@ export default function Articles() {
     isLoading,
   } = useQuery<IArticle[]>({
     queryKey: ['articles', page, limit, tag, category],
-    queryFn: () => getArticles(page, limit),
+    queryFn: () => getArticles(),
     placeholderData: (previousData) => previousData,
   });
 
@@ -37,8 +37,6 @@ export default function Articles() {
   //   queryKey: ['articles'],
   //   queryFn: () => getProjects(),
   // });
-
-  if (error instanceof Error) return <p>Error: {error.message}</p>;
 
   return (
     <section className="z-0 bg-background pt-8 pb-16" id="projects">
@@ -54,6 +52,8 @@ export default function Articles() {
           <div className="flex items-center justify-center min-h-60 w-full">
             <Loader />
           </div>
+        ) : error ? (
+          <p>Error fetching articles</p>
         ) : (
           <ul>
             {articles?.map((article, i) => (

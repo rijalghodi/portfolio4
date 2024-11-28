@@ -87,8 +87,8 @@ export default async function ProjectPage({ params }: ProjectProps) {
 
   return (
     <>
-      <div className="max-w-screen-md w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
-        <div className=" flex flex-col gap-5">
+      <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
+        <header className=" flex flex-col gap-5">
           {project?.icon_url && (
             <div className="h-9 w-9 relative rounded-full overflow-clip">
               <Image
@@ -103,7 +103,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
             {project?.name}
           </h1>
           <p className="sm:text-lg">{project?.description}</p>
-          <div className="flex justify-between flex-wrap-reverse">
+          <div className="flex justify-between flex-wrap-reverse gap-5 items-center">
             {project?.technologies && project?.technologies.length > 1 && (
               <div className="flex gap-2 flex-wrap items-center">
                 {project?.technologies.map((tech) => (
@@ -135,7 +135,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
               </div>
             )}
           </div>
-        </div>
+        </header>
         {/* Gallery */}
         {project?.previews && (
           <div className="flex items-center w-full justify-center">
@@ -168,7 +168,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
         <div className="article">
           <PortableTextRenderer value={project?.content} />
         </div>
-      </div>
+      </article>
     </>
   );
 }

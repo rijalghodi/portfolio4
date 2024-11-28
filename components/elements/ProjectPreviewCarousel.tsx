@@ -20,7 +20,7 @@ type Props = {
 export function ProjectPreviewCarousel({ previews }: Props) {
   return (
     <Carousel
-      className="w-full max-w-2xl shadow-lg rounded-lg"
+      className="w-full max-w-[680px] shadow-lg rounded-lg"
       plugins={[
         Autoplay({
           delay: 4000,
@@ -31,7 +31,7 @@ export function ProjectPreviewCarousel({ previews }: Props) {
         {previews.map((preview, index) => (
           <CarouselItem key={index} className="rounded-lg">
             <Card>
-              <CardContent className="flex aspect-video items-center justify-center p-0 relative rounded-md">
+              <CardContent className="flex aspect-video items-center justify-center p-0 relative rounded-lg">
                 <Image
                   src={preview.imageUrl}
                   alt={preview.imageAlt ?? 'Preview' + index + 1}

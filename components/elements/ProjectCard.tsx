@@ -47,7 +47,7 @@ export function ProjectCard({
         // }}
       >
         <div className="relative flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             <div className="h-9 w-9 relative rounded-full overflow-clip">
               {iconUrl && (
                 <Image src={iconUrl} fill alt="Icon" className="object-fill" />

@@ -19,7 +19,6 @@ export function ProjectCard({
   name,
   slug,
   iconUrl,
-  coverImageUrl,
   role,
 }: ProjectGlimps) {
   // const coverImageUrl = null;
@@ -55,9 +54,7 @@ export function ProjectCard({
               )}
             </div>
             <div className="flex justify-between group">
-              <div className="font-medium text-background dark:text-foreground text-lg tracking-normal">
-                {name}
-              </div>
+              <div className="font-medium text-xl tracking-normal">{name}</div>
               <IconArrowRight
                 size={24}
                 className="opacity-0 text-primary group-hover:opacity-100 transition-transform ease-in duration-300 group-hover:translate-x-2"
@@ -65,12 +62,8 @@ export function ProjectCard({
             </div>
           </div>
 
-          <div className="text-gray-300 dark:text-muted-foreground">
-            {shortDesc}
-          </div>
-          <div className="text-gray-300 dark:text-muted-foreground font-medium text-xs font-mono uppercase">
-            {role}
-          </div>
+          <div className="text-normal">{shortDesc}</div>
+          <div className=" font-medium text-xs font-mono uppercase">{role}</div>
         </div>
       </div>
     </Wrapper>

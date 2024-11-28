@@ -13,7 +13,7 @@ export function ArticleItem(props: Props) {
   return (
     <Link
       href={props.url}
-      className="group border-b border-border py-6 px-3 flex flex-col-reverse min-[500px]:flex-row gap-4 justify-between items-start hover:bg-secondary/30"
+      className="group rounded-lg py-6 px-3 flex flex-col-reverse min-[500px]:flex-row gap-4 justify-between items-start hover:bg-secondary/30"
     >
       <div className="flex flex-col gap-3 flex-1">
         <p className="text-xl font-medium text-foreground tracking-wide">

@@ -22,7 +22,7 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
 
         <ul>
           {articles?.map((article, i) => (
-            <li key={i}>
+            <li key={i} className="border-b border-border">
               <ArticleItem
                 title={article.title}
                 url={`/articles/${article.slug}`}

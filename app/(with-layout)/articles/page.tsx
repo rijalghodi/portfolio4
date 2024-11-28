@@ -57,7 +57,7 @@ export default function Articles() {
         ) : (
           <ul>
             {articles?.map((article, i) => (
-              <li key={i}>
+              <li key={i} className="border-b border-border">
                 <ArticleItem
                   title={article.title}
                   description={article.description}

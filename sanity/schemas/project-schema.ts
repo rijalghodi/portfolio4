@@ -17,6 +17,12 @@ export const project: SchemaTypeDefinition = {
       options: { source: 'name' },
     },
     {
+      name: 'pinned',
+      title: 'Pinned',
+      type: 'boolean',
+      description: 'Pin this article to appear at the top',
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'text',

@@ -10,7 +10,7 @@ export async function getProjects(
   const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
 
   return await createClient(clientConfig).fetch(
-    groq`*[_type == "project"] | order(date desc) [${start}...${start + (limit ?? 100)}] {
+    groq`*[_type == "project"] | order(pinned asc, date desc) [${start}...${start + (limit ?? 100)}] {
         _id,
         _createdAt,
         name,
@@ -78,7 +78,7 @@ export async function getArticles(
   const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
 
   return await createClient(clientConfig).fetch(
-    groq`*[_type == "article"] | order(date desc) [${start}...${start + (limit ?? 100)}] {
+    groq`*[_type == "article"] | order(pinned asc, date desc) [${start}...${start + (limit ?? 100)}] {
       _id,
       _createdAt,
       title,

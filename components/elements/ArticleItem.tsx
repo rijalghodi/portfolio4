@@ -31,12 +31,12 @@ export function ArticleItem(props: Props) {
         )}
       </div>
       {props.coverImageUrl && (
-        <div className="relative w-full rounded-xl min-[500px]:w-32 sm:w-32 md:w-40 bg-secondary aspect-[3/2]">
+        <div className="relative w-full min-[500px]:w-32 sm:w-32 md:w-40 bg-secondary aspect-[3/2] rounded-xl overflow-clip">
           <Image
             src={props.coverImageUrl}
             fill
             alt={props.coverImageAlt ?? 'cover'}
-            className="object-cover"
+            className="object-cover rounded-xl"
           />
         </div>
       )}

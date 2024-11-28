@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/pagination';
 import { ArticleItem } from '@/components/elements/ArticleItem';
 import { getArticles } from '@/sanity/sanity-utils';
+import { ArticleItemSkeleton } from '@/components/elements/ArticleItemSkeleton';
 
 export default function Articles() {
   // Query parameters
@@ -48,12 +49,21 @@ export default function Articles() {
             self-improvement.
           </p>
         </div>
+
         {isLoading ? (
-          <div className="flex items-center justify-center min-h-60 w-full">
-            <Loader />
-          </div>
+          <ul className="flex w-full flex-col">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <li key={i} className="border-b border-border">
+                <ArticleItemSkeleton />
+              </li>
+            ))}
+          </ul>
         ) : error ? (
-          <p>Error fetching articles</p>
+          <div className="flex items-center justify-center min-h-60 w-full">
+            <div className="text-semibold font-mono uppercase">
+              Error fetching articles
+            </div>
+          </div>
         ) : (
           <ul>
             {articles?.map((article, i) => (

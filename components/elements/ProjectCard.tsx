@@ -22,6 +22,7 @@ export function ProjectCard({
   coverImageUrl,
   role,
 }: ProjectGlimps) {
+  // const coverImageUrl = null;
   const Wrapper = ({ children }: any) => {
     return slug ? (
       <Link
@@ -40,23 +41,13 @@ export function ProjectCard({
       {/* Image background */}
       <div
         className={cn(
-          'h-72 w-full rounded-xl border overflow-clip relative px-6 py-6 flex flex-col justify-end',
-          coverImageUrl && `bg-center bg-cover] border-0`,
+          'h-72 w-full rounded-xl border overflow-clip relative px-6 py-6 flex flex-col justify-end dark:bg-secondary hover:bg-secondary/50 dark:hover:bg-slate-800',
         )}
-        style={{
-          backgroundImage: coverImageUrl ? `url(${coverImageUrl})` : 'none',
-        }}
+        // style={{
+        //   backgroundImage: coverImageUrl ? `url(${coverImageUrl})` : 'none',
+        // }}
       >
-        {/* Gradient background */}
-        <div
-          className={cn(
-            coverImageUrl
-              ? 'bg-dark-image-gradient'
-              : 'dark:bg-secondary hover:bg-secondary/50 dark:hover:bg-secondary/70',
-            'absolute inset-0',
-          )}
-        ></div>
-        <div className="relative flex flex-col gap-3">
+        <div className="relative flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <div className="h-9 w-9 relative rounded-full overflow-clip">
               {iconUrl && (

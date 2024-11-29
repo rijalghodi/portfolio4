@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 import { IArticle } from '@/types/article';
-import { Loader } from '@/components/ui/loader';
 import {
   Pagination,
   PaginationContent,

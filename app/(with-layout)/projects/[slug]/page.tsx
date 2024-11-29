@@ -85,6 +85,8 @@ export default async function ProjectPage({ params }: ProjectProps) {
   // Fetch project data from the backend route
   const project = await getProjectBySlug(slug);
 
+  console.log(project);
+
   return (
     <>
       <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
@@ -140,10 +142,12 @@ export default async function ProjectPage({ params }: ProjectProps) {
         {project?.previews && (
           <div className="flex items-center w-full justify-center">
             <ProjectPreviewCarousel
-              previews={project.previews.map((v) => ({
-                imageAlt: v.alt,
-                imageUrl: v.image_url,
-              }))}
+              previews={project.previews
+                .filter(({ image_url }) => image_url)
+                .map((v) => ({
+                  imageAlt: v.alt,
+                  imageUrl: v.image_url,
+                }))}
             />
           </div>
         )}

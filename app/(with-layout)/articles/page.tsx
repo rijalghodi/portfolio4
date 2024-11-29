@@ -47,7 +47,6 @@ export default function Articles() {
             self-improvement.
           </p>
         </div>
-        <ArticleItemSkeleton />
 
         {isLoading ? (
           <ul className="flex w-full flex-col">

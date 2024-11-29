@@ -55,7 +55,9 @@ export function ProjectCard({
               )}
             </div>
             <div className="flex justify-between group">
-              <div className="font-medium text-xl tracking-normal">{name}</div>
+              <p className="text-foreground font-medium text-xl tracking-normal">
+                {name}
+              </p>
               <IconArrowRight
                 size={24}
                 className="opacity-0 text-primary group-hover:opacity-100 transition-transform ease-in duration-300 group-hover:translate-x-2"
@@ -63,8 +65,8 @@ export function ProjectCard({
             </div>
           </div>
 
-          <div className="text-normal">{shortDesc}</div>
-          <div className=" font-medium text-xs font-mono uppercase">{role}</div>
+          <p className="text-normal">{shortDesc}</p>
+          <p className=" font-medium text-xs font-mono uppercase">{role}</p>
         </div>
       </div>
     </Wrapper>

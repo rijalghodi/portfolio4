@@ -3,6 +3,15 @@ import { createClient, groq } from 'next-sanity';
 import { clientConfig } from './config/client-config';
 import { IArticle } from '@/types/article';
 
+import imageUrlBuilder from '@sanity/image-url';
+import { SanityClientLike } from '@sanity/image-url/lib/types/types';
+
+const builder = imageUrlBuilder(clientConfig as SanityClientLike);
+
+export function urlFor(source: any) {
+  return builder.image(source);
+}
+
 export async function getProjects(
   page?: number,
   limit?: number,

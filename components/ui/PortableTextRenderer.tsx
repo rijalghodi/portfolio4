@@ -17,6 +17,8 @@ import {
 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { useTheme } from '@/contexts/theme-context';
 import { CopyButton } from './copy-button';
+import { SanityImage } from 'sanity-image';
+import { env } from '@/lib/env';
 
 interface PortableTextRendererProps {
   value: any; // Replace `any` with your Portable Text type if defined
@@ -30,6 +32,20 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
   const components: PortableTextReactComponents = {
     ...defaultComponents,
     types: {
+      image: ({ value }: { value: any }) => {
+        return (
+          <SanityImage
+            id={value.asset._ref}
+            projectId={env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+            dataset={env.NEXT_PUBLIC_SANITY_DATASET}
+            width={800}
+            height={500}
+            crop={value.crop}
+            hotspot={value.hotspot}
+          />
+        );
+        // return <Image width={400} height={400} src={imgUrl} alt={value.alt} />;
+      },
       code: ({ value }: any) => {
         return (
           <div className="relative border rounded-md overflow-clip my-2">
@@ -62,10 +78,16 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
         );
       },
     },
+
     marks: {
       strong: ({ children }: any) => <strong>{children}</strong>,
       link: ({ value, children }: any) => (
-        <a href={value?.href} target="_blank" rel="noopener noreferrer">
+        <a
+          href={value?.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-primary"
+        >
           {children}
         </a>
       ),

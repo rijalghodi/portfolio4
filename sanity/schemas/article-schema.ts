@@ -62,7 +62,11 @@ export const article: SchemaTypeDefinition = {
       title: 'Content',
       type: 'array',
       of: [
-        { type: 'block' },
+        {
+          type: 'block',
+          title: 'Block',
+          of: [{ type: 'latex', icon: 'Σ', title: 'Inline math' }],
+        },
         {
           type: 'image',
           options: { hotspot: true },
@@ -87,6 +91,8 @@ export const article: SchemaTypeDefinition = {
             highlightedLines: true, // optional
           },
         },
+
+        { type: 'latex', icon: 'Σ', title: 'Math block' },
       ],
     },
   ],

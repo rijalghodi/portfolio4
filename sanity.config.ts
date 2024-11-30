@@ -1,6 +1,7 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { codeInput } from '@sanity/code-input';
+import { latexInput } from 'sanity-plugin-latex-input';
 import { schemas } from './sanity/schemas';
 import { env } from './lib/env';
 
@@ -14,7 +15,7 @@ export const sanityConfig = defineConfig({
 
   basePath: '/admin',
 
-  plugins: [structureTool(), codeInput()],
+  plugins: [structureTool(), codeInput(), latexInput()],
 
   schema: {
     types: schemas,

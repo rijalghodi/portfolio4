@@ -93,7 +93,9 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
         </a>
       ),
       code: ({ children }) => (
-        <code className="font-mono text-destructive">{children}</code>
+        <code className="font-mono text-orange-500 dark:text-yellow-500">
+          {children}
+        </code>
       ),
     },
     block: {

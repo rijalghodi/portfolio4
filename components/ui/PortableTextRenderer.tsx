@@ -101,12 +101,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     block: {
       normal: ({ children }) => <p className="mb-6 md:text-lg">{children}</p>,
       h1: ({ children }) => (
-        <h1 className="text-4xl font-medium leading-snug mb-6 mt-12">
+        <h1 className="text-4xl font-medium leading-snug mb-6 mt-10">
           {children}
         </h1>
       ),
       h2: ({ children }) => (
-        <h2 className="text-3xl font-medium leading-snug mb-6 mt-12">
+        <h2 className="text-3xl font-medium leading-snug mb-6 mt-10">
           {children}
         </h2>
       ),

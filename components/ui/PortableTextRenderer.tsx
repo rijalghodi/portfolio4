@@ -67,7 +67,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
               wrapLines
               useInlineStyles
               customStyle={{
-                padding: '1rem 2rem',
+                padding: '1rem',
                 fontSize: '0.875em',
                 maxHeight: 600,
                 overflow: 'scroll',

@@ -50,7 +50,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
       code: ({ value }: any) => {
         return (
           <div className="relative border rounded-md overflow-clip mb-6">
-            <div className="text-muted-foreground border-b text-xs font-semibold flex items-center justify-between px-5 py-1 dark:bg-secondary h-10 ">
+            <div className="text-muted-foreground border-b text-xs font-semibold flex items-center justify-between px-5 py-1 bg-secondary h-10 ">
               <div className="">{value.filename}</div>
               <div className="flex items-center gap-4">
                 {value.language}

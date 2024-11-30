@@ -101,30 +101,30 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     block: {
       normal: ({ children }) => <p className="mb-6 md:text-lg">{children}</p>,
       h1: ({ children }) => (
-        <h1 className="text-4xl font-medium leading-snug mb-6 mt-10">
+        <h1 className="text-3xl font-medium leading-snug mb-6 mt-10">
           {children}
         </h1>
       ),
       h2: ({ children }) => (
-        <h2 className="text-3xl font-medium leading-snug mb-6 mt-10">
+        <h2 className="text-2xl font-medium leading-snug mb-6 mt-10">
           {children}
         </h2>
       ),
       h3: ({ children }) => (
-        <h3 className="text-2xl font-medium leading-snug mb-6 mt-6">
+        <h3 className="text-xl font-medium leading-snug mb-6 mt-6">
           {children}
         </h3>
       ),
       h4: ({ children }) => (
-        <h4 className="text-xl font-medium mb-6 mt-6">{children}</h4>
+        <h4 className="text-lg font-medium uppercase mb-6 mt-6">{children}</h4>
       ),
       h5: ({ children }) => (
-        <h5 className="text-lg font-medium mb-6 mt-6">{children}</h5>
+        <h5 className="text-base font-medium uppercase mb-6 mt-6">
+          {children}
+        </h5>
       ),
       h6: ({ children }) => (
-        <h6 className="text-base font-medium uppercase mb-6 mt-6">
-          {children}
-        </h6>
+        <h6 className="text-sm font-medium uppercase mb-6 mt-6">{children}</h6>
       ),
 
       hr: ({ children }) => <hr className="mb-6 mt-6">{children}</hr>,

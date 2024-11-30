@@ -42,13 +42,16 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
             height={500}
             crop={value.crop}
             hotspot={value.hotspot}
+            alt={value.alt}
+            about={value.alt}
+            className="rounded-xl"
           />
         );
         // return <Image width={400} height={400} src={imgUrl} alt={value.alt} />;
       },
       code: ({ value }: any) => {
         return (
-          <div className="relative border rounded-md overflow-clip my-2">
+          <div className="relative border rounded-md overflow-clip mb-6">
             <div className="text-muted-foreground border-b text-xs font-semibold flex items-center justify-between px-5 py-1 bg-secondary h-10 ">
               <div className="">{value.filename}</div>
               <div className="flex items-center gap-4">
@@ -91,25 +94,52 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
           {children}
         </a>
       ),
+      code: ({ children }) => (
+        <code className="font-mono text-destructive">{children}</code>
+      ),
     },
     block: {
-      normal: ({ children }) => <p>{children}</p>,
+      normal: ({ children }) => <p className="mb-6 md:text-lg">{children}</p>,
       h1: ({ children }) => (
-        <h1 className="text-3xl font-semibold">{children}</h1>
+        <h1 className="text-4xl font-medium leading-snug mb-6 mt-12">
+          {children}
+        </h1>
       ),
       h2: ({ children }) => (
-        <h2 className="text-2xl font-semibold">{children}</h2>
+        <h2 className="text-3xl font-medium leading-snug mb-6 mt-12">
+          {children}
+        </h2>
       ),
+      h3: ({ children }) => (
+        <h3 className="text-2xl font-medium leading-snug mb-6 mt-6">
+          {children}
+        </h3>
+      ),
+      h4: ({ children }) => (
+        <h4 className="text-xl font-medium mb-6 mt-6">{children}</h4>
+      ),
+      h5: ({ children }) => (
+        <h5 className="text-lg font-medium mb-6 mt-6">{children}</h5>
+      ),
+      h6: ({ children }) => (
+        <h6 className="text-base font-medium uppercase mb-6 mt-6">
+          {children}
+        </h6>
+      ),
+
+      hr: ({ children }) => <hr className="mb-6 mt-6">{children}</hr>,
     },
     list: {
-      bullet: ({ children }) => <ul className="list-disc pl-5">{children}</ul>,
+      bullet: ({ children }) => (
+        <ul className="list-disc pl-6 mb-6">{children}</ul>
+      ),
       number: ({ children }) => (
-        <ol className="list-decimal pl-5">{children}</ol>
+        <ol className="list-decimal pl-6 mb-6">{children}</ol>
       ),
     },
     listItem: {
-      bullet: ({ children }) => <li>{children}</li>,
-      number: ({ children }) => <li>{children}</li>,
+      bullet: ({ children }) => <li className="mb-2 md:text-lg">{children}</li>,
+      number: ({ children }) => <li className="mb-2 md:text-lg">{children}</li>,
     },
   };
 

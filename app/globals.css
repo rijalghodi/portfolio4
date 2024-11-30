@@ -94,59 +94,29 @@ keyframes moveTopToBottom {
     @apply bg-background text-foreground text-base tracking-normal leading-normal;
   }
 
-  .article h1,
-  .article h2,
-  .article h3,
-  .article h4,
-  .article h5,
-  .article h6 {
-    @apply pb-6 pt-2 font-medium;
-  }
-  .article p,
-  .article ul,
-  .article ol {
-    @apply md:text-lg pb-6;
-  }
-
-  .article li {
-    @apply pb-2;
-  }
-
-  .article ul {
-    @apply list-disc pl-6;
-  }
-
-  .article hr {
-    @apply pt-3 pb-3;
-  }
-
   p,
   li {
     @apply text-muted-foreground;
   }
 
   h1 {
-    @apply text-foreground font-semibold text-3xl leading-tight;
+    @apply text-foreground font-semibold text-4xl leading-snug;
   }
 
   h2 {
-    @apply text-foreground font-semibold text-2xl leading-tight;
+    @apply text-foreground font-semibold text-3xl leading-snug;
   }
 
   h3 {
-    @apply text-foreground font-semibold text-xl leading-normal;
+    @apply text-foreground font-semibold text-2xl leading-snug;
   }
 
   h4 {
-    @apply text-foreground font-semibold text-lg leading-normal;
+    @apply text-foreground font-semibold text-xl leading-normal;
   }
 
   h5 {
-    @apply text-foreground font-semibold text-base leading-normal;
-  }
-
-  code:not(pre code) {
-    @apply text-destructive;
+    @apply text-foreground font-semibold text-lg leading-normal;
   }
 
   .animate-slide-up {

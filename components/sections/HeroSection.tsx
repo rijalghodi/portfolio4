@@ -36,7 +36,7 @@ export function HeroSection() {
       <div className="max-w-screen-md w-full mx-auto ">
         <h1
           data-aos="fade-up"
-          className="text-3xl font-mono font-medium sm:text-5xl py-2 tracking-normal leading-normal"
+          className="text-3xl font-mono font-medium sm:text-5xl py-2 tracking-normal leading-normal sm:leading-normal"
         >
           👋
           <br /> Hello, I&apos;m{' '}

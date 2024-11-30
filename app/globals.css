@@ -100,15 +100,15 @@ keyframes moveTopToBottom {
   }
 
   h1 {
-    @apply text-foreground font-semibold text-3xl leading-snug;
+    @apply text-foreground font-semibold text-3xl leading-normal;
   }
 
   h2 {
-    @apply text-foreground font-semibold text-2xl leading-snug;
+    @apply text-foreground font-semibold text-2xl leading-normal;
   }
 
   h3 {
-    @apply text-foreground font-semibold text-lg leading-snug;
+    @apply text-foreground font-semibold text-lg leading-normal;
   }
 
   h4 {

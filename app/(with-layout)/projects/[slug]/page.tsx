@@ -82,12 +82,9 @@ type ProjectProps = {
 
 export default async function ProjectPage({ params }: ProjectProps) {
   const { slug } = params;
-  console.log(slug);
 
   // Fetch project data from the backend route
   const project = await getProjectBySlug(slug);
-
-  console.log(project);
 
   if (!project) {
     notFound();

@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button';
-import { useTheme } from '@/contexts/theme-context';
 import { cn } from '@/lib/utils';
 import { IconHome } from '@tabler/icons-react';
 import Link from 'next/link';

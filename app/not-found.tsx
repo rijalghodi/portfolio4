@@ -9,9 +9,7 @@ export default function NotFound() {
       <div
         className={cn(
           '-z-10 fixed top-0 left-0 right-0 aspect-square bg-cover bg-center',
-          true
-            ? "bg-[url('/icons/comet-dark.svg')]"
-            : "bg-[url('/icons/comet-light.svg')]",
+          "bg-[url('/icons/comet-dark.svg')]",
         )}
       ></div>
       <div className="flex flex-col gap-11 max-w-96">
@@ -21,7 +19,7 @@ export default function NotFound() {
           again.
         </p>
         <div className="flex justify-center w-full">
-          <Button asChild>
+          <Button asChild radius="full">
             <Link href="/">
               <IconHome />
               Return Home

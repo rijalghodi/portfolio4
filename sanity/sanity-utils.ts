@@ -122,6 +122,7 @@ export async function getArticleBySlug(slug: string): Promise<IArticle> {
         "cover_image_alt": cover_image.alt,
         tags[],
         date,
+        toc,
         content[]{
           ...,
           _type == "code" => {

@@ -10,6 +10,7 @@ export interface IArticle {
   cover_image_alt?: string; // Optional, as "alt" might not always be provided
   tags?: string[]; // Array of technology strings
   date?: string; // ISO string format for date
+  toc?: boolean; // Whether to display the table of contents
   content?: Array<
     | PortableTextBlock
     | {

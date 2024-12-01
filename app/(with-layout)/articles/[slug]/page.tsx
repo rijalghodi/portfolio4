@@ -81,14 +81,16 @@ export default async function ArticlePage({ params }: ArticleProps) {
 
   const article = await getArticleBySlug(slug);
 
+  console.log(article);
+
   if (!article) {
     notFound();
   }
 
   return (
     <>
-      <article className="max-w-[680px] w-full mx-auto pt-10 pb-12  flex flex-col gap-9">
-        <header className="flex flex-col gap-5">
+      <article className="max-w-[680px] w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
+        <header className="flex flex-col gap-4 sm:gap-5">
           <h1 className="text-3xl sm:text-4xl font-medium leading-tight md:text-center">
             {article?.title}
           </h1>
@@ -115,7 +117,10 @@ export default async function ArticlePage({ params }: ArticleProps) {
               />
             </div>
           )}
-          <PortableTextRenderer value={article?.content} />
+          <PortableTextRenderer
+            value={article?.content}
+            withTableOfContents={article.toc}
+          />
           {article?.tags && article?.tags.length > 0 && (
             <div className="flex gap-2 flex-wrap">
               {article?.tags.map((tag) => (

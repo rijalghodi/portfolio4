@@ -86,7 +86,9 @@ export const TableOfContents = ({
         className="flex justify-between items-center hover:bg-accent dark:hover:bg-secondary px-1 py-2 rounded-lg cursor-pointer"
         onClick={toggleOpen}
       >
-        <p className="text-xl font-medium leading-snug">Table of Content</p>
+        <p className="text-xl font-medium leading-snug text-foreground">
+          Table of Content
+        </p>
         <IconChevronDown
           size={16}
           className={cn(

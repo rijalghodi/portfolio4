@@ -100,23 +100,23 @@ keyframes moveTopToBottom {
   }
 
   h1 {
-    @apply text-foreground font-semibold text-3xl leading-normal;
+    @apply text-foreground font-semibold text-4xl leading-normal;
   }
 
   h2 {
-    @apply text-foreground font-semibold text-2xl leading-normal;
+    @apply text-foreground font-semibold text-[1.75rem] leading-normal;
   }
 
   h3 {
-    @apply text-foreground font-semibold text-lg leading-normal;
+    @apply text-foreground font-semibold text-xl leading-normal;
   }
 
   h4 {
-    @apply text-foreground font-semibold text-base leading-normal;
+    @apply text-foreground font-semibold text-lg leading-normal;
   }
 
   h5 {
-    @apply text-foreground font-semibold text-sm leading-normal;
+    @apply text-foreground font-semibold text-md leading-normal;
   }
 
   .animate-slide-up {

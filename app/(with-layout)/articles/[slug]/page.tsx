@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import type { Metadata } from 'next';
-import PortableTextRenderer from '@/components/ui/PortableTextRenderer';
+import PortableTextRenderer from '@/components/ui/portable-text-renderer/PortableTextRenderer';
 import { getArticleBySlug } from '@/sanity/sanity-utils';
 import { Badge } from '@/components/ui/badge';
 
@@ -99,28 +99,28 @@ export default async function ArticlePage({ params }: ArticleProps) {
             )}
           </p>
         </header>
-        {article.cover_image_url && (
-          <div className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
-            <Image
-              src={article.cover_image_url}
-              alt={article.title}
-              fill
-              className="rounded-xl object-cover"
-            />
-          </div>
-        )}
-        <div className="article">
+        <div className="relative flex flex-col gap-9">
+          {article.cover_image_url && (
+            <div className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
+              <Image
+                src={article.cover_image_url}
+                alt={article.title}
+                fill
+                className="rounded-xl object-cover"
+              />
+            </div>
+          )}
           <PortableTextRenderer value={article?.content} />
+          {article.tags && article.tags.length > 0 && (
+            <div className="flex gap-2 flex-wrap">
+              {article.tags.map((tag) => (
+                <Badge variant="outline" key={tag}>
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          )}
         </div>
-        {article.tags && article.tags.length > 0 && (
-          <div className="flex gap-2 flex-wrap">
-            {article.tags.map((tag) => (
-              <Badge variant="outline" key={tag}>
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        )}
       </article>
     </>
   );

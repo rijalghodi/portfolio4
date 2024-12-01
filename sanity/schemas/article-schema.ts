@@ -58,6 +58,13 @@ export const article: SchemaTypeDefinition = {
       type: 'date',
     },
     {
+      name: 'toc',
+      title: 'Table of Contents?',
+      type: 'boolean',
+      description: 'Enable table of content?',
+      initialValue: true,
+    },
+    {
       name: 'content',
       title: 'Content',
       type: 'array',

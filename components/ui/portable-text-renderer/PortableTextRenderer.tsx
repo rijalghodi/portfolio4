@@ -14,16 +14,20 @@ import {
 import rijalDark from '@/public/hljs/rijal-dark';
 import { atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { useTheme } from '@/contexts/theme-context';
-import { CopyButton } from './copy-button';
+import { CopyButton } from '../copy-button';
 import { SanityImage } from 'sanity-image';
 import { env } from '@/lib/env';
+import { parseOutline } from './outline';
+import { TableOfContents } from './TableOfContents';
 
 interface PortableTextRendererProps {
   value: any; // Replace `any` with your Portable Text type if defined
+  withTableOfContents?: boolean;
 }
 
 const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
   value,
+  withTableOfContents = true,
 }) => {
   const { theme } = useTheme();
 
@@ -68,7 +72,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
               useInlineStyles
               customStyle={{
                 padding: '1rem',
-                fontSize: '0.875em',
+                fontSize: '1em',
                 maxHeight: 600,
                 overflow: 'scroll',
               }}
@@ -87,63 +91,118 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
           href={value?.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline text-primary"
+          className="underline text-slate-500 dark:text-slate-300 "
         >
           {children}
         </a>
       ),
       code: ({ children }) => (
-        <code className="font-mono text-orange-500 dark:text-yellow-500">
+        <code className="font-mono text-orange-500 dark:text-yellow-500 bg-secondary px-1">
           {children}
         </code>
       ),
     },
     block: {
       normal: ({ children }) => <p className="mb-6 md:text-lg">{children}</p>,
-      h1: ({ children }) => (
-        <h1 className="text-3xl font-medium leading-snug mb-6 mt-10">
+      h1: ({ children, value }) => (
+        <h1
+          className="text-4xl font-medium leading-snug mb-6 mt-10"
+          id={value._key}
+        >
           {children}
         </h1>
       ),
-      h2: ({ children }) => (
-        <h2 className="text-2xl font-medium leading-snug mb-6 mt-10">
+      h2: ({ children, value }) => (
+        <h2
+          className="text-[1.75rem] font-medium leading-snug mb-6 mt-10"
+          id={value._key}
+        >
           {children}
         </h2>
       ),
-      h3: ({ children }) => (
-        <h3 className="text-xl font-medium leading-snug mb-6 mt-6">
+      h3: ({ children, value }) => (
+        <h3
+          className="text-xl font-medium leading-snug mb-6 mt-6"
+          id={value._key}
+        >
           {children}
         </h3>
       ),
-      h4: ({ children }) => (
-        <h4 className="text-lg font-medium uppercase mb-6 mt-6">{children}</h4>
+      h4: ({ children, value }) => (
+        <h4
+          className="text-lg font-semibold uppercase mb-6 mt-6"
+          id={value._key}
+        >
+          {children}
+        </h4>
       ),
-      h5: ({ children }) => (
-        <h5 className="text-base font-medium uppercase mb-6 mt-6">
+      h5: ({ children, value }) => (
+        <h5
+          className="text-base font-semibold font-mono tracking-tight uppercase mb-6 mt-6"
+          id={value._key}
+        >
           {children}
         </h5>
       ),
-      h6: ({ children }) => (
-        <h6 className="text-sm font-medium uppercase mb-6 mt-6">{children}</h6>
+      h6: ({ children, value }) => (
+        <h6
+          className="text-sm font-semibold font-mono uppercase tracking-tight mb-6 mt-6"
+          id={value._key}
+        >
+          {children}
+        </h6>
       ),
 
-      hr: ({ children }) => <hr className="mb-6 mt-6">{children}</hr>,
+      hr: ({ children, value }) => (
+        <hr className="mb-6 mt-6" id={value._key}>
+          {children}
+        </hr>
+      ),
     },
     list: {
-      bullet: ({ children }) => (
-        <ul className="list-disc pl-6 mb-6">{children}</ul>
+      bullet: ({ children, value }) => (
+        <ul className="list-disc pl-6 mb-6" id={value._key}>
+          {children}
+        </ul>
       ),
-      number: ({ children }) => (
-        <ol className="list-decimal pl-6 mb-6">{children}</ol>
+      number: ({ children, value }) => (
+        <ol className="list-decimal pl-6 mb-6" id={value._key}>
+          {children}
+        </ol>
       ),
     },
     listItem: {
-      bullet: ({ children }) => <li className="mb-2 md:text-lg">{children}</li>,
-      number: ({ children }) => <li className="mb-2 md:text-lg">{children}</li>,
+      bullet: ({ children, value }) => (
+        <li id={value._key} className="mb-2 md:text-lg">
+          {children}
+        </li>
+      ),
+      number: ({ children, value }) => (
+        <li id={value._key} className="mb-2 md:text-lg">
+          {children}
+        </li>
+      ),
     },
   };
 
-  return <PortableText value={value} components={components} />;
+  const outline = parseOutline(value);
+
+  console.log(outline);
+
+  return (
+    <div>
+      {withTableOfContents && (
+        <div className="hidden sm:block ">
+          <p className="text-xl font-medium leading-snug mb-3">
+            Table of Content
+          </p>
+          <TableOfContents outline={outline} />
+          <hr className="mt-6 mb-6" />
+        </div>
+      )}
+      <PortableText value={value} components={components} />
+    </div>
+  );
 };
 
 export default PortableTextRenderer;

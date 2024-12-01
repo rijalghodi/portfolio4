@@ -19,7 +19,7 @@ export default function NotFound() {
           again.
         </p>
         <div className="flex justify-center w-full">
-          <Button asChild radius="full">
+          <Button asChild>
             <Link href="/">
               <IconHome />
               Return Home

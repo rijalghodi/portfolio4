@@ -91,10 +91,7 @@ export const TableOfContents = ({
         </p>
         <IconChevronDown
           size={16}
-          className={cn(
-            'desktop:hidden transition-transform',
-            open && 'rotate-180',
-          )}
+          className={cn('transition-transform', open && 'rotate-180')}
         />
       </div>
 
@@ -110,6 +107,7 @@ export const TableOfContents = ({
         <div className="mt-2">
           <PerLevelHeadings outline={outline} />
         </div>
+        <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-secondary" />
       </div>
     </div>
   );

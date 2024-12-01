@@ -193,8 +193,8 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
   return (
     <div>
       {withTableOfContents && (
-        <div className="static mb-6 desktop:absolute top-0 bottom-20 w-auto desktop:w-64 left-full desktop:translate-x-5">
-          <div className="border p-4 rounded-xl static desktop:sticky desktop:top-20">
+        <div className="static mb-6 xl:absolute top-0 bottom-20 w-auto xl:w-80 left-full xl:translate-x-8">
+          <div className="border p-4 rounded-xl static xl:sticky xl:top-20">
             <TableOfContents outline={outline} />
           </div>
         </div>

@@ -49,7 +49,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
               about={value.alt}
               className="rounded-xl mb-2"
             />
-            <p className="text-sm sm:text-base">{value.alt}</p>
+            {value.alt && <p className="text-sm sm:text-base">{value.alt}</p>}
           </div>
         );
         // return <Image width={400} height={400} src={imgUrl} alt={value.alt} />;

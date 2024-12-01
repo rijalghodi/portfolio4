@@ -82,7 +82,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
 
   const article = await getArticleBySlug(slug);
 
-  console.log(article);
+  // console.log(article);
 
   if (!article) {
     notFound();

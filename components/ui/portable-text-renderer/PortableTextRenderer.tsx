@@ -55,9 +55,8 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
         return (
           <div className="relative border rounded-md overflow-clip mb-6">
             <div className="text-muted-foreground border-b text-xs font-semibold flex items-center justify-between px-5 py-1 bg-secondary h-10 ">
-              <div className="">{value.filename}</div>
+              <div className="">{value.filename ?? value.language}</div>
               <div className="flex items-center gap-4">
-                {value.language}
                 <CopyButton
                   value={value.code}
                   size="icon-sm"
@@ -72,7 +71,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
               useInlineStyles
               customStyle={{
                 padding: '1rem',
-                fontSize: '1em',
+                fontSize: '0.9rem',
                 maxHeight: 600,
                 overflow: 'scroll',
               }}
@@ -97,7 +96,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
         </a>
       ),
       code: ({ children }) => (
-        <code className="font-mono text-orange-500 dark:text-yellow-500 bg-secondary px-1">
+        <code className="font-mono text-[0.9rem] text-orange-500 dark:text-yellow-500 bg-secondary/70 px-1">
           {children}
         </code>
       ),

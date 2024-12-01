@@ -7,6 +7,7 @@ import PortableTextRenderer from '@/components/ui/portable-text-renderer/Portabl
 import { getArticleBySlug } from '@/sanity/sanity-utils';
 import { Badge } from '@/components/ui/badge';
 import { notFound } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -106,7 +107,12 @@ export default async function ArticlePage({ params }: ArticleProps) {
             )}
           </p>
         </header>
-        <div className="relative flex flex-col gap-9 xl:right-36">
+        <div
+          className={cn(
+            'relative flex flex-col gap-9',
+            article.toc && 'xl:right-36',
+          )}
+        >
           {article?.cover_image_url && (
             <div className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
               <Image

@@ -116,7 +116,7 @@ keyframes moveTopToBottom {
   }
 
   h5 {
-    @apply text-foreground font-semibold text-md leading-normal;
+    @apply text-foreground font-semibold text-base leading-normal;
   }
 
   .animate-slide-up {

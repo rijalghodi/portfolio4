@@ -36,18 +36,21 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     types: {
       image: ({ value }: { value: any }) => {
         return (
-          <SanityImage
-            id={value.asset._ref}
-            projectId={env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-            dataset={env.NEXT_PUBLIC_SANITY_DATASET}
-            width={800}
-            height={500}
-            crop={value.crop}
-            hotspot={value.hotspot}
-            alt={value.alt}
-            about={value.alt}
-            className="rounded-xl"
-          />
+          <div className="mb-6 flex items-center flex-col">
+            <SanityImage
+              id={value.asset._ref}
+              projectId={env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+              dataset={env.NEXT_PUBLIC_SANITY_DATASET}
+              width={800}
+              height={500}
+              crop={value.crop}
+              hotspot={value.hotspot}
+              alt={value.alt}
+              about={value.alt}
+              className="rounded-xl mb-2"
+            />
+            <p className="text-sm sm:text-base">{value.alt}</p>
+          </div>
         );
         // return <Image width={400} height={400} src={imgUrl} alt={value.alt} />;
       },

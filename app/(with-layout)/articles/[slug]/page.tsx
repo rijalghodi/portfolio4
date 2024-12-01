@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import PortableTextRenderer from '@/components/ui/portable-text-renderer/PortableTextRenderer';
 import { getArticleBySlug } from '@/sanity/sanity-utils';
 import { Badge } from '@/components/ui/badge';
+import { notFound } from 'next/navigation';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -24,26 +25,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const siteName = "Rijal Ghodi's Portfolio";
 
   return {
-    title: `${article.title ?? 'Article'} | ${siteName}`,
-    description: article.description,
+    title: `${article?.title ?? 'Article'} | ${siteName}`,
+    description: article?.description,
     openGraph: {
       type: 'website',
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/articles/${slug}`,
-      title: `${article.title ?? 'Article'} | ${siteName}`,
-      description: article.description,
+      title: `${article?.title ?? 'Article'} | ${siteName}`,
+      description: article?.description,
       siteName: siteName,
       images: [
-        article.cover_image_url ??
+        article?.cover_image_url ??
           `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
       ],
     },
     twitter: {
-      title: `${article.title ?? 'Article'} | ${siteName}`,
+      title: `${article?.title ?? 'Article'} | ${siteName}`,
       images: [
-        article.cover_image_url ??
+        article?.cover_image_url ??
           `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
       ],
-      description: article.description,
+      description: article?.description,
       site: '@zalcode_id',
       card: 'summary_large_image',
       creator: '@zalcode_id',
@@ -80,16 +81,20 @@ export default async function ArticlePage({ params }: ArticleProps) {
 
   const article = await getArticleBySlug(slug);
 
+  if (!article) {
+    notFound();
+  }
+
   return (
     <>
       <article className="max-w-[680px] w-full mx-auto pt-10 pb-12  flex flex-col gap-9">
         <header className="flex flex-col gap-5">
           <h1 className="text-3xl sm:text-4xl font-medium leading-tight md:text-center">
-            {article.title}
+            {article?.title}
           </h1>
           <p className="sm:text-xl md:text-center">{article?.description}</p>
           <p className="uppercase text-sm md:text-center font-mono">
-            {new Date(article.date ?? article._createdAt).toLocaleDateString(
+            {new Date(article?.date ?? article?._createdAt).toLocaleDateString(
               'en',
               {
                 day: '2-digit',
@@ -100,20 +105,20 @@ export default async function ArticlePage({ params }: ArticleProps) {
           </p>
         </header>
         <div className="relative flex flex-col gap-9 overflow-visible">
-          {article.cover_image_url && (
+          {article?.cover_image_url && (
             <div className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
               <Image
-                src={article.cover_image_url}
-                alt={article.title}
+                src={article?.cover_image_url}
+                alt={article?.title}
                 fill
                 className="rounded-xl object-cover"
               />
             </div>
           )}
           <PortableTextRenderer value={article?.content} />
-          {article.tags && article.tags.length > 0 && (
+          {article?.tags && article?.tags.length > 0 && (
             <div className="flex gap-2 flex-wrap">
-              {article.tags.map((tag) => (
+              {article?.tags.map((tag) => (
                 <Badge variant="outline" key={tag}>
                   {tag}
                 </Badge>

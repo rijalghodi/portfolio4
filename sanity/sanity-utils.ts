@@ -75,7 +75,6 @@ export async function getProjectBySlug(slug: string): Promise<IProject | null> {
             "highlightedLines": highlightedLines
           }
         }
-        "headings": content[length(style) == 2 && string::startsWith(style, "h")]
       }`,
     { slug },
   );

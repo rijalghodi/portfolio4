@@ -10,6 +10,7 @@ import { ProjectPreviewCarousel } from '@/components/elements/ProjectPreviewCaro
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
+import { notFound } from 'next/navigation';
 
 export const revalidate = 60 * 4;
 
@@ -81,11 +82,16 @@ type ProjectProps = {
 
 export default async function ProjectPage({ params }: ProjectProps) {
   const { slug } = params;
+  console.log(slug);
 
   // Fetch project data from the backend route
   const project = await getProjectBySlug(slug);
 
-  // console.log(project);
+  console.log(project);
+
+  if (!project) {
+    notFound();
+  }
 
   return (
     <>

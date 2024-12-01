@@ -19,7 +19,7 @@ const getObjectPath = (paths: number[]): string[] =>
 
 // Recursive filter function to traverse and find matching nodes
 const filter = <T>(ast: T[], match: (node: T) => boolean): T[] =>
-  ast.reduce((acc: T[], node: T) => {
+  ast?.reduce((acc: T[], node: T) => {
     if (match(node)) acc.push(node);
     if ((node as any).children)
       acc.push(...filter((node as any).children, match)); // Type assertion for children
@@ -37,7 +37,7 @@ export const parseOutline = (ast: any[]): Heading[] => {
   const path: number[] = [];
   let lastLevel = 0;
 
-  headings.forEach((heading: Heading) => {
+  headings?.forEach((heading: Heading) => {
     const level = Number(heading.style.slice(1)); // Get the level of the heading (h1, h2, h3)
     heading.subheadings = []; // Initialize subheadings for this heading
 

@@ -27,7 +27,7 @@ interface PortableTextRendererProps {
 
 const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
   value,
-  withTableOfContents = true,
+  withTableOfContents = false,
 }) => {
   const { theme } = useTheme();
 

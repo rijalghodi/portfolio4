@@ -20,7 +20,7 @@ type Props = {
 export function ProjectPreviewCarousel({ previews }: Props) {
   return (
     <Carousel
-      className="w-full max-w-[680px] shadow-lg rounded-lg"
+      className="w-full shadow-lg rounded-lg"
       plugins={[
         Autoplay({
           delay: 10000,

@@ -12,6 +12,9 @@ const config: Config = {
   },
   theme: {
     extend: {
+      screens: {
+        desktop: '1250px',
+      },
       colors: {
         slate: {
           '50': 'hsl(210, 100%, 97%)',

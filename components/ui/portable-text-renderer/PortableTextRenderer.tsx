@@ -84,7 +84,9 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     },
 
     marks: {
-      strong: ({ children }: any) => <strong>{children}</strong>,
+      strong: ({ children }: any) => (
+        <strong className="text-foreground font-medium">{children}</strong>
+      ),
       link: ({ value, children }: any) => (
         <a
           href={value?.href}
@@ -191,12 +193,10 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
   return (
     <div>
       {withTableOfContents && (
-        <div className="hidden sm:block ">
-          <p className="text-xl font-medium leading-snug mb-3">
-            Table of Content
-          </p>
-          <TableOfContents outline={outline} />
-          <hr className="mt-6 mb-6" />
+        <div className="static mb-6 desktop:absolute top-0 bottom-20 w-auto desktop:w-64 left-full desktop:translate-x-5">
+          <div className="border p-4 rounded-xl static desktop:sticky desktop:top-20">
+            <TableOfContents outline={outline} />
+          </div>
         </div>
       )}
       <PortableText value={value} components={components} />

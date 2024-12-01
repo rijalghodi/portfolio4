@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { Collapsible, CollapsibleTrigger } from '../collapsible';
+import { CollapsibleContent } from '@radix-ui/react-collapsible';
 
 // Type for the outline structure
 type Heading = {
@@ -21,12 +23,8 @@ const scrollToElement = (id: string, offset: number) => {
   }
 };
 // TableOfContents component that takes an array of headings as the outline
-export const TableOfContents = ({
-  outline,
-}: {
-  outline: Heading[];
-  className?: string;
-}) => (
+
+const PerLevelHeadings = ({ outline }: { outline: Heading[] }) => (
   <ol className="flex flex-col gap-3">
     {outline.map(({ _key, children, subheadings }) => (
       <li key={_key} className="flex flex-col gap-3">
@@ -42,10 +40,30 @@ export const TableOfContents = ({
         </Link>
         {subheadings.length > 0 && (
           <div className="pl-6">
-            <TableOfContents outline={subheadings} />
+            <PerLevelHeadings outline={subheadings} />
           </div>
         )}
       </li>
     ))}
   </ol>
 );
+export const TableOfContents = ({
+  outline,
+}: {
+  outline: Heading[];
+  className?: string;
+}) => {
+  return (
+    <Collapsible defaultOpen={window.innerWidth > 500}>
+      <CollapsibleTrigger
+        asChild
+        className="hover:bg-accent px-1 py-2 rounded-lg cursor-pointer"
+      >
+        <p className="text-xl font-medium leading-snug">Table of Content</p>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="mt-2">
+        <PerLevelHeadings outline={outline} />
+      </CollapsibleContent>
+    </Collapsible>
+  );
+};

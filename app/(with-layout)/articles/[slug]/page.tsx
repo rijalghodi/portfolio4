@@ -99,7 +99,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
             )}
           </p>
         </header>
-        <div className="relative flex flex-col gap-9">
+        <div className="relative flex flex-col gap-9 overflow-visible">
           {article.cover_image_url && (
             <div className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
               <Image

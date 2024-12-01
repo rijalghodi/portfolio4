@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Collapsible, CollapsibleTrigger } from '../collapsible';
-import { CollapsibleContent } from '@radix-ui/react-collapsible';
+import { IconChevronDown } from '@tabler/icons-react';
+import { useEffect, useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 // Type for the outline structure
 type Heading = {
@@ -47,23 +48,67 @@ const PerLevelHeadings = ({ outline }: { outline: Heading[] }) => (
     ))}
   </ol>
 );
+import React from 'react';
+
 export const TableOfContents = ({
   outline,
+  className = '',
 }: {
   outline: Heading[];
   className?: string;
 }) => {
+  const [open, setOpen] = useState(false);
+  const [contentHeight, setContentHeight] = useState<number>(0);
+
+  useEffect(() => {
+    // Set initial state based on window width
+    setOpen(window.innerWidth > 500);
+  }, []);
+
+  const toggleOpen = () => setOpen(!open);
+
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      if (open) {
+        setContentHeight(contentRef.current.scrollHeight);
+      } else {
+        setContentHeight(0);
+      }
+    }
+  }, [open]);
+
   return (
-    <Collapsible defaultOpen={window.innerWidth > 500}>
-      <CollapsibleTrigger
-        asChild
-        className="hover:bg-accent px-1 py-2 rounded-lg cursor-pointer"
+    <div className={`w-full ${className}`}>
+      {/* Trigger */}
+      <div
+        className="flex justify-between items-center hover:bg-accent dark:hover:bg-secondary px-1 py-2 rounded-lg cursor-pointer"
+        onClick={toggleOpen}
       >
         <p className="text-xl font-medium leading-snug">Table of Content</p>
-      </CollapsibleTrigger>
-      <CollapsibleContent className="mt-2">
-        <PerLevelHeadings outline={outline} />
-      </CollapsibleContent>
-    </Collapsible>
+        <IconChevronDown
+          size={16}
+          className={cn(
+            'desktop:hidden transition-transform',
+            open && 'rotate-180',
+          )}
+        />
+      </div>
+
+      {/* Content with Smooth Transition */}
+      <div
+        ref={contentRef}
+        className="overflow-hidden transition-all duration-300 ease-in-out"
+        style={{
+          height: contentHeight === undefined ? 'auto' : `${contentHeight}px`,
+        }}
+        // onTransitionEnd={handleTransitionEnd}
+      >
+        <div className="mt-2">
+          <PerLevelHeadings outline={outline} />
+        </div>
+      </div>
+    </div>
   );
 };

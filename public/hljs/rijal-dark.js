@@ -6,11 +6,10 @@ const style = {
     background: '#1a2938',
   },
   'hljs-comment': {
-    color: '#5c6370',
-    fontStyle: 'italic',
+    color: '#656D7B',
   },
   'hljs-quote': {
-    color: '#5c6370',
+    color: '#656D7B',
     fontStyle: 'italic',
   },
   'hljs-doctag': {

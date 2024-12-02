@@ -114,14 +114,14 @@ export default async function ArticlePage({ params }: ArticleProps) {
           )}
         >
           {article?.cover_image_url && (
-            <div className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
+            <figure className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
               <Image
                 src={article?.cover_image_url}
                 alt={article?.title}
                 fill
                 className="rounded-xl object-cover"
               />
-            </div>
+            </figure>
           )}
           <PortableTextRenderer
             value={article?.content}

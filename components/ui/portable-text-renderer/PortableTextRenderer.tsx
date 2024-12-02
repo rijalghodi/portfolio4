@@ -36,7 +36,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     types: {
       image: ({ value }: { value: any }) => {
         return (
-          <div className="mb-6 flex items-center flex-col">
+          <figure className="mb-6 flex items-center flex-col">
             <SanityImage
               id={value.asset._ref}
               projectId={env.NEXT_PUBLIC_SANITY_PROJECT_ID}
@@ -49,8 +49,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
               about={value.alt}
               className="rounded-xl mb-2"
             />
-            {value.alt && <p className="text-sm sm:text-base">{value.alt}</p>}
-          </div>
+            {value.alt && (
+              <figcaption className="text-sm sm:text-base">
+                {value.alt}
+              </figcaption>
+            )}
+          </figure>
         );
         // return <Image width={400} height={400} src={imgUrl} alt={value.alt} />;
       },
@@ -64,6 +68,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
                   value={value.code}
                   size="icon-sm"
                   variant="secondary"
+                  aria-label="Copy code"
                 />
               </div>
             </div>
@@ -133,16 +138,13 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
         </h3>
       ),
       h4: ({ children, value }) => (
-        <h4
-          className="text-lg font-semibold uppercase mb-6 mt-6"
-          id={value._key}
-        >
+        <h4 className="text-lg font-semibold mb-6 mt-6" id={value._key}>
           {children}
         </h4>
       ),
       h5: ({ children, value }) => (
         <h5
-          className="text-base font-semibold font-mono tracking-tight uppercase mb-6 mt-6"
+          className="text-base font-semibold tracking-tight uppercase mb-6 mt-6"
           id={value._key}
         >
           {children}
@@ -150,7 +152,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
       ),
       h6: ({ children, value }) => (
         <h6
-          className="text-sm font-semibold font-mono uppercase tracking-tight mb-6 mt-6"
+          className="text-sm font-semibold uppercase tracking-tight mb-6 mt-6"
           id={value._key}
         >
           {children}
@@ -196,11 +198,11 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
   return (
     <div>
       {withTableOfContents && (
-        <div className="static mb-6 xl:absolute top-0 bottom-20 w-auto xl:w-80 left-full xl:translate-x-8">
+        <section className="static mb-6 xl:absolute top-0 bottom-20 w-auto xl:w-80 left-full xl:translate-x-8">
           <div className="border p-4 rounded-xl static xl:sticky xl:top-20">
             <TableOfContents outline={outline} />
           </div>
-        </div>
+        </section>
       )}
       <PortableText value={value} components={components} />
     </div>

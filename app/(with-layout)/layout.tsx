@@ -8,7 +8,9 @@ export default function WithLayout(props: Props) {
   return (
     <div className="w-full">
       <Header />
-      <main className="mt-14 py-4 px-5">{props.children}</main>
+      <main className="mt-14 py-4 px-5" role="main">
+        {props.children}
+      </main>
       <Footer />
     </div>
   );

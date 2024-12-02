@@ -95,14 +95,14 @@ export default async function ProjectPage({ params }: ProjectProps) {
       <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
         <header className=" flex flex-col gap-5">
           {project?.icon_url && (
-            <div className="h-9 w-9 relative rounded-full overflow-clip">
+            <figure className="h-9 w-9 relative rounded-full overflow-clip">
               <Image
                 src={project?.icon_url}
                 fill
                 alt="Icon"
-                className="object-cover"
+                className="object-fill"
               />
-            </div>
+            </figure>
           )}
           <h1 className="text-3xl sm:text-4xl font-medium leading-tight">
             {project?.name}

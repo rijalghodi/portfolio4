@@ -88,6 +88,7 @@ keyframes moveTopToBottom {
 @layer base {
   * {
     @apply border-border;
+    font-feature-settings: 'liga' 0; /* Disable ligatures */
   }
 
   body {

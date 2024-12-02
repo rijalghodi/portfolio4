@@ -7,6 +7,7 @@ const style = {
   },
   'hljs-comment': {
     color: '#656D7B',
+    fontStyle: 'italic',
   },
   'hljs-quote': {
     color: '#656D7B',

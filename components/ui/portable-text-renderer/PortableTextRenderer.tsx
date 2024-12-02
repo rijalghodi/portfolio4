@@ -81,7 +81,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
                 padding: '1rem',
                 fontSize: '0.9rem',
                 maxHeight: 600,
-                overflow: 'scroll',
+                overflow: 'auto',
               }}
             >
               {value.code}

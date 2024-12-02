@@ -83,7 +83,8 @@ export const TableOfContents = ({
     <div className={`w-full ${className}`}>
       {/* Trigger */}
       <div
-        className="flex justify-between items-center hover:bg-accent dark:hover:bg-secondary px-1 py-2 rounded-lg cursor-pointer"
+        role="button"
+        className="flex justify-between items-center hover:bg-accent dark:hover:bg-secondary m-1 p-3 rounded-lg cursor-pointer"
         onClick={toggleOpen}
       >
         <h2 className="text-xl font-medium leading-snug">Table of Content</h2>
@@ -96,16 +97,24 @@ export const TableOfContents = ({
       {/* Content with Smooth Transition */}
       <div
         ref={contentRef}
-        className="overflow-hidden transition-all duration-300 ease-in-out"
+        className={cn(
+          'overflow-hidden transition-all duration-300 ease-in-out w-full',
+          // !open ? `h-0` : `h-full`,
+        )}
         style={{
-          height: contentHeight === undefined ? 'auto' : `${contentHeight}px`,
+          height: contentHeight === undefined ? '0px' : `${contentHeight}px`,
         }}
-        // onTransitionEnd={handleTransitionEnd}
       >
-        <div className="mt-2">
+        <div
+          className="mt-2 px-4 xl:max-h-[calc(100vh-174px)] overflow-y-auto"
+          role="region"
+        >
           <PerLevelHeadings outline={outline} />
+          <div
+            role="none"
+            className="mx-auto mt-4 mb-4 h-2 w-[100px] rounded-full bg-secondary"
+          />
         </div>
-        <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-secondary" />
       </div>
     </div>
   );

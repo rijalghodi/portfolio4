@@ -7,8 +7,8 @@ type Props = { children: React.ReactNode };
 export function AOSInit(props: Props) {
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      once: false,
+      duration: 300,
+      once: true,
       offset: 100,
     });
   }, []);

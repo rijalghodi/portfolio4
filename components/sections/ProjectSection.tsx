@@ -19,7 +19,7 @@ export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {projects.slice(0, 4).map((project, i) => (
             <li key={i}>
-              <ProjectCard {...project} />
+              <ProjectCard {...project} titleTag="h3" />
             </li>
           ))}
         </ul>

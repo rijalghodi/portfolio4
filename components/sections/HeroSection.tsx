@@ -46,7 +46,7 @@ export function HeroSection() {
         </h1>
         <p
           data-aos="fade-up"
-          data-aos-delay="200"
+          data-aos-delay="100"
           className="text-lg sm:text-xl py-2 leading-relaxed text-foreground"
         >
           I build{' '}
@@ -71,7 +71,7 @@ export function HeroSection() {
               variant="default"
               className="bg-primary/90"
               data-aos="fade-up"
-              data-aos-delay="200"
+              data-aos-delay="150"
             >
               <Link href={contactLinkedIn} target="_blank">
                 <IconArrowUpRight />
@@ -84,11 +84,11 @@ export function HeroSection() {
               labelCopied="Email Copied"
               variant="secondary"
               radius="full"
-              data-aos-delay="300"
+              data-aos-delay="200"
               data-aos="fade-up"
             ></CopyButton>
           </div>
-          <div data-aos-delay="400" data-aos="fade-up">
+          <div data-aos-delay="250" data-aos="fade-up">
             <SocialLinks />
           </div>
         </div>
@@ -105,7 +105,7 @@ export function HeroSection() {
       </div>
       <div
         className={cn(
-          '-z-10 absolute top-0 left-0 right-0 aspect-square bg-cover bg-center',
+          '-z-10 fixed top-1/2 sm:top-0 left-0 right-0 -translate-y-1/2 sm:translate-y-0 aspect-square bg-cover bg-center',
           theme === 'dark'
             ? "bg-[url('/icons/comet-dark.svg')]"
             : "bg-[url('/icons/comet-light.svg')]",

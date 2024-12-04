@@ -6,6 +6,7 @@ import { IconArrowRight } from '@tabler/icons-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import AccessibleDiv from '../ui/accessible-div';
 export type ProjectGlimps = {
   name: string;
   description?: string;
@@ -13,6 +14,7 @@ export type ProjectGlimps = {
   iconUrl?: string;
   coverImageUrl?: string;
   role?: string;
+  titleTag?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 export function ProjectCard({
   description: shortDesc,
@@ -20,6 +22,7 @@ export function ProjectCard({
   slug,
   iconUrl,
   role,
+  titleTag = 'p',
 }: ProjectGlimps) {
   // const coverImageUrl = null;
   const Wrapper = ({ children }: any) => {
@@ -55,9 +58,12 @@ export function ProjectCard({
               )}
             </div>
             <div className="flex justify-between group">
-              <p className="text-foreground font-medium text-xl tracking-normal">
+              <AccessibleDiv
+                tag={titleTag}
+                className="text-foreground font-medium text-xl tracking-normal"
+              >
                 {name}
-              </p>
+              </AccessibleDiv>
               <IconArrowRight
                 size={24}
                 className="opacity-0 text-primary group-hover:opacity-100 transition-transform ease-in duration-300 group-hover:translate-x-2"

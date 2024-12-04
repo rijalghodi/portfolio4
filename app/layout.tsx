@@ -8,6 +8,8 @@ import { AOSInit } from '@/contexts/aos-init';
 import 'aos/dist/aos.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { env } from '@/lib/env';
+import { LoadingPage } from '@/components/ui/loading-page';
+import { Suspense } from 'react';
 
 // const inter = Inter({
 //   weight: ['400', '500', '600', '700', '800', '900'],
@@ -90,7 +92,9 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <ReactQueryProvider>
-            <AOSInit>{children}</AOSInit>
+            <Suspense fallback={<LoadingPage />}>
+              <AOSInit>{children}</AOSInit>
+            </Suspense>
           </ReactQueryProvider>
         </ThemeProvider>
       </body>

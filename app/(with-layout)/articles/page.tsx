@@ -73,6 +73,7 @@ export default function Articles() {
                   url={`/articles/${article.slug}`}
                   coverImageUrl={article.cover_image_url}
                   coverImageAlt={article.cover_image_alt}
+                  titleTag="h2"
                 />
               </li>
             ))}

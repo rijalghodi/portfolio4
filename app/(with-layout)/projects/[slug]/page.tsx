@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 60 * 4;
+export const revalidate = 60 * 10;
 
 type Props = {
   params: Promise<{ slug: string }>;

@@ -6,8 +6,7 @@ import { getLatestPinnedAbout } from '@/sanity/sanity-utils';
 import { IconDownload } from '@tabler/icons-react';
 import Link from 'next/link';
 
-// Revalidate the data every 5 minutes
-export const revalidate = 60 * 5;
+export const revalidate = 60 * 10;
 
 export default async function Articles() {
   const about = await getLatestPinnedAbout();

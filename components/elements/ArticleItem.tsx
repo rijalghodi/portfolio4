@@ -32,11 +32,7 @@ export function ArticleItem(props: Props) {
           {props.description}
         </p>
         {props.date && (
-          <p
-            // data-aos="fade-up"
-            // data-aos-delay="100"
-            className="font-semibold uppercase font-mono text-xs"
-          >
+          <p className="font-semibold uppercase font-mono text-xs">
             {new Date(props.date).toLocaleDateString('en', {
               day: '2-digit',
               month: 'short',

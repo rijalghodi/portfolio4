@@ -95,7 +95,10 @@ export default async function ProjectPage({ params }: ProjectProps) {
       <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
         <header className=" flex flex-col gap-5">
           {project?.icon_url && (
-            <figure className="h-9 w-9 relative rounded-full overflow-clip">
+            <figure
+              data-aos="fade-up"
+              className="h-9 w-9 relative rounded-full overflow-clip"
+            >
               <Image
                 src={project?.icon_url}
                 fill
@@ -104,11 +107,20 @@ export default async function ProjectPage({ params }: ProjectProps) {
               />
             </figure>
           )}
-          <h1 className="text-3xl sm:text-4xl font-medium leading-tight">
+          <h1
+            data-aos="fade-up"
+            className="text-3xl sm:text-4xl font-medium leading-tight"
+          >
             {project?.name}
           </h1>
-          <p className="sm:text-lg">{project?.description}</p>
-          <div className="flex justify-between flex-wrap-reverse gap-5 items-center">
+          <p data-aos="fade-up" data-aos-delay="50" className="sm:text-lg">
+            {project?.description}
+          </p>
+          <div
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="flex justify-between flex-wrap-reverse gap-5 items-center"
+          >
             {project?.technologies && project?.technologies.length > 0 && (
               <div className="flex gap-2 flex-wrap items-center">
                 {project?.technologies.map((tech) => (
@@ -143,7 +155,11 @@ export default async function ProjectPage({ params }: ProjectProps) {
         </header>
         {/* Gallery */}
         {project?.previews && (
-          <div className="flex items-center w-full justify-center">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="150"
+            className="flex items-center w-full justify-center"
+          >
             <ProjectPreviewCarousel
               previews={project.previews
                 .filter(({ image_url }) => image_url)
@@ -154,7 +170,11 @@ export default async function ProjectPage({ params }: ProjectProps) {
             />
           </div>
         )}
-        <div className="flex gap-2 items-center justify-center w-full">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="150"
+          className="flex gap-2 items-center justify-center w-full"
+        >
           {project?.demo_link && (
             <Button asChild variant="default" className="rounded-full">
               <Link href={project?.demo_link} target="_blank">
@@ -172,7 +192,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
             </Button>
           )}
         </div>
-        <div className="article">
+        <div data-aos="fade-up" data-aos-delay="200" className="article">
           <PortableTextRenderer value={project?.content} />
         </div>
       </article>

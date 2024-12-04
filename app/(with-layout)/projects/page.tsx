@@ -13,13 +13,23 @@ export default async function Project() {
       <section className="z-0 bg-background pt-8 pb-16" id="projects">
         <div className="max-w-screen-md w-full mx-auto">
           <div className="mb-8">
-            <h1 className="text-4xl font-medium mb-4">Projects</h1>
-            <p className="text-base text-muted-foreground">
+            <h1 data-aos="fade-up" className="text-4xl font-medium mb-4">
+              Projects
+            </h1>
+            <p
+              data-aos="fade-up"
+              data-aos-delay="50"
+              className="text-base text-muted-foreground"
+            >
               Personal apps, client-requested apps, and artificial intelligence
               applications.
             </p>
           </div>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <ul
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
             {projects.map((project, i) => (
               <li key={i}>
                 <ProjectCard

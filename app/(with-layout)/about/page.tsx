@@ -14,10 +14,17 @@ export default async function Articles() {
     <div className="z-0 bg-background pt-8 pb-16">
       <article className="max-w-screen-md w-full mx-auto">
         <header className="mb-8">
-          <h1 className="text-4xl font-medium mb-4 text-center sm:text-left">
+          <h1
+            data-aos="fade-up"
+            className="text-4xl font-medium mb-4 text-center sm:text-left"
+          >
             About Me
           </h1>
-          <div className="w-full flex items-center justify-center sm:justify-between gap-6 flex-wrap">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="50"
+            className="w-full flex items-center justify-center sm:justify-between gap-6 flex-wrap"
+          >
             {about?.date && (
               <p className="font-semibold uppercase font-mono text-sm text-center sm:text-left">
                 Updated at{' '}
@@ -45,8 +52,9 @@ export default async function Articles() {
             )}
           </div>
         </header>
-
-        <PortableTextRenderer value={about?.content} />
+        <div data-aos="fade-up" data-aos-delay="100">
+          <PortableTextRenderer value={about?.content} />
+        </div>
       </article>
     </div>
   );

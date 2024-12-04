@@ -92,11 +92,24 @@ export default async function ArticlePage({ params }: ArticleProps) {
     <>
       <article className="max-w-[680px] w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
         <header className="flex flex-col gap-4 sm:gap-5">
-          <h1 className="text-3xl sm:text-4xl font-medium leading-tight md:text-center">
+          <h1
+            data-aos="fade-up"
+            className="text-3xl sm:text-4xl font-medium leading-tight md:text-center"
+          >
             {article?.title}
           </h1>
-          <p className="sm:text-xl md:text-center">{article?.description}</p>
-          <p className="uppercase text-sm md:text-center font-mono">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="50"
+            className="sm:text-xl md:text-center"
+          >
+            {article?.description}
+          </p>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="50"
+            className="uppercase text-sm md:text-center font-mono"
+          >
             {new Date(article?.date ?? article?._createdAt).toLocaleDateString(
               'en',
               {
@@ -108,6 +121,8 @@ export default async function ArticlePage({ params }: ArticleProps) {
           </p>
         </header>
         <div
+          data-aos="fade-up"
+          data-aos-delay="100"
           className={cn(
             'relative flex flex-col gap-9',
             article.toc && 'xl:right-36',

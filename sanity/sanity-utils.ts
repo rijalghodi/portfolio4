@@ -5,6 +5,7 @@ import { IArticle } from '@/types/article';
 
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityClientLike } from '@sanity/image-url/lib/types/types';
+import { IAbout } from '@/types/about';
 
 const builder = imageUrlBuilder(clientConfig as SanityClientLike);
 
@@ -68,11 +69,11 @@ export async function getProjectBySlug(slug: string): Promise<IProject | null> {
         source_link,
         content[]{
           ...,
-          _type == "code" => {
-            "language": language,
-            "code": code,
-            "filename": filename,
-            "highlightedLines": highlightedLines
+          _type == "code" => { 
+              language, 
+              code, 
+              filename, 
+              highlightedLines 
           }
         }
       }`,
@@ -97,15 +98,6 @@ export async function getArticles(
       "cover_image_alt": cover_image.alt,
       tags[],
       date,
-      content[]{
-        ...,
-        _type == "code" => {
-          "language": language,
-          "code": code,
-          "filename": filename,
-          "highlightedLines": highlightedLines
-        }
-      }
     }`,
   );
 }
@@ -125,14 +117,41 @@ export async function getArticleBySlug(slug: string): Promise<IArticle> {
         toc,
         content[]{
           ...,
-          _type == "code" => {
-            "language": language,
-            "code": code,
-            "filename": filename,
-            "highlightedLines": highlightedLines
+          _type == "code" => { 
+              language, 
+              code, 
+              filename, 
+              highlightedLines 
           }
-        }
+      }
       }`,
     { slug },
   );
 }
+
+export const getLatestPinnedAbout = async (): Promise<IAbout> => {
+  const query = groq`
+    *[_type == "about"] | order(pinned desc, date desc) [0] {
+      _createdAt,
+      pinned,
+      date,
+      "cv": {
+        "url": cv.asset->url,
+        "size": cv.asset->size,
+        "mimeType": cv.asset->mimeType
+      },
+      content[] {
+        ...,
+        _type == "code" => {
+          language,
+          code,
+          filename,
+          highlightedLines
+        }
+      }
+    }
+  `;
+
+  // Fetch the data using the Sanity client
+  return createClient(clientConfig).fetch(query);
+};

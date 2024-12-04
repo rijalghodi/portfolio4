@@ -119,6 +119,21 @@ export const project: SchemaTypeDefinition = {
       of: [
         { type: 'block' },
         {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              description: 'Important for accessibility and SEO.',
+              options: {
+                isHighlighted: true, // Makes this field accessible in the Studio UI
+              },
+            },
+          ],
+        },
+        {
           name: 'code',
           title: 'Code Block',
           type: 'code',

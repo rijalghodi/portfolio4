@@ -75,6 +75,9 @@ export const metadata: Metadata = {
     'FullStack Developer',
     'ML Engineer',
     'AI Engineer',
+    'Web Developer',
+    'ReactJS Developer',
+    'NextJS Developer',
   ],
   description,
 };

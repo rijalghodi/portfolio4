@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import type { Metadata } from 'next';
 import { getProjectBySlug } from '@/sanity/sanity-utils';
-import PortableTextRenderer from '@/components/ui/portable-text-renderer/PortableTextRenderer';
+import { PortableTextRenderer } from '@/components/ui/portable-text-renderer/PortableTextRenderer';
 import { badgeVariants } from '@/components/ui/badge';
 import { ProjectPreviewCarousel } from '@/components/elements/ProjectPreviewCarousel';
 import { Button } from '@/components/ui/button';

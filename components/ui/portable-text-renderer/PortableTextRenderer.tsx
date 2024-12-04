@@ -209,4 +209,4 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
   );
 };
 
-export default PortableTextRenderer;
+export { PortableTextRenderer };

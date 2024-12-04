@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import type { Metadata } from 'next';
-import PortableTextRenderer from '@/components/ui/portable-text-renderer/PortableTextRenderer';
+import { PortableTextRenderer } from '@/components/ui/portable-text-renderer/PortableTextRenderer';
 import { getArticleBySlug } from '@/sanity/sanity-utils';
 import { Badge } from '@/components/ui/badge';
 import { notFound } from 'next/navigation';

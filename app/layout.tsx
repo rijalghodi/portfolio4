@@ -8,7 +8,6 @@ import { AOSInit } from '@/contexts/aos-init';
 import 'aos/dist/aos.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { env } from '@/lib/env';
-import { LoadingPage } from '@/components/ui/loading-page';
 
 // const inter = Inter({
 //   weight: ['400', '500', '600', '700', '800', '900'],

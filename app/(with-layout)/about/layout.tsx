@@ -1,6 +1,4 @@
-import { LoadingPage } from '@/components/ui/loading-page';
 import { Metadata } from 'next';
-import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'About Me',
@@ -13,5 +11,5 @@ export default function AboutLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Suspense fallback={<LoadingPage />}>{children}</Suspense>;
+  return children;
 }

@@ -7,8 +7,6 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    DEVTO_API_KEY: z.string(),
-    DEVTO_USERNAME: z.string(),
     //   NEXTAUTH_JWT_SECRET: z.string().min(32, 'Minimum 32 char for JWT Secret'),
     //   NEXTAUTH_SECRET: z.string().min(32, 'Minimum 32 char for Auth Secret'),
     //   NEXTAUTH_URL: z.string().url(),
@@ -36,8 +34,6 @@ export const env = createEnv({
     // NEXTAUTH_JWT_SECRET: process.env.NEXTAUTH_JWT_SECRET,
     // NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     // NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    DEVTO_API_KEY: process.env.DEVTO_API_KEY,
-    DEVTO_USERNAME: process.env.DEVTO_USERNAME,
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,

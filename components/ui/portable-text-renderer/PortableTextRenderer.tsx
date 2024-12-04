@@ -193,8 +193,6 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
 
   const outline = parseOutline(value);
 
-  console.log(outline);
-
   return (
     <div>
       {withTableOfContents && (

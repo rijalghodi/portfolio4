@@ -9,8 +9,9 @@ export interface IExperience {
   url?: string;
   category?: string;
   still_working?: boolean;
-  start_date?: string;
+  start_date: string;
   end_date?: string;
   pinned?: boolean;
+  short_desc?: string;
   description?: Array<PortableTextBlock>;
 }

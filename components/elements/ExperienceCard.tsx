@@ -11,27 +11,29 @@ import Image from 'next/image';
 import { PortableTextBlock } from 'next-sanity';
 import { PortableTextRenderer } from '../ui/portable-text-renderer/PortableTextRenderer';
 import AccessibleDiv from '../ui/accessible-div';
-import { dateToMMYYYY } from '@/lib/utils';
+import { cn, dateToMMYYYY } from '@/lib/utils';
 
 export type ExperienceView = {
   position: string;
   company: string;
   companyLink?: string;
   category?: string;
-  startDate?: string;
+  startDate: string;
   endDate?: string;
   stillWorking?: boolean;
   iconUrl?: string;
   description?: string[] | Array<PortableTextBlock>;
+  shortDesc?: string;
 };
 
 type ExperienceCardProps = ExperienceView & {
   titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  className?: string;
 };
 
 export function ExperienceCard(props: ExperienceCardProps) {
   return (
-    <Card className="w-full" data-aos="fade-up">
+    <Card className={cn('w-full', props.className)} data-aos="fade-up">
       <CardHeader>
         <CardTitle className="flex flex-col gap-3">
           {props.iconUrl && (
@@ -67,14 +69,10 @@ export function ExperienceCard(props: ExperienceCardProps) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <PortableTextRenderer value={props.description} />
-        {/* <ul className="list-disc pl-6">
-          {props.description?.map((task, i) => (
-            <li className="py-1" key={i}>
-              {task}
-            </li>
-          ))}
-        </ul> */}
+        {props.shortDesc && <p>{props.shortDesc}</p>}
+        {props.description && (
+          <PortableTextRenderer value={props.description} />
+        )}
       </CardContent>
     </Card>
   );

@@ -15,7 +15,7 @@ export const revalidate = 60 * 10;
 export default async function Home() {
   const projects: IProject[] = await getProjects(1, 4);
   const articles: IArticle[] = await getArticles(1, 4);
-  const experiences = await getExpereinces(1, 2);
+  const experiences = await getExpereinces(1, 4);
 
   return (
     <div>
@@ -34,12 +34,13 @@ export default async function Home() {
       <ExperienceSection
         experiences={experiences?.map((ex) => ({
           company: ex.company,
+          companyLink: ex.url,
           iconUrl: ex.icon_url,
           position: ex.position,
           category: ex.category,
           startDate: ex.start_date,
           endDate: ex.end_date,
-          description: ex.description,
+          shortDesc: ex.short_desc,
         }))}
       />
     </div>

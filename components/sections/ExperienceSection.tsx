@@ -2,7 +2,9 @@ import React from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { IconArrowRight } from '@tabler/icons-react';
-import { ExperienceCard, ExperienceView } from '../elements/ExperienceCard';
+import { ExperienceView } from '../elements/ExperienceCard';
+import { Timeline } from '../ui/timeline';
+import { dateToMMYYYY } from '@/lib/utils';
 
 type Props = {
   experiences: ExperienceView[];
@@ -20,13 +22,38 @@ export function ExperienceSection({ experiences }: Props) {
             </Link>
           </Button>
         </div>
-        <ul className="grid grid-cols-1 gap-6">
-          {experiences.slice(0, 4).map((ex, i) => (
-            <li key={i}>
-              <ExperienceCard {...ex} titleTag="h3" />
-            </li>
+        <Timeline>
+          {experiences.map((ex, i) => (
+            <Timeline.Item key={i}>
+              <Timeline.Head>
+                <time className="text-sm">
+                  {dateToMMYYYY(ex.startDate)} -{' '}
+                  {ex.stillWorking ? 'Now' : dateToMMYYYY(ex.endDate ?? '')}
+                </time>
+              </Timeline.Head>
+              <Timeline.Body>
+                <div className="mb-3">
+                  <h3 className="font-normal">{ex.position}</h3>
+                  <p>
+                    {ex.companyLink ? (
+                      <Link
+                        href={ex.companyLink ?? '#'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        {ex.company}
+                      </Link>
+                    ) : (
+                      <p className="text-primary">{ex.company}</p>
+                    )}
+                  </p>
+                </div>
+                {ex.shortDesc && <p>{ex.shortDesc}</p>}
+              </Timeline.Body>
+            </Timeline.Item>
           ))}
-        </ul>
+        </Timeline>
         <div className="flex justify-center mt-8 sm:hidden">
           <Button variant="outline" radius="full" asChild>
             <Link href="/articles">

@@ -64,6 +64,14 @@ export const experience: SchemaTypeDefinition = {
       description: 'Pin this experience to appear at the top',
     },
     {
+      name: 'short_desc',
+      title: 'Short Description',
+      type: 'text',
+      validation(rule) {
+        return rule.max(100);
+      },
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'array',

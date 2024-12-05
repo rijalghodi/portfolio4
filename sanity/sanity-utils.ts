@@ -176,6 +176,7 @@ export async function getExpereinces(
       end_date,
       category,
       pinned,
+      short_desc,
       description,
     }`,
   );

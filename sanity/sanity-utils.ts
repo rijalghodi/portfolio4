@@ -6,6 +6,7 @@ import { IArticle } from '@/types/article';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityClientLike } from '@sanity/image-url/lib/types/types';
 import { IAbout } from '@/types/about';
+import { IExperience } from '@/types/experience';
 
 const builder = imageUrlBuilder(clientConfig as SanityClientLike);
 
@@ -155,3 +156,27 @@ export const getLatestPinnedAbout = async (): Promise<IAbout> => {
   // Fetch the data using the Sanity client
   return createClient(clientConfig).fetch(query);
 };
+
+export async function getExpereinces(
+  page?: number,
+  limit?: number,
+): Promise<IExperience[]> {
+  const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
+
+  return await createClient(clientConfig).fetch(
+    groq`*[_type == "experience"] | order(pinned asc, start_date desc) [${start}...${start + (limit ?? 100)}] {
+      _id,
+      _createdAt,
+      "icon_url": icon.asset->url,
+      position,
+      company,
+      url,
+      still_working,
+      start_date,
+      end_date,
+      category,
+      pinned,
+      description,
+    }`,
+  );
+}

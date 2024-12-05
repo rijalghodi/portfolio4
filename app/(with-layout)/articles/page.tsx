@@ -16,11 +16,10 @@ import { getArticles } from '@/sanity/sanity-utils';
 import { ArticleItemSkeleton } from '@/components/elements/ArticleItemSkeleton';
 
 export default function Articles() {
-  // Query parameters
-  const [page, setPage] = useState(1); // Set the current page
-  const limit = 20; // Set the number of articles per page
-  const tag = undefined; // Set a specific tag (optional)
-  const category = undefined; // Set a specific category (optional)
+  const [page, setPage] = useState(1);
+  const limit = 20;
+  const tag = undefined;
+  const category = undefined;
 
   const {
     data: articles,
@@ -31,11 +30,6 @@ export default function Articles() {
     queryFn: () => getArticles(),
     placeholderData: (previousData) => previousData,
   });
-
-  // const {} = useQuery<any>({
-  //   queryKey: ['articles'],
-  //   queryFn: () => getProjects(),
-  // });
 
   return (
     <section className="z-0 bg-background pt-8 pb-16" id="projects">

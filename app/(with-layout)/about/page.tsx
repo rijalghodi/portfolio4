@@ -1,15 +1,15 @@
 import { ExperienceCard } from '@/components/elements/ExperienceCard';
 import { Button } from '@/components/ui/button';
 import { PortableTextRenderer } from '@/components/ui/portable-text-renderer/PortableTextRenderer';
-import { experiences } from '@/data/experience';
-import { getLatestPinnedAbout } from '@/sanity/sanity-utils';
+import { getExpereinces, getLatestPinnedAbout } from '@/sanity/sanity-utils';
 import { IconDownload } from '@tabler/icons-react';
 import Link from 'next/link';
 
 export const revalidate = 60 * 10;
 
-export default async function Articles() {
+export default async function About() {
   const about = await getLatestPinnedAbout();
+  const experiences = await getExpereinces();
 
   return (
     <div className="z-0 bg-background pt-8 pb-16">
@@ -63,9 +63,17 @@ export default async function Articles() {
             Experience
           </h2>
           <ul className="grid grid-cols-1 gap-6">
-            {experiences.slice(0, 4).map((ex, i) => (
+            {experiences?.map((ex, i) => (
               <li key={i}>
-                <ExperienceCard {...ex} />
+                <ExperienceCard
+                  company={ex.company}
+                  iconUrl={ex.icon_url}
+                  position={ex.position}
+                  category={ex.category}
+                  startDate={ex.start_date}
+                  endDate={ex.end_date}
+                  description={ex.description}
+                />
               </li>
             ))}
           </ul>

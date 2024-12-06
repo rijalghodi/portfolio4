@@ -179,12 +179,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     },
     listItem: {
       bullet: ({ children, value }) => (
-        <li id={value._key} className="mb-2 md:text-lg">
+        <li id={value._key} className="mb-3 md:text-lg">
           {children}
         </li>
       ),
       number: ({ children, value }) => (
-        <li id={value._key} className="mb-2 md:text-lg">
+        <li id={value._key} className="mb-3 md:text-lg">
           {children}
         </li>
       ),

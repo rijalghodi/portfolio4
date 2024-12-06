@@ -35,7 +35,9 @@ export function ExperienceSection({ experiences }: Props) {
               </Timeline.Head>
               <Timeline.Body>
                 <div className="mb-3" data-aos="fade-up" data-aos-delay="50">
-                  <h3 className="font-normal text-2xl mb-2">{ex.position}</h3>
+                  <h3 className="font-normal text-xl sm:text-2xl mb-2">
+                    {ex.position}
+                  </h3>
                   {ex.companyLink ? (
                     <Link
                       href={ex.companyLink ?? '#'}

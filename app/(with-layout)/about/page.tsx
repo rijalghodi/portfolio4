@@ -1,6 +1,7 @@
-import { ExperienceCard } from '@/components/elements/ExperienceCard';
 import { Button } from '@/components/ui/button';
 import { PortableTextRenderer } from '@/components/ui/portable-text-renderer/PortableTextRenderer';
+import { Timeline } from '@/components/ui/timeline';
+import { dateToMMYYYY } from '@/lib/utils';
 import { getExpereinces, getLatestPinnedAbout } from '@/sanity/sanity-utils';
 import { IconDownload } from '@tabler/icons-react';
 import Link from 'next/link';
@@ -62,21 +63,38 @@ export default async function About() {
           <h2 className="text-[1.75rem] font-medium leading-snug mb-6 mt-10">
             Experience
           </h2>
-          <ul className="grid grid-cols-1 gap-6">
-            {experiences?.map((ex, i) => (
-              <li key={i}>
-                <ExperienceCard
-                  company={ex.company}
-                  iconUrl={ex.icon_url}
-                  position={ex.position}
-                  category={ex.category}
-                  startDate={ex.start_date}
-                  endDate={ex.end_date}
-                  description={ex.description}
-                />
-              </li>
+          <Timeline>
+            {experiences.map((ex, i) => (
+              <Timeline.Item key={i}>
+                <Timeline.Head>
+                  <p className="text-sm" data-aos="fade-up">
+                    {dateToMMYYYY(ex.start_date)} -{' '}
+                    {ex.still_working ? 'Now' : dateToMMYYYY(ex.end_date ?? '')}
+                  </p>
+                </Timeline.Head>
+                <Timeline.Body>
+                  <div className="mb-3" data-aos="fade-up" data-aos-delay="50">
+                    <h3 className="font-normal text-2xl mb-2">{ex.position}</h3>
+                    {ex.url ? (
+                      <Link
+                        href={ex.url ?? '#'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        {ex.company}
+                      </Link>
+                    ) : (
+                      <p className="text-primary">{ex.company}</p>
+                    )}
+                  </div>
+                  <div data-aos="fade-up" data-aos-delay="100">
+                    <PortableTextRenderer value={ex.description} />
+                  </div>
+                </Timeline.Body>
+              </Timeline.Item>
             ))}
-          </ul>
+          </Timeline>
         </section>
       </article>
     </div>

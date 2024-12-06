@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
@@ -26,37 +28,39 @@ export function ExperienceSection({ experiences }: Props) {
           {experiences.map((ex, i) => (
             <Timeline.Item key={i}>
               <Timeline.Head>
-                <time className="text-sm">
+                <p className="text-sm" data-aos="fade-up">
                   {dateToMMYYYY(ex.startDate)} -{' '}
                   {ex.stillWorking ? 'Now' : dateToMMYYYY(ex.endDate ?? '')}
-                </time>
+                </p>
               </Timeline.Head>
               <Timeline.Body>
-                <div className="mb-3">
-                  <h3 className="font-normal">{ex.position}</h3>
-                  <p>
-                    {ex.companyLink ? (
-                      <Link
-                        href={ex.companyLink ?? '#'}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline"
-                      >
-                        {ex.company}
-                      </Link>
-                    ) : (
-                      <p className="text-primary">{ex.company}</p>
-                    )}
-                  </p>
+                <div className="mb-3" data-aos="fade-up" data-aos-delay="50">
+                  <h3 className="font-normal text-2xl mb-2">{ex.position}</h3>
+                  {ex.companyLink ? (
+                    <Link
+                      href={ex.companyLink ?? '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      {ex.company}
+                    </Link>
+                  ) : (
+                    <p className="text-primary">{ex.company}</p>
+                  )}
                 </div>
-                {ex.shortDesc && <p>{ex.shortDesc}</p>}
+                {ex.shortDesc && (
+                  <p data-aos="fade-up" data-aos-delay="100">
+                    {ex.shortDesc}
+                  </p>
+                )}
               </Timeline.Body>
             </Timeline.Item>
           ))}
         </Timeline>
         <div className="flex justify-center mt-8 sm:hidden">
           <Button variant="outline" radius="full" asChild>
-            <Link href="/articles">
+            <Link href="/about">
               More About Me <IconArrowRight />
             </Link>
           </Button>

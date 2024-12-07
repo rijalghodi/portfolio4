@@ -10,6 +10,8 @@ export const env = createEnv({
     //   NEXTAUTH_JWT_SECRET: z.string().min(32, 'Minimum 32 char for JWT Secret'),
     //   NEXTAUTH_SECRET: z.string().min(32, 'Minimum 32 char for Auth Secret'),
     //   NEXTAUTH_URL: z.string().url(),
+    AUTH_PASSWORD: z.string(),
+    JWT_SECRET: z.string(),
   },
 
   /**
@@ -39,6 +41,8 @@ export const env = createEnv({
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_SANITY_API_VERSION: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+    AUTH_PASSWORD: process.env.AUTH_PASSWORD,
+    JWT_SECRET: process.env.JWT_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

@@ -1,11 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import { IconLoader, IconRefresh } from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
-import { cn } from '@/lib/utils';
 import Cookies from 'js-cookie';
 import { usePathname } from 'next/navigation';
 
@@ -13,6 +12,7 @@ type Props = {
   path?: string;
 };
 export function RevalidateAffix({ path }: Props) {
+  const [authCookie, setAuthCookie] = useState<string>();
   const pathname = usePathname();
   const { mutateAsync: revalidate, isPending } = useMutation({
     mutationKey: ['revalidate'],
@@ -45,17 +45,19 @@ export function RevalidateAffix({ path }: Props) {
     },
   });
 
-  const authCookie = Cookies.get('rijalghodi.dev.token');
+  useEffect(() => {
+    setAuthCookie(Cookies.get('rijalghodi.dev.token'));
+  }, []);
+
+  // Don't show the button if the cookie is not set
+  if (!authCookie) {
+    return null;
+  }
 
   return (
-    <div
-      className={cn(
-        'fixed bottom-6 left-1/2 -translate-x-1/2 z-50',
-        !authCookie && 'hidden',
-      )}
-    >
-      <Button onClick={() => revalidate()} radius="full">
-        {isPending ? <IconLoader className="animate-spin" /> : <IconRefresh />}{' '}
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+      <Button onClick={() => revalidate()} radius="full" disabled={isPending}>
+        {isPending ? <IconLoader className="animate-spin" /> : <IconRefresh />}
         Revalidate
       </Button>
     </div>

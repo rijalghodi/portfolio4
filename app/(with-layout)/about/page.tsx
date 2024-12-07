@@ -6,7 +6,7 @@ import { getExpereinces, getLatestPinnedAbout } from '@/sanity/sanity-utils';
 import { IconDownload } from '@tabler/icons-react';
 import Link from 'next/link';
 
-export const revalidate = 7 * 24 * 60 * 60; // a week
+// export const revalidate = 7 * 24 * 60 * 60; // a week
 
 export default async function About() {
   const about = await getLatestPinnedAbout();

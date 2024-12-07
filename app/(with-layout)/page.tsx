@@ -10,7 +10,7 @@ import {
 import { IProject } from '@/types/project';
 import { IArticle } from '@/types/article';
 
-export const revalidate = 7 * 24 * 60 * 60; // a week
+// export const revalidate = 7 * 24 * 60 * 60; // a week
 
 export default async function Home() {
   const projects: IProject[] = await getProjects(1, 4);

@@ -17,7 +17,7 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export const revalidate = 7 * 24 * 60 * 60; // a week
+// export const revalidate = 7 * 24 * 60 * 60; // a week
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params

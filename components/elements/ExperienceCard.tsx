@@ -39,10 +39,10 @@ export function ExperienceCard(props: ExperienceCardProps) {
           {props.iconUrl && (
             <Image
               src={props.iconUrl}
-              alt="company logo"
-              width={40}
-              height={40}
-              className="rounded-full overflow-clip object-fill"
+              alt="Company logo"
+              width={50}
+              height={50}
+              className="rounded-full h-10 w-10 overflow-clip object-fill"
             />
           )}
           <AccessibleDiv tag={props.titleTag} className="text-xl font-semibold">

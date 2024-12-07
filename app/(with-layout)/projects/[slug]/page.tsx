@@ -95,13 +95,13 @@ export default async function ProjectPage({ params }: ProjectProps) {
       <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
         <header className=" flex flex-col gap-5">
           {project?.icon_url && (
-            <figure data-aos="fade-up" className="relative">
+            <figure data-aos="fade-up">
               <Image
                 src={project?.icon_url}
                 alt="Icon"
-                width={40}
-                height={40}
-                className="rounded-full overflow-clip object-fill"
+                width={50}
+                height={50}
+                className="rounded-full h-10 w-10 overflow-clip object-fill"
               />
             </figure>
           )}
@@ -133,7 +133,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
                         src={tech.icon_url}
                         width={18}
                         height={18}
-                        alt="Icon"
+                        alt="tech icon"
                         className="rounded-full overflow-clip object-fill"
                       />
                     )}

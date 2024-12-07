@@ -10,7 +10,7 @@ import {
 import { IProject } from '@/types/project';
 import { IArticle } from '@/types/article';
 
-export const revalidate = 60 * 10;
+export const revalidate = 7 * 24 * 60 * 60; // a week
 
 export default async function Home() {
   const projects: IProject[] = await getProjects(1, 4);
@@ -18,31 +18,33 @@ export default async function Home() {
   const experiences = await getExpereinces(1, 4);
 
   return (
-    <div>
-      <HeroSection />
-      <ProjectSection
-        projects={projects.map((project) => ({
-          name: project.name,
-          coverImageUrl: project.cover_image_url,
-          description: project.description,
-          slug: project.slug,
-          iconUrl: project.icon_url,
-          role: project.role,
-        }))}
-      />
-      <ArticleSection articles={articles} />
-      <ExperienceSection
-        experiences={experiences?.map((ex) => ({
-          company: ex.company,
-          companyLink: ex.url,
-          iconUrl: ex.icon_url,
-          position: ex.position,
-          category: ex.category,
-          startDate: ex.start_date,
-          endDate: ex.end_date,
-          shortDesc: ex.short_desc,
-        }))}
-      />
-    </div>
+    <>
+      <div>
+        <HeroSection />
+        <ProjectSection
+          projects={projects.map((project) => ({
+            name: project.name,
+            coverImageUrl: project.cover_image_url,
+            description: project.description,
+            slug: project.slug,
+            iconUrl: project.icon_url,
+            role: project.role,
+          }))}
+        />
+        <ArticleSection articles={articles} />
+        <ExperienceSection
+          experiences={experiences?.map((ex) => ({
+            company: ex.company,
+            companyLink: ex.url,
+            iconUrl: ex.icon_url,
+            position: ex.position,
+            category: ex.category,
+            startDate: ex.start_date,
+            endDate: ex.end_date,
+            shortDesc: ex.short_desc,
+          }))}
+        />
+      </div>
+    </>
   );
 }

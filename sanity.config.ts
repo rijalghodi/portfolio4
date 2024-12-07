@@ -13,7 +13,7 @@ export const sanityConfig = defineConfig({
   dataset: env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: env.NEXT_PUBLIC_SANITY_API_VERSION,
 
-  basePath: '/admin',
+  basePath: '/sanity',
 
   plugins: [structureTool(), codeInput(), latexInput()],
 

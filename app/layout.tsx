@@ -8,6 +8,7 @@ import { AOSInit } from '@/contexts/aos-init';
 import 'aos/dist/aos.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { env } from '@/lib/env';
+import { Toaster } from '@/components/ui/sonner';
 
 // const inter = Inter({
 //   weight: ['400', '500', '600', '700', '800', '900'],
@@ -94,7 +95,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ReactQueryProvider>
             <AOSInit>{children}</AOSInit>
-            {/* <LoadingPage /> */}
+            <Toaster />
           </ReactQueryProvider>
         </ThemeProvider>
       </body>

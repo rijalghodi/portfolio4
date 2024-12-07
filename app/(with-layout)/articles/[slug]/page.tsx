@@ -14,7 +14,7 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export const revalidate = 60 * 10;
+export const revalidate = 7 * 24 * 60 * 60; // a week
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
@@ -81,8 +81,6 @@ export default async function ArticlePage({ params }: ArticleProps) {
   const { slug } = params;
 
   const article = await getArticleBySlug(slug);
-
-  // console.log(article);
 
   if (!article) {
     notFound();

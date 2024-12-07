@@ -54,7 +54,13 @@ export function ProjectCard({
           <div className="flex flex-col gap-4">
             <div className="h-9 w-9 relative rounded-full overflow-clip">
               {iconUrl && (
-                <Image src={iconUrl} fill alt="Icon" className="object-fill" />
+                <Image
+                  src={iconUrl}
+                  alt="Icon"
+                  width={40}
+                  height={40}
+                  className="rounded-full overflow-clip object-fill"
+                />
               )}
             </div>
             <div className="flex justify-between group">

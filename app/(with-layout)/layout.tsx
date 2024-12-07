@@ -1,5 +1,6 @@
 import { Footer } from '@/components/elements/Footer';
 import { Header } from '@/components/elements/Header';
+import { RevalidateAffix } from '@/components/elements/RevalidateAffix';
 import React from 'react';
 type Props = {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ export default function WithLayout(props: Props) {
         {props.children}
       </main>
       <Footer />
+      <RevalidateAffix />
     </div>
   );
 }

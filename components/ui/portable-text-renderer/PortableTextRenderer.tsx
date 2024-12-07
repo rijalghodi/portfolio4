@@ -56,7 +56,6 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
             )}
           </figure>
         );
-        // return <Image width={400} height={400} src={imgUrl} alt={value.alt} />;
       },
       code: ({ value }: any) => {
         return (

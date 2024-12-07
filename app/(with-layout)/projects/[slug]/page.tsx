@@ -12,12 +12,12 @@ import Link from 'next/link';
 import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 60 * 10;
-
 type Props = {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
+
+export const revalidate = 7 * 24 * 60 * 60; // a week
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
@@ -95,15 +95,13 @@ export default async function ProjectPage({ params }: ProjectProps) {
       <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
         <header className=" flex flex-col gap-5">
           {project?.icon_url && (
-            <figure
-              data-aos="fade-up"
-              className="h-9 w-9 relative rounded-full overflow-clip"
-            >
+            <figure data-aos="fade-up" className="relative">
               <Image
                 src={project?.icon_url}
-                fill
                 alt="Icon"
-                className="object-fill"
+                width={40}
+                height={40}
+                className="rounded-full overflow-clip object-fill"
               />
             </figure>
           )}

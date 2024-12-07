@@ -1,8 +1,8 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Loader } from './loader';
 import { useTheme } from '@/contexts/theme-context';
+import { IconLoader } from '@tabler/icons-react';
 
 export function LoadingPage() {
   const { theme } = useTheme();
@@ -17,7 +17,7 @@ export function LoadingPage() {
         )}
       ></div>
       <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
-        <Loader />
+        <IconLoader size={28} className="animate-spin text-primary" />
       </div>
     </div>
   );

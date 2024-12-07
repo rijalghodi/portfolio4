@@ -1,5 +1,5 @@
 import { IProject } from '@/types/project';
-import { createClient, groq } from 'next-sanity';
+import { createClient, FilteredResponseQueryOptions, groq } from 'next-sanity';
 import { clientConfig } from './config/client-config';
 import { IArticle } from '@/types/article';
 
@@ -103,7 +103,10 @@ export async function getArticles(
   );
 }
 
-export async function getArticleBySlug(slug: string): Promise<IArticle> {
+export async function getArticleBySlug(
+  slug: string,
+  options?: FilteredResponseQueryOptions,
+): Promise<IArticle> {
   return await createClient(clientConfig).fetch(
     groq`*[_type == "article" && slug.current == $slug][0]{
         _id,
@@ -127,6 +130,7 @@ export async function getArticleBySlug(slug: string): Promise<IArticle> {
       }
       }`,
     { slug },
+    { ...options },
   );
 }
 

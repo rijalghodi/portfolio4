@@ -42,11 +42,7 @@ export function ExperienceCard(props: ExperienceCardProps) {
               alt="company logo"
               width={40}
               height={40}
-              style={{
-                borderRadius: '50%',
-                overflow: 'hidden',
-                objectFit: 'contain',
-              }}
+              className="rounded-full overflow-clip object-fill"
             />
           )}
           <AccessibleDiv tag={props.titleTag} className="text-xl font-semibold">

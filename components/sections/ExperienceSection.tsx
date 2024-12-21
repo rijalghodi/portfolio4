@@ -30,7 +30,11 @@ export function ExperienceSection({ experiences }: Props) {
               <Timeline.Head>
                 <p className="text-sm" data-aos="fade-up">
                   {dateToMMYYYY(ex.startDate)} -{' '}
-                  {ex.stillWorking ? 'Now' : dateToMMYYYY(ex.endDate ?? '')}
+                  {ex.stillWorking
+                    ? 'Now'
+                    : ex.endDate
+                      ? dateToMMYYYY(ex.endDate ?? '')
+                      : '-'}
                 </p>
               </Timeline.Head>
               <Timeline.Body>

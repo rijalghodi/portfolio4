@@ -36,13 +36,18 @@ export function HeroSection() {
       <div className="max-w-screen-md w-full mx-auto ">
         <h1
           data-aos="fade-up"
-          className="text-3xl font-mono font-medium sm:text-5xl py-2 tracking-normal leading-normal sm:leading-normal"
+          className=" font-medium py-2 leading-relaxed sm:leading-loose"
         >
           👋
-          <br /> Hello, I&apos;m{' '}
-          <span className="font-mono tracking-tight">Rijal</span>
           <br />
-          <span ref={typedText}></span>
+          <span className="font-mono text-2xl sm:text-4xl">
+            Hello, I&apos;m Rijal
+          </span>
+          <br />
+          <span
+            className="font-mono text-3xl sm:text-5xl"
+            ref={typedText}
+          ></span>
         </h1>
         <p
           data-aos="fade-up"

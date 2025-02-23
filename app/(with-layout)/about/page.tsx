@@ -72,7 +72,9 @@ export default async function About() {
                       {dateToMMYYYY(ex.start_date)} -{' '}
                       {ex.still_working
                         ? 'Now'
-                        : dateToMMYYYY(ex.end_date ?? '')}
+                        : ex.end_date
+                          ? dateToMMYYYY(ex.end_date ?? '')
+                          : '-'}
                     </p>
                   </Timeline.Head>
                   <Timeline.Body>

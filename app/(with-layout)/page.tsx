@@ -1,14 +1,10 @@
-import { HeroSection } from '@/components/sections/HeroSection';
-import { ArticleSection } from '@/components/sections/ArticleSection';
-import { ProjectSection } from '@/components/sections/ProjectSection';
-import { ExperienceSection } from '@/components/sections/ExperienceSection';
-import {
-  getArticles,
-  getExpereinces,
-  getProjects,
-} from '@/sanity/sanity-utils';
-import { IProject } from '@/types/project';
-import { IArticle } from '@/types/article';
+import { ArticleSection } from "@/components/sections/article-section";
+import { ExperienceSection } from "@/components/sections/experience-section";
+import { HeroSection } from "@/components/sections/hero-section";
+import { ProjectSection } from "@/components/sections/project-section";
+import { getArticles, getExpereinces, getProjects } from "@/sanity/sanity-utils";
+import { IArticle } from "@/types/article";
+import { IProject } from "@/types/project";
 
 // export const revalidate = 7 * 24 * 60 * 60; // a week
 

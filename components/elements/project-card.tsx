@@ -1,12 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-
-import { IconArrowRight } from '@tabler/icons-react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import AccessibleDiv from '../ui/accessible-div';
+import { cn } from "@/lib/utils";
+import { IconArrowRight } from "@tabler/icons-react";
+import Image from "next/image";
+import Link from "next/link";
+import AccessibleDiv from "../ui/accessible-div";
 export type ProjectGlimps = {
   name: string;
   description?: string;
@@ -14,24 +12,13 @@ export type ProjectGlimps = {
   iconUrl?: string;
   coverImageUrl?: string;
   role?: string;
-  titleTag?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  titleTag?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
-export function ProjectCard({
-  description: shortDesc,
-  name,
-  slug,
-  iconUrl,
-  role,
-  titleTag = 'p',
-}: ProjectGlimps) {
+export function ProjectCard({ description: shortDesc, name, slug, iconUrl, role, titleTag = "p" }: ProjectGlimps) {
   // const coverImageUrl = null;
   const Wrapper = ({ children }: any) => {
     return slug ? (
-      <Link
-        href={`/projects/${slug}`}
-        onClick={(e) => e.stopPropagation()}
-        className="group"
-      >
+      <Link href={`/projects/${slug}`} onClick={(e) => e.stopPropagation()} className="group">
         {children}
       </Link>
     ) : (
@@ -43,7 +30,7 @@ export function ProjectCard({
       {/* Image background */}
       <div
         className={cn(
-          'h-72 w-full rounded-xl border overflow-clip relative px-6 py-6 flex flex-col justify-end dark:bg-secondary hover:bg-secondary/50 dark:hover:bg-slate-800',
+          "h-72 w-full rounded-xl border overflow-clip relative px-6 py-6 flex flex-col justify-end dark:bg-secondary hover:bg-secondary/50 dark:hover:bg-slate-800",
         )}
         data-aos="fade-up"
         // style={{
@@ -64,10 +51,7 @@ export function ProjectCard({
               )}
             </div>
             <div className="flex justify-between group">
-              <AccessibleDiv
-                tag={titleTag}
-                className="text-foreground font-medium text-xl tracking-normal"
-              >
+              <AccessibleDiv tag={titleTag} className="text-foreground font-medium text-xl tracking-normal">
                 {name}
               </AccessibleDiv>
               <IconArrowRight

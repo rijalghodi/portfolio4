@@ -1,12 +1,12 @@
-import { IProject } from '@/types/project';
-import { createClient, FilteredResponseQueryOptions, groq } from 'next-sanity';
-import { clientConfig } from './config/client-config';
-import { IArticle } from '@/types/article';
+import { IArticle } from "@/types/article";
+import { IProject } from "@/types/project";
+import { FilteredResponseQueryOptions, createClient, groq } from "next-sanity";
+import { clientConfig } from "./config/client-config";
 
-import imageUrlBuilder from '@sanity/image-url';
-import { SanityClientLike } from '@sanity/image-url/lib/types/types';
-import { IAbout } from '@/types/about';
-import { IExperience } from '@/types/experience';
+import { IAbout } from "@/types/about";
+import { IExperience } from "@/types/experience";
+import imageUrlBuilder from "@sanity/image-url";
+import { SanityClientLike } from "@sanity/image-url/lib/types/types";
 
 const builder = imageUrlBuilder(clientConfig as SanityClientLike);
 
@@ -14,10 +14,7 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
-export async function getProjects(
-  page?: number,
-  limit?: number,
-): Promise<IProject[]> {
+export async function getProjects(page?: number, limit?: number): Promise<IProject[]> {
   const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
 
   return await createClient(clientConfig).fetch(
@@ -82,10 +79,7 @@ export async function getProjectBySlug(slug: string): Promise<IProject | null> {
   );
 }
 
-export async function getArticles(
-  page?: number,
-  limit?: number,
-): Promise<IArticle[]> {
+export async function getArticles(page?: number, limit?: number): Promise<IArticle[]> {
   const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
 
   return await createClient(clientConfig).fetch(
@@ -103,10 +97,7 @@ export async function getArticles(
   );
 }
 
-export async function getArticleBySlug(
-  slug: string,
-  options?: FilteredResponseQueryOptions,
-): Promise<IArticle> {
+export async function getArticleBySlug(slug: string, options?: FilteredResponseQueryOptions): Promise<IArticle> {
   return await createClient(clientConfig).fetch(
     groq`*[_type == "article" && slug.current == $slug][0]{
         _id,
@@ -161,10 +152,7 @@ export const getLatestPinnedAbout = async (): Promise<IAbout> => {
   return createClient(clientConfig).fetch(query);
 };
 
-export async function getExpereinces(
-  page?: number,
-  limit?: number,
-): Promise<IExperience[]> {
+export async function getExpereinces(page?: number, limit?: number): Promise<IExperience[]> {
   const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
 
   return await createClient(clientConfig).fetch(

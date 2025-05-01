@@ -8,27 +8,24 @@ export type Heading = {
 };
 
 // Utility function to get value from an object using a path
-const get = (object: Record<string, any>, path: string[]): any =>
-  path.reduce((prev, curr) => prev[curr], object);
+const get = (object: Record<string, any>, path: string[]): any => path.reduce((prev, curr) => prev[curr], object);
 
 // Utility function to generate object path for subheadings
 const getObjectPath = (paths: number[]): string[] =>
   paths.length === 0
     ? paths.map((path) => String(path))
-    : ['subheadings'].concat(paths.join('.subheadings.').split('.'));
+    : ["subheadings"].concat(paths.join(".subheadings.").split("."));
 
 // Recursive filter function to traverse and find matching nodes
 const filter = <T>(ast: T[], match: (node: T) => boolean): T[] =>
   ast?.reduce((acc: T[], node: T) => {
     if (match(node)) acc.push(node);
-    if ((node as any).children)
-      acc.push(...filter((node as any).children, match)); // Type assertion for children
+    if ((node as any).children) acc.push(...filter((node as any).children, match)); // Type assertion for children
     return acc;
   }, []);
 
 // Function to find headings (e.g., h1, h2, h3) in the AST
-const findHeadings = (ast: any[]): Heading[] =>
-  filter(ast, (node) => /h\d/.test(node.style));
+const findHeadings = (ast: any[]): Heading[] => filter(ast, (node) => /h\d/.test(node.style));
 
 // Function to parse the outline from the AST
 export const parseOutline = (ast: any[]): Heading[] => {

@@ -1,5 +1,5 @@
-import { PortableTextBlock } from 'next-sanity';
-import { ITechnology } from './technology';
+import { PortableTextBlock } from "next-sanity";
+import { ITechnology } from "./technology";
 
 export interface IProject {
   _id: string;
@@ -19,7 +19,7 @@ export interface IProject {
   content?: Array<
     | PortableTextBlock
     | {
-        _type: 'code'; // Code block
+        _type: "code"; // Code block
         language?: string; // Optional, language of the code block
         code?: string; // Optional, the code content
         filename?: string; // Optional, filename of the code block

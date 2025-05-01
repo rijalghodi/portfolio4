@@ -6,12 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "eslint . --fix && npm run format && npm run typecheck",
-    "lint:strict": "eslint --max-warnings=0 .",
+    "postbuild": "next-sitemap",
+    "format": "npx @biomejs/biome format --write .",
+    "lint": "npx @biomejs/biome lint .",
     "typecheck": "tsc --noEmit --incremental false",
-    "format": "prettier -w .",
-    "postbuild": "next-sitemap"
+    "lint:fix": "npx @biomejs/biome check --write .",
+    "test": "npx @biomejs/biome check . && tsc --noEmit --incremental false"
   },
   "dependencies": {
     "@next/third-parties": "^15.0.3",

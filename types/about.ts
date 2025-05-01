@@ -1,4 +1,4 @@
-import { PortableTextBlock } from 'next-sanity';
+import { PortableTextBlock } from "next-sanity";
 
 export interface IAbout {
   _id: string;
@@ -13,7 +13,7 @@ export interface IAbout {
   content?: Array<
     | PortableTextBlock
     | {
-        _type: 'code'; // Code block
+        _type: "code"; // Code block
         language?: string; // Optional, language of the code block
         code?: string; // Optional, the code content
         filename?: string; // Optional, filename of the code block

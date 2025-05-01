@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { useQuery } from '@tanstack/react-query';
-import { IArticle } from '@/types/article';
+import { ArticleItem } from "@/components/elements/article-item";
+import { ArticleItemSkeleton } from "@/components/elements/articlee-item-skeleton";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination';
-import { ArticleItem } from '@/components/elements/ArticleItem';
-import { getArticles } from '@/sanity/sanity-utils';
-import { ArticleItemSkeleton } from '@/components/elements/ArticleItemSkeleton';
+} from "@/components/ui/pagination";
+import { getArticles } from "@/sanity/sanity-utils";
+import { IArticle } from "@/types/article";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Articles() {
   const [page, setPage] = useState(1);
@@ -26,7 +26,7 @@ export default function Articles() {
     error,
     isLoading,
   } = useQuery<IArticle[]>({
-    queryKey: ['articles', page, limit, tag, category],
+    queryKey: ["articles", page, limit, tag, category],
     queryFn: () => getArticles(),
     placeholderData: (previousData) => previousData,
   });
@@ -38,13 +38,8 @@ export default function Articles() {
           <h1 data-aos="fade-up" className="text-4xl font-medium mb-4">
             Articles
           </h1>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="50"
-            className="text-base text-muted-foreground"
-          >
-            Articles on software development, artificial intelligence, and
-            self-improvement.
+          <p data-aos="fade-up" data-aos-delay="50" className="text-base text-muted-foreground">
+            Articles on software development, artificial intelligence, and self-improvement.
           </p>
         </div>
         <div data-aos="fade-up" data-aos-delay="100">
@@ -58,9 +53,7 @@ export default function Articles() {
             </ul>
           ) : error ? (
             <div className="flex items-center justify-center min-h-60 w-full">
-              <div className="text-semibold font-mono uppercase">
-                Error fetching articles
-              </div>
+              <div className="text-semibold font-mono uppercase">Error fetching articles</div>
             </div>
           ) : (
             <ul>
@@ -82,16 +75,10 @@ export default function Articles() {
           <Pagination className="w-full py-6">
             <PaginationContent className="w-full flex items-center justify-between">
               <PaginationItem>
-                <PaginationPrevious
-                  className="text-sm cursor-pointer"
-                  onClick={() => setPage((prev) => prev - 1)}
-                />
+                <PaginationPrevious className="text-sm cursor-pointer" onClick={() => setPage((prev) => prev - 1)} />
               </PaginationItem>
               <PaginationItem>
-                <PaginationNext
-                  className="text-sm cursor-pointer"
-                  onClick={() => setPage((prev) => prev + 1)}
-                />
+                <PaginationNext className="text-sm cursor-pointer" onClick={() => setPage((prev) => prev + 1)} />
               </PaginationItem>
             </PaginationContent>
           </Pagination>

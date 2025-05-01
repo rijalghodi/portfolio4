@@ -1,13 +1,13 @@
-'use server';
+"use server";
 
-import { revalidatePath } from 'next/cache';
-import jwt from 'jsonwebtoken';
-import { NextRequest } from 'next/server';
+import jwt from "jsonwebtoken";
+import { revalidatePath } from "next/cache";
+import { NextRequest } from "next/server";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
 if (!JWT_SECRET) {
-  throw new Error('JWT_SECRET is not defined in the environment variables');
+  throw new Error("JWT_SECRET is not defined in the environment variables");
 }
 
 /**
@@ -16,10 +16,10 @@ if (!JWT_SECRET) {
  * @returns The decoded JWT payload if valid, otherwise throws an error
  */
 function getAndVerifyToken(req: NextRequest) {
-  const token = req.cookies.get?.('rijalghodi.dev.token')?.value;
+  const token = req.cookies.get?.("rijalghodi.dev.token")?.value;
 
   if (!token) {
-    throw new Error('Token not found');
+    throw new Error("Token not found");
   }
 
   return jwt.verify(token, JWT_SECRET as string);
@@ -30,8 +30,8 @@ function getAndVerifyToken(req: NextRequest) {
  * @param req - The Next.js API request object
  */
 function validateRequestMethod(req: NextRequest) {
-  if (req.method !== 'POST') {
-    throw new Error('Method not allowed');
+  if (req.method !== "POST") {
+    throw new Error("Method not allowed");
   }
 }
 
@@ -41,7 +41,7 @@ function validateRequestMethod(req: NextRequest) {
  */
 function revalidate(path: string) {
   if (!path) {
-    throw new Error('Path is required');
+    throw new Error("Path is required");
   }
 
   revalidatePath(path);
@@ -60,12 +60,12 @@ export async function POST(req: NextRequest) {
 
     return new Response(JSON.stringify({ message: `Revalidated ${path}` }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   } catch (error: any) {
-    return new Response(
-      JSON.stringify({ message: error.message || 'An error occurred' }),
-      { status: 400, headers: { 'Content-Type': 'application/json' } },
-    );
+    return new Response(JSON.stringify({ message: error.message || "An error occurred" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }

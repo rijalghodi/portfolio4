@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // Timeline Component
 type TimelineProps = {
@@ -23,7 +23,7 @@ type TimelineHeadProps = {
 Timeline.Head = function TimelineHead({ children }: TimelineHeadProps) {
   return (
     <div>
-      <div className="absolute w-3 h-3 bg-border rounded-full mt-1.5 -start-1.5 border border-secondary"></div>
+      <div className="absolute w-3 h-3 bg-border rounded-full mt-1.5 -start-1.5 border border-secondary" />
       {children}
     </div>
   );

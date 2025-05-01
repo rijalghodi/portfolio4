@@ -1,7 +1,7 @@
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Articles',
+  title: "Articles",
   description:
     "Articles I've written over the years on software development, artificial intelligence, and self-improvement.",
 };

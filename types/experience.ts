@@ -1,4 +1,4 @@
-import { PortableTextBlock } from 'next-sanity';
+import { PortableTextBlock } from "next-sanity";
 
 export interface IExperience {
   _id: string;

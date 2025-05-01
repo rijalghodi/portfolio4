@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { Button } from '../ui/button';
-import { IconLoader, IconRefresh } from '@tabler/icons-react';
-import { useMutation } from '@tanstack/react-query';
-import { toast } from 'sonner';
-import Cookies from 'js-cookie';
-import { usePathname } from 'next/navigation';
+import { IconLoader, IconRefresh } from "@tabler/icons-react";
+import { useMutation } from "@tanstack/react-query";
+import Cookies from "js-cookie";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { Button } from "../ui/button";
 
 type Props = {
   path?: string;
@@ -15,38 +15,38 @@ export function RevalidateAffix({ path }: Props) {
   const [authCookie, setAuthCookie] = useState<string>();
   const pathname = usePathname();
   const { mutateAsync: revalidate, isPending } = useMutation({
-    mutationKey: ['revalidate'],
+    mutationKey: ["revalidate"],
     mutationFn: async () => {
-      const res = await fetch('/api/revalidate', {
-        method: 'POST',
+      const res = await fetch("/api/revalidate", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ path: path ?? pathname }),
       });
 
       if (!res.ok) {
-        throw new Error('Revalidate failed');
+        throw new Error("Revalidate failed");
       }
 
       return res.json(); // Assuming response is in JSON format
     },
     onSuccess: () => {
       window.location.reload();
-      toast('Page has been revalidated', {
-        description: 'Try to refresh the page',
+      toast("Page has been revalidated", {
+        description: "Try to refresh the page",
       });
     },
     onError: (error: Error) => {
-      toast('Fail to revalidate', {
+      toast("Fail to revalidate", {
         description: error.message,
-        className: 'bg-destructive',
+        className: "bg-destructive",
       });
     },
   });
 
   useEffect(() => {
-    setAuthCookie(Cookies.get('rijalghodi.dev.token'));
+    setAuthCookie(Cookies.get("rijalghodi.dev.token"));
   }, []);
 
   // Don't show the button if the cookie is not set

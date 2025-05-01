@@ -1,11 +1,9 @@
-'use client';
-
-import React from 'react';
-import { Button } from '../ui/button';
-import Link from 'next/link';
-import { IArticle } from '@/types/article';
-import { IconArrowRight } from '@tabler/icons-react';
-import { ArticleItem } from '../elements/ArticleItem';
+"use client";
+import { IArticle } from "@/types/article";
+import { IconArrowRight } from "@tabler/icons-react";
+import Link from "next/link";
+import { ArticleItem } from "../elements/article-item";
+import { Button } from "../ui/button";
 export function ArticleSection({ articles }: { articles: IArticle[] }) {
   return (
     <section className="z-0 bg-background pt-16 pb-16" id="articles">
@@ -14,7 +12,7 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
           <h2 className="text-2xl sm:text-3xl font-semibold ">Articles</h2>
           <Button variant="ghost" className="group" asChild>
             <Link href="/articles">
-              All Articles{' '}
+              All Articles{" "}
               <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>
@@ -22,12 +20,7 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
 
         <ul>
           {articles?.map((article, i) => (
-            <li
-              key={i}
-              className="border-b border-border"
-              data-aos="fade-up"
-              data-aos-delay={`${i * 50}`}
-            >
+            <li key={i} className="border-b border-border" data-aos="fade-up" data-aos-delay={`${i * 50}`}>
               <ArticleItem
                 title={article.title}
                 url={`/articles/${article.slug}`}

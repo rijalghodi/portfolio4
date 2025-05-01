@@ -1,10 +1,8 @@
-'use client';
-
-import React from 'react';
-import { Button } from '../ui/button';
-import Link from 'next/link';
-import { IconArrowRight } from '@tabler/icons-react';
-import { ProjectCard, ProjectGlimps } from '../elements/ProjectCard';
+"use client";
+import { IconArrowRight } from "@tabler/icons-react";
+import Link from "next/link";
+import { ProjectCard, ProjectGlimps } from "../elements/project-card";
+import { Button } from "../ui/button";
 export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
   return (
     <section className="z-0 bg-background pt-16 pb-16" id="projects">

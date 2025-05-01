@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Button, ButtonProps } from '@/components/ui/button'; // Adjust import as needed
-import { IconCheck, IconCopy } from '@tabler/icons-react';
+import { Button, ButtonProps } from "@/components/ui/button"; // Adjust import as needed
+import { IconCheck, IconCopy } from "@tabler/icons-react";
+import { useState } from "react";
 
 interface CopyButtonProps extends ButtonProps {
   value: string; // Text to copy
@@ -10,12 +10,7 @@ interface CopyButtonProps extends ButtonProps {
   labelCopied?: string;
 }
 
-export function CopyButton({
-  value,
-  labelCopied,
-  labelDefault,
-  ...props
-}: CopyButtonProps) {
+export function CopyButton({ value, labelCopied, labelDefault, ...props }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {

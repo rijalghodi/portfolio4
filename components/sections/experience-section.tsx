@@ -1,12 +1,10 @@
-'use client';
-
-import React from 'react';
-import { Button } from '../ui/button';
-import Link from 'next/link';
-import { IconArrowRight } from '@tabler/icons-react';
-import { ExperienceView } from '../elements/ExperienceCard';
-import { Timeline } from '../ui/timeline';
-import { dateToMMYYYY } from '@/lib/utils';
+"use client";
+import { dateToMMYYYY } from "@/lib/utils";
+import { IconArrowRight } from "@tabler/icons-react";
+import Link from "next/link";
+import { ExperienceView } from "../elements/experience-card";
+import { Button } from "../ui/button";
+import { Timeline } from "../ui/timeline";
 
 type Props = {
   experiences: ExperienceView[];
@@ -19,7 +17,7 @@ export function ExperienceSection({ experiences }: Props) {
           <h2 className="text-2xl sm:text-3xl font-semibold">Experiences</h2>
           <Button variant="ghost" className="group" asChild>
             <Link href="/about">
-              More About Me{' '}
+              More About Me{" "}
               <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>
@@ -29,22 +27,16 @@ export function ExperienceSection({ experiences }: Props) {
             <Timeline.Item key={i}>
               <Timeline.Head>
                 <p className="text-sm" data-aos="fade-up">
-                  {dateToMMYYYY(ex.startDate)} -{' '}
-                  {ex.stillWorking
-                    ? 'Now'
-                    : ex.endDate
-                      ? dateToMMYYYY(ex.endDate)
-                      : 'Present'}
+                  {dateToMMYYYY(ex.startDate)} -{" "}
+                  {ex.stillWorking ? "Now" : ex.endDate ? dateToMMYYYY(ex.endDate) : "Present"}
                 </p>
               </Timeline.Head>
               <Timeline.Body>
                 <div className="mb-3" data-aos="fade-up" data-aos-delay="50">
-                  <h3 className="font-normal text-xl sm:text-2xl mb-2">
-                    {ex.position}
-                  </h3>
+                  <h3 className="font-normal text-xl sm:text-2xl mb-2">{ex.position}</h3>
                   {ex.companyLink ? (
                     <Link
-                      href={ex.companyLink ?? '#'}
+                      href={ex.companyLink ?? "#"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline"

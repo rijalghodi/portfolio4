@@ -6,20 +6,20 @@ export type Menu = {
 
 export const menus: Menu[] = [
   {
-    title: 'Home',
-    link: '/',
+    title: "Home",
+    link: "/",
   },
   {
-    title: 'Project',
-    link: '/projects',
+    title: "Project",
+    link: "/projects",
   },
   {
-    title: 'Article',
-    link: '/articles',
+    title: "Article",
+    link: "/articles",
   },
   {
-    title: 'Github',
-    link: 'https://github.com/rijalghodi',
+    title: "Github",
+    link: "https://github.com/rijalghodi",
     openInNewTab: true,
   },
 ];

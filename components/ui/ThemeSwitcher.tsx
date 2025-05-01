@@ -1,8 +1,7 @@
 // ThemeSwitcher.js
-import { useTheme } from '@/contexts/theme-context';
-import React from 'react';
-import { Button } from './button';
-import { IconMoon, IconSun } from '@tabler/icons-react';
+import { useTheme } from "@/contexts/theme-context";
+import { IconMoon, IconSun } from "@tabler/icons-react";
+import { Button } from "./button";
 
 function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
@@ -16,7 +15,7 @@ function ThemeSwitcher() {
       onClick={toggleTheme}
       className="p-2"
     >
-      {theme === 'light' ? <IconMoon size={18} /> : <IconSun size={18} />}
+      {theme === "light" ? <IconMoon size={18} /> : <IconSun size={18} />}
     </Button>
   );
 }

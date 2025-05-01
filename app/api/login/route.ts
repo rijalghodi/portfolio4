@@ -1,6 +1,6 @@
-import { NextRequest } from 'next/server';
-import jwt from 'jsonwebtoken';
-import { LRUCache } from 'lru-cache';
+import jwt from "jsonwebtoken";
+import { LRUCache } from "lru-cache";
+import { NextRequest } from "next/server";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 const AUTH_PASSWORD = process.env.AUTH_PASSWORD!;
@@ -13,33 +13,33 @@ const rateLimiter = new LRUCache<string, number>({
 
 export async function POST(req: NextRequest) {
   try {
-    if (req.method !== 'POST') {
-      return new Response('Method not allowed', { status: 405 });
+    if (req.method !== "POST") {
+      return new Response("Method not allowed", { status: 405 });
     }
 
     const body = await req.json();
     const { email, password } = body;
 
     if (!email || !password) {
-      return new Response(
-        JSON.stringify({ message: 'Email and password are required' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } },
-      );
+      return new Response(JSON.stringify({ message: "Email and password are required" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     const ip =
-      req.headers.get('x-forwarded-for') ||
+      req.headers.get("x-forwarded-for") ||
       req.ip || // Next.js automatically extracts the IP
-      'unknown';
+      "unknown";
 
     // Throttling logic
     const requestCount = rateLimiter.get(ip) || 0;
 
     if (requestCount >= 10) {
-      return new Response(
-        JSON.stringify({ message: 'Too many requests. Try again later.' }),
-        { status: 429, headers: { 'Content-Type': 'application/json' } },
-      );
+      return new Response(JSON.stringify({ message: "Too many requests. Try again later." }), {
+        status: 429,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     // Increment request count for the current IP
@@ -47,26 +47,26 @@ export async function POST(req: NextRequest) {
 
     // Authentication logic
     if (password !== AUTH_PASSWORD) {
-      return new Response(JSON.stringify({ message: 'Invalid password' }), {
+      return new Response(JSON.stringify({ message: "Invalid password" }), {
         status: 401,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
     }
 
-    const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: '7d' });
+    const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: "7d" });
 
     return new Response(JSON.stringify({ token }), {
       status: 200,
       headers: {
-        'Content-Type': 'application/json',
-        'Set-Cookie': `rijalghodi.dev.token=${token}; Path=/; Secure; SameSite=Strict; Max-Age=604800`,
+        "Content-Type": "application/json",
+        "Set-Cookie": `rijalghodi.dev.token=${token}; Path=/; Secure; SameSite=Strict; Max-Age=604800`,
       },
     });
   } catch (error) {
     console.error(error);
-    return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   }
 }

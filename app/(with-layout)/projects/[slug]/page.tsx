@@ -1,16 +1,14 @@
-import React from 'react';
+import Image from "next/image";
 
-import Image from 'next/image';
-
-import type { Metadata } from 'next';
-import { getProjectBySlug } from '@/sanity/sanity-utils';
-import { PortableTextRenderer } from '@/components/ui/portable-text-renderer/PortableTextRenderer';
-import { badgeVariants } from '@/components/ui/badge';
-import { ProjectPreviewCarousel } from '@/components/elements/ProjectPreviewCarousel';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
-import { notFound } from 'next/navigation';
+import { ProjectPreviewCarousel } from "@/components/elements/project-preview-carousel";
+import { badgeVariants } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
+import { getProjectBySlug } from "@/sanity/sanity-utils";
+import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -29,47 +27,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const siteName = "Rijal Ghodi's Portfolio";
 
   return {
-    title: `${project?.name ?? 'Project'} | ${siteName}`,
+    title: `${project?.name ?? "Project"} | ${siteName}`,
     description: project?.description,
     openGraph: {
-      type: 'website',
+      type: "website",
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/projects/${slug}`,
-      title: `${project?.name ?? 'Project'} | ${siteName}`,
+      title: `${project?.name ?? "Project"} | ${siteName}`,
       description: project?.description,
       siteName: siteName,
-      images: [
-        project?.cover_image_url ??
-          `${process.env.NEXT_PUBLIC_SITE_URL}/project-opengraph-image.png`,
-      ],
+      images: [project?.cover_image_url ?? `${process.env.NEXT_PUBLIC_SITE_URL}/project-opengraph-image.png`],
     },
     twitter: {
-      title: `${project?.name ?? 'Project'} | ${siteName}`,
-      images: [
-        project?.cover_image_url ??
-          `${process.env.NEXT_PUBLIC_SITE_URL}/project-opengraph-image.png`,
-      ],
+      title: `${project?.name ?? "Project"} | ${siteName}`,
+      images: [project?.cover_image_url ?? `${process.env.NEXT_PUBLIC_SITE_URL}/project-opengraph-image.png`],
       description: project?.description,
-      site: '@zalcode_id',
-      card: 'summary_large_image',
-      creator: '@zalcode_id',
+      site: "@zalcode_id",
+      card: "summary_large_image",
+      creator: "@zalcode_id",
     },
-    authors: [{ name: 'Rijal Ghodi', url: 'rijalghodi.dev@gmail.com' }],
-    creator: 'Rijal Ghodi',
+    authors: [{ name: "Rijal Ghodi", url: "rijalghodi.dev@gmail.com" }],
+    creator: "Rijal Ghodi",
     applicationName: "Rijal Ghodi's Portfolio",
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? 'https://rijalghodi.dev',
-    ),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://rijalghodi.dev"),
     keywords: [
-      'Rijal Ghodi',
-      'Rijal',
-      'Ghodi',
-      'Software Developer',
-      'Software Engineer',
-      'Frontend Developer',
-      'Backend Developer',
-      'FullStack Developer',
-      'ML Engineer',
-      'AI Engineer',
+      "Rijal Ghodi",
+      "Rijal",
+      "Ghodi",
+      "Software Developer",
+      "Software Engineer",
+      "Frontend Developer",
+      "Backend Developer",
+      "FullStack Developer",
+      "ML Engineer",
+      "AI Engineer",
     ],
   };
 }
@@ -105,10 +95,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
               />
             </figure>
           )}
-          <h1
-            data-aos="fade-up"
-            className="text-3xl sm:text-4xl font-medium leading-tight"
-          >
+          <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-medium leading-tight">
             {project?.name}
           </h1>
           <p data-aos="fade-up" data-aos-delay="50" className="sm:text-lg">
@@ -124,9 +111,9 @@ export default async function ProjectPage({ params }: ProjectProps) {
                 {project?.technologies.map((tech) => (
                   <Link
                     key={tech.name}
-                    href={tech.link ?? '#'}
-                    className={badgeVariants({ variant: 'outline' })}
-                    target={tech.link && '_blank'}
+                    href={tech.link ?? "#"}
+                    className={badgeVariants({ variant: "outline" })}
+                    target={tech.link && "_blank"}
                   >
                     {tech.icon_url && (
                       <Image
@@ -137,27 +124,17 @@ export default async function ProjectPage({ params }: ProjectProps) {
                         className="rounded-full overflow-clip object-fill"
                       />
                     )}
-                    <span className="text-accent-foreground text-xs font-semibold">
-                      {tech.name}
-                    </span>
+                    <span className="text-accent-foreground text-xs font-semibold">{tech.name}</span>
                   </Link>
                 ))}
               </div>
             )}
-            {project?.role && (
-              <div className="text-sm font-semibold font-mono uppercase">
-                {project.role}
-              </div>
-            )}
+            {project?.role && <div className="text-sm font-semibold font-mono uppercase">{project.role}</div>}
           </div>
         </header>
         {/* Gallery */}
         {project?.previews && (
-          <div
-            data-aos="fade-up"
-            data-aos-delay="150"
-            className="flex items-center w-full justify-center"
-          >
+          <div data-aos="fade-up" data-aos-delay="150" className="flex items-center w-full justify-center">
             <ProjectPreviewCarousel
               previews={project.previews
                 .filter(({ image_url }) => image_url)
@@ -168,11 +145,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
             />
           </div>
         )}
-        <div
-          data-aos="fade-up"
-          data-aos-delay="150"
-          className="flex gap-2 items-center justify-center w-full"
-        >
+        <div data-aos="fade-up" data-aos-delay="150" className="flex gap-2 items-center justify-center w-full">
           {project?.demo_link && (
             <Button asChild variant="default" className="rounded-full">
               <Link href={project?.demo_link} target="_blank">

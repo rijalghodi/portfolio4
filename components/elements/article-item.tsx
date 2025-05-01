@@ -1,7 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import AccessibleDiv from '../ui/accessible-div';
+import Image from "next/image";
+import Link from "next/link";
+import AccessibleDiv from "../ui/accessible-div";
 
 type Props = {
   url: string;
@@ -10,7 +9,7 @@ type Props = {
   date?: string;
   coverImageUrl?: string;
   coverImageAlt?: string;
-  titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  titleTag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
 };
 export function ArticleItem(props: Props) {
   return (
@@ -20,7 +19,7 @@ export function ArticleItem(props: Props) {
     >
       <div className="flex flex-col gap-3 flex-1">
         <AccessibleDiv
-          tag={props.titleTag ?? 'p'}
+          tag={props.titleTag ?? "p"}
           className="text-xl font-medium text-foreground tracking-wide"
           // data-aos="fade-up"
         >
@@ -33,10 +32,10 @@ export function ArticleItem(props: Props) {
         </p>
         {props.date && (
           <p className="font-semibold uppercase font-mono text-xs">
-            {new Date(props.date).toLocaleDateString('en', {
-              day: '2-digit',
-              month: 'short',
-              year: 'numeric',
+            {new Date(props.date).toLocaleDateString("en", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
             })}
           </p>
         )}
@@ -49,7 +48,7 @@ export function ArticleItem(props: Props) {
           <Image
             src={props.coverImageUrl}
             fill
-            alt={props.coverImageAlt ?? 'cover'}
+            alt={props.coverImageAlt ?? "cover"}
             className="object-cover rounded-xl"
           />
         </div>

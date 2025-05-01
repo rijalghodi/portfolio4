@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { IconChevronDown } from '@tabler/icons-react';
-import { useEffect, useRef, useState } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
+import { IconChevronDown } from "@tabler/icons-react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 // Type for the outline structure
 type Heading = {
@@ -12,15 +12,13 @@ type Heading = {
 
 // Utility function to get text from children nodes
 const getChildrenText = (props: (string | { text: string })[]): string =>
-  props
-    .map((node) => (typeof node === 'string' ? node : node.text || ''))
-    .join('');
+  props.map((node) => (typeof node === "string" ? node : node.text || "")).join("");
 
 const scrollToElement = (id: string, offset: number) => {
   const element = document.getElementById(id);
   if (element) {
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+    window.scrollTo({ top, behavior: "smooth" });
   }
 };
 // TableOfContents component that takes an array of headings as the outline
@@ -31,7 +29,7 @@ const PerLevelHeadings = ({ outline }: { outline: Heading[] }) => (
       <li key={_key} className="flex flex-col gap-3">
         <Link
           className="underline hover:text-slate-500 dark:hover:text-slate-400 text-sm"
-          href={'#' + _key}
+          href={`#${_key}`}
           onClick={(e) => {
             e.preventDefault();
             scrollToElement(_key, 100);
@@ -48,11 +46,10 @@ const PerLevelHeadings = ({ outline }: { outline: Heading[] }) => (
     ))}
   </ol>
 );
-import React from 'react';
 
 export const TableOfContents = ({
   outline,
-  className = '',
+  className = "",
 }: {
   outline: Heading[];
   className?: string;
@@ -82,39 +79,29 @@ export const TableOfContents = ({
   return (
     <div className={`w-full ${className}`}>
       {/* Trigger */}
-      <div
-        role="button"
+      <button
         className="flex justify-between items-center hover:bg-accent dark:hover:bg-secondary m-1 p-3 rounded-lg cursor-pointer"
         onClick={toggleOpen}
       >
         <h2 className="text-xl font-medium leading-snug">Table of Content</h2>
-        <IconChevronDown
-          size={16}
-          className={cn('transition-transform', open && 'rotate-180')}
-        />
-      </div>
+        <IconChevronDown size={16} className={cn("transition-transform", open && "rotate-180")} />
+      </button>
 
       {/* Content with Smooth Transition */}
       <div
         ref={contentRef}
         className={cn(
-          'overflow-hidden transition-all duration-300 ease-in-out w-full',
+          "overflow-hidden transition-all duration-300 ease-in-out w-full",
           // !open ? `h-0` : `h-full`,
         )}
         style={{
-          height: contentHeight === undefined ? '0px' : `${contentHeight}px`,
+          height: contentHeight === undefined ? "0px" : `${contentHeight}px`,
         }}
       >
-        <div
-          className="mt-2 px-4 xl:max-h-[calc(100vh-174px)] overflow-y-auto"
-          role="region"
-        >
+        <section className="mt-2 px-4 xl:max-h-[calc(100vh-174px)] overflow-y-auto">
           <PerLevelHeadings outline={outline} />
-          <div
-            role="none"
-            className="mx-auto mt-4 mb-4 h-2 w-[100px] rounded-full bg-secondary"
-          />
-        </div>
+          <div className="mx-auto mt-4 mb-4 h-2 w-[100px] rounded-full bg-secondary" />
+        </section>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
-import { LoadingPage } from '@/components/ui/loading-page';
-import React from 'react';
+import { LoadingPage } from "@/components/ui/loading-page";
 export default function Loading() {
   return <LoadingPage />;
 }

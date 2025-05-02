@@ -3,23 +3,22 @@ import "./globals.css";
 import { AOSInit } from "@/contexts/aos-init";
 import { ReactQueryProvider } from "@/contexts/react-query-context";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { JetBrains_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Roboto_Flex, Source_Code_Pro } from "next/font/google";
 import "aos/dist/aos.css";
 import { Toaster } from "@/components/ui/sonner";
 import { env } from "@/lib/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-// const inter = Inter({
-//   weight: ['400', '500', '600', '700', '800', '900'],
-//   subsets: ['latin'],
-//   variable: '--font-inter',
-// });
+const inter = Roboto_Flex({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
-const jetbrains = JetBrains_Mono({
+const mono = Source_Code_Pro({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-mono",
 });
 
 // const geistSans = localFont({
@@ -34,12 +33,12 @@ const jetbrains = JetBrains_Mono({
 //   weight: '100 900',
 // });
 
-const inter = localFont({
-  src: "./fonts/Inter.ttf",
-  variable: "--font-inter-visual",
-  weight: "100 900",
-  fallback: ["sans-serif"],
-});
+// const inter = localFont({
+//   src: "./fonts/Inter.ttf",
+//   variable: "--font-inter-visual",
+//   weight: "100 900",
+//   fallback: ["sans-serif"],
+// });
 
 const title = "Rijal Ghodi's Portfolio";
 const description =
@@ -87,7 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
-      <body className={`${inter.className} ${inter.variable} ${jetbrains.variable} antialiased`}>
+      <body className={`${inter.className} ${inter.variable} ${mono.variable} antialiased`}>
         <ThemeProvider>
           <ReactQueryProvider>
             <AOSInit>{children}</AOSInit>

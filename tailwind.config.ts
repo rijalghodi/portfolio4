@@ -78,7 +78,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter-visual)", ...fontFamily.sans],
-        mono: ["var(--font-jetbrains)", ...fontFamily.mono],
+        mono: ["var(--font-mono)", ...fontFamily.mono],
       },
       backgroundImage: {
         "dark-image-gradient": "linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 100%)",

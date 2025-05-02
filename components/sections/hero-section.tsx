@@ -5,24 +5,11 @@ import { contactEmail, contactLinkedIn } from "@/data/contact";
 import { cn } from "@/lib/utils";
 import { IconArrowUpRight, IconChevronsDown } from "@tabler/icons-react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import Typed from "typed.js";
 import { SocialLinks } from "../elements/social-links";
 import { Button } from "../ui/button";
 import { CopyButton } from "../ui/copy-button";
 export function HeroSection() {
   const { theme } = useTheme();
-
-  const typedText = useRef(null);
-  useEffect(() => {
-    const typed = new Typed(typedText.current, {
-      strings: ["Web Developer", "Full Stack Dev", "Freelancer"],
-      typeSpeed: 100,
-      loop: true,
-    });
-
-    return () => typed.destroy();
-  }, []);
 
   const scrollToContent = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -30,26 +17,18 @@ export function HeroSection() {
   return (
     <section id="intro" style={{ minHeight: "calc(100vh - 80px)" }} className="relative pt-16 pb-16 flex items-center">
       <div className="max-w-screen-md w-full mx-auto ">
-        <h1 data-aos="fade-up" className=" font-medium py-2 leading-relaxed sm:leading-loose">
-          👋
+        <h1 data-aos="fade-up" className=" font-medium py-4 font-mono sm:leading-[2.2]">
+          {/* <span data-aos="fade-up" data-aos-delay="50" className="text-lg sm:text-xl text-foreground">
+            Hi, there 👋
+          </span> */}
           <br />
-          <span className="font-mono text-2xl sm:text-4xl">Hello, I&apos;m Rijal</span>
+          <span className="font-mono text-4xl md:text-5xl">I&apos;m Rijal Ghodi</span>
           <br />
-          <span className="font-mono text-3xl sm:text-5xl" ref={typedText} />
+          <span className="font-mono  mt-4 md:mt-2 text-4xl md:text-5xl">Full Stack Developer</span>
         </h1>
-        <p data-aos="fade-up" data-aos-delay="50" className="text-lg sm:text-xl py-2 leading-relaxed text-foreground">
-          I build{" "}
-          <Link href="/project" className="text-primary hover:underline">
-            software and artificial intelligence
-          </Link>{" "}
-          to benefit humanity. On this site, you can check out all the{" "}
-          <Link href="/articles" className="text-primary hover:underline">
-            articles
-          </Link>{" "}
-          I&apos;ve written or learn more{" "}
-          <Link href="/about" className="text-primary hover:underline">
-            about me.
-          </Link>
+        <p data-aos="fade-up" data-aos-delay="50" className="text-lg sm:text-xl py-4 text-foreground leading-loose">
+          2+ years of experience turn ideas into beautiful web applications. Focus in clean code, intuitive design, and
+          scalable solutions.
         </p>
 
         <div className="flex gap-6 mt-6 xs:gap-1 items-center flex-wrap">

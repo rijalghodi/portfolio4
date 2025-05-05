@@ -12,7 +12,7 @@ type Props = {
 export function ExperienceSection({ experiences }: Props) {
   return (
     <section className="z-0 bg-background pt-16 pb-16" id="experiences">
-      <div className="max-w-screen-md w-full mx-auto ">
+      <div className="max-w-screen-lg w-full mx-auto ">
         <div className="flex justify-between items-center flex-wrap mb-8">
           <h2 className="text-2xl sm:text-3xl font-semibold">Experiences</h2>
           <Button variant="ghost" className="group" asChild>

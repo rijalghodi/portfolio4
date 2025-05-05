@@ -12,10 +12,6 @@ const config: Config = {
   },
   theme: {
     extend: {
-      screens: {
-        xl: "1250px",
-        "2xl": "1400px",
-      },
       colors: {
         slate: {
           "50": "hsl(210, 100%, 97%)",
@@ -30,7 +26,12 @@ const config: Config = {
           "900": "hsl(211 36.6% 16.1%)", // secondary dark
           "950": "hsl(211, 80%, 10%)", // background dark
         },
-        background: "hsl(var(--background))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          "1": "hsl(var(--background-1))",
+          "2": "hsl(var(--background-2))",
+          "3": "hsl(var(--background-3))",
+        },
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -82,6 +83,21 @@ const config: Config = {
       },
       backgroundImage: {
         "dark-image-gradient": "linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 100%)",
+      },
+      animation: {
+        spotlight: "spotlight 2s ease .75s 1 forwards",
+      },
+      keyframes: {
+        spotlight: {
+          "0%": {
+            opacity: "1",
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
       },
     },
   },

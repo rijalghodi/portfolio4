@@ -33,7 +33,7 @@ export default function Articles() {
 
   return (
     <section className="z-0 bg-background pt-8 pb-16" id="projects">
-      <div className="max-w-screen-md w-full mx-auto">
+      <div className="max-w-screen-lg w-full mx-auto">
         <div className="mb-8">
           <h1 data-aos="fade-up" className="text-4xl font-medium mb-4">
             Articles

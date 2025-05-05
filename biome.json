@@ -40,7 +40,8 @@
       },
       "style": {
         "noNonNullAssertion": "off",
-        "useImportType": "off"
+        "useImportType": "off",
+        "useSelfClosingElements": "off"
       }
     }
   },

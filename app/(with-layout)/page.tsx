@@ -15,7 +15,7 @@ export default async function Home() {
 
   return (
     <>
-      <div>
+      <div className="relative">
         <HeroSection />
         <ProjectSection
           projects={projects.map((project) => ({

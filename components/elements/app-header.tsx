@@ -49,13 +49,13 @@ export function Header() {
   const scrolled = useScrolled();
 
   return (
-    <div className={cn("fixed z-50 right-0 left-0 top-0")}>
+    <div className={cn("fixed z-50 right-0 left-0 top-0 px-6")}>
       <header
         className={cn(
           "w-full flex justify-between mx-auto",
-          "px-7 py-3 transition-all duration-300 ease-in-out",
+          "px-0 py-3 transition-all duration-300 ease-in-out",
           scrolled
-            ? "top-2.5 max-w-[768px] bg-background-1/50 backdrop-blur-md rounded-full border shadow-lg mt-3"
+            ? "px-7 top-2.5 max-w-[768px] bg-background-1/50 backdrop-blur-md rounded-full border shadow-lg mt-3"
             : "top-0 max-w-[1024px] bg-transparent rounded-md mt-0",
         )}
       >

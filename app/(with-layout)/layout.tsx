@@ -1,5 +1,5 @@
 import { Footer } from "@/components/elements/footer";
-import { Header } from "@/components/elements/header";
+import { Header } from "@/components/elements/app-header";
 import { RevalidateAffix } from "@/components/elements/revalidate-affix";
 import React from "react";
 type Props = {

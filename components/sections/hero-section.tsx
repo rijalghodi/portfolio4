@@ -17,9 +17,6 @@ export function HeroSection() {
       <div className="max-w-screen-lg w-full mx-auto">
         <div className="max-w-[800px] w-full">
           <h1 data-aos="fade-up" className=" font-medium py-4 font-mono sm:leading-[2.2]">
-            {/* <span data-aos="fade-up" data-aos-delay="50" className="text-lg sm:text-xl text-foreground">
-            Hi, there 👋
-          </span> */}
             <span className="font-mono text-4xl md:text-5xl">I&apos;m Rijal Ghodi</span>
             <br />
             <span className="font-mono  mt-4 md:mt-2 text-4xl md:text-5xl">Full Stack Developer</span>

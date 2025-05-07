@@ -43,7 +43,10 @@ export const IconOrion = React.forwardRef<SVGSVGElement, IconProps>(({ size = 24
     {/* <!-- Stars with appropriate sizes, colors and sparkling animations -->
   <!-- left_leg --> */}
     {Object.entries(orionStars).map(([key, star]) => (
-      <g transform={`translate(${star.x * 1000}, ${(1 - star.y) * 1000})`} key={key}>
+      <g
+        transform={`translate(${star.x * 1000 - (star.size * 10) / 2}, ${(1 - star.y) * 1000 - (star.size * 40) / 2})`}
+        key={key}
+      >
         <use href="#star-template" transform={`scale(${star.size * 2 * 0.2})`} fill="#FFFFFF" opacity="0.9">
           <animate
             attributeName="opacity"

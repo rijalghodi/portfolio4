@@ -18,9 +18,8 @@ export function HeroSection() {
       <ShootingStars />
 
       <div className="relative max-w-screen-lg w-full mx-auto">
-        {/* <Image src={orion} alt="Orion" width={800} height={800} /> */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px]">
-          <IconOrion size={400} className="animate-float" />
+        <div className="absolute top-0 right-0">
+          <IconOrion className="animate-float w-[100px] sm:w-[200px] h-[100px] sm:h-[200px] md:w-[400px] md:h-[400px]" />
         </div>
         <div className="max-w-[800px] w-full">
           <h1 data-aos="fade-up" className="relative font-medium py-4 font-mono sm:leading-[2.2]">

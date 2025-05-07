@@ -1,22 +1,29 @@
 "use client";
 import { contactEmail, contactLinkedIn } from "@/data/contact";
-import { IconArrowUpRight } from "@tabler/icons-react";
+import { Send } from "lucide-react";
 import Link from "next/link";
 import { SocialLinks } from "../elements/social-links";
 import { Button } from "../ui/button";
 import { CopyButton } from "../ui/copy-button";
+import { IconOrion } from "../ui/icon-orion";
 import { ShootingStars } from "../ui/shooting-stars";
 import { Spotlight } from "../ui/spotlight-new";
 import { StarsBackground } from "../ui/stars-background";
+
 export function HeroSection() {
   return (
     <section id="intro" className="relative pt-16 pb-16 flex items-center">
       <Spotlight />
-      <StarsBackground />
+      <StarsBackground minTwinkleSpeed={2} maxTwinkleSpeed={4} allStarsTwinkle />
       <ShootingStars />
-      <div className="max-w-screen-lg w-full mx-auto">
+
+      <div className="relative max-w-screen-lg w-full mx-auto">
+        {/* <Image src={orion} alt="Orion" width={800} height={800} /> */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px]">
+          <IconOrion size={400} className="animate-float" />
+        </div>
         <div className="max-w-[800px] w-full">
-          <h1 data-aos="fade-up" className=" font-medium py-4 font-mono sm:leading-[2.2]">
+          <h1 data-aos="fade-up" className="relative font-medium py-4 font-mono sm:leading-[2.2]">
             <span className="font-mono text-4xl md:text-5xl">I&apos;m Rijal Ghodi</span>
             <br />
             <span className="font-mono  mt-4 md:mt-2 text-4xl md:text-5xl">Full Stack Developer</span>
@@ -37,10 +44,11 @@ export function HeroSection() {
                 data-aos-delay="100"
               >
                 <Link href={contactLinkedIn} target="_blank">
-                  <IconArrowUpRight />
-                  Hire Me
+                  <Send />
+                  Contact Me
                 </Link>
               </Button>
+
               <CopyButton
                 value={contactEmail}
                 labelDefault="Copy Email"

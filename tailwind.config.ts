@@ -86,6 +86,9 @@ const config: Config = {
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        "meteor-effect": "meteor 5s linear infinite",
+        "zoom-in-out": "zoom-in-out 2s ease-in-out infinite alternate",
+        float: "float 8s ease-in-out infinite",
       },
       keyframes: {
         spotlight: {
@@ -95,7 +98,48 @@ const config: Config = {
           },
           "100%": {
             opacity: "1",
-            transform: "translate(-50%,-40%) scale(1)",
+            transform: "translate(-50%, -40%) scale(1)",
+          },
+        },
+        "zoom-in-out": {
+          "0%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "1",
+          },
+          "85%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+          },
+        },
+        meteor: {
+          "0%": {
+            transform: "rotate(215deg) translateX(0)",
+            opacity: "1",
+          },
+          "70%": {
+            opacity: "1",
+          },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        float: {
+          "0%, 100%": {
+            transform: "translate(0px, 0px) rotate(0deg)",
+          },
+          "25%": {
+            transform: "translate(10px, -5px) rotate(3deg)",
+          },
+          "50%": {
+            transform: "translate(-10px, 5px) rotate(-3deg)",
+          },
+          "75%": {
+            transform: "translate(5px, 10px) rotate(2deg)",
           },
         },
       },

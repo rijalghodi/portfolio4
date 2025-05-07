@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <!-- Star template -->
+    <g id="star-template">
+      <path d="M0 0L2.59176 15.7355C5.08979 29.8093 20.1906 44.9102 34.2645 47.4082L50 50L34.2645 52.5918C20.1906 55.0898 5.08979 70.1907 2.59176 84.2645L0 100L-2.59176 84.2645C-5.08979 70.1907 -20.1906 55.0898 -34.2645 52.5918L-50 50L-34.2645 47.4082C-20.1906 44.9102 -5.08979 29.8093 -2.59176 15.7355L0 0Z" />
+    </g>
+  </defs>
+  
+  <!-- Background -->
+  <!-- <rect width="1000" height="1000" fill="#000" /> -->
+
+  <!-- Updated star data with realistic sizes -->
+  <!-- Stars are sized according to brightness (magnitude), with correct colors -->
+  <!-- Betelgeuse is one of the brightest (0.9), and has distinctive reddish color -->
+  
+  <!-- Constellation lines -->
+  <!-- Lines are drawn with a soft gray color and with slight padding from the stars -->
+  <g stroke="#334455" stroke-width="2" opacity="0.6">
+    <!-- Left leg to right leg -->
+    <line x1="310" y1="900" x2="610" y2="870" />
+    
+    <!-- Left leg to left belt -->
+    <line x1="310" y1="900" x2="340" y2="690" />
+    
+    <!-- Right leg to right belt -->
+    <line x1="610" y1="870" x2="460" y2="620" />
+    
+    <!-- Middle belt to right belt -->
+    <line x1="410" y1="660" x2="460" y2="620" />
+
+    <!-- Middle belt to left belt -->
+    <line x1="410" y1="660" x2="340" y2="690" />
+    
+    <!-- Left belt to left armpit -->
+    <line x1="340" y1="690" x2="240" y2="390" />
+    
+    <!-- Right belt to right armpit -->
+    <line x1="460" y1="620" x2="490" y2="400" />
+    
+    <!-- Left armpit to head -->
+    <line x1="240" y1="390" x2="400" y2="300" />
+    
+    <!-- Right armpit to head -->
+    <line x1="490" y1="400" x2="400" y2="300" />
+    
+    <!-- Right armpit to middle arrow -->
+    <line x1="490" y1="400" x2="830" y2="360" />
+    
+    <!-- Middle arrow to lower arrow -->
+    <line x1="830" y1="360" x2="820" y2="550" />
+    
+    <!-- Lower arrow to bottom arrow -->
+    <line x1="820" y1="550" x2="800" y2="550" />
+    
+    <!-- Middle arrow to upper arrow -->
+    <line x1="830" y1="360" x2="790" y2="290" />
+    
+    <!-- Upper arrow to top arrow -->
+    <line x1="790" y1="290" x2="680" y2="60" />
+    
+    <!-- Left armpit to left arm elbow -->
+    <line x1="240" y1="390" x2="220" y2="260" />
+    
+    <!-- Left arm elbow to left hand one -->
+    <line x1="220" y1="260" x2="220" y2="100" />
+    
+    <!-- Left arm elbow to left hand two -->
+    <line x1="220" y1="260" x2="300" y2="90" />
+  </g>
+
+  <!-- Stars with appropriate sizes, colors and sparkling animations -->
+  <!-- left_leg -->
+  <g transform="translate(300, 900)">
+    <!-- <circle r="3" fill="#F5F5DC">
+      <animate attributeName="opacity" values="1;0.4;0.7;1" dur="3.2s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.08)" fill="#F5F5DC" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.4;0.6;0.9" dur="3.2s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- right_leg -->
+  <g transform="translate(600, 870)">
+    <!-- <circle r="4" fill="#F5F5DC">
+      <animate attributeName="opacity" values="1;0.5;0.8;1" dur="2.8s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.12)" fill="#F5F5DC" opacity="0.95">
+      <animate attributeName="opacity" values="0.95;0.5;0.7;0.95" dur="2.8s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- left_belt -->
+  <g transform="translate(340, 690)">
+    <!-- <circle r="4.5" fill="#F0FFFF">
+      <animate attributeName="opacity" values="1;0.6;0.8;1" dur="4s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.13)" fill="#F0FFFF" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.5;0.7;0.9" dur="4s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- middle_belt -->
+  <g transform="translate(410, 660)">
+    <!-- <circle r="5" fill="#F0FFFF">
+      <animate attributeName="opacity" values="1;0.5;0.9;1" dur="3.5s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.15)" fill="#F0FFFF" opacity="0.95">
+      <animate attributeName="opacity" values="0.95;0.5;0.8;0.95" dur="3.5s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- right_belt -->
+  <g transform="translate(460, 620)">
+    <!-- <circle r="4.5" fill="#F0FFFF">
+      <animate attributeName="opacity" values="0.9;0.4;0.7;0.9" dur="3.8s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.13)" fill="#F0FFFF" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.4;0.7;0.9" dur="3.8s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- left_armpit -->
+  <g transform="translate(240, 390)">
+    <!-- <circle r="4" fill="#FFE4B5">
+      <animate attributeName="opacity" values="0.95;0.5;0.8;0.95" dur="2.9s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.12)" fill="#FFE4B5" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.45;0.75;0.9" dur="2.9s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- head (Betelgeuse) - largest and reddish -->
+  <g transform="translate(400, 300)">
+    <!-- <circle r="7" fill="#FF4500">
+      <animate attributeName="opacity" values="1;0.6;0.9;1" dur="4.2s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.22)" fill="#FF4500" opacity="0.95">
+      <animate attributeName="opacity" values="0.95;0.6;0.85;0.95" dur="4.2s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- right_armpit -->
+  <g transform="translate(490, 400)">
+    <!-- <circle r="4" fill="#FFE4B5">
+      <animate attributeName="opacity" values="0.9;0.5;0.7;0.9" dur="3.3s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.12)" fill="#FFE4B5" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.45;0.75;0.9" dur="3.3s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- middle_arrow -->
+  <g transform="translate(830, 360)">
+    <!-- <circle r="3.5" fill="#F0FFF0">
+      <animate attributeName="opacity" values="0.85;0.4;0.7;0.85" dur="3.1s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.1)" fill="#F0FFF0" opacity="0.85">
+      <animate attributeName="opacity" values="0.85;0.4;0.7;0.85" dur="3.1s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- lower_arrow -->
+  <g transform="translate(820, 550)">
+    <!-- <circle r="3" fill="#F0FFF0">
+      <animate attributeName="opacity" values="0.8;0.4;0.6;0.8" dur="2.7s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.08)" fill="#F0FFF0" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.6;0.8" dur="2.7s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- bottom_arrow -->
+  <g transform="translate(800, 550)">
+    <!-- <circle r="2.5" fill="#F0FFF0">
+      <animate attributeName="opacity" values="0.75;0.4;0.6;0.75" dur="2.4s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.07)" fill="#F0FFF0" opacity="0.75">
+      <animate attributeName="opacity" values="0.75;0.4;0.55;0.75" dur="2.4s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- upper_arrow -->
+  <g transform="translate(790, 290)">
+    <!-- <circle r="3" fill="#F0FFF0">
+      <animate attributeName="opacity" values="0.85;0.45;0.7;0.85" dur="3.6s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.09)" fill="#F0FFF0" opacity="0.85">
+      <animate attributeName="opacity" values="0.85;0.45;0.7;0.85" dur="3.6s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- top_arrow -->
+  <g transform="translate(680, 60)">
+    <!-- <circle r="3" fill="#F0FFF0">
+      <animate attributeName="opacity" values="0.8;0.4;0.65;0.8" dur="3.9s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.08)" fill="#F0FFF0" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.65;0.8" dur="3.9s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- left_arm_elbow -->
+  <g transform="translate(220, 260)">
+    <!-- <circle r="3.5" fill="#FFE4B5">
+      <animate attributeName="opacity" values="0.85;0.4;0.7;0.85" dur="2.6s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.1)" fill="#FFE4B5" opacity="0.85">
+      <animate attributeName="opacity" values="0.85;0.4;0.7;0.85" dur="2.6s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- left_hand_one -->
+  <g transform="translate(220, 100)">
+    <!-- <circle r="3" fill="#FFE4B5">
+      <animate attributeName="opacity" values="0.8;0.45;0.65;0.8" dur="2.9s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.09)" fill="#FFE4B5" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.45;0.65;0.8" dur="2.9s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- left_hand_two -->
+  <g transform="translate(300, 90)">
+    <!-- <circle r="3" fill="#FFE4B5">
+      <animate attributeName="opacity" values="0.8;0.4;0.6;0.8" dur="3.2s" repeatCount="indefinite" />
+    </circle> -->
+    <use href="#star-template" transform="scale(0.09)" fill="#FFE4B5" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.6;0.8" dur="3.2s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- Background stars -->
+  <g opacity="0.7">
+    <!-- Adding random background stars -->
+    <circle cx="150" cy="200" r="1" fill="white" />
+    <circle cx="270" cy="150" r="0.8" fill="white" />
+    <circle cx="350" cy="120" r="0.6" fill="white" />
+    <circle cx="550" cy="180" r="1" fill="white" />
+    <circle cx="650" cy="220" r="0.7" fill="white" />
+    <circle cx="700" cy="320" r="0.5" fill="white" />
+    <circle cx="180" cy="400" r="0.9" fill="white" />
+    <circle cx="100" cy="480" r="0.7" fill="white" />
+    <circle cx="150" cy="550" r="0.8" fill="white" />
+    <circle cx="650" cy="480" r="0.6" fill="white" />
+    <circle cx="720" cy="550" r="0.5" fill="white" />
+    <circle cx="150" cy="630" r="0.9" fill="white" />
+    <circle cx="120" cy="720" r="0.7" fill="white" />
+    <circle cx="350" cy="750" r="0.8" fill="white" />
+    <circle cx="480" cy="780" r="1" fill="white" />
+    <circle cx="700" cy="800" r="0.5" fill="white" />
+    <circle cx="280" cy="900" r="0.8" fill="white" />
+    <circle cx="520" cy="850" r="0.7" fill="white" />
+    <circle cx="180" cy="250" r="0.6" fill="white" />
+    <circle cx="620" cy="150" r="0.8" fill="white" />
+    <circle cx="420" cy="100" r="0.5" fill="white" />
+    <circle cx="500" cy="220" r="0.7" fill="white" />
+    <circle cx="600" cy="380" r="0.5" fill="white" />
+    <circle cx="230" cy="430" r="0.9" fill="white" />
+    <circle cx="120" cy="520" r="0.6" fill="white" />
+    <circle cx="200" cy="590" r="0.8" fill="white" />
+    <circle cx="620" cy="540" r="0.6" fill="white" />
+    <circle cx="680" cy="620" r="0.7" fill="white" />
+    <circle cx="140" cy="680" r="0.5" fill="white" />
+    <circle cx="320" cy="700" r="0.9" fill="white" />
+    <circle cx="520" cy="740" r="0.7" fill="white" />
+    <circle cx="670" cy="850" r="0.8" fill="white" />
+    <circle cx="250" cy="830" r="0.6" fill="white" />
+    <circle cx="480" cy="900" r="0.9" fill="white" />
+  </g>
+</svg>

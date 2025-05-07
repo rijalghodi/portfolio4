@@ -26,6 +26,9 @@
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tabler/icons-react": "^3.22.0",
     "@tanstack/react-query": "^5.61.0",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
     "aos": "^2.3.4",
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
@@ -35,7 +38,8 @@
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "lru-cache": "^11.0.2",
-    "motion": "^12.9.7",
+    "lucide-react": "^0.508.0",
+    "motion": "^12.10.1",
     "next": "14.2.16",
     "next-sanity": "^9.8.16",
     "next-sitemap": "^4.2.3",
@@ -54,6 +58,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/aos": "^3.0.7",
     "@types/js-cookie": "^3.0.6",
     "@types/jsonwebtoken": "^9.0.7",

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ExperienceView } from "../elements/experience-card";
 import { Button } from "../ui/button";
 import { Timeline } from "../ui/timeline";
+import { StarHeading } from "./star-heading";
 
 type Props = {
   experiences: ExperienceView[];
@@ -14,7 +15,7 @@ export function ExperienceSection({ experiences }: Props) {
     <section className="z-0 pt-16 pb-16" id="experiences">
       <div className="max-w-screen-lg w-full mx-auto ">
         <div className="flex justify-between items-center flex-wrap mb-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Experiences</h2>
+          <StarHeading>Experiences</StarHeading>
           <Button variant="ghost" className="group" asChild>
             <Link href="/about">
               More About Me{" "}

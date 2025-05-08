@@ -3,12 +3,13 @@ import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import { ProjectCard, ProjectGlimps } from "../elements/project-card";
 import { Button } from "../ui/button";
+import { StarHeading } from "./star-heading";
 export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
   return (
     <section className="z-0 pt-16 pb-16" id="projects">
       <div className="max-w-screen-lg w-full mx-auto ">
         <div className="flex justify-between items-center flex-wrap mb-8">
-          <h2 className="font-medium  text-2xl sm:text-3xl">Projects</h2>
+          <StarHeading>Projects</StarHeading>
           <Button variant="ghost" className="group" asChild>
             <Link href="/projects">
               All Projects

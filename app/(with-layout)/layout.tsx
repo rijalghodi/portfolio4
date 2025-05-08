@@ -9,7 +9,7 @@ export default function WithLayout(props: Props) {
   return (
     <div className="w-full">
       <Header />
-      <main className="pt-14 py-4 px-5 overflow-clip">{props.children}</main>
+      <main className="pt-14 py-4 px-6 sm:px-12 overflow-clip">{props.children}</main>
       <Footer />
       <RevalidateAffix />
     </div>

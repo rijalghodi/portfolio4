@@ -69,25 +69,6 @@
   }
 }
 
-keyframes moveTopToBottom {
-  0% {
-    transform: translateY(-120%);
-  }
-  100% {
-    transform: translateY(120%);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
 
 @layer base {
   * {
@@ -96,34 +77,8 @@ keyframes moveTopToBottom {
   }
 
   body {
-    @apply bg-background text-foreground text-base tracking-normal leading-normal;
+    @apply bg-background text-foreground text-lg tracking-normal leading-normal;
   }
-
-  p,
-  li {
-    @apply text-muted-foreground;
-  }
-
-  h1 {
-    @apply text-foreground font-semibold text-4xl leading-normal;
-  }
-
-  h2 {
-    @apply text-foreground font-semibold text-[1.75rem] leading-normal;
-  }
-
-  h3 {
-    @apply text-foreground font-semibold text-xl leading-normal;
-  }
-
-  h4 {
-    @apply text-foreground font-semibold text-lg leading-normal;
-  }
-
-  h5 {
-    @apply text-foreground font-semibold text-base leading-normal;
-  }
-
   .animate-slide-up {
     animation: fadeInScale 0.5s ease-out forwards;
   }
@@ -149,9 +104,6 @@ keyframes moveTopToBottom {
     background-color: hsl(var(--border));
   }
 
-  /* For Firefox */
-  scrollbar-width: thin; /* Set the width of the scrollbar */
-  scrollbar-color: hsl(var(--accent)) transparent; /* Set thumb color and track color */
 
   /* Hover effect for Firefox */
   html:hover {

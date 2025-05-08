@@ -1,12 +1,8 @@
+import { AboutSection } from "@/components/sections/about-section";
 import { ArticleSection } from "@/components/sections/article-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectSection } from "@/components/sections/project-section";
-import { StatsSection } from "@/components/sections/stats-section";
-import { IconOrion } from "@/components/ui/icon-orion";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import { Spotlight } from "@/components/ui/spotlight-new";
-import { StarsBackground } from "@/components/ui/stars-background";
 import { getArticles, getExpereinces, getProjects } from "@/sanity/sanity-utils";
 import { IArticle } from "@/types/article";
 import { IProject } from "@/types/project";
@@ -21,16 +17,8 @@ export default async function Home() {
   return (
     <>
       <div className="relative">
-        <div className="fixed top-0 left-0 w-full h-screen -z-10 pointer-events-none" id="parallax-container">
-          <div className="absolute top-12 right-12">
-            <IconOrion className="animate-float w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px]" />
-          </div>
-          <Spotlight />
-          <StarsBackground minTwinkleSpeed={2} maxTwinkleSpeed={4} allStarsTwinkle starDensity={0.0001} />
-          <ShootingStars />
-        </div>
         <HeroSection />
-        <StatsSection />
+        <AboutSection />
         <ProjectSection
           projects={projects.map((project) => ({
             name: project.name,

@@ -81,9 +81,8 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <Button size="sm" variant="secondary" className="rounded-full py-0.5 pl-2">
-            <Pulse width={40} height={40} />
-            Contact
+          <Button variant="secondary" className="rounded-full">
+            Contact Me
           </Button>
         </div>
         <div className="flex gap-4">

@@ -2,6 +2,7 @@ import { ArticleSection } from "@/components/sections/article-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectSection } from "@/components/sections/project-section";
+import { StatsSection } from "@/components/sections/stats-section";
 import { IconOrion } from "@/components/ui/icon-orion";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { Spotlight } from "@/components/ui/spotlight-new";
@@ -29,6 +30,7 @@ export default async function Home() {
           <ShootingStars />
         </div>
         <HeroSection />
+        <StatsSection />
         <ProjectSection
           projects={projects.map((project) => ({
             name: project.name,

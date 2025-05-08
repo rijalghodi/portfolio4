@@ -82,7 +82,7 @@ const config: Config = {
         mono: ["var(--font-mono)", ...fontFamily.mono],
       },
       screens: {
-        xs: "360px",
+        xs: "380px",
       },
       backgroundImage: {
         "dark-image-gradient": "linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 100%)",

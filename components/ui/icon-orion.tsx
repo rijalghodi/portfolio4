@@ -28,7 +28,7 @@ export const IconOrion = React.forwardRef<SVGSVGElement, IconProps>(({ size = 24
 
     {/* <!-- Constellation lines -->
   <!-- Lines are drawn with a soft gray color and with slight padding from the stars --> */}
-    <g stroke="#ffffff" stroke-width="3" opacity="0.2">
+    <g stroke="#ffffff" strokeWidth="3" opacity="0.2">
       {orionLines.map((line) => (
         <line
           key={`${line.start}-${line.end}`}

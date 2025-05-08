@@ -6,7 +6,7 @@ import { ArticleItem } from "../elements/article-item";
 import { Button } from "../ui/button";
 export function ArticleSection({ articles }: { articles: IArticle[] }) {
   return (
-    <section className="z-0 bg-background pt-16 pb-16" id="articles">
+    <section className="z-0 pt-16 pb-16" id="articles">
       <div className="max-w-screen-lg w-full mx-auto">
         <div className="flex justify-between items-center flex-wrap mb-8">
           <h2 className="text-2xl sm:text-3xl font-semibold ">Articles</h2>

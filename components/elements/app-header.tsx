@@ -59,9 +59,9 @@ export function Header() {
             : "top-0 max-w-[1024px] bg-transparent rounded-md mt-0",
         )}
       >
-        <Link href="/" className="flex gap-2 items-center text-primary">
+        <Link href="/" className="flex gap-2 items-center">
           {theme === "dark" ? <LogoDark width={28} height={28} /> : <LogoLight width={28} height={28} />}
-          <div className="text-base font-mono font-semibold tracking-tighter hidden sm:block">Rijal Ghodi</div>
+          <div className="font-medium hidden sm:block">rijalghodi</div>
         </Link>
         <div className="hidden md:flex gap-6 items-center">
           <nav>
@@ -81,11 +81,9 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <Button size="sm" variant="secondary" className="rounded-full py-0.5 pl-2" asChild>
-            <Link href={contactLinkedIn}>
-              <Pulse width={40} height={40} />
-              Contact
-            </Link>
+          <Button size="sm" variant="secondary" className="rounded-full py-0.5 pl-2">
+            <Pulse width={40} height={40} />
+            Contact
           </Button>
         </div>
         <div className="flex gap-4">

@@ -8,6 +8,7 @@ import { CopyButton } from "../ui/copy-button";
 import { FallingStarsBackground } from "../ui/falling-stars-background";
 import { ShootingStars } from "../ui/shooting-stars";
 import { Spotlight } from "../ui/spotlight-new";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -33,15 +34,15 @@ export function HeroSection() {
                 radius="full"
                 size="xl"
                 className="w-full sm:w-[240px] h-10 px-5 py-0.5 text-base [&_svg]:size-5 sm:h-11 sm:px-6 sm:text-lg sm:[&_svg]:size-6"
+                asChild
               >
-                Projects
-                <MoveRight />
+                <Link href="#projects">
+                  Projects
+                  <MoveRight />
+                </Link>
               </Button>
             </div>
-            {/* <Button variant="white" radius="full" size="lg" className="w-full sm:w-[240px] inline-flex lg:hidden">
-              Projects
-              <MoveRight />
-            </Button> */}
+
             <div className="flex gap-3 items-start">
               <p
                 data-aos="fade-up"

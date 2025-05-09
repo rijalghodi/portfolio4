@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import Pulse from "@/public/icons/pulse.svg";
 import LogoDark from "@/public/logo-dark.svg";
 import LogoLight from "@/public/logo-light.svg";
-import { IconMenu4 } from "@tabler/icons-react";
+import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -61,7 +61,7 @@ export function Header() {
       >
         <Link href="/" className="flex gap-2 items-center">
           {theme === "dark" ? <LogoDark width={28} height={28} /> : <LogoLight width={28} height={28} />}
-          <div className="font-medium hidden sm:block">rijalghodi</div>
+          <div className="font-medium">rijalghodi</div>
         </Link>
         <div className="hidden md:flex gap-6 items-center">
           <nav>
@@ -90,8 +90,8 @@ export function Header() {
           <div className="block md:hidden">
             <Drawer>
               <DrawerTrigger asChild>
-                <Button aria-label="Menu" title="Menu" variant="outline" size="sm" className="p-2">
-                  <IconMenu4 />
+                <Button aria-label="Menu" title="Menu" variant="outline" className="p-2">
+                  <MenuIcon />
                 </Button>
               </DrawerTrigger>
               <DrawerContent>

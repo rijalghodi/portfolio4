@@ -31,8 +31,8 @@ export function StatsSection() {
 
 export function StatsCard({ title, value }: { title: string; value: string }) {
   return (
-    <p className="flex justify-center items-center gap-2 max-w-[250px]">
-      <span className="text-5xl font-semibold">{value}</span>
+    <p className="flex justify-center items-center gap-4 max-w-[250px]">
+      <span className="text-5xl font-medium">{value}</span>
       <span className="text-base">{title}</span>
     </p>
   );

@@ -25,7 +25,7 @@ export function HeroSection() {
         <div className="w-full">
           <div className="flex flex-col gap-5">
             <div className="flex gap-6 flex-col lg:flex-row lg:items-end lg:gap-10">
-              <h1 className="font-mono mt-4 md:mt-2 text-5xl sm:text-6xl sm:text-start lg:text-8xl md:font-semibold tracking-tight !leading-snug">
+              <h1 className="font-mono mt-4 md:mt-2 text-5xl sm:text-6xl sm:text-start lg:text-8xl font-semibold tracking-tight !leading-snug">
                 Full-stack <span className="inline lg:hidden">Developer</span>
               </h1>
               <Button
@@ -70,7 +70,6 @@ export function HeroSection() {
                 <Send />
                 Contact Me
               </Button>
-
               <CopyButton
                 value={contactEmail}
                 labelDefault="Copy Email"

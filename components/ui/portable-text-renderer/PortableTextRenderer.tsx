@@ -49,7 +49,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
       code: ({ value }: any) => {
         return (
           <div className="relative border rounded-md overflow-clip mb-6">
-            <div className="text-muted-foreground border-b text-xs font-semibold flex items-center justify-between px-5 py-1 bg-secondary h-10 ">
+            <div className="text-muted-foreground border-b text-xs font-semibold flex items-center justify-between px-5 py-1 bg-muted h-10 ">
               <div className="">{value.filename ?? value.language}</div>
               <div className="flex items-center gap-4">
                 <CopyButton value={value.code} size="icon-sm" variant="secondary" aria-label="Copy code" />
@@ -77,17 +77,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
     marks: {
       strong: ({ children }: any) => <strong className="text-foreground font-medium">{children}</strong>,
       link: ({ value, children }: any) => (
-        <a
-          href={value?.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-slate-500 dark:text-slate-300 "
-        >
+        <a href={value?.href} target="_blank" rel="noopener noreferrer" className="underline text-accent">
           {children}
         </a>
       ),
       code: ({ children }) => (
-        <code className="font-mono text-[0.9rem] text-orange-500 dark:text-yellow-500 bg-secondary/70 px-1">
+        <code className="font-mono text-[0.9rem] text-orange-500 dark:text-yellow-500 bg-muted/70 px-1">
           {children}
         </code>
       ),

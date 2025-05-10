@@ -5,7 +5,6 @@ import { IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import AccessibleDiv from "../ui/accessible-div";
-import { GlowingEffect } from "../ui/glowing-effect";
 export type ProjectGlimps = {
   name: string;
   description?: string;
@@ -31,7 +30,7 @@ export function ProjectCard({ description: shortDesc, name, slug, iconUrl, role,
       {/* Image background */}
       <div
         className={cn(
-          "h-72 w-full rounded-xl border overflow-hidden relative px-6 py-6 flex flex-col justify-end dark:bg-background-1 hover:bg-secondary/50 dark:hover:bg-background-2",
+          "h-72 w-full rounded-xl border overflow-hidden relative px-6 py-6 flex flex-col justify-end dark:bg-background-1 hover:bg-muted/50 dark:hover:bg-background-2",
         )}
         data-aos="fade-up"
         // style={{

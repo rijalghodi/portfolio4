@@ -15,7 +15,7 @@ export function ArticleItem(props: Props) {
   return (
     <Link
       href={props.url}
-      className="group rounded-lg py-6 px-3 flex flex-col-reverse min-[500px]:flex-row gap-4 justify-between items-start hover:bg-secondary/30"
+      className="group rounded-lg py-6 px-3 flex flex-col-reverse min-[500px]:flex-row gap-4 justify-between items-start hover:bg-muted/30"
     >
       <div className="flex flex-col gap-3 flex-1">
         <AccessibleDiv
@@ -42,7 +42,7 @@ export function ArticleItem(props: Props) {
       </div>
       {props.coverImageUrl && (
         <div
-          className="relative w-full min-[500px]:w-32 sm:w-32 md:w-40 bg-secondary aspect-[3/2] rounded-xl overflow-clip"
+          className="relative w-full min-[500px]:w-32 sm:w-32 md:w-40 bg-muted aspect-[3/2] rounded-xl overflow-clip"
           // data-aos="fade-up"
         >
           <Image

@@ -111,7 +111,7 @@ export function Header() {
                   <Link
                     href={menu.link}
                     className={cn(
-                      "font-medium px-3 py-2 hover:bg-secondary/80 rounded-md dark:text-muted-foreground dark:hover:text-foreground",
+                      "font-medium px-3 py-2 hover:bg-muted/80 rounded-md dark:text-muted-foreground dark:hover:text-foreground",
                       activeMenu === menu.link && "text-primary dark:text-primary dark:hover:text-primary",
                     )}
                   >

@@ -13,24 +13,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        slate: {
-          "50": "hsl(210, 100%, 97%)",
-          "100": "hsl(210, 88%, 93%)",
-          "200": "hsl(210, 91%, 87%)",
-          "300": "hsl(210, 95%, 75%)",
-          "400": "hsl(210, 88%, 64%)",
-          "500": "hsl(211, 91%, 50%)",
-          "600": "hsl(211, 97%, 40%)",
-          "700": "hsl(211 31.2% 30.2%)", // border dark
-          "800": "hsl(211, 32%, 20%)", // accent dark
-          "900": "hsl(211 36.6% 16.1%)", // secondary dark
-          "950": "hsl(211, 80%, 10%)", // background dark
-        },
         background: {
           DEFAULT: "hsl(var(--background))",
-          "1": "hsl(var(--background-1))",
-          "2": "hsl(var(--background-2))",
-          "3": "hsl(var(--background-3))",
         },
         foreground: "hsl(var(--foreground))",
         card: {
@@ -44,10 +28,6 @@ const config: Config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",

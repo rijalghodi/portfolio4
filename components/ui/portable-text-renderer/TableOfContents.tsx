@@ -28,7 +28,7 @@ const PerLevelHeadings = ({ outline }: { outline: Heading[] }) => (
     {outline.map(({ _key, children, subheadings }) => (
       <li key={_key} className="flex flex-col gap-3">
         <Link
-          className="underline hover:text-slate-500 dark:hover:text-slate-400 text-sm"
+          className="underline hover:text-accent text-sm"
           href={`#${_key}`}
           onClick={(e) => {
             e.preventDefault();
@@ -80,7 +80,7 @@ export const TableOfContents = ({
     <div className={`w-full ${className}`}>
       {/* Trigger */}
       <button
-        className="flex justify-between items-center hover:bg-accent dark:hover:bg-secondary m-1 p-3 rounded-lg cursor-pointer"
+        className="flex justify-between items-center hover:bg-accent dark:hover:bg-muted m-1 p-3 rounded-lg cursor-pointer"
         onClick={toggleOpen}
       >
         <h2 className="text-xl font-medium leading-snug">Table of Content</h2>
@@ -100,7 +100,7 @@ export const TableOfContents = ({
       >
         <section className="mt-2 px-4 xl:max-h-[calc(100vh-174px)] overflow-y-auto">
           <PerLevelHeadings outline={outline} />
-          <div className="mx-auto mt-4 mb-4 h-2 w-[100px] rounded-full bg-secondary" />
+          <div className="mx-auto mt-4 mb-4 h-2 w-[100px] rounded-full bg-muted" />
         </section>
       </div>
     </div>

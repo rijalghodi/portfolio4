@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 import { StarHeading } from "./star-heading";
 export function ArticleSection({ articles }: { articles: IArticle[] }) {
   return (
-    <section className="z-0 pt-32 pb-32" id="articles">
+    <section className="z-0 py-24" id="articles">
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
           <StarHeading>Blog Articles</StarHeading>

@@ -10,7 +10,7 @@ import { StatsSection } from "./stats-section";
 
 export function AboutSection({ cvUrl }: { cvUrl?: string }) {
   return (
-    <section className="z-0 pt-32 pb-32" id="about">
+    <section className="z-0 py-24" id="about">
       <div className="max-w-screen-lg w-full mx-auto">
         <StarHeading className="mb-8">About me</StarHeading>
         <div className="flex flex-col gap-16">

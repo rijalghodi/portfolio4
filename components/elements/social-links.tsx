@@ -15,7 +15,7 @@ export function SocialLinks() {
           <Linkedin />
         </Link>
       </Button>
-      <Button variant="plain" size="icon-lg" asChild radius="full">
+      <Button variant="ghost" size="icon-lg" asChild radius="full" className="">
         <Link href={contactIgLink} aria-label="Instagram" target="_blank" className="">
           <Instagram />
         </Link>

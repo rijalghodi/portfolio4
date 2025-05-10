@@ -1,6 +1,7 @@
 "use client";
 
 import { contactEmail } from "@/data/contact";
+import { cn } from "@/lib/utils";
 import { MoveRight, Send } from "lucide-react";
 import Link from "next/link";
 import { SocialLinks } from "../elements/social-links";
@@ -9,7 +10,7 @@ import { CopyButton } from "../ui/copy-button";
 
 export function HeroSection() {
   return (
-    <section id="intro" className="relative pt-16 pb-16 flex items-center">
+    <section id="intro" className="relative pt-16 sm:py-24 flex items-center">
       <div className="relative max-w-screen-lg w-full mx-auto">
         <div className="w-full">
           <div className="flex flex-col gap-5">
@@ -18,10 +19,13 @@ export function HeroSection() {
                 Full-stack <span className="inline lg:hidden">Developer</span>
               </h1>
               <Button
-                variant="white"
+                variant="plain"
                 radius="full"
                 size="xl"
-                className="w-full sm:w-[240px] h-10 px-5 py-0.5 text-base [&_svg]:size-5 sm:h-11 sm:px-6 sm:text-lg sm:[&_svg]:size-6"
+                className={cn(
+                  "bg-primary text-primary-foreground border-none hover:bg-primary/80 dark:bg-white dark:text-black dark:hover:bg-gray-300",
+                  "w-full sm:w-[240px] h-10 px-5 py-0.5 text-base [&_svg]:size-5 sm:h-11 sm:px-6 sm:text-lg sm:[&_svg]:size-6",
+                )}
                 asChild
               >
                 <Link href="#projects">

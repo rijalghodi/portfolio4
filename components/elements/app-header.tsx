@@ -11,9 +11,9 @@ import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import ThemeSwitcher from "../ui/ThemeSwitcher";
 import { Button } from "../ui/button";
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "../ui/drawer";
+import ThemeSwitcher from "../ui/theme-switcher";
 
 type Menu = {
   title: string;

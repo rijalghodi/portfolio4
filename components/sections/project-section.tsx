@@ -10,7 +10,9 @@ export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
           <StarHeading>Featured Projects</StarHeading>
-          <p className="mb-8">Crafted with love and passion, here are some of the projects I&apos;ve worked on.</p>
+          <p className="mb-8 text-lg">
+            Crafted with love and passion, here are some of the projects I&apos;ve worked on.
+          </p>
         </div>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {projects.slice(0, 4).map((project, i) => (

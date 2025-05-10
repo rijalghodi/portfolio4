@@ -30,7 +30,7 @@ export function ProjectCard({ description: shortDesc, name, slug, iconUrl, role,
       {/* Image background */}
       <div
         className={cn(
-          "h-72 w-full rounded-xl border overflow-hidden relative px-6 py-6 flex flex-col justify-end bg-muted/50 hover:bg-silent/50 backdrop-blur-md",
+          "h-72 w-full rounded-3xl border overflow-hidden relative px-6 py-6 flex flex-col justify-end bg-background/50 hover:bg-muted/50 dark:bg-muted/50 dark:hover:bg-silent/50 backdrop-blur-md",
         )}
         data-aos="fade-up"
         // style={{

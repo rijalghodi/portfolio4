@@ -47,7 +47,7 @@ const description =
 export const metadata: Metadata = {
   title: {
     default: title,
-    template: "%s | Rijal Ghodi's Portfolio",
+    template: "%s | Rijal Ghodi - Full Stack Developer",
   },
   authors: [{ name: "Rijal Ghodi", url: "rijalghodi.dev@gmail.com" }],
   creator: "Rijal Ghodi",

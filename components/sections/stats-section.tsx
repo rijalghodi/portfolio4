@@ -36,7 +36,7 @@ export function StatsCard({ label, number }: { label: string; number: string }) 
   return (
     <div className="flex justify-center items-center gap-4 max-w-[250px]">
       <span className="text-5xl font-medium">{number}</span>
-      <span className="text-base">{label}</span>
+      <span className="text-lg">{label}</span>
     </div>
   );
 }

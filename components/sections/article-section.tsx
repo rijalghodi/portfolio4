@@ -11,7 +11,7 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
           <StarHeading>Blog Articles</StarHeading>
-          <p className="mb-8">
+          <p className="mb-8 text-lg">
             In a mean time, I write articles about my experiences and learnings. As Feymann once said,
             <span className="italic">"I write to learn"</span>
           </p>

@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 import { StarHeading } from "./star-heading";
 export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
   return (
-    <section className="z-0 pt-16 pb-16" id="projects">
+    <section className="z-0 pt-32 pb-32" id="projects">
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
           <StarHeading>Featured Projects</StarHeading>

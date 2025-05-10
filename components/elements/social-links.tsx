@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 export function SocialLinks() {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-2">
       <Button variant="plain" size="icon-lg" asChild radius="full">
         <Link href={contactGithubLink} aria-label="Github" target="_blank" className="">
           <Github />

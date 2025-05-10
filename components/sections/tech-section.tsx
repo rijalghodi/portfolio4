@@ -24,7 +24,7 @@ export function TechSection() {
     <section className="z-0 pt-32 pb-32" id="tech">
       <div className="max-w-screen-lg w-full mx-auto">
         <StarHeading className="mb-12">My Tech Stacks</StarHeading>
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-16">
           <section aria-labelledby="frontend-heading">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <h3 id="frontend-heading" className="text-3xl col-span-1">

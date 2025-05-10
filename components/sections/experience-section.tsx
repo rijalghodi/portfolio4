@@ -12,7 +12,7 @@ type Props = {
 };
 export function ExperienceSection({ experiences }: Props) {
   return (
-    <section className="z-0 pt-16 pb-16" id="experiences">
+    <section className="z-0 pt-32 pb-32" id="experiences">
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
           <StarHeading>My Work Experience</StarHeading>

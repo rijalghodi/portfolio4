@@ -2,26 +2,14 @@
 
 import { contactEmail } from "@/data/contact";
 import { MoveRight, Send } from "lucide-react";
+import Link from "next/link";
 import { SocialLinks } from "../elements/social-links";
 import { Button } from "../ui/button";
 import { CopyButton } from "../ui/copy-button";
-import { FallingStarsBackground } from "../ui/falling-stars-background";
-import { ShootingStars } from "../ui/shooting-stars";
-import { Spotlight } from "../ui/spotlight-new";
-import Link from "next/link";
 
 export function HeroSection() {
   return (
     <section id="intro" className="relative pt-16 pb-16 flex items-center">
-      <div className="fixed inset-0">
-        {/* <div className="absolute top-12 right-12">
-          <IconOrion className="animate-float w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px]" />
-        </div> */}
-        <Spotlight />
-        <FallingStarsBackground minTwinkleSpeed={2} maxTwinkleSpeed={4} allStarsTwinkle starDensity={0.00006} />
-        <ShootingStars />
-      </div>
-
       <div className="relative max-w-screen-lg w-full mx-auto">
         <div className="w-full">
           <div className="flex flex-col gap-5">

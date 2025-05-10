@@ -3,7 +3,10 @@ import { ArticleSection } from "@/components/sections/article-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectSection } from "@/components/sections/project-section";
-import { getArticles, getExpereinces, getProjects } from "@/sanity/sanity-utils";
+import { FallingStarsBackground } from "@/components/ui/falling-stars-background";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { Spotlight } from "@/components/ui/spotlight-new";
+import { getArticles, getExpereinces, getLatestPinnedAbout, getProjects } from "@/sanity/sanity-utils";
 import { IArticle } from "@/types/article";
 import { IProject } from "@/types/project";
 
@@ -12,13 +15,21 @@ import { IProject } from "@/types/project";
 export default async function Home() {
   const projects: IProject[] = await getProjects(1, 4);
   const articles: IArticle[] = await getArticles(1, 4);
+  const about = await getLatestPinnedAbout();
+
   const experiences = await getExpereinces(1, 4);
 
   return (
     <>
+      <div className="fixed inset-0 z-0">
+        <Spotlight />
+        <FallingStarsBackground minTwinkleSpeed={2} maxTwinkleSpeed={4} allStarsTwinkle starDensity={0.00006} />
+        <ShootingStars />
+      </div>
       <div className="relative">
         <HeroSection />
-        <AboutSection />
+        <AboutSection cvUrl={about?.cv?.url} />
+        {/* Tech Stack Section */}
         <ProjectSection
           projects={projects.map((project) => ({
             name: project.name,
@@ -29,7 +40,6 @@ export default async function Home() {
             role: project.role,
           }))}
         />
-        <ArticleSection articles={articles} />
         <ExperienceSection
           experiences={experiences?.map((ex) => ({
             company: ex.company,
@@ -43,6 +53,7 @@ export default async function Home() {
             stillWorking: ex.still_working,
           }))}
         />
+        <ArticleSection articles={articles} />
       </div>
     </>
   );

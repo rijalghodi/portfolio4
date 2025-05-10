@@ -1,6 +1,6 @@
 "use client";
 
-import aboutImage from "@/public/images/about.jpg";
+import aboutImage from "@/public/images/about.webp";
 import { IconDownload } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +10,7 @@ import { StatsSection } from "./stats-section";
 
 export function AboutSection({ cvUrl }: { cvUrl?: string }) {
   return (
-    <section className="z-0 pt-24 pb-24" id="about">
+    <section className="z-0 pt-32 pb-32" id="about">
       <div className="max-w-screen-lg w-full mx-auto">
         <StarHeading className="mb-8">About me</StarHeading>
         <div className="flex flex-col gap-16">
@@ -23,8 +23,7 @@ export function AboutSection({ cvUrl }: { cvUrl?: string }) {
                   alt="About me"
                   width={100}
                   height={100}
-                  objectFit="cover"
-                  className="rounded-full overflow-hidden"
+                  className="rounded-full overflow-hidden object-cover"
                 />
 
                 {cvUrl && (

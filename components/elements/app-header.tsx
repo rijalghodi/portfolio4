@@ -94,7 +94,7 @@ export function Header() {
         className={cn(
           "w-full flex justify-between mx-auto",
           "px-0 py-3 transition-all duration-300 ease-in-out",
-          lastScrollY.current > 0
+          scrolled
             ? "px-7 top-2.5 max-w-[768px] bg-background-1/50 backdrop-blur-md rounded-full border shadow-lg mt-3"
             : "top-0 max-w-[1024px] bg-transparent rounded-md mt-0",
         )}
@@ -121,7 +121,7 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <Button variant="secondary" className="rounded-full">
+          <Button variant="default" className="rounded-full">
             Contact Me
           </Button>
         </div>
@@ -144,9 +144,10 @@ export function Header() {
                             <Link
                               href={menu.link}
                               className={cn(
-                                "text-lg text-foreground hover:text-primary dark:text-muted-foreground dark:hover:text-foreground",
-                                activeMenu === menu.link && "text-primary dark:text-primary",
+                                "text-lg text-foreground hover:bg-silent/80 rounded-full px-4 py-3",
+                                "data-[active=true]:text-primary",
                               )}
+                              data-active={activeMenu === menu.link}
                             >
                               {menu.title}
                             </Link>

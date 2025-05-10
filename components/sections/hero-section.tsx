@@ -10,7 +10,7 @@ import { CopyButton } from "../ui/copy-button";
 
 export function HeroSection() {
   return (
-    <section id="intro" className="relative pt-16 sm:py-24 flex items-center">
+    <section id="intro" className="relative pt-16 pb-24 sm:py-24 flex items-center">
       <div className="relative max-w-screen-lg w-full mx-auto">
         <div className="w-full">
           <div className="flex flex-col gap-5">

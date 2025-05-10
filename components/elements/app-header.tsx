@@ -95,7 +95,7 @@ export function Header() {
           "w-full flex justify-between mx-auto",
           "px-0 py-3 transition-all duration-300 ease-in-out",
           scrolled
-            ? "px-7 top-2.5 max-w-[768px] bg-background-1/50 backdrop-blur-md rounded-full border shadow-lg mt-3"
+            ? "px-7 top-2.5 max-w-[768px] bg-muted/50 backdrop-blur-md rounded-full border shadow-lg mt-3"
             : "top-0 max-w-[1024px] bg-transparent rounded-md mt-0",
         )}
       >

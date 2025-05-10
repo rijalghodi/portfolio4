@@ -8,17 +8,14 @@ import { StarHeading } from "./star-heading";
 export function ArticleSection({ articles }: { articles: IArticle[] }) {
   return (
     <section className="z-0 pt-16 pb-16" id="articles">
-      <div className="max-w-screen-lg w-full mx-auto">
-        <div className="flex justify-between items-center flex-wrap mb-8">
-          <StarHeading>Articles</StarHeading>
-          <Button variant="ghost" className="group" asChild>
-            <Link href="/articles">
-              All Articles{" "}
-              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
-            </Link>
-          </Button>
+      <div className="max-w-screen-lg w-full mx-auto space-y-8">
+        <div className="space-y-6">
+          <StarHeading>Blog Articles</StarHeading>
+          <p className="mb-8">
+            In a mean time, I write articles about my experiences and learnings. As Feymann once said,
+            <span className="italic">"I write to learn"</span>
+          </p>
         </div>
-
         <ul>
           {articles?.map((article, i) => (
             <li key={i} className="border-b border-border" data-aos="fade-up" data-aos-delay={`${i * 50}`}>
@@ -34,7 +31,7 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
             </li>
           ))}
         </ul>
-        <div className="flex justify-center mt-8 sm:hidden">
+        <div className="flex justify-center mt-8">
           <Button variant="outline" radius="full" asChild>
             <Link href="/articles">
               All Articles <IconArrowRight />

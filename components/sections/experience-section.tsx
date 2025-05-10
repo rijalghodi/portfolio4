@@ -13,15 +13,13 @@ type Props = {
 export function ExperienceSection({ experiences }: Props) {
   return (
     <section className="z-0 pt-16 pb-16" id="experiences">
-      <div className="max-w-screen-lg w-full mx-auto ">
-        <div className="flex justify-between items-center flex-wrap mb-8">
-          <StarHeading>Experiences</StarHeading>
-          <Button variant="ghost" className="group" asChild>
-            <Link href="/about">
-              More About Me{" "}
-              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
-            </Link>
-          </Button>
+      <div className="max-w-screen-lg w-full mx-auto space-y-8">
+        <div className="space-y-6">
+          <StarHeading>My Work Experience</StarHeading>
+          {/* <p className="mb-8">
+            In a mean time, I write articles about my experiences and learnings. As Feymann once said,
+            <span className="italic">"I write to learn"</span>
+          </p> */}
         </div>
         <Timeline>
           {experiences.map((ex, i) => (
@@ -57,7 +55,7 @@ export function ExperienceSection({ experiences }: Props) {
             </Timeline.Item>
           ))}
         </Timeline>
-        <div className="flex justify-center mt-8 sm:hidden">
+        <div className="flex justify-center mt-8">
           <Button variant="outline" radius="full" asChild>
             <Link href="/about">
               More About Me <IconArrowRight />

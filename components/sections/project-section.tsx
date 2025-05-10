@@ -7,15 +7,10 @@ import { StarHeading } from "./star-heading";
 export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
   return (
     <section className="z-0 pt-16 pb-16" id="projects">
-      <div className="max-w-screen-lg w-full mx-auto ">
-        <div className="flex justify-between items-center flex-wrap mb-8">
-          <StarHeading>Projects</StarHeading>
-          <Button variant="ghost" className="group" asChild>
-            <Link href="/projects">
-              All Projects
-              <IconArrowRight className="transition-transform ease-in duration-300 group-hover:translate-x-1" />
-            </Link>
-          </Button>
+      <div className="max-w-screen-lg w-full mx-auto space-y-8">
+        <div className="space-y-6">
+          <StarHeading>Featured Projects</StarHeading>
+          <p className="mb-8">Crafted with love and passion, here are some of the projects I&apos;ve worked on.</p>
         </div>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {projects.slice(0, 4).map((project, i) => (
@@ -24,7 +19,7 @@ export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
             </li>
           ))}
         </ul>
-        <div className="flex justify-center mt-8 sm:hidden">
+        <div className="flex justify-center mt-8">
           <Button variant="outline" radius="full" asChild>
             <Link href="/projects">
               All Projects <IconArrowRight />

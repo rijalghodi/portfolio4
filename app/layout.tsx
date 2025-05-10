@@ -5,6 +5,7 @@ import { ReactQueryProvider } from "@/contexts/react-query-context";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { Roboto_Flex, Source_Code_Pro } from "next/font/google";
 import "aos/dist/aos.css";
+import { ContactFormProvider } from "@/components/elements/contact-form-context";
 import { Toaster } from "@/components/ui/sonner";
 import { env } from "@/lib/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -89,7 +90,9 @@ export default function RootLayout({
       <body className={`${inter.className} ${inter.variable} ${mono.variable} antialiased`}>
         <ThemeProvider>
           <ReactQueryProvider>
-            <AOSInit>{children}</AOSInit>
+            <AOSInit>
+              <ContactFormProvider>{children}</ContactFormProvider>
+            </AOSInit>
             <Toaster />
           </ReactQueryProvider>
         </ThemeProvider>

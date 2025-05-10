@@ -7,8 +7,10 @@ import Link from "next/link";
 import { SocialLinks } from "../elements/social-links";
 import { Button } from "../ui/button";
 import { CopyButton } from "../ui/copy-button";
+import { useContact } from "../elements/contact-form-context";
 
 export function HeroSection() {
+  const { open } = useContact();
   return (
     <section id="intro" className="relative pt-16 pb-24 sm:py-24 flex items-center">
       <div className="relative max-w-screen-lg w-full mx-auto">
@@ -59,6 +61,7 @@ export function HeroSection() {
                 data-aos-delay="100"
                 size="lg"
                 className="w-full xs:w-fit"
+                onClick={open}
               >
                 <Send />
                 Contact Me

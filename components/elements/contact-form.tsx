@@ -110,20 +110,20 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
                   <FormItem className="col-span-2">
                     <FormLabel>Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="What would you like to discuss?" className="w-full" rows={5} {...field} />
+                      <Textarea placeholder="What would you like to discuss?" className="w-full" rows={4} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <div className="col-span-2 py-2">
-                <div className="flex gap-2">
+                <div className="flex gap-4 gap-y-3 flex-col-reverse sm:flex-row">
                   <DrawerClose asChild>
-                    <Button variant="secondary" size="lg" radius="full" className="flex-1">
+                    <Button variant="outline" size="lg" radius="full" className="w-full">
                       Cancel
                     </Button>
                   </DrawerClose>
-                  <Button size="lg" radius="full" className="flex-1" type="submit" disabled={isPending}>
+                  <Button size="lg" radius="full" className="w-full" type="submit" disabled={isPending}>
                     {isPending ? <Loader2 className="animate-spin mr-2" /> : <Send className="mr-2" />}
                     Send
                   </Button>

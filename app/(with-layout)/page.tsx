@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="fixed inset-0 z-[-1]">
+      <div className="fixed inset-0">
         <Spotlight />
         <FallingStarsBackground minTwinkleSpeed={2} maxTwinkleSpeed={4} allStarsTwinkle starDensity={0.00006} />
         <ShootingStars />

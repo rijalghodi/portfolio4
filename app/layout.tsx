@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import { ContactFormProvider } from "@/components/elements/contact-form-context";
+import { Toaster } from "@/components/ui/sonner";
 import { AOSInit } from "@/contexts/aos-init";
 import { ReactQueryProvider } from "@/contexts/react-query-context";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { Roboto_Flex, Source_Code_Pro } from "next/font/google";
-import "aos/dist/aos.css";
-import { ContactFormProvider } from "@/components/elements/contact-form-context";
-import { Toaster } from "@/components/ui/sonner";
 import { env } from "@/lib/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import "aos/dist/aos.css";
+import type { Metadata } from "next";
+import { Roboto_Flex, Source_Code_Pro } from "next/font/google";
+import "./globals.css";
 
 const inter = Roboto_Flex({
   weight: ["400", "500", "600", "700", "800", "900"],

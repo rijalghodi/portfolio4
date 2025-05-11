@@ -1,6 +1,4 @@
 "use client";
-
-import { cn } from "@/lib/utils";
 import { createContext, useContext, useState } from "react";
 import { ContactForm } from "./contact-form";
 
@@ -20,9 +18,9 @@ export function ContactFormProvider({ children }: { children: React.ReactNode })
 
   return (
     <ContactFormContext.Provider value={{ isOpen, open, close }}>
-      <div className={cn("transition-transform duration-300 overflow-hidden", isOpen ? "scale-[0.99]" : "scale-100")}>
-        {children}
-      </div>
+      {/* <div className={cn("transition-transform duration-300 overflow-hidden", isOpen ? "scale-[0.99]" : "scale-100")}> */}
+      {children}
+      {/* </div> */}
       <ContactForm isOpen={isOpen} onOpenChange={setIsOpen} />
     </ContactFormContext.Provider>
   );

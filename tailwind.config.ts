@@ -28,14 +28,17 @@ const config: Config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
+          hover: "hsl(var(--muted-hover))",
         },
         silent: {
           DEFAULT: "hsl(var(--silent))",
           foreground: "hsl(var(--silent-foreground))",
+          hover: "hsl(var(--silent-hover))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",

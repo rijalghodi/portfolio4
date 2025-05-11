@@ -10,7 +10,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { StarHeading } from "../sections/star-heading";
 import { Button } from "../ui/button";
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from "../ui/drawer";
+import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle } from "../ui/drawer";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
@@ -73,7 +73,6 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
             <DrawerTitle className="mt-4">
               <StarHeading className="text-center sm:text-left">Contact Me</StarHeading>
             </DrawerTitle>
-            <DrawerDescription className="text-lg mt-2">Tell me what’s on your mind</DrawerDescription>
             {submitError && <p className="text-red-500 mt-2">{submitError}</p>}
           </DrawerHeader>
           <Form {...form}>
@@ -120,7 +119,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
               <div className="col-span-2 py-2">
                 <div className="flex gap-2">
                   <DrawerClose asChild>
-                    <Button variant="outline" size="lg" radius="full" className="flex-1">
+                    <Button variant="secondary" size="lg" radius="full" className="flex-1">
                       Cancel
                     </Button>
                   </DrawerClose>

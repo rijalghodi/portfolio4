@@ -56,9 +56,8 @@ export function HeroSection() {
             <div className="flex gap-4 flex-col xs:flex-row w-full xs:w-fit ">
               <Button
                 radius="full"
-                variant="default"
-                data-aos="fade-up"
-                data-aos-delay="100"
+                // data-aos="fade-up"
+                // data-aos-delay="100"
                 size="lg"
                 className="w-full xs:w-fit"
                 onClick={open}

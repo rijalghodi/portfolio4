@@ -73,7 +73,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
             <DrawerTitle className="mt-4">
               <StarHeading className="text-center sm:text-left">Contact Me</StarHeading>
             </DrawerTitle>
-            <DrawerDescription className="text-lg mt-2">Let’s connect! Tell me what’s on your mind</DrawerDescription>
+            <DrawerDescription className="text-lg mt-2">Tell me what’s on your mind</DrawerDescription>
             {submitError && <p className="text-red-500 mt-2">{submitError}</p>}
           </DrawerHeader>
           <Form {...form}>

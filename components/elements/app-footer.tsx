@@ -15,7 +15,7 @@ export function Footer() {
   const { theme } = useTheme();
   const { open } = useContactMe();
   return (
-    <footer className="pt-16 pb-12 px-4 rounded-t-xl z-10">
+    <footer className="pt-16 pb-12 px-4 rounded-t-xl">
       <div className="flex flex-col items-center space-y-5">
         {theme === "dark" ? <LogoDark width={40} height={40} /> : <LogoLight width={40} height={40} />}
 

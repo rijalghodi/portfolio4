@@ -12,11 +12,11 @@ import { CopyButton } from "../ui/copy-button";
 export function HeroSection() {
   const { open } = useContactMe();
   return (
-    <section id="intro" className="relative pt-16 pb-24 sm:py-24 flex items-center">
+    <section id="intro" className="relative pt-20 pb-24 sm:py-24 flex items-center">
       <div className="relative max-w-screen-lg w-full mx-auto">
         <div className="w-full">
           <div className="flex flex-col gap-5">
-            <div className="flex gap-6 flex-col lg:flex-row lg:items-end lg:gap-10">
+            <div className="flex gap-8 flex-col lg:flex-row lg:items-end lg:gap-10">
               <h1 className="font-mono mt-4 md:mt-2 text-5xl sm:text-6xl sm:text-start lg:text-8xl font-semibold tracking-tight !leading-snug">
                 Full-stack <span className="inline lg:hidden">Developer</span>
               </h1>

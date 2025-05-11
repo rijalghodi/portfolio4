@@ -6,7 +6,7 @@ import { useContactMe } from "@/components/elements/contact-form-context";
 import { contactEmail } from "@/data/contact";
 import LogoDark from "@/public/logo-dark.svg";
 import LogoLight from "@/public/logo-light.svg";
-import { IconArrowUpRight } from "@tabler/icons-react";
+import { Send } from "lucide-react";
 import { Button } from "../ui/button";
 import { CopyButton } from "../ui/copy-button";
 import { SocialLinks } from "./social-links";
@@ -22,7 +22,7 @@ export function Footer() {
         <div className="text-lg font-semibold">Let&apos;s Work Together</div>
         <div className="flex gap-4">
           <Button radius="full" onClick={open}>
-            <IconArrowUpRight />
+            <Send />
             Contact Me
           </Button>
           <CopyButton

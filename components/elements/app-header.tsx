@@ -132,7 +132,7 @@ export function Header() {
           <div className="block md:hidden">
             <Drawer>
               <DrawerTrigger asChild>
-                <Button aria-label="Menu" title="Menu" variant="outline" className="p-2">
+                <Button aria-label="Menu" title="Menu" variant="ghost" size="icon-xl">
                   <MenuIcon />
                 </Button>
               </DrawerTrigger>

@@ -25,6 +25,7 @@ const buttonVariants = cva(
         "icon-sm": "h-8 w-8 [&_svg]:size-3",
         icon: "h-9 w-9 [&_svg]:size-4",
         "icon-lg": "h-10 w-10 [&_svg]:size-5",
+        "icon-xl": "h-11 w-11 [&_svg]:size-6",
       },
       radius: {
         default: "rounded-md",

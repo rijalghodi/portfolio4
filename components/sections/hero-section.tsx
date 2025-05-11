@@ -4,13 +4,13 @@ import { contactEmail } from "@/data/contact";
 import { cn } from "@/lib/utils";
 import { MoveRight, Send } from "lucide-react";
 import Link from "next/link";
+import { useContactMe } from "../elements/contact-form-context";
 import { SocialLinks } from "../elements/social-links";
 import { Button } from "../ui/button";
 import { CopyButton } from "../ui/copy-button";
-import { useContact } from "../elements/contact-form-context";
 
 export function HeroSection() {
-  const { open } = useContact();
+  const { open } = useContactMe();
   return (
     <section id="intro" className="relative pt-16 pb-24 sm:py-24 flex items-center">
       <div className="relative max-w-screen-lg w-full mx-auto">

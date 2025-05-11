@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
-  const { email, message } = await req.json();
+  const { name, email, message } = await req.json();
 
   if (!email || !message) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
@@ -18,10 +18,10 @@ export async function POST(req: NextRequest) {
 
   try {
     await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      to: "rijalghodi.dev@gmail.com",
-      subject: "Message from Portfolio Site",
-      text: `From: ${email}\n\n${message}`,
+      from: `"Contact Form - My Portfolio" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER, // message my self
+      subject: "Message from My Portfolio Site",
+      text: `Name: ${name}\n\nEmail: ${email}\n\nMessage: ${message}`,
     });
 
     return NextResponse.json({ success: true });

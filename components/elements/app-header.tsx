@@ -13,6 +13,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "../ui/drawer";
 import ThemeSwitcher from "../ui/theme-switcher";
+import { useContactMe } from "./contact-form-context";
 
 type Menu = {
   title: string;
@@ -43,6 +44,7 @@ export function Header() {
 
   const pathname = usePathname();
   const { theme } = useTheme();
+  const { open } = useContactMe();
 
   const activeMenu = React.useMemo(() => {
     const pathArray = pathname.split("/");
@@ -121,7 +123,7 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <Button variant="default" className="rounded-full">
+          <Button variant="default" className="rounded-full" onClick={open}>
             Contact Me
           </Button>
         </div>

@@ -1,18 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { createContext, useContext, useState } from "react";
-import { Button } from "../ui/button";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "../ui/drawer";
-import ContactForm from "./contact-form";
+import { ContactForm } from "./contact-form";
 
 type ContactFormContextType = {
   isOpen: boolean;
@@ -30,35 +20,16 @@ export function ContactFormProvider({ children }: { children: React.ReactNode })
 
   return (
     <ContactFormContext.Provider value={{ isOpen, open, close }}>
-      {children}
-      <Drawer open={isOpen} onOpenChange={setIsOpen}>
-        <DrawerTrigger asChild>
-          <Button variant="outline">Open Drawer</Button>
-        </DrawerTrigger>
-        <DrawerContent>
-          <div className="mx-auto w-full max-w-sm">
-            <DrawerHeader>
-              <DrawerTitle>Move Goal</DrawerTitle>
-              <DrawerDescription>Set your daily activity goal.</DrawerDescription>
-            </DrawerHeader>
-            <div className="p-4 pb-0">
-              <ContactForm />
-            </div>
-            <DrawerFooter>
-              <Button>Submit</Button>
-              <DrawerClose asChild>
-                <Button variant="outline">Cancel</Button>
-              </DrawerClose>
-            </DrawerFooter>
-          </div>
-        </DrawerContent>
-      </Drawer>
+      <div className={cn("transition-transform duration-300 overflow-hidden", isOpen ? "scale-[0.99]" : "scale-100")}>
+        {children}
+      </div>
+      <ContactForm isOpen={isOpen} onOpenChange={setIsOpen} />
     </ContactFormContext.Provider>
   );
 }
 
-export const useContact = () => {
+export const useContactMe = () => {
   const context = useContext(ContactFormContext);
-  if (!context) throw new Error("useContact must be used within ContactFormProvider");
+  if (!context) throw new Error("useContactMe must be used within ContactFormProvider");
   return context;
 };

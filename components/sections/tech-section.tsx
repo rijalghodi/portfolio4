@@ -53,7 +53,11 @@ export function TechSection() {
   return (
     <section className="z-0 py-24" id="tech">
       <div className="max-w-screen-lg w-full mx-auto">
-        <StarHeading description="Extended hands that I've used to build my projects." title="My Tech Stacks" />
+        <StarHeading
+          description="Extended hands that I've used to build my projects."
+          title="My Tech Stacks"
+          className="mb-12"
+        />
         <div className="flex flex-col gap-16">
           {techStacks.map(({ id, title, items }) => (
             <section key={id} aria-labelledby={`${id}-heading`}>

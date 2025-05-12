@@ -48,6 +48,7 @@ export default async function Home() {
             iconUrl: ex.icon_url,
             position: ex.position,
             category: ex.category,
+            location: ex.location,
             startDate: ex.start_date,
             endDate: ex.end_date,
             shortDesc: ex.short_desc,

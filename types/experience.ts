@@ -6,6 +6,7 @@ export interface IExperience {
   position: string;
   icon_url?: string;
   company: string;
+  location?: string;
   url?: string;
   category?: string;
   still_working?: boolean;

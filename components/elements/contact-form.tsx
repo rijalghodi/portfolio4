@@ -69,7 +69,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
 
   return (
     <Drawer open={isOpen} onOpenChange={onOpenChange} dismissible={false} setBackgroundColorOnScale>
-      <DrawerContent className="max-h-[100%] lg:h-[500px]">
+      <DrawerContent className="max-h-[100%] lg:h-[550px]">
         <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto px-6 pb-6 overflow-y-auto">
           <div className="block absolute top-4 right-4">
             <Button variant="ghost" size="icon" className="" onClick={() => onOpenChange(false)}>

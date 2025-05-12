@@ -91,32 +91,32 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
     block: {
       normal: ({ children }) => <p className="mb-6 md:text-lg">{children}</p>,
       h1: ({ children, value }) => (
-        <h1 className="text-4xl font-bold leading-snug mb-6 pt-16" id={value._key}>
+        <h1 className="text-4xl font-medium leading-snug mb-6 pt-16" id={value._key}>
           {children}
         </h1>
       ),
       h2: ({ children, value }) => (
-        <h2 className="text-3xl font-bold leading-snug mb-6 pt-12" id={value._key}>
+        <h2 className="text-3xl font-medium leading-snug mb-6 pt-12" id={value._key}>
           {children}
         </h2>
       ),
       h3: ({ children, value }) => (
-        <h3 className="text-2xl font-bold leading-snug mb-6 pt-8" id={value._key}>
+        <h3 className="text-2xl font-medium leading-snug mb-6 pt-8" id={value._key}>
           {children}
         </h3>
       ),
       h4: ({ children, value }) => (
-        <h4 className="text-xl font-semibold mb-6 pt-8" id={value._key}>
+        <h4 className="text-xl font-medium mb-6 pt-8" id={value._key}>
           {children}
         </h4>
       ),
       h5: ({ children, value }) => (
-        <h5 className="text-lg font-semibold tracking-tight uppercase mb-6 pt-4" id={value._key}>
+        <h5 className="text-lg font-medium tracking-tight uppercase mb-6 pt-4" id={value._key}>
           {children}
         </h5>
       ),
       h6: ({ children, value }) => (
-        <h6 className="text-base font-semibold uppercase tracking-tight mb-6 pt-4" id={value._key}>
+        <h6 className="text-base font-medium uppercase tracking-tight mb-6 pt-4" id={value._key}>
           {children}
         </h6>
       ),
@@ -160,7 +160,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
             <div className="flex flex-col gap-4 xl:[direction:ltr]">
               {/* Table of Contents */}
               <div className="flex flex-col gap-4 ">
-                <h2 className="text-lg font-bold leading-snug">In This article</h2>
+                <h2 className="text-lg font-semibold leading-snug">In This article</h2>
                 <PerLevelHeadings outline={outline} />
               </div>
 

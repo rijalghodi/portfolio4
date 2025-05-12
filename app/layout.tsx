@@ -7,7 +7,7 @@ import { env } from "@/lib/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "aos/dist/aos.css";
 import type { Metadata } from "next";
-import { Inter, Roboto_Flex, Source_Code_Pro } from "next/font/google";
+import { Inter, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({

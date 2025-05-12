@@ -19,8 +19,10 @@ export function Footer() {
       <div className="flex flex-col items-center space-y-5">
         {theme === "dark" ? <LogoDark width={40} height={40} /> : <LogoLight width={40} height={40} />}
 
-        <div className="text-2xl font-semibold">Let&apos;s Work Together</div>
-        <div className="flex gap-4">
+        <div className="text-2xl font-semibold" data-aos="fade-up" data-aos-duration="400">
+          Let&apos;s Work Together
+        </div>
+        <div className="flex gap-4" data-aos="fade-up" data-aos-duration="400">
           <Button radius="full" onClick={open}>
             <Send />
             Contact Me

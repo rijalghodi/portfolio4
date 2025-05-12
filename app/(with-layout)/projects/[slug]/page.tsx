@@ -109,12 +109,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
             {project?.technologies && project?.technologies.length > 0 && (
               <div className="flex gap-2 flex-wrap items-center">
                 {project?.technologies.map((tech) => (
-                  <Link
-                    key={tech.name}
-                    href={tech.link ?? "#"}
-                    className={badgeVariants({ variant: "outline" })}
-                    target={tech.link && "_blank"}
-                  >
+                  <div key={tech.name} className={badgeVariants({ variant: "outline" })}>
                     {tech.icon_url && (
                       <Image
                         src={tech.icon_url}
@@ -124,8 +119,8 @@ export default async function ProjectPage({ params }: ProjectProps) {
                         className="rounded-full overflow-clip object-fill"
                       />
                     )}
-                    <span className="text-accent-foreground text-xs font-semibold">{tech.name}</span>
-                  </Link>
+                    <span className="text-muted-foreground text-xs font-semibold">{tech.name}</span>
+                  </div>
                 ))}
               </div>
             )}

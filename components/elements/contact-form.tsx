@@ -46,7 +46,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
       form.reset();
       setSubmitError(null);
       toast.success("Message sent!", {
-        description: "We'll get back to you as soon as possible.",
+        description: "Thank you for reaching out. I'll get back to you as soon as possible.",
         duration: 15000,
       });
     },
@@ -70,14 +70,14 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
     <Drawer open={isOpen} onOpenChange={onOpenChange}>
       <DrawerContent>
         <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto mb-12">
-          <DrawerHeader>
+          <DrawerHeader className="px-6">
             <DrawerTitle className="mt-4">
               <StarHeading title="Contact Me" className="text-center sm:text-left" />
             </DrawerTitle>
             {submitError && <p className="text-red-500 mt-2">{submitError}</p>}
           </DrawerHeader>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6">
               <FormField
                 control={form.control}
                 name="name"
@@ -130,13 +130,13 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
                   </Button>
                 </div>
               </div>
+              <p className="text-sm text-muted-foreground text-center">
+                Or kindly send an email to{" "}
+                <a className="hover:underline underline-offset-2" href={`mailto:${contactEmail}`}>
+                  {contactEmail}
+                </a>
+              </p>
             </form>
-            <p className="text-sm text-muted-foreground text-center">
-              Or kindly send an email to{" "}
-              <a className="hover:underline underline-offset-2" href={`mailto:${contactEmail}`}>
-                {contactEmail}
-              </a>
-            </p>
           </Form>
         </div>
       </DrawerContent>

@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { Badge } from "@/components/ui/badge";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { cn } from "@/lib/utils";

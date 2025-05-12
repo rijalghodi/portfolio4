@@ -45,8 +45,6 @@ export const TableOfContents = ({
     setOpen(window.innerWidth > 500);
   }, []);
 
-  const toggleOpen = () => setOpen(!open);
-
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

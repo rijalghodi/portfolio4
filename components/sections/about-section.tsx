@@ -45,7 +45,7 @@ export function AboutSection({ cvUrl }: { cvUrl?: string }) {
                 )}
               </div>
             </div>
-            <div className="flex-1 space-y-4 text-xl leading-relaxed">
+            <div className="flex-1 space-y-4 text-base sm:text-xl leading-relaxed">
               <p className="text-muted-foreground" data-aos="fade-up">
                 I'm a full-stack developer dedicated to turning ideas into creative solutions. I specialize in creating
                 seamless and intuitive user experiences.

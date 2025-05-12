@@ -68,7 +68,7 @@ export function TechSection() {
                 <h3 id={`${id}-heading`} className="text-3xl col-span-1">
                   {title}
                 </h3>
-                <ul className="col-span-1 md:col-span-3 flex flex-wrap gap-4 text-base sm:text-lg">
+                <ul className="col-span-1 md:col-span-3 flex flex-wrap gap-4 text-sm sm:text-lg">
                   {items.map(({ name, logo }) => (
                     <li
                       key={name}

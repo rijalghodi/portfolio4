@@ -44,7 +44,11 @@ export function ExperienceSection({ experiences }: Props) {
                 </Timeline.Heading>
                 <Timeline.Content>
                   {ex.shortDesc && <p className="mb-4 text-base sm:text-lg">{ex.shortDesc}</p>}
-                  {ex.description && <PortableTextRenderer value={ex.description} />}
+                  {ex.description && (
+                    <div className="sm:block hidden">
+                      <PortableTextRenderer value={ex.description} />
+                    </div>
+                  )}
                 </Timeline.Content>
               </Timeline.Item>
             ))}

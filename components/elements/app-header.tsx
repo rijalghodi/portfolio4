@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import Pulse from "@/public/icons/pulse.svg";
 import LogoDark from "@/public/logo-dark.svg";
 import LogoLight from "@/public/logo-light.svg";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, Send, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
@@ -137,16 +137,21 @@ export function Header() {
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
-                <div className="px-6 py-12 flex flex-col gap-8 items-start">
+                <DrawerClose asChild>
+                  <Button variant="ghost" size="icon-lg" className="absolute top-4 right-4">
+                    <X />
+                  </Button>
+                </DrawerClose>
+                <div className="px-6 py-12 flex flex-col gap-8 items-center pb-40">
                   <nav>
-                    <ul className="flex flex-col gap-6">
+                    <ul className="flex flex-col gap-10 items-center">
                       {MENUS.map((menu) => (
                         <li key={menu.link}>
                           <DrawerClose asChild>
                             <Link
                               href={menu.link}
                               className={cn(
-                                "text-lg text-foreground hover:bg-silent/80 rounded-full px-4 py-3",
+                                "text-xl text-foreground hover:bg-silent/80 rounded-full px-8 py-3 transition-all duration-300",
                                 "data-[active=true]:text-primary",
                               )}
                               data-active={activeMenu === menu.link}
@@ -158,11 +163,9 @@ export function Header() {
                       ))}
                     </ul>
                   </nav>
-                  <Button size="sm" variant="secondary" className="rounded-full py-0.5 pl-2" asChild>
-                    <Link href={contactLinkedIn}>
-                      <Pulse width={40} height={40} />
-                      Contact
-                    </Link>
+                  <Button onClick={open} radius="full" size="lg">
+                    <Send />
+                    Contact Me
                   </Button>
                 </div>
               </DrawerContent>

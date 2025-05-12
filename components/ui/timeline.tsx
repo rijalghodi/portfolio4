@@ -66,7 +66,7 @@ Timeline.Item = ({ children }: { children: React.ReactNode }) => {
         <div className="hidden md:block md:pl-20 ">{heading}</div>
       </div>
 
-      <div className="relative pl-20 pr-4 md:pl-4 w-full">
+      <div className="relative pl-20 pr-4 md:pl-4 w-full flex flex-col gap-2">
         <div className="md:hidden block">{heading}</div>
         {content}
       </div>

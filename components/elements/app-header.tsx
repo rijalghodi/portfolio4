@@ -1,9 +1,7 @@
 "use client";
 
 import { useTheme } from "@/contexts/theme-context";
-import { contactLinkedIn } from "@/data/contact";
 import { cn } from "@/lib/utils";
-import Pulse from "@/public/icons/pulse.svg";
 import LogoDark from "@/public/logo-dark.svg";
 import LogoLight from "@/public/logo-light.svg";
 import { MenuIcon, Send, X } from "lucide-react";

@@ -1,6 +1,7 @@
 "use client";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { contactEmail } from "@/data/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { Loader2, Send } from "lucide-react";
@@ -13,7 +14,6 @@ import { Button } from "../ui/button";
 import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle } from "../ui/drawer";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { contactEmail } from "@/data/contact";
 
 const contactFormSchema = z.object({
   name: z.string({ required_error: "Name is required" }).min(1, "Name is required"),

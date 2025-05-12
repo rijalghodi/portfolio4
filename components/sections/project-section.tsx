@@ -9,7 +9,7 @@ export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
   return (
     <section className="z-0 py-24" id="projects">
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
-        <div data-aos="fade-up" data-aos-duration="600">
+        <div data-aos="fade-up">
           <StarHeading
             title="Featured Projects"
             description="Crafted with love and passion, here are some of the projects I've worked on."
@@ -24,7 +24,7 @@ export function ProjectSection({ projects }: { projects: ProjectGlimps[] }) {
           ))}
         </ul>
 
-        <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="600" className="flex justify-center mt-8">
+        <div data-aos="fade-up" data-aos-delay="400" className="flex justify-center mt-8">
           <Button variant="outline" radius="full" asChild>
             <Link href="/projects">
               All Projects <IconArrowRight />

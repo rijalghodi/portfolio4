@@ -18,12 +18,12 @@ export function HeroSection() {
         <div className="w-full">
           <div className="flex flex-col gap-5">
             <div className="flex gap-8 flex-col lg:flex-row lg:items-end lg:gap-10">
-              <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="400">
+              <div data-aos="fade-up" data-aos-delay="100">
                 <h1 className="font-mono mt-4 md:mt-2 text-5xl sm:text-6xl sm:text-start lg:text-8xl font-semibold tracking-tight !leading-snug">
                   Full-stack <span className="inline lg:hidden">Developer</span>
                 </h1>
               </div>
-              <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="400">
+              <div data-aos="fade-up" data-aos-delay="150">
                 <Button
                   variant="plain"
                   radius="full"
@@ -43,13 +43,13 @@ export function HeroSection() {
             </div>
 
             <div className="flex gap-3 items-start">
-              <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
+              <div data-aos="fade-up" data-aos-delay="200">
                 <p className="text-lg sm:text-xl py-4 text-foreground !leading-relaxed text-wrap-balance break-words">
                   2+ years of experience turn ideas into beautiful web applications. Focus in clean code, intuitive
                   design, and scalable solutions.
                 </p>
               </div>
-              <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="400">
+              <div data-aos="fade-up" data-aos-delay="250">
                 <span className="font-mono mt-4 md:mt-2 hidden lg:block text-4xl sm:text-6xl lg:text-8xl md:font-semibold tracking-tight text-end">
                   Developers
                 </span>
@@ -59,13 +59,13 @@ export function HeroSection() {
 
           <div className="flex flex-col xs:flex-row gap-6 mt-6 items-center justify-center sm:justify-start flex-wrap">
             <div className="flex gap-4 flex-col xs:flex-row w-full xs:w-fit">
-              <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="400">
+              <div data-aos="fade-up" data-aos-delay="300">
                 <Button radius="full" size="lg" className="w-full xs:w-fit" onClick={open}>
                   <Send />
                   Contact Me
                 </Button>
               </div>
-              <div data-aos="fade-up" data-aos-delay="350" data-aos-duration="400">
+              <div data-aos="fade-up" data-aos-delay="350">
                 <CopyButton
                   value={contactEmail}
                   labelDefault="Copy Email"
@@ -77,7 +77,7 @@ export function HeroSection() {
                 />
               </div>
             </div>
-            <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="400">
+            <div data-aos="fade-up" data-aos-delay="400">
               <SocialLinks />
             </div>
           </div>

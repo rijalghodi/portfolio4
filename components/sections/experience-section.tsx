@@ -15,7 +15,7 @@ export function ExperienceSection({ experiences }: Props) {
     <section className="z-0 py-24" id="experiences">
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
-          <div data-aos="fade-up" data-aos-duration="600">
+          <div data-aos="fade-up">
             <StarHeading title="My Work Experience" description="Experiences that I've had throughout my career." />
           </div>
           <ExperienceTimeline experiences={experiences} />
@@ -29,16 +29,16 @@ export function ExperienceTimeline({ experiences }: Props) {
   return (
     <Timeline>
       {experiences.map((ex, i) => (
-        <Timeline.Item key={i} data-aos="fade-up" data-aos-duration="600" data-aos-delay={i * 100}>
+        <Timeline.Item key={i} data-aos="fade-up" data-aos-delay={i * 100}>
           <Timeline.Heading className="flex flex-col gap-3">
-            <div className="flex flex-col gap-2" data-aos="fade-up" data-aos-duration="400">
+            <div className="flex flex-col gap-2" data-aos="fade-up">
               <time className="text-sm font-light">
                 {dateToMMYYYY(ex.startDate)} -{" "}
                 {ex.stillWorking ? "Now" : ex.endDate ? dateToMMYYYY(ex.endDate) : "Present"}
               </time>
               <h3 className="text-2xl font-medium text-primary">{ex.position}</h3>
             </div>
-            <div className="flex flex-col gap-2" data-aos="fade-up" data-aos-duration="400">
+            <div className="flex flex-col gap-2" data-aos="fade-up">
               {ex.company && (
                 <p className="text-sm flex items-center gap-2">
                   <Building className="w-4 h-4" />
@@ -55,12 +55,12 @@ export function ExperienceTimeline({ experiences }: Props) {
           </Timeline.Heading>
           <Timeline.Content>
             {ex.shortDesc && (
-              <p data-aos="fade-up" data-aos-duration="400" className="mb-4 text-base sm:text-lg">
+              <p data-aos="fade-up" className="mb-4 text-base sm:text-lg">
                 {ex.shortDesc}
               </p>
             )}
             {ex.description && (
-              <div data-aos="fade-up" data-aos-duration="400" className="sm:block hidden">
+              <div data-aos="fade-up" className="sm:block hidden">
                 <PortableTextRenderer value={ex.description} />
               </div>
             )}

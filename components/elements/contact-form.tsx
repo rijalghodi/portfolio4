@@ -13,6 +13,7 @@ import { Button } from "../ui/button";
 import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle } from "../ui/drawer";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
+import { contactEmail } from "@/data/contact";
 
 const contactFormSchema = z.object({
   name: z.string({ required_error: "Name is required" }).min(1, "Name is required"),
@@ -68,10 +69,10 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
   return (
     <Drawer open={isOpen} onOpenChange={onOpenChange}>
       <DrawerContent>
-        <div className="flex flex-col gap-2 w-full max-w-screen-sm mx-auto mb-12">
+        <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto mb-12">
           <DrawerHeader>
             <DrawerTitle className="mt-4">
-              <StarHeading className="text-center sm:text-left">Contact Me</StarHeading>
+              <StarHeading title="Contact Me" className="text-center sm:text-left" />
             </DrawerTitle>
             {submitError && <p className="text-red-500 mt-2">{submitError}</p>}
           </DrawerHeader>
@@ -119,7 +120,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
               <div className="col-span-2 py-2">
                 <div className="flex gap-4 gap-y-3 flex-col-reverse sm:flex-row">
                   <DrawerClose asChild>
-                    <Button variant="outline" size="lg" radius="full" className="w-full">
+                    <Button variant="secondary" size="lg" radius="full" className="w-full">
                       Cancel
                     </Button>
                   </DrawerClose>
@@ -130,6 +131,12 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
                 </div>
               </div>
             </form>
+            <p className="text-sm text-muted-foreground text-center">
+              Or kindly send an email to{" "}
+              <a className="hover:underline underline-offset-2" href={`mailto:${contactEmail}`}>
+                {contactEmail}
+              </a>
+            </p>
           </Form>
         </div>
       </DrawerContent>

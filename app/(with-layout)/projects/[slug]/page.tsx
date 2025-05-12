@@ -4,6 +4,7 @@ import { ProjectPreviewCarousel } from "@/components/elements/project-preview-ca
 import { badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
+import { Spotlight } from "@/components/ui/spotlight-new";
 import { getProjectBySlug } from "@/sanity/sanity-utils";
 import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
 import type { Metadata } from "next";
@@ -82,6 +83,9 @@ export default async function ProjectPage({ params }: ProjectProps) {
 
   return (
     <>
+      <div className="fixed inset-0">
+        <Spotlight />
+      </div>
       <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
         <header className=" flex flex-col gap-5">
           {project?.icon_url && (

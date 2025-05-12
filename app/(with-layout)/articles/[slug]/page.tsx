@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Badge } from "@/components/ui/badge";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
+import { Spotlight } from "@/components/ui/spotlight-new";
 import { cn } from "@/lib/utils";
 import { getArticleBySlug } from "@/sanity/sanity-utils";
 import type { Metadata } from "next";
@@ -78,6 +79,9 @@ export default async function ArticlePage({ params }: ArticleProps) {
 
   return (
     <>
+      <div className="fixed inset-0">
+        <Spotlight />
+      </div>
       <article className="max-w-[680px] w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
         <header className="flex flex-col gap-4 sm:gap-5">
           <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-medium leading-tight md:text-center">
@@ -104,16 +108,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
               <Image src={article?.cover_image_url} alt={article?.title} fill className="rounded-xl object-cover" />
             </figure>
           )}
-          <PortableTextRenderer value={article?.content} withTableOfContents={article.toc} />
-          {article?.tags && article?.tags.length > 0 && (
-            <div className="flex gap-2 flex-wrap">
-              {article?.tags.map((tag) => (
-                <Badge variant="outline" key={tag}>
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          )}
+          <PortableTextRenderer value={article?.content} withTableOfContents={article.toc} tags={article?.tags} />
         </div>
       </article>
     </>

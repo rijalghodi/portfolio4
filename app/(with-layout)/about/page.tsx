@@ -1,7 +1,7 @@
+import { ExperienceTimeline } from "@/components/sections/experience-section";
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
-import { Timeline } from "@/components/ui/timeline-static";
-import { dateToMMYYYY } from "@/lib/utils";
+import { Spotlight } from "@/components/ui/spotlight-new";
 import { getExpereinces, getLatestPinnedAbout } from "@/sanity/sanity-utils";
 import { IconDownload } from "@tabler/icons-react";
 import Link from "next/link";
@@ -14,9 +14,12 @@ export default async function About() {
 
   return (
     <>
+      <div className="fixed inset-0">
+        <Spotlight />
+      </div>
       <div className="z-0 bg-background pt-8 pb-16">
-        <article className="w-full mx-auto max-w-[680px]">
-          <header className="mb-8">
+        <article className="w-full mx-auto max-w-screen-md flex flex-col gap-8">
+          <header>
             <h1 data-aos="fade-up" className="text-4xl font-medium mb-4 text-center sm:text-left">
               About Me
             </h1>
@@ -35,60 +38,43 @@ export default async function About() {
                   })}
                 </p>
               )}
-              <div>
-                {about.cv.url && (
-                  <Button asChild>
-                    <Link
-                      href={`${about?.cv?.url}?dl=Rijal_Ghodi_Resume.pdf`}
-                      download="Rijal_Ghodi_Resume.pdf"
-                      title="Download Resume"
-                    >
-                      <IconDownload />
-                      Resume
-                    </Link>
-                  </Button>
-                )}
-              </div>
             </div>
           </header>
-          <section data-aos="fade-up" data-aos-delay="100">
+          <div>
+            {about.cv.url && (
+              <Button radius="full" asChild>
+                <Link
+                  href={`${about?.cv?.url}?dl=Rijal_Ghodi_Resume.pdf`}
+                  download="Rijal_Ghodi_Resume.pdf"
+                  title="Download Resume"
+                >
+                  <IconDownload />
+                  Download CV
+                </Link>
+              </Button>
+            )}
+          </div>
+          <section data-aos="fade-up" data-aos-delay="100" className="max-w-screen-md">
             <PortableTextRenderer value={about?.content} />
           </section>
-          <section data-aos="fade-up" id="experience">
-            <h2 className="text-[1.75rem] font-medium leading-snug mb-6 mt-10">Experience</h2>
-            <Timeline>
-              {experiences.map((ex, i) => (
-                <Timeline.Item key={i}>
-                  <Timeline.Head>
-                    <p className="text-sm" data-aos="fade-up">
-                      {dateToMMYYYY(ex.start_date)} -{" "}
-                      {ex.still_working ? "Now" : ex.end_date ? dateToMMYYYY(ex.end_date ?? "") : "-"}
-                    </p>
-                  </Timeline.Head>
-                  <Timeline.Body>
-                    <div className="mb-3" data-aos="fade-up" data-aos-delay="50">
-                      <h3 className="font-normal text-2xl mb-2">{ex.position}</h3>
-                      {ex.url ? (
-                        <Link
-                          href={ex.url ?? "#"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary hover:underline"
-                        >
-                          {ex.company}
-                        </Link>
-                      ) : (
-                        <p className="text-primary">{ex.company}</p>
-                      )}
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="100">
-                      <PortableTextRenderer value={ex.description} />
-                    </div>
-                  </Timeline.Body>
-                </Timeline.Item>
-              ))}
-            </Timeline>
-          </section>
+          <div className="flex flex-col gap-0">
+            <h2 className="text-[1.75rem] font-medium leading-snug mb-6 mt-10">My Work Experience</h2>
+            <ExperienceTimeline
+              experiences={experiences?.map((ex) => ({
+                company: ex.company,
+                companyLink: ex.url,
+                iconUrl: ex.icon_url,
+                position: ex.position,
+                category: ex.category,
+                location: ex.location,
+                startDate: ex.start_date,
+                endDate: ex.end_date,
+                shortDesc: ex.short_desc,
+                description: ex.description,
+                stillWorking: ex.still_working,
+              }))}
+            />
+          </div>
         </article>
       </div>
     </>

@@ -12,16 +12,17 @@ import { env } from "@/lib/env";
 import rijalDark from "@/public/hljs/rijal-dark";
 import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { SanityImage } from "sanity-image";
+import { Badge } from "../badge";
 import { CopyButton } from "../copy-button";
-import { TableOfContents } from "./TableOfContents";
+import { PerLevelHeadings } from "./TableOfContents";
 import { parseOutline } from "./outline";
-
 interface PortableTextRendererProps {
   value: any; // Replace `any` with your Portable Text type if defined
   withTableOfContents?: boolean;
+  tags?: string[];
 }
 
-const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, withTableOfContents = false }) => {
+const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, withTableOfContents = false, tags }) => {
   const { theme } = useTheme();
 
   const components: PortableTextReactComponents = {
@@ -90,37 +91,37 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
     block: {
       normal: ({ children }) => <p className="mb-6 md:text-lg">{children}</p>,
       h1: ({ children, value }) => (
-        <h1 className="text-4xl font-medium leading-snug mb-6 mt-10" id={value._key}>
+        <h1 className="text-4xl font-bold leading-snug mb-6 pt-16" id={value._key}>
           {children}
         </h1>
       ),
       h2: ({ children, value }) => (
-        <h2 className="text-[1.75rem] font-medium leading-snug mb-6 mt-10" id={value._key}>
+        <h2 className="text-3xl font-bold leading-snug mb-6 pt-12" id={value._key}>
           {children}
         </h2>
       ),
       h3: ({ children, value }) => (
-        <h3 className="text-xl font-medium leading-snug mb-6 mt-6" id={value._key}>
+        <h3 className="text-2xl font-bold leading-snug mb-6 pt-8" id={value._key}>
           {children}
         </h3>
       ),
       h4: ({ children, value }) => (
-        <h4 className="text-lg font-semibold mb-6 mt-6" id={value._key}>
+        <h4 className="text-xl font-semibold mb-6 pt-8" id={value._key}>
           {children}
         </h4>
       ),
       h5: ({ children, value }) => (
-        <h5 className="text-base font-semibold tracking-tight uppercase mb-6 mt-6" id={value._key}>
+        <h5 className="text-lg font-semibold tracking-tight uppercase mb-6 pt-4" id={value._key}>
           {children}
         </h5>
       ),
       h6: ({ children, value }) => (
-        <h6 className="text-sm font-semibold uppercase tracking-tight mb-6 mt-6" id={value._key}>
+        <h6 className="text-base font-semibold uppercase tracking-tight mb-6 pt-4" id={value._key}>
           {children}
         </h6>
       ),
 
-      hr: ({ value }) => <hr className="mb-6 mt-6" id={value._key} />,
+      hr: ({ value }) => <hr className="mb-6 pt-6" id={value._key} />,
     },
     list: {
       bullet: ({ children, value }) => (
@@ -153,11 +154,27 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
   return (
     <div>
       {withTableOfContents && (
-        <section className="static mb-6 xl:absolute top-0 bottom-20 w-auto xl:w-80 left-full xl:translate-x-8">
-          <div className="border rounded-xl static xl:sticky xl:top-20 ">
-            <TableOfContents outline={outline} />
+        <aside className="static mb-12 xl:absolute top-0 bottom-20 w-auto xl:w-80 left-full xl:translate-x-8">
+          {/* Side */}
+          <div className="static xl:sticky xl:top-0 gap-4 xl:border-l xl:py-8 pl-5 xl:max-h-[calc(100vh)] xl:overflow-y-auto xl:[direction:rtl]">
+            <div className="flex flex-col gap-4 xl:[direction:ltr]">
+              {/* Table of Contents */}
+              <div className="flex flex-col gap-4 ">
+                <h2 className="text-lg font-bold leading-snug">In This article</h2>
+                <PerLevelHeadings outline={outline} />
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {tags?.map((tag: string) => (
+                  <Badge variant="outline" key={tag}>
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
           </div>
-        </section>
+        </aside>
       )}
       <PortableText value={value} components={components} />
     </div>

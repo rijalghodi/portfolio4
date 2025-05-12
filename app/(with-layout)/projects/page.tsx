@@ -1,5 +1,6 @@
 // import { projects } from '@/data/project';
 import { ProjectCard } from "@/components/elements/project-card";
+import { Spotlight } from "@/components/ui/spotlight-new";
 import { getProjects } from "@/sanity/sanity-utils";
 
 // export const revalidate = 7 * 24 * 60 * 60; // a week
@@ -8,9 +9,12 @@ export default async function Project() {
   const projects = await getProjects();
 
   return (
-    <div>
+    <>
+      <div className="fixed inset-0">
+        <Spotlight />
+      </div>
       {/* --- Articles */}
-      <section className="z-0 bg-background pt-8 pb-16" id="projects">
+      <div className="z-0 bg-background pt-8 pb-16" id="projects">
         <div className="max-w-screen-lg w-full mx-auto">
           <div className="mb-8">
             <h1 data-aos="fade-up" className="text-4xl font-medium mb-4">
@@ -36,7 +40,7 @@ export default async function Project() {
             ))}
           </ul>
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
 }

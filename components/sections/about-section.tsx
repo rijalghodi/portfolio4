@@ -45,12 +45,12 @@ export function AboutSection({ cvUrl }: { cvUrl?: string }) {
                 )}
               </div>
             </div>
-            <div className="flex-1 space-y-4 text-base sm:text-xl leading-relaxed">
-              <p className="text-muted-foreground" data-aos="fade-up">
+            <div className="flex-1 space-y-4 text-base sm:text-xl leading-relaxed text-muted-foreground dark:text-foreground">
+              <p data-aos="fade-up">
                 I'm a full-stack developer dedicated to turning ideas into creative solutions. I specialize in creating
                 seamless and intuitive user experiences.
               </p>
-              <p className="text-muted-foreground dark:text-foreground" data-aos="fade-up">
+              <p data-aos="fade-up">
                 My approach focuses on creating scalable, high-performing solutions tailored to both user needs and
                 business objectives. By prioritizing performance, accessibility, and responsiveness, I strive to deliver
                 experiences that not only engage users but also drive tangible results.

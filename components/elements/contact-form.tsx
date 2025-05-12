@@ -67,22 +67,22 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
   };
 
   return (
-    <Drawer open={isOpen} onOpenChange={onOpenChange}>
+    <Drawer open={isOpen} onOpenChange={onOpenChange} setBackgroundColorOnScale>
       <DrawerContent className="max-h-[100%] lg:h-[500px]">
-        <DrawerClose asChild className="block sm:hidden">
-          <Button variant="ghost" size="icon-lg" className="absolute top-4 right-4">
-            <X />
-          </Button>
-        </DrawerClose>
-        <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto pb-6 overflow-y-auto">
-          <DrawerHeader className="px-6">
+        <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto px-6 pb-6 overflow-y-auto">
+          <DrawerClose asChild className="flex sm:hidden absolute top-4 right-4">
+            <Button variant="ghost" size="icon" className="">
+              <X />
+            </Button>
+          </DrawerClose>
+          <DrawerHeader className="">
             <DrawerTitle className="mt-4">
               <StarHeading title="Contact Me" className="text-center sm:text-left" />
             </DrawerTitle>
             {submitError && <p className="text-red-500 mt-2">{submitError}</p>}
           </DrawerHeader>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="name"

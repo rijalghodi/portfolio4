@@ -94,7 +94,7 @@
 
   ::-webkit-scrollbar-thumb {
     background-color: hsl(
-      var(--accent)
+      var(--border)
     ); /* Set the color of the scrollbar thumb */
     border-radius: 4px; /* Optional: to make the thumb rounded */
   }

@@ -4,15 +4,15 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { contactEmail } from "@/data/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Send, X } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 import { StarHeading } from "../sections/star-heading";
 import { Button } from "../ui/button";
+import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle } from "../ui/drawer";
 import { Input } from "../ui/input";
-import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle } from "../ui/sheet";
 import { Textarea } from "../ui/textarea";
 
 const contactFormSchema = z.object({
@@ -67,20 +67,20 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={onOpenChange}>
-      <SheetContent className="max-h-[100%] lg:h-[500px] overflow-y-auto" side="bottom">
-        <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto px-6 pb-6">
-          {/* <SheetClose asChild className="flex sm:hidden absolute top-4 right-4">
-            <Button variant="ghost" size="icon" className="">
+    <Drawer open={isOpen} onOpenChange={onOpenChange} dismissible={false} setBackgroundColorOnScale>
+      <DrawerContent className="max-h-[100%] lg:h-[500px]">
+        <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto px-6 pb-6 overflow-y-auto">
+          <div className="block absolute top-4 right-4">
+            <Button variant="ghost" size="icon" className="" onClick={() => onOpenChange(false)}>
               <X />
             </Button>
-          </SheetClose> */}
-          <SheetHeader className="">
-            <SheetTitle className="mt-4">
+          </div>
+          <DrawerHeader className="">
+            <DrawerTitle className="mt-4">
               <StarHeading title="Contact Me" className="text-center sm:text-left" />
-            </SheetTitle>
-            {submitError && <p className="text-destructive mt-2">{submitError}</p>}
-          </SheetHeader>
+            </DrawerTitle>
+            {submitError && <p className="text-red-500 mt-2">{submitError}</p>}
+          </DrawerHeader>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
@@ -124,11 +124,11 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
               />
               <div className="col-span-2 py-2">
                 <div className="flex gap-4 gap-y-3 flex-col-reverse sm:flex-row">
-                  <SheetClose asChild>
+                  <DrawerClose asChild>
                     <Button variant="secondary" size="lg" radius="full" className="w-full">
                       Cancel
                     </Button>
-                  </SheetClose>
+                  </DrawerClose>
                   <Button size="lg" radius="full" className="w-full" type="submit" disabled={isPending}>
                     {isPending ? <Loader2 className="animate-spin mr-2" /> : <Send className="mr-2" />}
                     Send
@@ -144,7 +144,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
             </a>
           </p>
         </div>
-      </SheetContent>
-    </Sheet>
+      </DrawerContent>
+    </Drawer>
   );
 }

@@ -65,11 +65,24 @@ export function TechSection() {
                 <h3 id={`${id}-heading`} className="text-3xl col-span-1">
                   {title}
                 </h3>
-                <ul className="col-span-1 md:col-span-3 flex flex-wrap gap-8 text-lg sm:text-xl">
+                <ul className="col-span-1 md:col-span-3 flex flex-wrap gap-4 text-base sm:text-lg">
                   {items.map(({ name, logo }) => (
-                    <li key={name} className="flex items-center gap-2">
-                      {logo && <Image src={logo} alt={name} width={32} height={32} className="rounded-sm" />}
-                      {name}
+                    <li
+                      key={name}
+                      className="group flex items-center gap-2 px-4 py-1.5 rounded-full border border-border hover:rotate-[6deg] transition-transform duration-300"
+                    >
+                      {logo && (
+                        <Image
+                          src={logo}
+                          alt={name}
+                          width={16}
+                          height={16}
+                          className="rounded-sm group-hover:scale-[1.5] transition-transform duration-200"
+                        />
+                      )}
+                      <span className="group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        {name}
+                      </span>
                     </li>
                   ))}
                 </ul>

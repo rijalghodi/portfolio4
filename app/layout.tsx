@@ -7,11 +7,11 @@ import { env } from "@/lib/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "aos/dist/aos.css";
 import type { Metadata } from "next";
-import { Roboto_Flex, Source_Code_Pro } from "next/font/google";
+import { Inter, Roboto_Flex, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 
-const inter = Roboto_Flex({
-  weight: ["400", "500", "600", "700", "800", "900"],
+const inter = Inter({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-inter",
 });

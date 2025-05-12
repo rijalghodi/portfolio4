@@ -156,7 +156,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
       {withTableOfContents && (
         <aside className="static mb-12 xl:absolute top-0 bottom-20 w-auto xl:w-80 left-full xl:translate-x-8">
           {/* Side */}
-          <div className="static xl:sticky xl:top-0 gap-4 xl:border-l xl:py-8 pl-5 xl:max-h-[calc(100vh)] xl:overflow-y-auto xl:[direction:rtl]">
+          <div className="static xl:sticky xl:top-[80px] gap-4 xl:border-l xl:py-8 pl-5 xl:max-h-[calc(100vh-160px)] xl:overflow-y-auto xl:[direction:rtl]">
             <div className="flex flex-col gap-4 xl:[direction:ltr]">
               {/* Table of Contents */}
               <div className="flex flex-col gap-4 ">

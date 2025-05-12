@@ -8,8 +8,7 @@ export function AOSInit(props: Props) {
   useEffect(() => {
     AOS.init({
       duration: 300,
-      once: false,
-      // offset: 100,
+      once: true,
     });
   }, []);
   return props.children;

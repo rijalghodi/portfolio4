@@ -134,13 +134,13 @@ export function Header() {
                   <MenuIcon />
                 </Button>
               </DrawerTrigger>
-              <DrawerContent>
+              <DrawerContent className="h-[80%] lg:h-[500px]">
                 <DrawerClose asChild>
                   <Button variant="ghost" size="icon-lg" className="absolute top-4 right-4">
                     <X />
                   </Button>
                 </DrawerClose>
-                <div className="px-6 py-12 flex flex-col gap-8 items-center pb-40">
+                <div className="px-6 py-12 flex flex-col gap-8 items-center pb-6 overflow-y-auto">
                   <nav>
                     <ul className="flex flex-col gap-10 items-center">
                       {MENUS.map((menu) => (
@@ -149,7 +149,7 @@ export function Header() {
                             <Link
                               href={menu.link}
                               className={cn(
-                                "text-xl text-foreground hover:bg-silent/80 rounded-full px-8 py-3 transition-all duration-300",
+                                "text-xl text-foreground hover:bg-silent/80 rounded-full px-8 py-3",
                                 "data-[active=true]:text-primary",
                               )}
                               data-active={activeMenu === menu.link}

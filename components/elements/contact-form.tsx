@@ -4,7 +4,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { contactEmail } from "@/data/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Send, X } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -68,8 +68,13 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
 
   return (
     <Drawer open={isOpen} onOpenChange={onOpenChange}>
-      <DrawerContent>
-        <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto mb-12">
+      <DrawerContent className="max-h-[100%] lg:h-[500px]">
+        <DrawerClose asChild className="block sm:hidden">
+          <Button variant="ghost" size="icon-lg" className="absolute top-4 right-4">
+            <X />
+          </Button>
+        </DrawerClose>
+        <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto pb-6 overflow-y-auto">
           <DrawerHeader className="px-6">
             <DrawerTitle className="mt-4">
               <StarHeading title="Contact Me" className="text-center sm:text-left" />
@@ -130,14 +135,14 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
                   </Button>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground text-center">
-                Or kindly send an email to{" "}
-                <a className="hover:underline underline-offset-2" href={`mailto:${contactEmail}`}>
-                  {contactEmail}
-                </a>
-              </p>
             </form>
           </Form>
+          <p className="col-span-2 text-sm text-muted-foreground text-center">
+            Or kindly send an email to{" "}
+            <a className="hover:underline underline-offset-2" href={`mailto:${contactEmail}`}>
+              {contactEmail}
+            </a>
+          </p>
         </div>
       </DrawerContent>
     </Drawer>

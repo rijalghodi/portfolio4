@@ -83,7 +83,7 @@ export function TechSection() {
                       {logo && (
                         <Image
                           src={logo}
-                          alt={name}
+                          alt={`${name} Logo`}
                           width={16}
                           height={16}
                           className="rounded-sm group-hover:scale-[1.5] transition-transform duration-200"

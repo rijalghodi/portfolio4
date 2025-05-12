@@ -15,56 +15,12 @@ export function ExperienceSection({ experiences }: Props) {
     <section className="z-0 py-24" id="experiences">
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
-          <StarHeading title="My Work Experience" description="Experiences that I've had throughout my career." />
+          <div data-aos="fade-up" data-aos-duration="600">
+            <StarHeading title="My Work Experience" description="Experiences that I've had throughout my career." />
+          </div>
           <ExperienceTimeline experiences={experiences} />
         </div>
       </div>
-      {/* <div className="max-w-screen-lg w-full mx-auto space-y-8">
-        <div className="space-y-6">
-          <StarHeading>My Work Experience</StarHeading>
-        </div>
-        <Timeline>
-          {experiences.map((ex, i) => (
-            <Timeline.Item key={i}>
-              <Timeline.Head>
-                <p className="text-sm" data-aos="fade-up">
-                  {dateToMMYYYY(ex.startDate)} -{" "}
-                  {ex.stillWorking ? "Now" : ex.endDate ? dateToMMYYYY(ex.endDate) : "Present"}
-                </p>
-              </Timeline.Head>
-              <Timeline.Body>
-                <div className="mb-3" data-aos="fade-up" data-aos-delay="50">
-                  <h3 className="font-normal text-xl sm:text-2xl mb-2">{ex.position}</h3>
-                  {ex.companyLink ? (
-                    <Link
-                      href={ex.companyLink ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      {ex.company}
-                    </Link>
-                  ) : (
-                    <p className="text-primary">{ex.company}</p>
-                  )}
-                </div>
-                {ex.shortDesc && (
-                  <p data-aos="fade-up" data-aos-delay="100">
-                    {ex.shortDesc}
-                  </p>
-                )}
-              </Timeline.Body>
-            </Timeline.Item>
-          ))}
-        </Timeline>
-        <div className="flex justify-center mt-8">
-          <Button variant="outline" radius="full" asChild>
-            <Link href="/about">
-              More About Me <IconArrowRight />
-            </Link>
-          </Button>
-        </div>
-      </div> */}
     </section>
   );
 }
@@ -73,16 +29,16 @@ export function ExperienceTimeline({ experiences }: Props) {
   return (
     <Timeline>
       {experiences.map((ex, i) => (
-        <Timeline.Item key={i}>
+        <Timeline.Item key={i} data-aos="fade-up" data-aos-duration="600" data-aos-delay={i * 100}>
           <Timeline.Heading className="flex flex-col gap-3">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2" data-aos="fade-up" data-aos-duration="400">
               <time className="text-sm font-light">
                 {dateToMMYYYY(ex.startDate)} -{" "}
                 {ex.stillWorking ? "Now" : ex.endDate ? dateToMMYYYY(ex.endDate) : "Present"}
               </time>
               <h3 className="text-2xl font-medium text-primary">{ex.position}</h3>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2" data-aos="fade-up" data-aos-duration="400">
               {ex.company && (
                 <p className="text-sm flex items-center gap-2">
                   <Building className="w-4 h-4" />
@@ -98,9 +54,13 @@ export function ExperienceTimeline({ experiences }: Props) {
             </div>
           </Timeline.Heading>
           <Timeline.Content>
-            {ex.shortDesc && <p className="mb-4 text-base sm:text-lg">{ex.shortDesc}</p>}
+            {ex.shortDesc && (
+              <p data-aos="fade-up" data-aos-duration="400" className="mb-4 text-base sm:text-lg">
+                {ex.shortDesc}
+              </p>
+            )}
             {ex.description && (
-              <div className="sm:block hidden">
+              <div data-aos="fade-up" data-aos-duration="400" className="sm:block hidden">
                 <PortableTextRenderer value={ex.description} />
               </div>
             )}
@@ -110,3 +70,50 @@ export function ExperienceTimeline({ experiences }: Props) {
     </Timeline>
   );
 }
+
+// {/* <div className="max-w-screen-lg w-full mx-auto space-y-8">
+//         <div className="space-y-6">
+//           <StarHeading>My Work Experience</StarHeading>
+//         </div>
+//         <Timeline>
+//           {experiences.map((ex, i) => (
+//             <Timeline.Item key={i}>
+//               <Timeline.Head>
+//                 <p className="text-sm" data-aos="fade-up">
+//                   {dateToMMYYYY(ex.startDate)} -{" "}
+//                   {ex.stillWorking ? "Now" : ex.endDate ? dateToMMYYYY(ex.endDate) : "Present"}
+//                 </p>
+//               </Timeline.Head>
+//               <Timeline.Body>
+//                 <div className="mb-3" data-aos="fade-up" data-aos-delay="50">
+//                   <h3 className="font-normal text-xl sm:text-2xl mb-2">{ex.position}</h3>
+//                   {ex.companyLink ? (
+//                     <Link
+//                       href={ex.companyLink ?? "#"}
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       className="text-primary hover:underline"
+//                     >
+//                       {ex.company}
+//                     </Link>
+//                   ) : (
+//                     <p className="text-primary">{ex.company}</p>
+//                   )}
+//                 </div>
+//                 {ex.shortDesc && (
+//                   <p data-aos="fade-up" data-aos-delay="100">
+//                     {ex.shortDesc}
+//                   </p>
+//                 )}
+//               </Timeline.Body>
+//             </Timeline.Item>
+//           ))}
+//         </Timeline>
+//         <div className="flex justify-center mt-8">
+//           <Button variant="outline" radius="full" asChild>
+//             <Link href="/about">
+//               More About Me <IconArrowRight />
+//             </Link>
+//           </Button>
+//         </div>
+//       </div> */}

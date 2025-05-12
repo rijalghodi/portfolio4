@@ -44,7 +44,7 @@ export default function Articles() {
             <h1 data-aos="fade-up" className="text-4xl font-medium mb-4">
               Articles
             </h1>
-            <p data-aos="fade-up" data-aos-delay="50" className="text-base text-muted-foreground">
+            <p data-aos="fade-up" data-aos-delay="50" className="text-base sm:text-lg">
               Articles on software development, artificial intelligence, and self-improvement.
             </p>
           </div>

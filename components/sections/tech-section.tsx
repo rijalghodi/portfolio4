@@ -53,14 +53,23 @@ export function TechSection() {
   return (
     <section className="z-0 py-24" id="tech">
       <div className="max-w-screen-lg w-full mx-auto">
-        <StarHeading
-          description="Extended hands that I've used to build my projects."
-          title="My Tech Stacks"
-          className="mb-12"
-        />
+        <div data-aos="fade-up" data-aos-duration="600">
+          <StarHeading
+            description="Extended hands that I've used to build my projects."
+            title="My Tech Stacks"
+            className="mb-12"
+          />
+        </div>
+
         <div className="flex flex-col gap-16">
-          {techStacks.map(({ id, title, items }) => (
-            <section key={id} aria-labelledby={`${id}-heading`}>
+          {techStacks.map(({ id, title, items }, index) => (
+            <section
+              key={id}
+              aria-labelledby={`${id}-heading`}
+              data-aos="fade-up"
+              data-aos-delay={`${100 * index}`}
+              data-aos-duration="600"
+            >
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <h3 id={`${id}-heading`} className="text-3xl col-span-1">
                   {title}

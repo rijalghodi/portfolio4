@@ -20,7 +20,7 @@ export default async function Project() {
             <h1 data-aos="fade-up" className="text-4xl font-medium mb-4">
               Projects
             </h1>
-            <p data-aos="fade-up" data-aos-delay="50" className="text-base text-muted-foreground">
+            <p data-aos="fade-up" data-aos-delay="50" className="text-base sm:text-lg">
               Personal apps, client-requested apps, and artificial intelligence applications.
             </p>
           </div>

@@ -33,6 +33,7 @@ export function ProjectCard({ description: shortDesc, name, slug, iconUrl, role,
           "h-72 w-full rounded-2xl border overflow-hidden relative px-6 py-6 flex flex-col justify-end bg-background/50 hover:bg-muted/50 dark:bg-muted/50 dark:hover:bg-silent/50 backdrop-blur-md",
         )}
         data-aos="fade-up"
+        data-aos-duration="400"
         // style={{
         //   backgroundImage: coverImageUrl ? `url(${coverImageUrl})` : 'none',
         // }}

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { getProjectBySlug } from "@/sanity/sanity-utils";
-import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
+import { IconArrowLeft, IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -83,11 +83,19 @@ export default async function ProjectPage({ params }: ProjectProps) {
 
   return (
     <>
-      <div className="fixed inset-0">
+      <div className="fixed inset-0 z-[0]">
         <Spotlight />
       </div>
-      <article className="max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
-        <header className=" flex flex-col gap-5">
+      <div className="relative pt-2">
+        <Button variant="ghost" size="default" radius="full" asChild>
+          <Link href="/projects">
+            <IconArrowLeft />
+            Back to Projects
+          </Link>
+        </Button>
+      </div>
+      <article className="relative max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
+        <header className="flex flex-col gap-5">
           {project?.icon_url && (
             <figure data-aos="fade-up">
               <Image

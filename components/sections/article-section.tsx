@@ -9,11 +9,13 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
   return (
     <section className="z-0 py-24" id="articles">
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
-        <StarHeading
-          title="Blog Articles"
-          description="In a mean time, I write articles about my experiences and learnings."
-          className="mb-8"
-        />
+        <div data-aos="fade-up" data-aos-duration="400">
+          <StarHeading
+            title="Blog Articles"
+            description="In a mean time, I write articles about my experiences and learnings."
+            className="mb-8"
+          />
+        </div>
 
         <ul>
           {articles?.map((article, i) => (
@@ -30,7 +32,7 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
             </li>
           ))}
         </ul>
-        <div className="flex justify-center mt-8">
+        <div data-aos="fade-up" data-aos-duration="400" className="flex justify-center mt-8">
           <Button variant="outline" radius="full" asChild>
             <Link href="/articles">
               All Articles <IconArrowRight />

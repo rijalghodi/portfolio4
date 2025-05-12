@@ -1,10 +1,13 @@
 import Image from "next/image";
 
+import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { cn } from "@/lib/utils";
 import { getArticleBySlug } from "@/sanity/sanity-utils";
+import { IconArrowLeft } from "@tabler/icons-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -78,10 +81,18 @@ export default async function ArticlePage({ params }: ArticleProps) {
 
   return (
     <>
-      <div className="fixed inset-0">
+      <div className="fixed inset-0 z-[0]">
         <Spotlight />
       </div>
-      <article className="max-w-[680px] w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
+      <div className="relative pt-2">
+        <Button variant="ghost" size="default" radius="full" asChild>
+          <Link href="/articles">
+            <IconArrowLeft />
+            Back to Articles
+          </Link>
+        </Button>
+      </div>
+      <article className="relative max-w-[680px] w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
         <header className="flex flex-col gap-4 sm:gap-5">
           <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-medium leading-tight md:text-center">
             {article?.title}

@@ -84,43 +84,43 @@ export default async function ArticlePage({ params }: ArticleProps) {
       <div className="fixed inset-0 z-[0]">
         <Spotlight />
       </div>
-      <div className="relative pt-2">
+      <div className="relative max-w-screen-lg mx-auto pt-2">
         <Button variant="ghost" size="default" radius="full" asChild>
           <Link href="/articles">
             <IconArrowLeft />
             Back to Articles
           </Link>
         </Button>
+        <article className="relative max-w-[680px] w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
+          <header className="flex flex-col gap-4 sm:gap-5">
+            <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-medium leading-tight md:text-center">
+              {article?.title}
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="50" className="sm:text-xl md:text-center">
+              {article?.description}
+            </p>
+            <p data-aos="fade-up" data-aos-delay="50" className="uppercase text-sm md:text-center font-mono">
+              {new Date(article?.date ?? article?._createdAt).toLocaleDateString("en", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}
+            </p>
+          </header>
+          <div
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className={cn("relative flex flex-col gap-9", article.toc && "xl:right-36")}
+          >
+            {article?.cover_image_url && (
+              <figure className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
+                <Image src={article?.cover_image_url} alt={article?.title} fill className="rounded-xl object-cover" />
+              </figure>
+            )}
+            <PortableTextRenderer value={article?.content} withTableOfContents={article.toc} tags={article?.tags} />
+          </div>
+        </article>
       </div>
-      <article className="relative max-w-[680px] w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
-        <header className="flex flex-col gap-4 sm:gap-5">
-          <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-medium leading-tight md:text-center">
-            {article?.title}
-          </h1>
-          <p data-aos="fade-up" data-aos-delay="50" className="sm:text-xl md:text-center">
-            {article?.description}
-          </p>
-          <p data-aos="fade-up" data-aos-delay="50" className="uppercase text-sm md:text-center font-mono">
-            {new Date(article?.date ?? article?._createdAt).toLocaleDateString("en", {
-              day: "2-digit",
-              month: "short",
-              year: "numeric",
-            })}
-          </p>
-        </header>
-        <div
-          data-aos="fade-up"
-          data-aos-delay="100"
-          className={cn("relative flex flex-col gap-9", article.toc && "xl:right-36")}
-        >
-          {article?.cover_image_url && (
-            <figure className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
-              <Image src={article?.cover_image_url} alt={article?.title} fill className="rounded-xl object-cover" />
-            </figure>
-          )}
-          <PortableTextRenderer value={article?.content} withTableOfContents={article.toc} tags={article?.tags} />
-        </div>
-      </article>
     </>
   );
 }

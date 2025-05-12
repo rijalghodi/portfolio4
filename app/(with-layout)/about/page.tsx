@@ -17,8 +17,8 @@ export default async function About() {
       <div className="fixed inset-0">
         <Spotlight />
       </div>
-      <div className="z-0 bg-background pt-8 pb-16">
-        <article className="w-full mx-auto max-w-screen-md flex flex-col gap-8">
+      <article className="z-0 bg-background pt-8 pb-16 max-w-screen-lg mx-auto">
+        <section className="w-full mx-auto flex flex-col gap-8">
           <header>
             <h1 data-aos="fade-up" className="text-4xl font-medium mb-4 text-center sm:text-left">
               About Me
@@ -57,26 +57,26 @@ export default async function About() {
           <section data-aos="fade-up" data-aos-delay="100" className="max-w-screen-md">
             <PortableTextRenderer value={about?.content} />
           </section>
-          <div className="flex flex-col gap-0">
-            <h2 className="text-[1.75rem] font-medium leading-snug mb-6 mt-10">My Work Experience</h2>
-            <ExperienceTimeline
-              experiences={experiences?.map((ex) => ({
-                company: ex.company,
-                companyLink: ex.url,
-                iconUrl: ex.icon_url,
-                position: ex.position,
-                category: ex.category,
-                location: ex.location,
-                startDate: ex.start_date,
-                endDate: ex.end_date,
-                shortDesc: ex.short_desc,
-                description: ex.description,
-                stillWorking: ex.still_working,
-              }))}
-            />
-          </div>
-        </article>
-      </div>
+        </section>
+        <section className="flex flex-col gap-0">
+          <h2 className="text-[1.75rem] font-medium leading-snug mb-6 mt-10">My Work Experience</h2>
+          <ExperienceTimeline
+            experiences={experiences?.map((ex) => ({
+              company: ex.company,
+              companyLink: ex.url,
+              iconUrl: ex.icon_url,
+              position: ex.position,
+              category: ex.category,
+              location: ex.location,
+              startDate: ex.start_date,
+              endDate: ex.end_date,
+              shortDesc: ex.short_desc,
+              description: ex.description,
+              stillWorking: ex.still_working,
+            }))}
+          />
+        </section>
+      </article>
     </>
   );
 }

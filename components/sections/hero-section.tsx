@@ -45,7 +45,7 @@ export function HeroSection() {
             <div className="flex gap-3 items-start">
               <div data-aos="fade-up" data-aos-delay="200">
                 <p className="text-lg sm:text-xl py-4 text-foreground !leading-relaxed text-wrap-balance break-words">
-                  2+ years of experience turn ideas into beautiful web applications. Focus in clean code, intuitive
+                  2+ years of experience turning ideas into beautiful web applications. Focused on clean code, intuitive
                   design, and scalable solutions.
                 </p>
               </div>

@@ -20,7 +20,7 @@ export function ArticleItem(props: Props) {
       <div className="flex flex-col gap-3 flex-1">
         <AccessibleDiv
           tag={props.titleTag ?? "p"}
-          className="text-xl font-medium text-foreground tracking-wide"
+          className="text-xl font-medium text-foreground"
           // data-aos="fade-up"
         >
           {props.title}

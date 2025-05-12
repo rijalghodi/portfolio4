@@ -12,6 +12,7 @@ export type ExperienceView = {
   companyLink?: string;
   category?: string;
   startDate: string;
+  location?: string;
   endDate?: string;
   stillWorking?: boolean;
   iconUrl?: string;

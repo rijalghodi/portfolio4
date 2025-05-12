@@ -12,7 +12,7 @@ export function AboutSection({ cvUrl }: { cvUrl?: string }) {
   return (
     <section className="z-0 py-24" id="about">
       <div className="max-w-screen-lg w-full mx-auto">
-        <StarHeading className="mb-8">About me</StarHeading>
+        <StarHeading title="About me" className="mb-8" />
         <div className="flex flex-col gap-16">
           <div className="flex gap-8 flex-col md:gap-16 md:flex-row">
             <div className="flex flex-col gap-8">
@@ -45,7 +45,7 @@ export function AboutSection({ cvUrl }: { cvUrl?: string }) {
                 I'm a full-stack developer dedicated to turning ideas into creative solutions. I specialize in creating
                 seamless and intuitive user experiences.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground dark:text-foreground">
                 My approach focuses on creating scalable, high-performing solutions tailored to both user needs and
                 business objectives. By prioritizing performance, accessibility, and responsiveness, I strive to deliver
                 experiences that not only engage users but also drive tangible results.

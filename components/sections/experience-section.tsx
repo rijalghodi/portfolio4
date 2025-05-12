@@ -1,25 +1,59 @@
 "use client";
 import { dateToMMYYYY } from "@/lib/utils";
-import { IconArrowRight } from "@tabler/icons-react";
-import Link from "next/link";
+import { Building, MapPin } from "lucide-react";
 import { ExperienceView } from "../elements/experience-card";
-import { Button } from "../ui/button";
+import { PortableTextRenderer } from "../ui/portable-text-renderer/PortableTextRenderer";
 import { Timeline } from "../ui/timeline";
 import { StarHeading } from "./star-heading";
 
 type Props = {
   experiences: ExperienceView[];
 };
+
 export function ExperienceSection({ experiences }: Props) {
   return (
     <section className="z-0 py-24" id="experiences">
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
+          <StarHeading title="My Work Experience" description="Experiences that I've had throughout my career." />
+          <Timeline>
+            {experiences.map((ex, i) => (
+              <Timeline.Item key={i}>
+                <Timeline.Heading className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2">
+                    <time className="text-sm font-light">
+                      {dateToMMYYYY(ex.startDate)} -{" "}
+                      {ex.stillWorking ? "Now" : ex.endDate ? dateToMMYYYY(ex.endDate) : "Present"}
+                    </time>
+                    <h3 className="text-2xl font-medium text-primary">{ex.position}</h3>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    {ex.company && (
+                      <p className="text-sm flex items-center gap-2">
+                        <Building className="w-4 h-4" />
+                        {ex.company}
+                      </p>
+                    )}
+                    {ex.location && (
+                      <p className="text-sm flex items-center gap-2">
+                        <MapPin className="w-4 h-4" />
+                        {ex.location}
+                      </p>
+                    )}
+                  </div>
+                </Timeline.Heading>
+                <Timeline.Content>
+                  {ex.shortDesc && <p className="mb-4 text-base sm:text-lg">{ex.shortDesc}</p>}
+                  {ex.description && <PortableTextRenderer value={ex.description} />}
+                </Timeline.Content>
+              </Timeline.Item>
+            ))}
+          </Timeline>
+        </div>
+      </div>
+      {/* <div className="max-w-screen-lg w-full mx-auto space-y-8">
+        <div className="space-y-6">
           <StarHeading>My Work Experience</StarHeading>
-          {/* <p className="mb-8">
-            In a mean time, I write articles about my experiences and learnings. As Feymann once said,
-            <span className="italic">"I write to learn"</span>
-          </p> */}
         </div>
         <Timeline>
           {experiences.map((ex, i) => (
@@ -62,7 +96,7 @@ export function ExperienceSection({ experiences }: Props) {
             </Link>
           </Button>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

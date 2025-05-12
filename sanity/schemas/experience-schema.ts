@@ -45,6 +45,11 @@ export const experience: SchemaTypeDefinition = {
       description: "If still working, leave this blank",
     },
     {
+      name: "location",
+      title: "Location",
+      type: "string",
+    },
+    {
       name: "category",
       title: "Type of Job (e.g. Full Time, Freelance, etc.)",
       type: "string",
@@ -68,7 +73,7 @@ export const experience: SchemaTypeDefinition = {
       title: "Short Description",
       type: "text",
       validation(rule) {
-        return rule.max(100);
+        return rule.max(300);
       },
     },
     {

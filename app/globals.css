@@ -18,14 +18,14 @@
     --popover-foreground: 211 36.6% 16.1%;
     --primary: 137 41% 31%;
     --primary-hover: 137 41% 40%;
-    --primary-foreground: 0 0% 97.3%;
+    --primary-foreground: 0 0% 97%;
     --muted: 0 0% 90%;
     --muted-hover: 0 0% 85%;
     --muted-foreground: 240 3.8% 36.1%;
     --silent: 0 0% 85%;
     --silent-hover: 0 0% 80%;
     --silent-foreground: 240 3.8% 36.1%;
-    --accent: 203 89% 38%;
+    --accent: 225.35 84% 49%;
     --accent-foreground: 0 0% 97%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -56,8 +56,8 @@
     --silent: 215 31% 21%;
     --silent-hover: 215 31% 24%;
     --silent-foreground: 0 0% 76%;
-    --accent: 203 100% 70%;
-    --accent-foreground: 212 31% 12%;
+    --accent: 225.35 84% 49%;
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 62%;
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 211 31.2% 30.2%;

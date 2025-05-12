@@ -68,7 +68,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
   return (
     <Drawer open={isOpen} onOpenChange={onOpenChange}>
       <DrawerContent>
-        <div className="flex flex-col gap-2 w-full max-w-screen-md mx-auto mb-12">
+        <div className="flex flex-col gap-2 w-full max-w-screen-sm mx-auto mb-12">
           <DrawerHeader>
             <DrawerTitle className="mt-4">
               <StarHeading className="text-center sm:text-left">Contact Me</StarHeading>

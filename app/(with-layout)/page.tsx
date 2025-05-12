@@ -51,6 +51,7 @@ export default async function Home() {
             startDate: ex.start_date,
             endDate: ex.end_date,
             shortDesc: ex.short_desc,
+            description: ex.description,
             stillWorking: ex.still_working,
           }))}
         />

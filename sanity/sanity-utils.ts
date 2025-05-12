@@ -162,6 +162,7 @@ export async function getExpereinces(page?: number, limit?: number): Promise<IEx
       "icon_url": icon.asset->url,
       position,
       company,
+      location,
       url,
       still_working,
       start_date,

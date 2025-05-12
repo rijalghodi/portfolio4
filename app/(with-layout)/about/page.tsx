@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
-import { Timeline } from "@/components/ui/timeline";
+import { Timeline } from "@/components/ui/timeline-static";
 import { dateToMMYYYY } from "@/lib/utils";
 import { getExpereinces, getLatestPinnedAbout } from "@/sanity/sanity-utils";
 import { IconDownload } from "@tabler/icons-react";

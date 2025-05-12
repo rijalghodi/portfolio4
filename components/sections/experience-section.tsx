@@ -36,7 +36,7 @@ export function ExperienceTimeline({ experiences }: Props) {
                 {dateToMMYYYY(ex.startDate)} -{" "}
                 {ex.stillWorking ? "Now" : ex.endDate ? dateToMMYYYY(ex.endDate) : "Present"}
               </time>
-              <h3 className="text-2xl font-medium text-primary">{ex.position}</h3>
+              <h3 className="text-xl md:text-2xl font-medium text-primary">{ex.position}</h3>
             </div>
             <div className="flex flex-col gap-2" data-aos="fade-up">
               {ex.company && (

@@ -45,6 +45,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
     onSuccess: () => {
       form.reset();
       setSubmitError(null);
+      onOpenChange(false);
       toast.success("Message sent!", {
         description: "Thank you for reaching out. I'll get back to you as soon as possible.",
         duration: 15000,

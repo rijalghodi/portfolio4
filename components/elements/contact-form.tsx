@@ -79,8 +79,8 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
           <DrawerHeader className="">
             <DrawerTitle className="mt-4">
               <StarHeading title="Contact Me" className="text-center sm:text-left" />
+              {submitError && <p className="text-red-500 mt-2 text-sm">{submitError}</p>}
             </DrawerTitle>
-            {submitError && <p className="text-red-500 mt-2">{submitError}</p>}
           </DrawerHeader>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">

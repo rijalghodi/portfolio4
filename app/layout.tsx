@@ -7,14 +7,22 @@ import { env } from "@/lib/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "aos/dist/aos.css";
 import type { Metadata } from "next";
-import { Inter, Source_Code_Pro } from "next/font/google";
+import localFont from "next/font/local";
+import { Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/Inter.ttf",
   variable: "--font-inter",
+  weight: "100 900",
+  fallback: ["sans-serif"],
 });
+
+// const inter = Inter({
+//   weight: ["300", "400", "500", "600", "700"],
+//   subsets: ["latin"],
+//   variable: "--font-inter",
+// });
 
 const mono = Source_Code_Pro({
   weight: ["400", "500", "600", "700"],

@@ -2,6 +2,7 @@
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { contactEmail } from "@/data/contact";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { Loader2, Send, X } from "lucide-react";
@@ -25,6 +26,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenChange: (open: boolean) => void }) {
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -68,7 +70,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
   };
 
   return (
-    <Drawer open={isOpen} onOpenChange={onOpenChange} dismissible={false} setBackgroundColorOnScale>
+    <Drawer open={isOpen} onOpenChange={onOpenChange} dismissible={!isMobile} setBackgroundColorOnScale>
       <DrawerContent className="max-h-[100%] lg:h-[550px]">
         <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto px-6 pb-6 overflow-y-auto">
           <div className="block absolute top-4 right-4">

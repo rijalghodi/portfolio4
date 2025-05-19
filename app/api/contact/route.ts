@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
       from: `"Contact Form - My Portfolio" <${contactEmail}>`,
       to: contactEmail, // message my self
       subject: "Message from My Portfolio Site",
-      text: `Name: ${name}\n\nEmail: ${email}\n\nMessage: ${message}`,
+      text: `Message: ${message}\n\n\nName: ${name}\n\nEmail: ${email}`,
     });
 
     return NextResponse.json({ success: true, data: res });

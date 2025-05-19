@@ -5,7 +5,7 @@ import { structureTool } from "sanity/structure";
 import { env } from "./lib/env";
 import { schemas } from "./sanity/schemas";
 
-export const sanityConfig = defineConfig({
+export default defineConfig({
   name: "default",
   title: "Portfolio",
 

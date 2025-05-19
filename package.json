@@ -24,7 +24,6 @@
     "@radix-ui/react-separator": "^1.1.6",
     "@radix-ui/react-slot": "^1.2.2",
     "@radix-ui/react-tooltip": "^1.1.4",
-    "@sanity/code-input": "^4.1.4",
     "@svgr/webpack": "^8.1.0",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tabler/icons-react": "^3.22.0",

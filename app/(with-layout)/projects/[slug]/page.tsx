@@ -5,7 +5,7 @@ import { badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import { getProjectBySlug } from "@/sanity/sanity-utils";
+import { getProjectBySlug } from "@/lib/sanity/sanity-utils";
 import { IconArrowLeft, IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";

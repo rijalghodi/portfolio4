@@ -1,7 +1,7 @@
 import { IArticle } from "@/types/article";
 import { IProject } from "@/types/project";
 import { FilteredResponseQueryOptions, createClient, groq } from "next-sanity";
-import { clientConfig } from "./config/client-config";
+import { clientConfig } from "./client-config";
 
 import { IAbout } from "@/types/about";
 import { IExperience } from "@/types/experience";

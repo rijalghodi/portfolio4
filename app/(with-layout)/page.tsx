@@ -7,7 +7,7 @@ import { TechSection } from "@/components/sections/tech-section";
 import { FallingStarsBackground } from "@/components/ui/falling-stars-background";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import { getArticles, getExpereinces, getLatestPinnedAbout, getProjects } from "@/sanity/sanity-utils";
+import { getArticles, getExpereinces, getLatestPinnedAbout, getProjects } from "@/lib/sanity/sanity-utils";
 import { IArticle } from "@/types/article";
 import { IProject } from "@/types/project";
 

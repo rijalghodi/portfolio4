@@ -2,7 +2,7 @@ import { ExperienceTimeline } from "@/components/sections/experience-section";
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import { getExpereinces, getLatestPinnedAbout } from "@/sanity/sanity-utils";
+import { getExpereinces, getLatestPinnedAbout } from "@/lib/sanity/sanity-utils";
 import { IconDownload } from "@tabler/icons-react";
 import Link from "next/link";
 

@@ -1,7 +1,7 @@
 // import { projects } from '@/data/project';
 import { ProjectCard } from "@/components/elements/project-card";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import { getProjects } from "@/sanity/sanity-utils";
+import { getProjects } from "@/lib/sanity/sanity-utils";
 
 // export const revalidate = 7 * 24 * 60 * 60; // a week
 

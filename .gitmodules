@@ -1,0 +1,3 @@
+[submodule "sanity-cms"]
+	path = sanity-cms
+	url = https://github.com/rijalghodi/portfolio-cms-sanity.git

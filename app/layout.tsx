@@ -7,8 +7,8 @@ import { env } from "@/lib/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "aos/dist/aos.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Source_Code_Pro } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const inter = localFont({

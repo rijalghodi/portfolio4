@@ -81,7 +81,7 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
           <DrawerHeader className="px-0">
             <DrawerTitle className="mt-4">
               <StarHeading title="Contact Me" className="text-center sm:text-left" />
-              {!submitError && <p className="text-destructive mt-2 text-sm text-left">{submitError} Hello </p>}
+              {submitError && <p className="text-destructive mt-2 text-sm text-left">{submitError}</p>}
             </DrawerTitle>
           </DrawerHeader>
           <Form {...form}>

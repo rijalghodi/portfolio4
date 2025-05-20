@@ -10,7 +10,6 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "../ui/drawer";
-import ThemeSwitcher from "../ui/theme-switcher";
 import { useContactMe } from "./contact-form-context";
 
 type Menu = {
@@ -20,6 +19,10 @@ type Menu = {
 };
 
 const MENUS: Menu[] = [
+  {
+    title: "Home",
+    link: "/",
+  },
   {
     title: "Projects",
     link: "/projects",
@@ -105,7 +108,7 @@ export function Header() {
         </Link>
         <div className="hidden md:flex gap-6 items-center">
           <nav>
-            <ul className="flex gap-2 items-center">
+            <ul className="flex gap-1 items-center">
               {MENUS.map((menu) => (
                 <li key={menu.link}>
                   <Link
@@ -121,12 +124,14 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <Button variant="default" className="rounded-full" onClick={open}>
-            Contact Me
-          </Button>
         </div>
         <div className="flex gap-4">
-          <ThemeSwitcher />
+          <div className="hidden md:block">
+            <Button variant="default" className="rounded-full" onClick={open}>
+              Contact Me
+            </Button>
+          </div>
+          {/* <ThemeSwitcher /> */}
           <div className="block md:hidden">
             <Drawer>
               <DrawerTrigger asChild>

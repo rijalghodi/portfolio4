@@ -93,9 +93,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
-      <body className={`${inter.className} ${inter.variable} ${mono.variable} antialiased`}>
+      <body className={`${inter.className} ${inter.variable} ${mono.variable} antialiased dark`}>
         <ThemeProvider>
           <ReactQueryProvider>
             <AOSInit>

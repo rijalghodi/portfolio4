@@ -7,7 +7,7 @@ type Props = {
 };
 export default function WithLayout(props: Props) {
   return (
-    <div className="w-full">
+    <div className="w-full min-h-screen">
       <Header />
       <main className="pt-14 py-4 px-6 sm:px-12 overflow-clip">{props.children}</main>
       <Footer />

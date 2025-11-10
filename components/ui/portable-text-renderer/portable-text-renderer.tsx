@@ -194,9 +194,10 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
               In This Article
             </h2>
           </div>
-          <div className="flex-1 overflow-y-auto xl:h-[calc(100vh-200px)] px-4 pt-0 pb-4">
+          <div className="flex-1 overflow-y-auto xl:h-[calc(100vh-200px)] px-4">
             <TableOfContents content={value} />
           </div>
+          <div className="px-4 pb-4" />
         </div>
       )}
 

@@ -47,8 +47,7 @@ export function AboutSection({ cvUrl }: { cvUrl?: string }) {
             </div>
             <div className="flex-1 space-y-4 text-base sm:text-xl text-muted-foreground dark:text-foreground leading-loose">
               <p data-aos="fade-up">
-                I'm a full-stack developer dedicated to turning ideas into creative solutions. I specialize in creating
-                seamless and intuitive user experiences.
+                I'm a software engineer dedicated to turning ideas into creative solutions.
               </p>
               <p data-aos="fade-up">
                 My approach focuses on creating scalable, high-performing solutions tailored to both user needs and

@@ -40,7 +40,7 @@ export default async function About() {
               )}
             </div>
           </header>
-          <div>
+          <div data-aos="fade-up" data-aos-delay="100">
             {about.cv.url && (
               <Button radius="full" asChild>
                 <Link

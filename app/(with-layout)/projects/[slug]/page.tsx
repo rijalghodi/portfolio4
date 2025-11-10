@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     authors: [{ name: "Rijal Ghodi", url: "rijalghodi.dev@gmail.com" }],
     creator: "Rijal Ghodi",
     applicationName: "Rijal Ghodi's Portfolio",
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://rijalghodi.dev"),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://rijalghodi.xyz"),
     keywords: [
       "Rijal Ghodi",
       "Rijal",

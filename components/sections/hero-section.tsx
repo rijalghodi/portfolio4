@@ -20,7 +20,7 @@ export function HeroSection() {
             <div className="flex gap-8 flex-col lg:flex-row lg:items-end lg:gap-10">
               <div data-aos="fade-up" data-aos-delay="100">
                 <h1 className="font-mono mt-4 md:mt-2 text-5xl sm:text-6xl sm:text-start lg:text-8xl font-semibold tracking-tight !leading-snug">
-                  Full-stack <span className="inline lg:hidden">Developer</span>
+                  Software <span className="inline lg:hidden">Engineer</span>
                 </h1>
               </div>
               <div data-aos="fade-up" data-aos-delay="150">
@@ -51,7 +51,7 @@ export function HeroSection() {
               </div>
               <div data-aos="fade-up" data-aos-delay="250">
                 <span className="font-mono mt-4 md:mt-2 hidden lg:block text-4xl sm:text-6xl lg:text-8xl md:font-semibold tracking-tight text-end">
-                  Developers
+                  Engineer
                 </span>
               </div>
             </div>

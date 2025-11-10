@@ -9,14 +9,15 @@ const techStacks = [
     id: "frontend",
     title: "Frontend",
     items: [
-      { name: "TypeScript", logo: "/tech/ts.webp" },
-      { name: "JavaScript", logo: "/tech/js.webp" },
-      { name: "React.js", logo: "/tech/react.webp" },
       { name: "Next.js", logo: "/tech/next.webp" },
+      { name: "React.js", logo: "/tech/react.webp" },
+      { name: "TypeScript", logo: "/tech/ts.webp" },
       { name: "Tailwind CSS", logo: "/tech/tailwind.webp" },
       { name: "Shadcn", logo: "/tech/shadcn.webp" },
       { name: "Mantine", logo: "/tech/mantine.webp" },
       { name: "Framer Motion", logo: "/tech/framer-motion.webp" },
+      { name: "GSAP", logo: "/tech/gsap.webp" },
+      { name: "Three.js", logo: "/tech/three.webp" },
     ],
   },
   {
@@ -26,6 +27,10 @@ const techStacks = [
       { name: "Node.js", logo: "/tech/node.webp" },
       { name: "Express.js", logo: "/tech/express.svg" },
       { name: "Nest.js", logo: "/tech/nest.webp" },
+      { name: "Golang", logo: "/tech/go.webp" },
+      { name: "Go Fiber", logo: "/tech/fiber.webp" },
+      { name: "GraphQL", logo: "/tech/graphql.webp" },
+      { name: "RESTful API", logo: "/tech/restful-api.webp" },
     ],
   },
   {
@@ -34,8 +39,11 @@ const techStacks = [
     items: [
       { name: "PostgreSQL", logo: "/tech/postgresql.svg" },
       { name: "MySQL", logo: "/tech/mysql.webp" },
+      { name: "MariaDB", logo: "/tech/mariadb.webp" },
+      { name: "Redis", logo: "/tech/redis.webp" },
       { name: "MongoDB", logo: "/tech/mongodb.webp" },
-      { name: "Prisma", logo: "/tech/prisma.svg" },
+      { name: "Firestore", logo: "/tech/firestore.webp" },
+      { name: "Supabase", logo: "/tech/supabase.webp" },
     ],
   },
   {
@@ -43,8 +51,12 @@ const techStacks = [
     title: "DevOps",
     items: [
       { name: "Docker", logo: "/tech/docker.svg" },
+      { name: "Kubernetes", logo: "/tech/kubernetes.webp" },
       { name: "Git", logo: "/tech/git.svg" },
       { name: "Linux", logo: "/tech/linux.svg" },
+      { name: "Jenkins", logo: "/tech/jenkins.webp" },
+      { name: "GitHub Actions", logo: "/tech/github-actions.webp" },
+      { name: "GitLab CI/CD", logo: "/tech/gitlab-ci-cd.webp" },
     ],
   },
 ];

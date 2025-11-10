@@ -18,36 +18,12 @@ const inter = localFont({
   fallback: ["sans-serif"],
 });
 
-// const inter = Inter({
-//   weight: ["300", "400", "500", "600", "700"],
-//   subsets: ["latin"],
-//   variable: "--font-inter",
-// });
-
 const mono = Source_Code_Pro({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-mono",
 });
 
-// const geistSans = localFont({
-//   src: './fonts/GeistVF.woff',
-//   variable: '--font-geist-sans',
-//   weight: '100 900',
-// });
-
-// const geistMono = localFont({
-//   src: './fonts/GeistMono.ttf',
-//   variable: '--font-geist-mono',
-//   weight: '100 900',
-// });
-
-// const inter = localFont({
-//   src: "./fonts/Inter.ttf",
-//   variable: "--font-inter-visual",
-//   weight: "100 900",
-//   fallback: ["sans-serif"],
-// });
 
 const title = "Rijal Ghodi's Portfolio";
 const description =
@@ -56,7 +32,7 @@ const description =
 export const metadata: Metadata = {
   title: {
     default: title,
-    template: "%s | Rijal Ghodi - Full Stack Developer",
+    template: "%s | Rijal Ghodi - Software Engineer",
   },
   authors: [{ name: "Rijal Ghodi", url: "rijalghodi.dev@gmail.com" }],
   creator: "Rijal Ghodi",

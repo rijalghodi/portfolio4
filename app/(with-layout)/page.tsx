@@ -7,15 +7,20 @@ import { TechSection } from "@/components/sections/tech-section";
 import { FallingStarsBackground } from "@/components/ui/falling-stars-background";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import { getArticles, getExpereinces, getLatestPinnedAbout, getProjects } from "@/lib/sanity/sanity-utils";
+import {
+  getArticles,
+  getExpereinces,
+  getLatestPinnedAbout,
+  getProjects,
+} from "@/lib/sanity/sanity-utils";
 import { IArticle } from "@/types/article";
 import { IProject } from "@/types/project";
 
 // export const revalidate = 7 * 24 * 60 * 60; // a week
 
 export default async function Home() {
-  const projects: IProject[] = await getProjects(1, 4);
-  const articles: IArticle[] = await getArticles(1, 4);
+  const projects: IProject[] = await getProjects(undefined, 4);
+  const articles: IArticle[] = await getArticles(undefined, 4);
   const about = await getLatestPinnedAbout();
 
   const experiences = await getExpereinces(1, 4);
@@ -24,7 +29,12 @@ export default async function Home() {
     <>
       <div className="fixed inset-0">
         <Spotlight />
-        <FallingStarsBackground minTwinkleSpeed={2} maxTwinkleSpeed={4} allStarsTwinkle starDensity={0.00006} />
+        <FallingStarsBackground
+          minTwinkleSpeed={2}
+          maxTwinkleSpeed={4}
+          allStarsTwinkle
+          starDensity={0.00006}
+        />
         <ShootingStars />
       </div>
       <div className="relative">

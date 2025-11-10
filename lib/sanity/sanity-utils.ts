@@ -14,11 +14,19 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
-export async function getProjects(page?: number, limit?: number): Promise<IProject[]> {
-  const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
+export async function getProjects(
+  lastId?: string,
+  limit?: number
+): Promise<IProject[]> {
+  const pageSize = limit ?? 100;
+
+  // Build the filter condition
+  const filter = lastId
+    ? `_type == "project" && _id > $lastId`
+    : `_type == "project"`;
 
   return await createClient(clientConfig).fetch(
-    groq`*[_type == "project"] | order(pinned asc, date desc) [${start}...${start + (limit ?? 100)}] {
+    groq`*[${filter}] | order(_id) [0...${pageSize}] {
         _id,
         _createdAt,
         name,
@@ -37,6 +45,7 @@ export async function getProjects(page?: number, limit?: number): Promise<IProje
         demo_link,
         source_link,
       }`,
+    { lastId }
   );
 }
 
@@ -75,15 +84,23 @@ export async function getProjectBySlug(slug: string): Promise<IProject | null> {
           }
         }
       }`,
-    { slug },
+    { slug }
   );
 }
 
-export async function getArticles(page?: number, limit?: number): Promise<IArticle[]> {
-  const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
+export async function getArticles(
+  lastId?: string,
+  limit?: number
+): Promise<IArticle[]> {
+  const pageSize = limit ?? 20;
+
+  // Build the filter condition
+  const filter = lastId
+    ? `_type == "article" && _id > $lastId`
+    : `_type == "article"`;
 
   return await createClient(clientConfig).fetch(
-    groq`*[_type == "article"] | order(pinned asc, date desc) [${start}...${start + (limit ?? 100)}] {
+    groq`*[${filter}] | order(_id) [0...${pageSize}] {
       _id,
       _createdAt,
       title,
@@ -94,10 +111,14 @@ export async function getArticles(page?: number, limit?: number): Promise<IArtic
       tags[],
       date,
     }`,
+    { lastId }
   );
 }
 
-export async function getArticleBySlug(slug: string, options?: FilteredResponseQueryOptions): Promise<IArticle> {
+export async function getArticleBySlug(
+  slug: string,
+  options?: FilteredResponseQueryOptions
+): Promise<IArticle> {
   return await createClient(clientConfig).fetch(
     groq`*[_type == "article" && slug.current == $slug][0]{
         _id,
@@ -121,7 +142,7 @@ export async function getArticleBySlug(slug: string, options?: FilteredResponseQ
       }
       }`,
     { slug },
-    { ...options },
+    { ...options }
   );
 }
 
@@ -152,7 +173,10 @@ export const getLatestPinnedAbout = async (): Promise<IAbout> => {
   return createClient(clientConfig).fetch(query);
 };
 
-export async function getExpereinces(page?: number, limit?: number): Promise<IExperience[]> {
+export async function getExpereinces(
+  page?: number,
+  limit?: number
+): Promise<IExperience[]> {
   const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
 
   return await createClient(clientConfig).fetch(
@@ -171,6 +195,6 @@ export async function getExpereinces(page?: number, limit?: number): Promise<IEx
       pinned,
       short_desc,
       description,
-    }`,
+    }`
   );
 }

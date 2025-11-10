@@ -72,11 +72,10 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
-    font-feature-settings: 'liga' 0; /* Disable ligatures */
+    font-feature-settings: "liga" 0; /* Disable ligatures */
   }
 
   body {
@@ -107,9 +106,12 @@
     background-color: hsl(var(--border));
   }
 
-
   /* Hover effect for Firefox */
   html:hover {
     background-color: hsl(var(--border));
+  }
+
+  [data-aos].aos-animate {
+    transform: none !important;
   }
 }

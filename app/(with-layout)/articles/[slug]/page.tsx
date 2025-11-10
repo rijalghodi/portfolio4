@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
+import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/portable-text-renderer";
+import { TableOfContents } from "@/components/ui/portable-text-renderer/table-of-contents";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { getArticleBySlug } from "@/lib/sanity/sanity-utils";
-import { cn } from "@/lib/utils";
 import { IconArrowLeft } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -35,11 +35,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${article?.title ?? "Article"} | ${siteName}`,
       description: article?.description,
       siteName: siteName,
-      images: [article?.cover_image_url ?? `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`],
+      images: [
+        article?.cover_image_url ??
+          `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
+      ],
     },
     twitter: {
       title: `${article?.title ?? "Article"} | ${siteName}`,
-      images: [article?.cover_image_url ?? `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`],
+      images: [
+        article?.cover_image_url ??
+          `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
+      ],
       description: article?.description,
       site: "@zalcode_id",
       card: "summary_large_image",
@@ -48,7 +54,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     authors: [{ name: "Rijal Ghodi", url: "rijalghodi.dev@gmail.com" }],
     creator: "Rijal Ghodi",
     applicationName: "Rijal Ghodi's Portfolio",
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://rijalghodi.dev"),
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_SITE_URL ?? "https://rijalghodi.dev"
+    ),
     keywords: [
       "Rijal Ghodi",
       "Rijal",
@@ -84,23 +92,36 @@ export default async function ArticlePage({ params }: ArticleProps) {
       <div className="fixed inset-0 z-[0]">
         <Spotlight />
       </div>
-      <div className="relative max-w-screen-lg mx-auto pt-2">
+      <div className="relative max-w-[700px] mx-auto pt-2">
         <Button variant="ghost" size="default" radius="full" asChild>
           <Link href="/articles">
             <IconArrowLeft />
             Back to Articles
           </Link>
         </Button>
-        <article className="relative max-w-[680px] w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
+        <article className="w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
           <header className="flex flex-col gap-4 sm:gap-5">
-            <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-medium leading-tight md:text-center">
+            <h1
+              data-aos="fade-up"
+              className="text-3xl sm:text-4xl font-medium leading-tight md:text-center"
+            >
               {article?.title}
             </h1>
-            <p data-aos="fade-up" data-aos-delay="50" className="sm:text-xl md:text-center">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="50"
+              className="sm:text-xl md:text-center"
+            >
               {article?.description}
             </p>
-            <p data-aos="fade-up" data-aos-delay="50" className="uppercase text-sm md:text-center font-mono">
-              {new Date(article?.date ?? article?._createdAt).toLocaleDateString("en", {
+            <p
+              data-aos="fade-up"
+              data-aos-delay="50"
+              className="uppercase text-sm md:text-center font-mono"
+            >
+              {new Date(
+                article?.date ?? article?._createdAt
+              ).toLocaleDateString("en", {
                 day: "2-digit",
                 month: "short",
                 year: "numeric",
@@ -108,17 +129,37 @@ export default async function ArticlePage({ params }: ArticleProps) {
             </p>
           </header>
           <div
-            data-aos="fade-up"
-            data-aos-delay="100"
-            className={cn("relative flex flex-col gap-9", article.toc && "xl:right-36")}
+            // data-aos="fade-up"
+            // data-aos-delay="100"
+            className="flex flex-col gap-9"
           >
             {article?.cover_image_url && (
               <figure className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
-                <Image src={article?.cover_image_url} alt={article?.title} fill className="rounded-xl object-cover" />
+                <Image
+                  src={article?.cover_image_url}
+                  alt={article?.title}
+                  fill
+                  className="rounded-xl object-cover"
+                />
               </figure>
             )}
-            <PortableTextRenderer value={article?.content} withTableOfContents={article.toc} tags={article?.tags} />
+            <PortableTextRenderer
+              value={article?.content}
+              withTableOfContents={article.toc}
+              tags={article?.tags}
+            />
           </div>
+
+          {/* <div className="mb-8 rounded-2xl border bg-muted/30 fixed left-4 top-1/2 -translate-y-1/2">
+            <div className="px-4 pb-2 pt-4">
+              <h2 className="text-lg font-semibold leading-snug mb-2">
+                In This Article
+              </h2>
+            </div>
+            <div className="flex-1 overflow-y-auto h-[calc(100vh-200px)] px-4 py-2">
+              <TableOfContents content={article?.content} />
+            </div>
+          </div> */}
         </article>
       </div>
     </>

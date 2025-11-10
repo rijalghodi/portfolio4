@@ -2,7 +2,7 @@
 import { dateToMMYYYY } from "@/lib/utils";
 import { Building, MapPin } from "lucide-react";
 import { ExperienceView } from "../elements/experience-card";
-import { PortableTextRenderer } from "../ui/portable-text-renderer/PortableTextRenderer";
+import { PortableTextRenderer } from "../ui/portable-text-renderer/portable-text-renderer";
 import { Timeline } from "../ui/timeline";
 import { StarHeading } from "./star-heading";
 

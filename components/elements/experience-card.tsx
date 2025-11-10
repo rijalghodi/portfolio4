@@ -4,7 +4,7 @@ import { cn, dateToMMYYYY } from "@/lib/utils";
 import { PortableTextBlock } from "next-sanity";
 import Image from "next/image";
 import AccessibleDiv from "../ui/accessible-div";
-import { PortableTextRenderer } from "../ui/portable-text-renderer/PortableTextRenderer";
+import { PortableTextRenderer } from "../ui/portable-text-renderer/portable-text-renderer";
 
 export type ExperienceView = {
   position: string;

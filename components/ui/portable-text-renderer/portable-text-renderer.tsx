@@ -1,28 +1,32 @@
 "use client";
 
 import React from "react";
-
 import SyntaxHighlighter from "react-syntax-highlighter";
-
-import { PortableText, PortableTextReactComponents, defaultComponents } from "@portabletext/react";
-// import hljs from 'highlight.js'; // Highlight.js core
+import {
+  PortableText,
+  PortableTextReactComponents,
+  defaultComponents,
+} from "@portabletext/react";
+import { SanityImage } from "sanity-image";
 
 import { useTheme } from "@/contexts/theme-context";
 import { env } from "@/lib/env";
 import rijalDark from "@/public/hljs/rijal-dark";
 import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { SanityImage } from "sanity-image";
-import { Badge } from "../badge";
 import { CopyButton } from "../copy-button";
-import { PerLevelHeadings } from "./TableOfContents";
-import { parseOutline } from "./outline";
+import { TableOfContents } from "./table-of-contents";
+
 interface PortableTextRendererProps {
-  value: any; // Replace `any` with your Portable Text type if defined
+  value: any;
   withTableOfContents?: boolean;
   tags?: string[];
 }
 
-const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, withTableOfContents = false, tags }) => {
+const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
+  value,
+  withTableOfContents = false,
+  tags,
+}) => {
   const { theme } = useTheme();
 
   const components: PortableTextReactComponents = {
@@ -43,7 +47,11 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
               about={value.alt}
               className="rounded-xl mb-2"
             />
-            {value.alt && <figcaption className="text-sm sm:text-base">{value.alt}</figcaption>}
+            {value.alt && (
+              <figcaption className="text-sm sm:text-base">
+                {value.alt}
+              </figcaption>
+            )}
           </figure>
         );
       },
@@ -53,7 +61,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
             <div className="text-muted-foreground border-b text-xs font-semibold flex items-center justify-between px-5 py-1 bg-muted h-10 ">
               <div className="">{value.filename ?? value.language}</div>
               <div className="flex items-center gap-4">
-                <CopyButton value={value.code} size="icon-sm" variant="secondary" aria-label="Copy code" />
+                <CopyButton
+                  value={value.code}
+                  size="icon-sm"
+                  variant="secondary"
+                  aria-label="Copy code"
+                />
               </div>
             </div>
             <SyntaxHighlighter
@@ -76,9 +89,16 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
     },
 
     marks: {
-      strong: ({ children }: any) => <strong className="text-foreground font-medium">{children}</strong>,
+      strong: ({ children }: any) => (
+        <strong className="text-foreground font-medium">{children}</strong>
+      ),
       link: ({ value, children }: any) => (
-        <a href={value?.href} target="_blank" rel="noopener noreferrer" className="underline text-accent">
+        <a
+          href={value?.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-accent"
+        >
           {children}
         </a>
       ),
@@ -91,17 +111,26 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
     block: {
       normal: ({ children }) => <p className="mb-6 md:text-lg">{children}</p>,
       h1: ({ children, value }) => (
-        <h1 className="text-4xl font-medium leading-snug mb-6 pt-16" id={value._key}>
+        <h1
+          className="text-4xl font-medium leading-snug mb-6 pt-16"
+          id={value._key}
+        >
           {children}
         </h1>
       ),
       h2: ({ children, value }) => (
-        <h2 className="text-3xl font-medium leading-snug mb-6 pt-12" id={value._key}>
+        <h2
+          className="text-3xl font-medium leading-snug mb-6 pt-12"
+          id={value._key}
+        >
           {children}
         </h2>
       ),
       h3: ({ children, value }) => (
-        <h3 className="text-2xl font-medium leading-snug mb-6 pt-8" id={value._key}>
+        <h3
+          className="text-2xl font-medium leading-snug mb-6 pt-8"
+          id={value._key}
+        >
           {children}
         </h3>
       ),
@@ -111,12 +140,18 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
         </h4>
       ),
       h5: ({ children, value }) => (
-        <h5 className="text-lg font-medium tracking-tight uppercase mb-6 pt-4" id={value._key}>
+        <h5
+          className="text-lg font-medium tracking-tight uppercase mb-6 pt-4"
+          id={value._key}
+        >
           {children}
         </h5>
       ),
       h6: ({ children, value }) => (
-        <h6 className="text-base font-medium uppercase tracking-tight mb-6 pt-4" id={value._key}>
+        <h6
+          className="text-base font-medium uppercase tracking-tight mb-6 pt-4"
+          id={value._key}
+        >
           {children}
         </h6>
       ),
@@ -149,34 +184,36 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ value, with
     },
   };
 
-  const outline = parseOutline(value);
-
   return (
-    <div>
-      {withTableOfContents && (
-        <aside className="static mb-12 xl:absolute top-0 bottom-20 w-auto xl:w-80 left-full xl:translate-x-8">
-          {/* Side */}
-          <div className="static xl:sticky xl:top-[80px] gap-4 xl:border-l xl:py-8 pl-5 xl:max-h-[calc(100vh-160px)] xl:overflow-y-auto xl:[direction:rtl]">
-            <div className="flex flex-col gap-4 xl:[direction:ltr]">
-              {/* Table of Contents */}
-              <div className="flex flex-col gap-4 ">
-                <h2 className="text-lg font-semibold leading-snug">In This article</h2>
-                <PerLevelHeadings outline={outline} />
-              </div>
+    <div className="">
+      <div className="mb-8 rounded-xl border bg-muted/30 2xl:fixed 2xl:left-4 2xl:top-1/2 2xl:-translate-y-1/2 2xl:w-[340px]">
+        <div className="px-4 pb-2 pt-4">
+          <h2 className="text-lg font-semibold leading-snug mb-2">
+            In This Article
+          </h2>
+        </div>
+        <div className="flex-1 overflow-y-auto xl:h-[calc(100vh-200px)] px-4 pt-0 pb-4">
+          <TableOfContents content={value} />
+        </div>
+      </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2">
-                {tags?.map((tag: string) => (
-                  <Badge variant="outline" key={tag}>
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </div>
-        </aside>
+      {/* Main content */}
+      <div className="prose-custom">
+        <PortableText value={value} components={components} />
+      </div>
+
+      {tags && tags.length > 0 && (
+        <div className="flex flex-wrap gap-2 pt-2">
+          {tags.map((tag: string) => (
+            <span
+              key={tag}
+              className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       )}
-      <PortableText value={value} components={components} />
     </div>
   );
 };

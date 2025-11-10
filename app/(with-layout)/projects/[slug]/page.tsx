@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ProjectPreviewCarousel } from "@/components/elements/project-preview-carousel";
 import { badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/PortableTextRenderer";
+import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/portable-text-renderer";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { getProjectBySlug } from "@/lib/sanity/sanity-utils";
 import { IconArrowLeft, IconBrandGithub, IconExternalLink } from "@tabler/icons-react";

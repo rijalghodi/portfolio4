@@ -15,22 +15,18 @@ const techStacks = [
       { name: "Tailwind CSS", logo: "/tech/tailwind.webp" },
       { name: "Shadcn", logo: "/tech/shadcn.webp" },
       { name: "Mantine", logo: "/tech/mantine.webp" },
-      { name: "Framer Motion", logo: "/tech/framer-motion.webp" },
-      { name: "GSAP", logo: "/tech/gsap.webp" },
-      { name: "Three.js", logo: "/tech/three.webp" },
+      { name: "Framer Motion", logo: "/tech/framer-motion.webp" }
     ],
   },
   {
     id: "backend",
     title: "Backend",
     items: [
+      { name: "Golang", logo: "/tech/go.svg" },
+      { name: "Go Fiber", logo: "/tech/gofiber.svg" },
       { name: "Node.js", logo: "/tech/node.webp" },
-      { name: "Express.js", logo: "/tech/express.svg" },
       { name: "Nest.js", logo: "/tech/nest.webp" },
-      { name: "Golang", logo: "/tech/go.webp" },
-      { name: "Go Fiber", logo: "/tech/fiber.webp" },
-      { name: "GraphQL", logo: "/tech/graphql.webp" },
-      { name: "RESTful API", logo: "/tech/restful-api.webp" },
+      { name: "Express.js", logo: "/tech/express.svg" },
     ],
   },
   {
@@ -39,11 +35,11 @@ const techStacks = [
     items: [
       { name: "PostgreSQL", logo: "/tech/postgresql.svg" },
       { name: "MySQL", logo: "/tech/mysql.webp" },
-      { name: "MariaDB", logo: "/tech/mariadb.webp" },
-      { name: "Redis", logo: "/tech/redis.webp" },
-      { name: "MongoDB", logo: "/tech/mongodb.webp" },
-      { name: "Firestore", logo: "/tech/firestore.webp" },
-      { name: "Supabase", logo: "/tech/supabase.webp" },
+      { name: "MariaDB", logo: "/tech/mariadb.svg" },
+      { name: "Redis", logo: "/tech/redis.svg" },
+      { name: "MongoDB", logo: "/tech/mongodb.svg" },
+      { name: "Firestore", logo: "/tech/firebase.svg" },
+      { name: "Supabase", logo: "/tech/supabase.svg" },
     ],
   },
   {
@@ -51,14 +47,22 @@ const techStacks = [
     title: "DevOps",
     items: [
       { name: "Docker", logo: "/tech/docker.svg" },
-      { name: "Kubernetes", logo: "/tech/kubernetes.webp" },
       { name: "Git", logo: "/tech/git.svg" },
       { name: "Linux", logo: "/tech/linux.svg" },
-      { name: "Jenkins", logo: "/tech/jenkins.webp" },
-      { name: "GitHub Actions", logo: "/tech/github-actions.webp" },
-      { name: "GitLab CI/CD", logo: "/tech/gitlab-ci-cd.webp" },
+      { name: "Jenkins", logo: "/tech/jenkins.svg" },
+      { name: "Github Actions", logo: "/tech/github.svg" },
     ],
   },
+  // {
+  //   id: "architecture",
+  //   title: "Architecture",
+  //   items: [
+  //     { name: "Microservices", logo: "/tech/microservices.svg" },
+  //     { name: "Monolithic", logo: "/tech/monolithic.svg" },
+  //     { name: "Microfrontends", logo: "/tech/microfrontends.svg" },
+  //     { name: "Microservices", logo: "/tech/microservices.svg" },
+  //   ],
+  // },
 ];
 
 export function TechSection() {
@@ -93,6 +97,9 @@ export function TechSection() {
                           width={16}
                           height={16}
                           className="rounded-sm group-hover:scale-[1.5] transition-transform duration-200"
+                          onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                          }}
                         />
                       )}
                       <span className="group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">

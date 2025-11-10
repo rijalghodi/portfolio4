@@ -185,23 +185,27 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
   };
 
   return (
-    <div className="">
-      <div className="mb-8 rounded-xl border bg-muted/30 2xl:fixed 2xl:left-4 2xl:top-1/2 2xl:-translate-y-1/2 2xl:w-[340px]">
-        <div className="px-4 pb-2 pt-4">
-          <h2 className="text-lg font-semibold leading-snug mb-2">
-            In This Article
-          </h2>
+    <div className="space-y-8">
+      {/* Table of Contents */}
+      {withTableOfContents && (
+        <div className="rounded-xl border bg-muted/30 2xl:fixed 2xl:left-4 2xl:top-1/2 2xl:-translate-y-1/2 2xl:w-[340px]">
+          <div className="px-4 pb-2 pt-4">
+            <h2 className="text-lg font-semibold leading-snug mb-2">
+              In This Article
+            </h2>
+          </div>
+          <div className="flex-1 overflow-y-auto xl:h-[calc(100vh-200px)] px-4 pt-0 pb-4">
+            <TableOfContents content={value} />
+          </div>
         </div>
-        <div className="flex-1 overflow-y-auto xl:h-[calc(100vh-200px)] px-4 pt-0 pb-4">
-          <TableOfContents content={value} />
-        </div>
-      </div>
+      )}
 
       {/* Main content */}
       <div className="prose-custom">
         <PortableText value={value} components={components} />
       </div>
 
+      {/* Tags */}
       {tags && tags.length > 0 && (
         <div className="flex flex-wrap gap-2 pt-2">
           {tags.map((tag: string) => (

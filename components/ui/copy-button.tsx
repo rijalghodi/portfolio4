@@ -10,15 +10,22 @@ interface CopyButtonProps extends ButtonProps {
   labelDefault?: string;
   labelCopied?: string;
   className?: string;
+  withConfetti?: boolean;
 }
 
-export function CopyButton({ value, labelCopied, labelDefault, ...props }: CopyButtonProps) {
+export function CopyButton({
+  value,
+  labelCopied,
+  labelDefault,
+  withConfetti,
+  ...props
+}: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
   // const [shouldBurst, setShouldBurst] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (copied && buttonRef.current) {
+    if (copied && withConfetti && buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
       confetti({
         particleCount: 30, // fewer particles

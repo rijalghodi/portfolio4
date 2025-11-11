@@ -19,8 +19,8 @@ import { IProject } from "@/types/project";
 // export const revalidate = 7 * 24 * 60 * 60; // a week
 
 export default async function Home() {
-  const projects: IProject[] = await getProjects(undefined, 4);
-  const articles: IArticle[] = await getArticles(undefined, 4);
+  const projects: IProject[] = await getProjects(0, 4);
+  const articles: IArticle[] = await getArticles(0, 4);
   const about = await getLatestPinnedAbout();
 
   const experiences = await getExpereinces(1, 4);

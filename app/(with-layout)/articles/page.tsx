@@ -17,9 +17,8 @@ import { IArticle } from "@/types/article";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Articles() {
-  const [lastId, setLastId] = useState<string | undefined>(undefined);
-  const [previousIds, setPreviousIds] = useState<string[]>([]);
-  const limit = 20;
+  const [page, setPage] = useState(1);
+  const pageSize = 20;
   const tag = undefined;
   const category = undefined;
 
@@ -28,29 +27,21 @@ export default function Articles() {
     error,
     isLoading,
   } = useQuery<IArticle[]>({
-    queryKey: ["articles", lastId, limit, tag, category],
-    queryFn: () => getArticles(lastId, limit),
+    queryKey: ["articles", page, pageSize, tag, category],
+    queryFn: () => getArticles((page - 1) * pageSize, pageSize),
     placeholderData: (previousData) => previousData,
   });
 
   const handleNextPage = () => {
-    if (articles && articles.length > 0) {
-      const newLastId = articles[articles.length - 1]._id;
-      setPreviousIds((prev) => [...prev, lastId || ""]);
-      setLastId(newLastId);
-    }
+    setPage((prev) => prev + 1);
   };
 
   const handlePreviousPage = () => {
-    if (previousIds.length > 0) {
-      const prevId = previousIds[previousIds.length - 1];
-      setPreviousIds((prev) => prev.slice(0, -1));
-      setLastId(prevId || undefined);
-    }
+    setPage((prev) => Math.max(1, prev - 1));
   };
 
-  const canGoBack = previousIds.length > 0;
-  const canGoNext = articles && articles.length === limit;
+  const canGoBack = page > 1;
+  const canGoNext = articles && articles.length === pageSize;
 
   return (
     <>

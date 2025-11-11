@@ -15,18 +15,15 @@ export function urlFor(source: any) {
 }
 
 export async function getProjects(
-  lastId?: string,
-  limit?: number
+  start?: number,
+  pageSize?: number
 ): Promise<IProject[]> {
-  const pageSize = limit ?? 100;
-
-  // Build the filter condition
-  const filter = lastId
-    ? `_type == "project" && _id > $lastId`
-    : `_type == "project"`;
+  const startIndex = start ?? 0;
+  const size = pageSize ?? 100;
+  const endIndex = startIndex + size;
 
   return await createClient(clientConfig).fetch(
-    groq`*[${filter}] | order(_id) [0...${pageSize}] {
+    groq`*[_type == "project"] | order(pinned desc, date desc) [${startIndex}...${endIndex}] {
         _id,
         _createdAt,
         name,
@@ -44,8 +41,7 @@ export async function getProjects(
         date,
         demo_link,
         source_link,
-      }`,
-    { lastId }
+      }`
   );
 }
 
@@ -89,18 +85,15 @@ export async function getProjectBySlug(slug: string): Promise<IProject | null> {
 }
 
 export async function getArticles(
-  lastId?: string,
-  limit?: number
+  start?: number,
+  pageSize?: number
 ): Promise<IArticle[]> {
-  const pageSize = limit ?? 20;
-
-  // Build the filter condition
-  const filter = lastId
-    ? `_type == "article" && _id > $lastId`
-    : `_type == "article"`;
+  const startIndex = start ?? 0;
+  const size = pageSize ?? 20;
+  const endIndex = startIndex + size;
 
   return await createClient(clientConfig).fetch(
-    groq`*[${filter}] | order(_id) [0...${pageSize}] {
+    groq`*[_type == "article"] | order(pinned desc, date desc) [${startIndex}...${endIndex}] {
       _id,
       _createdAt,
       title,
@@ -110,8 +103,7 @@ export async function getArticles(
       "cover_image_alt": cover_image.alt,
       tags[],
       date,
-    }`,
-    { lastId }
+    }`
   );
 }
 

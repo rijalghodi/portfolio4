@@ -9,7 +9,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
-import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "../ui/drawer";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTrigger,
+} from "../ui/drawer";
 import { useContactMe } from "./contact-form-context";
 
 type Menu = {
@@ -90,7 +95,7 @@ export function Header() {
     <div
       className={cn(
         "fixed z-50 right-0 left-0 top-0 px-6 transition-transform duration-300",
-        showHeader ? "translate-y-0" : "-translate-y-full",
+        showHeader ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <header
@@ -99,11 +104,15 @@ export function Header() {
           "px-0 py-3 transition-all duration-300 ease-in-out",
           scrolled
             ? "px-7 top-2.5 max-w-[768px] bg-muted/50 backdrop-blur-md rounded-full border shadow-lg mt-3"
-            : "top-0 max-w-[1024px] bg-transparent rounded-md mt-0",
+            : "top-0 max-w-[800px] bg-transparent rounded-md mt-0"
         )}
       >
         <Link href="/" className="flex gap-2 items-center">
-          {theme === "dark" ? <LogoDark width={28} height={28} /> : <LogoLight width={28} height={28} />}
+          {theme === "dark" ? (
+            <LogoDark width={28} height={28} />
+          ) : (
+            <LogoLight width={28} height={28} />
+          )}
           <div className="font-medium">rijalghodi</div>
         </Link>
         <div className="hidden md:flex gap-6 items-center">
@@ -115,7 +124,8 @@ export function Header() {
                     href={menu.link}
                     className={cn(
                       "font-medium px-4 py-2 hover:bg-muted/80 rounded-full dark:text-muted-foreground dark:hover:text-foreground",
-                      activeMenu === menu.link && "text-primary dark:text-primary dark:hover:text-primary",
+                      activeMenu === menu.link &&
+                        "text-primary dark:text-primary dark:hover:text-primary"
                     )}
                   >
                     {menu.title}
@@ -135,13 +145,22 @@ export function Header() {
           <div className="block md:hidden">
             <Drawer>
               <DrawerTrigger asChild>
-                <Button aria-label="Menu" title="Menu" variant="ghost" size="icon-lg">
+                <Button
+                  aria-label="Menu"
+                  title="Menu"
+                  variant="ghost"
+                  size="icon-lg"
+                >
                   <MenuIcon />
                 </Button>
               </DrawerTrigger>
               <DrawerContent className="h-[80%] lg:h-[500px]">
                 <DrawerClose asChild>
-                  <Button variant="ghost" size="icon-lg" className="absolute top-4 right-4">
+                  <Button
+                    variant="ghost"
+                    size="icon-lg"
+                    className="absolute top-4 right-4"
+                  >
                     <X />
                   </Button>
                 </DrawerClose>
@@ -155,7 +174,7 @@ export function Header() {
                               href={menu.link}
                               className={cn(
                                 "text-xl text-foreground hover:bg-silent/80 rounded-full px-8 py-3",
-                                "data-[active=true]:text-primary",
+                                "data-[active=true]:text-primary"
                               )}
                               data-active={activeMenu === menu.link}
                             >

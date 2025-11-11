@@ -109,7 +109,9 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
       ),
     },
     block: {
-      normal: ({ children }) => <p className="mb-6 md:text-lg">{children}</p>,
+      normal: ({ children }) => (
+        <p className="mb-6 md:text-lg text-muted-foreground">{children}</p>
+      ),
       h1: ({ children, value }) => (
         <h1
           className="text-4xl font-medium leading-snug mb-6 pt-16"
@@ -160,24 +162,30 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     },
     list: {
       bullet: ({ children, value }) => (
-        <ul className="list-disc pl-6 mb-6" id={value._key}>
+        <ul
+          className="list-disc pl-6 mb-6 text-muted-foreground"
+          id={value._key}
+        >
           {children}
         </ul>
       ),
       number: ({ children, value }) => (
-        <ol className="list-decimal pl-6 mb-6" id={value._key}>
+        <ol
+          className="list-decimal pl-6 mb-6 text-muted-foreground"
+          id={value._key}
+        >
           {children}
         </ol>
       ),
     },
     listItem: {
       bullet: ({ children, value }) => (
-        <li id={value._key} className="mb-3 md:text-lg">
+        <li id={value._key} className="mb-3 md:text-lg text-muted-foreground">
           {children}
         </li>
       ),
       number: ({ children, value }) => (
-        <li id={value._key} className="mb-3 md:text-lg">
+        <li id={value._key} className="mb-3 md:text-lg text-muted-foreground">
           {children}
         </li>
       ),
@@ -188,13 +196,13 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     <div className="space-y-8">
       {/* Table of Contents */}
       {withTableOfContents && (
-        <div className="rounded-xl border bg-muted/30 2xl:fixed 2xl:left-4 2xl:top-1/2 2xl:-translate-y-1/2 2xl:w-[340px]">
+        <div className="rounded-xl border bg-muted/30 xl:fixed xl:left-4 xl:top-[80px] xl:w-[300px]">
           <div className="px-4 pb-2 pt-4">
-            <h2 className="text-lg font-semibold leading-snug mb-2">
+            <h2 className="text-base font-semibold leading-snug mb-2">
               In This Article
             </h2>
           </div>
-          <div className="flex-1 overflow-y-auto h-auto 2xl:h-[calc(100vh-200px)] px-4">
+          <div className="flex-1 overflow-y-auto h-auto xl:h-full xl:max-h-[calc(100vh-160px)] px-4">
             <TableOfContents content={value} />
           </div>
           <div className="px-4 pb-4" />

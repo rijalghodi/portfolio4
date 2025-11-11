@@ -9,6 +9,7 @@ import { IconArrowLeft } from "@tabler/icons-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BRAND, metadata as brandMetadata } from "@/lib/brand";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -24,51 +25,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Fetch article data from the backend route
   const article = await getArticleBySlug(slug);
 
-  const siteName = "Rijal Ghodi's Portfolio";
-
   return {
-    title: `${article?.title ?? "Article"} | ${siteName}`,
-    description: article?.description,
+    ...brandMetadata,
+    title: `${article?.title ?? "Article"} | ${BRAND.SITE_NAME}`,
+    description: article?.description ?? BRAND.SITE_DESCRIPTION,
     openGraph: {
-      type: "website",
+      ...brandMetadata.openGraph,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/articles/${slug}`,
-      title: `${article?.title ?? "Article"} | ${siteName}`,
-      description: article?.description,
-      siteName: siteName,
-      images: [
-        article?.cover_image_url ??
-          `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
-      ],
+      title: `${article?.title ?? "Article"} | ${BRAND.SITE_NAME}`,
+      description: article?.description ?? BRAND.SITE_DESCRIPTION,
+      images: [article?.cover_image_url ?? BRAND.OG_IMAGE_URL],
     },
     twitter: {
-      title: `${article?.title ?? "Article"} | ${siteName}`,
-      images: [
-        article?.cover_image_url ??
-          `${process.env.NEXT_PUBLIC_SITE_URL}/article-opengraph-image.png`,
-      ],
-      description: article?.description,
-      site: "@zalcode_id",
-      card: "summary_large_image",
-      creator: "@zalcode_id",
+      ...brandMetadata.twitter,
+      title: `${article?.title ?? "Article"} | ${BRAND.SITE_NAME}`,
+      images: [article?.cover_image_url ?? BRAND.OG_IMAGE_URL],
+      description: article?.description ?? BRAND.SITE_DESCRIPTION,
     },
-    authors: [{ name: "Rijal Ghodi", url: "rijalghodi.dev@gmail.com" }],
-    creator: "Rijal Ghodi",
-    applicationName: "Rijal Ghodi's Portfolio",
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? "https://rijalghodi.dev"
-    ),
-    keywords: [
-      "Rijal Ghodi",
-      "Rijal",
-      "Ghodi",
-      "Software Developer",
-      "Software Engineer",
-      "Frontend Developer",
-      "Backend Developer",
-      "FullStack Developer",
-      "ML Engineer",
-      "AI Engineer",
-    ],
   };
 }
 

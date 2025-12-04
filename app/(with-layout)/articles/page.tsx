@@ -45,9 +45,9 @@ export default function Articles() {
 
   return (
     <>
-      <div className="fixed inset-0">
+      {/* <div className="fixed inset-0">
         <Spotlight />
-      </div>
+      </div> */}
 
       <section className="z-0 bg-background pt-8 pb-16">
         <div className="max-w-screen-lg w-full mx-auto">

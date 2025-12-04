@@ -15,9 +15,9 @@ export default async function About() {
 
   return (
     <>
-      <div className="fixed inset-0">
+      {/* <div className="fixed inset-0">
         <Spotlight />
-      </div>
+      </div> */}
       <article className="z-0 bg-background pt-8 pb-16 max-w-screen-lg mx-auto">
         <section className="w-full mx-auto flex flex-col gap-8">
           <header>
@@ -55,7 +55,7 @@ export default async function About() {
               </Button>
             )}
           </div>
-          <section data-aos="fade-up" data-aos-delay="100" className="max-w-screen-md">
+          <section data-aos="fade-up" data-aos-delay="100">
             <PortableTextRenderer value={about?.content} />
           </section>
         </section>

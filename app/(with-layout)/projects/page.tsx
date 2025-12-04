@@ -10,9 +10,9 @@ export default async function Project() {
 
   return (
     <>
-      <div className="fixed inset-0">
+      {/* <div className="fixed inset-0">
         <Spotlight />
-      </div>
+      </div> */}
       {/* --- Articles */}
       <div className="z-0 bg-background pt-8 pb-16" id="projects">
         <div className="max-w-screen-lg w-full mx-auto">

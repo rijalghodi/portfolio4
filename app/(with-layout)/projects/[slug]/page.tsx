@@ -64,17 +64,17 @@ export default async function ProjectPage({ params }: ProjectProps) {
 
   return (
     <>
-      <div className="fixed inset-0 z-[0]">
+      {/* <div className="fixed inset-0 z-[0]">
         <Spotlight />
-      </div>
+      </div> */}
       <div className="relative max-w-screen-lg mx-auto pt-2">
         <Button variant="ghost" size="default" radius="full" asChild>
           <Link href="/projects">
             <IconArrowLeft />
-            Back to Projects
+            Projects
           </Link>
         </Button>
-        <article className="relative max-w-[700px] w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
+        <article className="relative max-w-screen-lg w-full mx-auto pt-4 pb-12 flex flex-col gap-9">
           <header className="flex flex-col gap-5">
             {project?.icon_url && (
               <figure data-aos="fade-up">

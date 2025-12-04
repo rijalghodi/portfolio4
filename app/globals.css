@@ -42,7 +42,7 @@
 
   .dark {
     --background: 212 31% 12%;
-    --foreground: 0 0% 95%;
+    --foreground: 0 0% 99%;
     --card: 211 36.6% 18%;
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 9%;
@@ -50,12 +50,13 @@
     --primary: 96 71% 68%;
     --primary-hover: 96 44% 50%;
     --primary-foreground: 144.9 80.4% 10%;
+    --primary2: 180 74% 49%;
     --muted: 214 31% 18%;
     --muted-hover: 214 31% 21%;
-    --muted-foreground: 0 0% 76%;
+    --muted-foreground: 0 0% 80%;
     --silent: 215 31% 21%;
     --silent-hover: 215 31% 24%;
-    --silent-foreground: 0 0% 76%;
+    --silent-foreground: 0 0% 80%;
     --accent: 211.97 100% 66%;
     --accent-foreground: 0 0% 0%;
     --destructive: 0 62.8% 62%;
@@ -79,7 +80,7 @@
   }
 
   body {
-    @apply bg-background text-foreground text-base tracking-normal leading-normal;
+    @apply bg-background text-foreground font-mono text-base tracking-normal leading-normal;
   }
   .animate-slide-up {
     animation: fadeInScale 0.5s ease-out forwards;

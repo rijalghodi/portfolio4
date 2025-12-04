@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <>
       <div className="fixed inset-0">
-        <Spotlight />
+        {/* <Spotlight /> */}
         {/* <FallingStarsBackground minTwinkleSpeed={2} maxTwinkleSpeed={4} allStarsTwinkle starDensity={0.00006} /> */}
         {/* <ShootingStars /> */}
       </div>

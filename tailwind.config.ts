@@ -65,8 +65,9 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-inter-visual)", ...fontFamily.sans],
+        sans: ["var(--font-inter)", ...fontFamily.sans],
         mono: ["var(--font-mono)", ...fontFamily.mono],
+        heading: ["var(--font-grotesk)", ...fontFamily.sans],
       },
       screens: {
         xs: "380px",

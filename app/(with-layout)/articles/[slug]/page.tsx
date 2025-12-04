@@ -61,10 +61,10 @@ export default async function ArticlePage({ params }: ArticleProps) {
 
   return (
     <>
-      <div className="fixed inset-0 z-[0]">
-        <Spotlight />
-      </div>
-      <div className="relative max-w-[700px] mx-auto pt-2">
+      {/* <div className="fixed inset-0 z-[0]">
+          <Spotlight />
+        </div> */}
+      <div className="relative max-w-screen-md mx-auto pt-2">
         <Button variant="ghost" size="default" radius="full" asChild>
           <Link href="/articles">
             <IconArrowLeft />
@@ -72,20 +72,20 @@ export default async function ArticlePage({ params }: ArticleProps) {
           </Link>
         </Button>
         <article className="w-full mx-auto pt-4 sm:pt-10 pb-12  flex flex-col gap-9">
-          <header className="flex flex-col gap-4 sm:gap-5">
+          <header className="flex flex-col gap-4 sm:gap-5 items-center">
             <h1
               data-aos="fade-up"
-              className="text-3xl sm:text-4xl font-medium leading-tight md:text-center"
+              className="text-3xl sm:text-4xl font-medium leading-tight md:text-left"
             >
               {article?.title}
             </h1>
-            <p data-aos="fade-up" data-aos-delay="50" className="sm:text-xl md:text-center">
+            <p data-aos="fade-up" data-aos-delay="50" className="sm:text-xl md:text-left">
               {article?.description}
             </p>
             <p
               data-aos="fade-up"
               data-aos-delay="50"
-              className="uppercase text-sm md:text-center font-mono"
+              className="uppercase text-sm md:text-left font-mono"
             >
               {new Date(article?.date ?? article?._createdAt).toLocaleDateString("en", {
                 day: "2-digit",
@@ -93,14 +93,8 @@ export default async function ArticlePage({ params }: ArticleProps) {
                 year: "numeric",
               })}
             </p>
-          </header>
-          <div
-            // data-aos="fade-up"
-            // data-aos-delay="100"
-            className="flex flex-col gap-9"
-          >
             {article?.cover_image_url && (
-              <figure className="relative max-w-2xl aspect-[3/2] sm:aspect-video">
+              <figure className="relative max-w-2xl w-full aspect-[3/2] sm:aspect-video">
                 <Image
                   src={article?.cover_image_url}
                   alt={article?.title}
@@ -109,6 +103,12 @@ export default async function ArticlePage({ params }: ArticleProps) {
                 />
               </figure>
             )}
+          </header>
+          <div
+            // data-aos="fade-up"
+            // data-aos-delay="100"
+            className="flex flex-col gap-9"
+          >
             <PortableTextRenderer
               value={article?.content}
               withTableOfContents={article.toc}

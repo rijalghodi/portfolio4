@@ -102,34 +102,34 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
       ),
     },
     block: {
-      normal: ({ children }) => <p className="mb-6 md:text-lg text-muted-foreground">{children}</p>,
+      normal: ({ children }) => <p className="mb-3 md:text-lg text-muted-foreground">{children}</p>,
       h1: ({ children, value }) => (
-        <h1 className="text-4xl font-medium leading-snug mb-6 pt-16" id={value._key}>
+        <h1 className="text-4xl font-medium leading-snug mb-4 pt-8" id={value._key}>
           {children}
         </h1>
       ),
       h2: ({ children, value }) => (
-        <h2 className="text-3xl font-medium leading-snug mb-6 pt-12" id={value._key}>
+        <h2 className="text-3xl font-medium leading-snug mb-4 pt-6" id={value._key}>
           {children}
         </h2>
       ),
       h3: ({ children, value }) => (
-        <h3 className="text-2xl font-medium leading-snug mb-6 pt-8" id={value._key}>
+        <h3 className="text-2xl font-medium leading-snug mb-4 pt-4" id={value._key}>
           {children}
         </h3>
       ),
       h4: ({ children, value }) => (
-        <h4 className="text-xl font-medium mb-6 pt-8" id={value._key}>
+        <h4 className="text-xl font-medium mb-4 pt-4" id={value._key}>
           {children}
         </h4>
       ),
       h5: ({ children, value }) => (
-        <h5 className="text-lg font-medium tracking-tight uppercase mb-6 pt-4" id={value._key}>
+        <h5 className="text-lg font-medium tracking-tight uppercase mb-4 pt-2" id={value._key}>
           {children}
         </h5>
       ),
       h6: ({ children, value }) => (
-        <h6 className="text-base font-medium uppercase tracking-tight mb-6 pt-4" id={value._key}>
+        <h6 className="text-base font-medium uppercase tracking-tight mb-4 pt-2" id={value._key}>
           {children}
         </h6>
       ),
@@ -150,12 +150,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     },
     listItem: {
       bullet: ({ children, value }) => (
-        <li id={value._key} className="mb-3 md:text-lg text-muted-foreground">
+        <li id={value._key} className="mb-1 md:text-lg text-muted-foreground">
           {children}
         </li>
       ),
       number: ({ children, value }) => (
-        <li id={value._key} className="mb-3 md:text-lg text-muted-foreground">
+        <li id={value._key} className="mb-1 md:text-lg text-muted-foreground">
           {children}
         </li>
       ),

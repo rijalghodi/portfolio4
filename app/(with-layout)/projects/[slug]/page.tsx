@@ -162,7 +162,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
               </Button>
             )}
           </div>
-          <div data-aos="fade-up" data-aos-delay="200" className="article">
+          <div data-aos="fade-up" data-aos-delay="200" className="article max-w-screen-md">
             <PortableTextRenderer value={project?.content} />
           </div>
         </article>

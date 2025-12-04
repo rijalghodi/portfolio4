@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
-
 import AOS from "aos";
+import React, { useEffect } from "react";
 type Props = { children: React.ReactNode };
 export function AOSInit(props: Props) {
   useEffect(() => {

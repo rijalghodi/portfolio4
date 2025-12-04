@@ -1,6 +1,7 @@
 "use client";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+
 import { ProjectCard, ProjectGlimps } from "../elements/project-card";
 import { Button } from "../ui/button";
 import { StarHeading } from "./star-heading";

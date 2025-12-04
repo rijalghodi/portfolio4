@@ -1,16 +1,20 @@
+import "aos/dist/aos.css";
+import "./globals.css";
+import "aos/dist/aos.css";
+import "./globals.css";
+
+import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata } from "next";
+import { Source_Code_Pro } from "next/font/google";
+import localFont from "next/font/local";
+
 import { ContactFormProvider } from "@/components/elements/contact-form-context";
 import { Toaster } from "@/components/ui/sonner";
 import { AOSInit } from "@/contexts/aos-init";
 import { ReactQueryProvider } from "@/contexts/react-query-context";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { env } from "@/lib/env";
 import { metadata as brandMetadata } from "@/lib/brand";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import "aos/dist/aos.css";
-import type { Metadata } from "next";
-import { Source_Code_Pro } from "next/font/google";
-import localFont from "next/font/local";
-import "./globals.css";
+import { env } from "@/lib/env";
 
 const inter = localFont({
   src: "./fonts/Inter.ttf",
@@ -35,9 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark">
       <GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
-      <body
-        className={`${inter.className} ${inter.variable} ${mono.variable} antialiased dark`}
-      >
+      <body className={`${inter.className} ${inter.variable} ${mono.variable} antialiased dark`}>
         <ThemeProvider>
           <ReactQueryProvider>
             <AOSInit>

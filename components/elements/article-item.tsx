@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import AccessibleDiv from "../ui/accessible-div";
 
 type Props = {

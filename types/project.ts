@@ -1,4 +1,5 @@
 import { PortableTextBlock } from "next-sanity";
+
 import { ITechnology } from "./technology";
 
 export interface IProject {

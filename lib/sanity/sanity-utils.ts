@@ -1,23 +1,20 @@
-import { IArticle } from "@/types/article";
-import { IProject } from "@/types/project";
-import { FilteredResponseQueryOptions, createClient, groq } from "next-sanity";
-import { clientConfig } from "./client-config";
+import { createImageUrlBuilder, type SanityClientLike } from "@sanity/image-url";
+import { createClient, FilteredResponseQueryOptions, groq } from "next-sanity";
 
 import { IAbout } from "@/types/about";
+import { IArticle } from "@/types/article";
 import { IExperience } from "@/types/experience";
-import imageUrlBuilder from "@sanity/image-url";
-import { SanityClientLike } from "@sanity/image-url/lib/types/types";
+import { IProject } from "@/types/project";
 
-const builder = imageUrlBuilder(clientConfig as SanityClientLike);
+import { clientConfig } from "./client-config";
+
+const builder = createImageUrlBuilder(clientConfig as SanityClientLike);
 
 export function urlFor(source: any) {
   return builder.image(source);
 }
 
-export async function getProjects(
-  start?: number,
-  pageSize?: number
-): Promise<IProject[]> {
+export async function getProjects(start?: number, pageSize?: number): Promise<IProject[]> {
   const startIndex = start ?? 0;
   const size = pageSize ?? 100;
   const endIndex = startIndex + size;
@@ -41,7 +38,7 @@ export async function getProjects(
         date,
         demo_link,
         source_link,
-      }`
+      }`,
   );
 }
 
@@ -80,14 +77,11 @@ export async function getProjectBySlug(slug: string): Promise<IProject | null> {
           }
         }
       }`,
-    { slug }
+    { slug },
   );
 }
 
-export async function getArticles(
-  start?: number,
-  pageSize?: number
-): Promise<IArticle[]> {
+export async function getArticles(start?: number, pageSize?: number): Promise<IArticle[]> {
   const startIndex = start ?? 0;
   const size = pageSize ?? 20;
   const endIndex = startIndex + size;
@@ -103,13 +97,13 @@ export async function getArticles(
       "cover_image_alt": cover_image.alt,
       tags[],
       date,
-    }`
+    }`,
   );
 }
 
 export async function getArticleBySlug(
   slug: string,
-  options?: FilteredResponseQueryOptions
+  options?: FilteredResponseQueryOptions,
 ): Promise<IArticle> {
   return await createClient(clientConfig).fetch(
     groq`*[_type == "article" && slug.current == $slug][0]{
@@ -134,7 +128,7 @@ export async function getArticleBySlug(
       }
       }`,
     { slug },
-    { ...options }
+    { ...options },
   );
 }
 
@@ -165,10 +159,7 @@ export const getLatestPinnedAbout = async (): Promise<IAbout> => {
   return createClient(clientConfig).fetch(query);
 };
 
-export async function getExpereinces(
-  page?: number,
-  limit?: number
-): Promise<IExperience[]> {
+export async function getExpereinces(page?: number, limit?: number): Promise<IExperience[]> {
   const start = ((page ?? 1) - 1) * (limit ?? 100); // Calculate the start index for pagination
 
   return await createClient(clientConfig).fetch(
@@ -187,6 +178,6 @@ export async function getExpereinces(
       pinned,
       short_desc,
       description,
-    }`
+    }`,
   );
 }

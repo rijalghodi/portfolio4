@@ -1,6 +1,8 @@
-import { contactGithubLink, contactIgLink, contactLinkedIn } from "@/data/contact";
 import { Github, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
+
+import { contactGithubLink, contactIgLink, contactLinkedIn } from "@/data/contact";
+
 import { Button } from "../ui/button";
 export function SocialLinks() {
   return (

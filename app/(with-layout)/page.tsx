@@ -4,8 +4,6 @@ import { ExperienceSection } from "@/components/sections/experience-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectSection } from "@/components/sections/project-section";
 import { TechSection } from "@/components/sections/tech-section";
-import { FallingStarsBackground } from "@/components/ui/falling-stars-background";
-import { ShootingStars } from "@/components/ui/shooting-stars";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import {
   getArticles,
@@ -29,13 +27,8 @@ export default async function Home() {
     <>
       <div className="fixed inset-0">
         <Spotlight />
-        <FallingStarsBackground
-          minTwinkleSpeed={2}
-          maxTwinkleSpeed={4}
-          allStarsTwinkle
-          starDensity={0.00006}
-        />
-        <ShootingStars />
+        {/* <FallingStarsBackground minTwinkleSpeed={2} maxTwinkleSpeed={4} allStarsTwinkle starDensity={0.00006} /> */}
+        {/* <ShootingStars /> */}
       </div>
       <div className="relative">
         <HeroSection />

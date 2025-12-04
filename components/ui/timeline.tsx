@@ -1,8 +1,9 @@
 // components/Timeline.tsx
 "use client";
-import { cn } from "@/lib/utils";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
+
+import { cn } from "@/lib/utils";
 
 export const Timeline = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -45,7 +46,7 @@ export const Timeline = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-Timeline.Item = ({ children }: { children: React.ReactNode }) => {
+Timeline.Item = function TimelineItem({ children }: { children: React.ReactNode }) {
   let heading: React.ReactNode;
   let content: React.ReactNode;
 
@@ -74,10 +75,16 @@ Timeline.Item = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-Timeline.Heading = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+Timeline.Heading = function TimelineHeading({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <div className={cn(className)}>{children}</div>;
 };
 
-Timeline.Content = ({ children }: { children: React.ReactNode }) => {
+Timeline.Content = function TimelineContent({ children }: { children: React.ReactNode }) {
   return <div className="mt-4">{children}</div>;
 };

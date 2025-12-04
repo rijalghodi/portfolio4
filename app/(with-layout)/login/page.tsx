@@ -1,12 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { IconLoader, IconLogin } from "@tabler/icons-react";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -15,13 +16,7 @@ export default function LoginPage() {
 
   const { mutateAsync: login, isPending } = useMutation({
     mutationKey: ["login"],
-    mutationFn: async ({
-      email,
-      password,
-    }: {
-      email: string;
-      password: string;
-    }) => {
+    mutationFn: async ({ email, password }: { email: string; password: string }) => {
       const res = await fetch("/api/login", {
         method: "POST",
         headers: {
@@ -60,8 +55,17 @@ export default function LoginPage() {
 
   return (
     <div className="relative w-full min-h-screen max-w-2xl flex items-center justify-center p-6 mx-auto">
-      <form className="grid grid-cols-1 w-full max-w-md gap-4 p-8 rounded-xl border" onSubmit={onSubmit} method="POST">
-        <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.currentTarget.value)} />
+      <form
+        className="grid grid-cols-1 w-full max-w-md gap-4 p-8 rounded-xl border"
+        onSubmit={onSubmit}
+        method="POST"
+      >
+        <Input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.currentTarget.value)}
+        />
         <Input
           type="password"
           placeholder="Password"

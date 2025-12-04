@@ -1,6 +1,7 @@
 "use client";
-import { useTheme } from "@/contexts/theme-context";
 import { motion } from "motion/react";
+
+import { useTheme } from "@/contexts/theme-context";
 
 type SpotlightProps = {
   gradientFirst?: string;

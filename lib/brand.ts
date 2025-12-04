@@ -32,9 +32,7 @@ export const metadata: Metadata = {
   authors: [{ name: BRAND.AUTHOR, url: BRAND.EMAIL }],
   creator: BRAND.AUTHOR,
   applicationName: BRAND.SITE_NAME,
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://rijalghodi.dev"
-  ),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://rijalghodi.dev"),
   openGraph: {
     type: "website",
     url: process.env.NEXT_PUBLIC_SITE_URL,

@@ -1,5 +1,6 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 import { ArticleItem } from "@/components/elements/article-item";
@@ -14,7 +15,6 @@ import {
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { getArticles } from "@/lib/sanity/sanity-utils";
 import { IArticle } from "@/types/article";
-import { useQuery } from "@tanstack/react-query";
 
 export default function Articles() {
   const [page, setPage] = useState(1);
@@ -55,13 +55,8 @@ export default function Articles() {
             <h1 data-aos="fade-up" className="text-4xl font-medium mb-4">
               Articles
             </h1>
-            <p
-              data-aos="fade-up"
-              data-aos-delay="50"
-              className="text-base sm:text-lg"
-            >
-              Articles on software development, artificial intelligence, and
-              self-improvement.
+            <p data-aos="fade-up" data-aos-delay="50" className="text-base sm:text-lg">
+              Articles on software development, artificial intelligence, and self-improvement.
             </p>
           </div>
           <div data-aos="fade-up" data-aos-delay="100">
@@ -75,18 +70,12 @@ export default function Articles() {
               </ul>
             ) : error ? (
               <div className="flex items-center justify-center min-h-60 w-full">
-                <div className="text-semibold font-mono uppercase">
-                  Error fetching articles
-                </div>
+                <div className="text-semibold font-mono uppercase">Error fetching articles</div>
               </div>
             ) : (
               <ul>
                 {articles?.map((article, i) => (
-                  <li
-                    key={i}
-                    className="border-b border-border"
-                    data-aos="fade-up"
-                  >
+                  <li key={i} className="border-b border-border" data-aos="fade-up">
                     <ArticleItem
                       title={article.title}
                       description={article.description}

@@ -24,7 +24,11 @@ export default async function Project() {
               Personal apps, client-requested apps, and artificial intelligence applications.
             </p>
           </div>
-          <ul data-aos="fade-up" data-aos-delay="100" className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <ul
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
             {projects.map((project, i) => (
               <li key={i}>
                 <ProjectCard

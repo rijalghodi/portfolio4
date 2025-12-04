@@ -1,6 +1,7 @@
 "use client";
+import React, { RefObject, useCallback, useEffect, useRef, useState } from "react";
+
 import { cn } from "@/lib/utils";
-import React, { useState, useEffect, useRef, RefObject, useCallback } from "react";
 
 interface StarProps {
   x: number;
@@ -41,7 +42,9 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
           y: Math.random() * height,
           radius: Math.random() * 0.05 + 0.6,
           opacity: Math.random() * 0.5 + 0.2,
-          twinkleSpeed: shouldTwinkle ? minTwinkleSpeed + Math.random() * (maxTwinkleSpeed - minTwinkleSpeed) : null,
+          twinkleSpeed: shouldTwinkle
+            ? minTwinkleSpeed + Math.random() * (maxTwinkleSpeed - minTwinkleSpeed)
+            : null,
         };
       });
     },
@@ -75,7 +78,14 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
         resizeObserver.unobserve(canvasRef.current);
       }
     };
-  }, [starDensity, allStarsTwinkle, twinkleProbability, minTwinkleSpeed, maxTwinkleSpeed, generateStars]);
+  }, [
+    starDensity,
+    allStarsTwinkle,
+    twinkleProbability,
+    minTwinkleSpeed,
+    maxTwinkleSpeed,
+    generateStars,
+  ]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

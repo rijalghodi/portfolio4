@@ -1,18 +1,15 @@
 "use client";
 
+import { defaultComponents, PortableText, PortableTextReactComponents } from "@portabletext/react";
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import {
-  PortableText,
-  PortableTextReactComponents,
-  defaultComponents,
-} from "@portabletext/react";
+import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { SanityImage } from "sanity-image";
 
 import { useTheme } from "@/contexts/theme-context";
 import { env } from "@/lib/env";
 import rijalDark from "@/public/hljs/rijal-dark";
-import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
 import { CopyButton } from "../copy-button";
 import { TableOfContents } from "./table-of-contents";
 
@@ -47,11 +44,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
               about={value.alt}
               className="rounded-xl mb-2"
             />
-            {value.alt && (
-              <figcaption className="text-sm sm:text-base">
-                {value.alt}
-              </figcaption>
-            )}
+            {value.alt && <figcaption className="text-sm sm:text-base">{value.alt}</figcaption>}
           </figure>
         );
       },
@@ -109,30 +102,19 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
       ),
     },
     block: {
-      normal: ({ children }) => (
-        <p className="mb-6 md:text-lg text-muted-foreground">{children}</p>
-      ),
+      normal: ({ children }) => <p className="mb-6 md:text-lg text-muted-foreground">{children}</p>,
       h1: ({ children, value }) => (
-        <h1
-          className="text-4xl font-medium leading-snug mb-6 pt-16"
-          id={value._key}
-        >
+        <h1 className="text-4xl font-medium leading-snug mb-6 pt-16" id={value._key}>
           {children}
         </h1>
       ),
       h2: ({ children, value }) => (
-        <h2
-          className="text-3xl font-medium leading-snug mb-6 pt-12"
-          id={value._key}
-        >
+        <h2 className="text-3xl font-medium leading-snug mb-6 pt-12" id={value._key}>
           {children}
         </h2>
       ),
       h3: ({ children, value }) => (
-        <h3
-          className="text-2xl font-medium leading-snug mb-6 pt-8"
-          id={value._key}
-        >
+        <h3 className="text-2xl font-medium leading-snug mb-6 pt-8" id={value._key}>
           {children}
         </h3>
       ),
@@ -142,18 +124,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
         </h4>
       ),
       h5: ({ children, value }) => (
-        <h5
-          className="text-lg font-medium tracking-tight uppercase mb-6 pt-4"
-          id={value._key}
-        >
+        <h5 className="text-lg font-medium tracking-tight uppercase mb-6 pt-4" id={value._key}>
           {children}
         </h5>
       ),
       h6: ({ children, value }) => (
-        <h6
-          className="text-base font-medium uppercase tracking-tight mb-6 pt-4"
-          id={value._key}
-        >
+        <h6 className="text-base font-medium uppercase tracking-tight mb-6 pt-4" id={value._key}>
           {children}
         </h6>
       ),
@@ -162,18 +138,12 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
     },
     list: {
       bullet: ({ children, value }) => (
-        <ul
-          className="list-disc pl-6 mb-6 text-muted-foreground"
-          id={value._key}
-        >
+        <ul className="list-disc pl-6 mb-6 text-muted-foreground" id={value._key}>
           {children}
         </ul>
       ),
       number: ({ children, value }) => (
-        <ol
-          className="list-decimal pl-6 mb-6 text-muted-foreground"
-          id={value._key}
-        >
+        <ol className="list-decimal pl-6 mb-6 text-muted-foreground" id={value._key}>
           {children}
         </ol>
       ),
@@ -198,9 +168,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
       {withTableOfContents && (
         <div className="rounded-xl border bg-muted/30 xl:fixed xl:left-4 xl:top-[80px] xl:w-[300px]">
           <div className="px-4 pb-2 pt-4">
-            <h2 className="text-base font-semibold leading-snug mb-2">
-              In This Article
-            </h2>
+            <h2 className="text-base font-semibold leading-snug mb-2">In This Article</h2>
           </div>
           <div className="flex-1 overflow-y-auto h-auto xl:h-full xl:max-h-[calc(100vh-160px)] px-4">
             <TableOfContents content={value} />

@@ -24,7 +24,11 @@ export default function ConfettiButton() {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <button ref={buttonRef} className="px-4 py-2 bg-blue-600 text-white rounded" onClick={() => setShouldBurst(true)}>
+      <button
+        ref={buttonRef}
+        className="px-4 py-2 bg-blue-600 text-white rounded"
+        onClick={() => setShouldBurst(true)}
+      >
         Celebrate
       </button>
     </div>

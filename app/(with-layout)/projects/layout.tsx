@@ -6,10 +6,6 @@ export const metadata: Metadata = {
     "Projects I've created over the years include this website, personal apps, client-requested apps, and artificial intelligence applications.",
 };
 
-export default function ProjectLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ProjectLayout({ children }: { children: React.ReactNode }) {
   return children;
 }

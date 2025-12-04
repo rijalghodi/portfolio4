@@ -1,8 +1,9 @@
 "use client";
 
+import { IconLoader } from "@tabler/icons-react";
+
 import { useTheme } from "@/contexts/theme-context";
 import { cn } from "@/lib/utils";
-import { IconLoader } from "@tabler/icons-react";
 
 export function LoadingPage() {
   const { theme } = useTheme();
@@ -11,7 +12,9 @@ export function LoadingPage() {
       <div
         className={cn(
           "-z-10 w-full max-w-screen-md aspect-square bg-cover bg-center",
-          theme === "dark" ? "bg-[url('/icons/comet-dark.svg')]" : "bg-[url('/icons/comet-light.svg')]",
+          theme === "dark"
+            ? "bg-[url('/icons/comet-dark.svg')]"
+            : "bg-[url('/icons/comet-light.svg')]",
         )}
       />
       <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">

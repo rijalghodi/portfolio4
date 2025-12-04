@@ -1,8 +1,15 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransform } from "motion/react";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionTemplate,
+  useMotionValue,
+  useTransform,
+} from "motion/react";
 import React from "react";
 import { useRef } from "react";
+
+import { cn } from "@/lib/utils";
 
 export function Button({
   borderRadius = "1.75rem",
@@ -34,7 +41,10 @@ export function Button({
       <div className="absolute inset-0" style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}>
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
-            className={cn("h-20 w-20 bg-[radial-gradient(#0ea5e9_40%,transparent_60%)] opacity-[0.8]", borderClassName)}
+            className={cn(
+              "h-20 w-20 bg-[radial-gradient(#0ea5e9_40%,transparent_60%)] opacity-[0.8]",
+              borderClassName,
+            )}
           />
         </MovingBorder>
       </div>

@@ -1,8 +1,5 @@
 "use client";
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { contactEmail } from "@/data/contact";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { Loader2, Send, X } from "lucide-react";
@@ -10,6 +7,18 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { contactEmail } from "@/data/contact";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 import { StarHeading } from "../sections/star-heading";
 import { Button } from "../ui/button";
 import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle } from "../ui/drawer";
@@ -18,13 +27,21 @@ import { Textarea } from "../ui/textarea";
 
 const contactFormSchema = z.object({
   name: z.string({ required_error: "Name is required" }).min(1, "Name is required"),
-  email: z.string({ required_error: "Email is required" }).email("Please enter a valid email address"),
+  email: z
+    .string({ required_error: "Email is required" })
+    .email("Please enter a valid email address"),
   message: z.string({ required_error: "Message is required" }).min(1, "Message is required"),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenChange: (open: boolean) => void }) {
+export function ContactForm({
+  isOpen,
+  onOpenChange,
+}: {
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const isMobile = useIsMobile();
 
@@ -70,7 +87,12 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
   };
 
   return (
-    <Drawer open={isOpen} onOpenChange={onOpenChange} dismissible={!isMobile} setBackgroundColorOnScale>
+    <Drawer
+      open={isOpen}
+      onOpenChange={onOpenChange}
+      dismissible={!isMobile}
+      setBackgroundColorOnScale
+    >
       <DrawerContent className="max-h-[100%] lg:h-[550px]">
         <div className="relative z-50 flex flex-col gap-2 w-full max-w-screen-sm mx-auto px-6 pb-6 overflow-y-auto">
           <div className="block absolute top-4 right-4">
@@ -81,11 +103,16 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
           <DrawerHeader className="px-0">
             <DrawerTitle className="mt-4">
               <StarHeading title="Contact Me" className="text-center sm:text-left" />
-              {submitError && <p className="text-destructive mt-2 text-sm text-left">{submitError}</p>}
+              {submitError && (
+                <p className="text-destructive mt-2 text-sm text-left">{submitError}</p>
+              )}
             </DrawerTitle>
           </DrawerHeader>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
               <FormField
                 control={form.control}
                 name="name"
@@ -119,7 +146,12 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
                   <FormItem className="col-span-2">
                     <FormLabel>Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="What would you like to discuss?" className="w-full" rows={4} {...field} />
+                      <Textarea
+                        placeholder="What would you like to discuss?"
+                        className="w-full"
+                        rows={4}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -132,8 +164,18 @@ export function ContactForm({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
                       Cancel
                     </Button>
                   </DrawerClose>
-                  <Button size="lg" radius="full" className="w-full" type="submit" disabled={isPending}>
-                    {isPending ? <Loader2 className="animate-spin mr-2" /> : <Send className="mr-2" />}
+                  <Button
+                    size="lg"
+                    radius="full"
+                    className="w-full"
+                    type="submit"
+                    disabled={isPending}
+                  >
+                    {isPending ? (
+                      <Loader2 className="animate-spin mr-2" />
+                    ) : (
+                      <Send className="mr-2" />
+                    )}
                     Send
                   </Button>
                 </div>

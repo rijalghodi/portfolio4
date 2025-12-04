@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+
 import { Button } from "../ui/button";
 
 type Props = {

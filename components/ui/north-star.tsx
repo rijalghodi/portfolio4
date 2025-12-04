@@ -1,8 +1,9 @@
 "use client";
 
+import { motion } from "motion/react";
+import React, { RefObject, useCallback, useEffect, useRef, useState } from "react";
+
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import React, { useState, useEffect, useRef, RefObject, useCallback } from "react";
 
 interface StarProps {
   x: number;
@@ -41,7 +42,11 @@ export const NorthStarBackground: React.FC<StarBackgroundProps> = ({
   className,
 }) => {
   const [stars, setStars] = useState<StarProps[]>([]);
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number; active: boolean }>({
+  const [mousePosition, setMousePosition] = useState<{
+    x: number;
+    y: number;
+    active: boolean;
+  }>({
     x: 0,
     y: 0,
     active: false,
@@ -66,7 +71,9 @@ export const NorthStarBackground: React.FC<StarBackgroundProps> = ({
           originalY: y,
           radius: Math.random() * 0.05 + 0.5,
           opacity: Math.random() * 0.5 + 0.2,
-          twinkleSpeed: shouldTwinkle ? minTwinkleSpeed + Math.random() * (maxTwinkleSpeed - minTwinkleSpeed) : null,
+          twinkleSpeed: shouldTwinkle
+            ? minTwinkleSpeed + Math.random() * (maxTwinkleSpeed - minTwinkleSpeed)
+            : null,
           mass: Math.random() * 0.8 + 0.2, // Random mass between 0.2 and 1.0
           velocityX: 0,
           velocityY: 0,
@@ -189,7 +196,9 @@ export const NorthStarBackground: React.FC<StarBackgroundProps> = ({
         newStar.velocityY *= dampeningFactor;
 
         // Limit max speed
-        const speed = Math.sqrt(newStar.velocityX * newStar.velocityX + newStar.velocityY * newStar.velocityY);
+        const speed = Math.sqrt(
+          newStar.velocityX * newStar.velocityX + newStar.velocityY * newStar.velocityY,
+        );
         if (speed > maxSpeed) {
           newStar.velocityX = (newStar.velocityX / speed) * maxSpeed;
           newStar.velocityY = (newStar.velocityY / speed) * maxSpeed;

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import { StarHeading } from "./star-heading";
 
 // Tech stack data
@@ -15,7 +16,7 @@ const techStacks = [
       { name: "Tailwind CSS", logo: "/tech/tailwind.webp" },
       { name: "Shadcn", logo: "/tech/shadcn.webp" },
       { name: "Mantine", logo: "/tech/mantine.webp" },
-      { name: "Framer Motion", logo: "/tech/framer-motion.webp" }
+      { name: "Framer Motion", logo: "/tech/framer-motion.webp" },
     ],
   },
   {
@@ -79,7 +80,12 @@ export function TechSection() {
 
         <div className="flex flex-col gap-16">
           {techStacks.map(({ id, title, items }, index) => (
-            <section key={id} aria-labelledby={`${id}-heading`} data-aos="fade-up" data-aos-delay={`${100 * index}`}>
+            <section
+              key={id}
+              aria-labelledby={`${id}-heading`}
+              data-aos="fade-up"
+              data-aos-delay={`${100 * index}`}
+            >
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <h3 id={`${id}-heading`} className="text-3xl col-span-1">
                   {title}

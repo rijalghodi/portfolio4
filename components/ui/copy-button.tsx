@@ -1,9 +1,10 @@
 "use client";
 
-import { Button, ButtonProps } from "@/components/ui/button"; // Adjust import as needed
 import { IconCheck, IconCopy } from "@tabler/icons-react";
 import confetti from "canvas-confetti";
 import { useEffect, useRef, useState } from "react";
+
+import { Button, ButtonProps } from "@/components/ui/button"; // Adjust import as needed
 
 interface CopyButtonProps extends ButtonProps {
   value: string; // Text to copy

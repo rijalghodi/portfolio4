@@ -1,7 +1,9 @@
 "use client";
-import { IArticle } from "@/types/article";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+
+import { IArticle } from "@/types/article";
+
 import { ArticleItem } from "../elements/article-item";
 import { Button } from "../ui/button";
 import { StarHeading } from "./star-heading";
@@ -19,7 +21,12 @@ export function ArticleSection({ articles }: { articles: IArticle[] }) {
 
         <ul>
           {articles?.map((article, i) => (
-            <li key={i} className="border-b border-border" data-aos="fade-up" data-aos-delay={`${i * 50}`}>
+            <li
+              key={i}
+              className="border-b border-border"
+              data-aos="fade-up"
+              data-aos-delay={`${i * 50}`}
+            >
               <ArticleItem
                 title={article.title}
                 url={`/articles/${article.slug}`}

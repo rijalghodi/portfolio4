@@ -1,6 +1,7 @@
-import { contactEmail } from "@/data/contact";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+
+import { contactEmail } from "@/data/contact";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",

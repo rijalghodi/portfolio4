@@ -1,8 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
+import { cn } from "@/lib/utils";
+
 import { parseOutline } from "./outline";
 
 // Type for the outline structure
@@ -14,9 +16,7 @@ type Heading = {
 
 // Utility function to get text from children nodes
 const getChildrenText = (props: (string | { text: string })[]): string =>
-  props
-    .map((node) => (typeof node === "string" ? node : node.text || ""))
-    .join("");
+  props.map((node) => (typeof node === "string" ? node : node.text || "")).join("");
 
 // Flatten outline to get all heading IDs in order
 const flattenHeadings = (headings: Heading[]): string[] => {
@@ -29,13 +29,7 @@ const flattenHeadings = (headings: Heading[]): string[] => {
   }, []);
 };
 
-const HeadingsList = ({
-  outline,
-  activeId,
-}: {
-  outline: Heading[];
-  activeId: string | null;
-}) => {
+const HeadingsList = ({ outline, activeId }: { outline: Heading[]; activeId: string | null }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, key: string) => {
     e.preventDefault();
     const element = document.getElementById(key);
@@ -48,16 +42,11 @@ const HeadingsList = ({
   return (
     <ol className="flex flex-col gap-0">
       {outline.map(({ _key, children, subheadings }) => (
-        <li
-          key={_key}
-          className="flex flex-col gap-0 line-clamp-1 text-ellipsis"
-        >
+        <li key={_key} className="flex flex-col gap-0 line-clamp-1 text-ellipsis">
           <Link
             className={cn(
               "rounded-md hover:bg-muted p-2 text-sm transition-colors",
-              activeId === _key
-                ? "bg-muted text-primary font-medium"
-                : "text-muted-foreground"
+              activeId === _key ? "bg-muted text-primary font-medium" : "text-muted-foreground",
             )}
             href={`#${_key}`}
             onClick={(e) => handleClick(e, _key)}

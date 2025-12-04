@@ -1,9 +1,11 @@
 "use client";
 
-import { contactEmail } from "@/data/contact";
-import { cn } from "@/lib/utils";
 import { MoveRight, Send } from "lucide-react";
 import Link from "next/link";
+
+import { contactEmail } from "@/data/contact";
+import { cn } from "@/lib/utils";
+
 import { useContactMe } from "../elements/contact-form-context";
 import { SocialLinks } from "../elements/social-links";
 import { Button } from "../ui/button";
@@ -13,10 +15,7 @@ export function HeroSection() {
   const { open } = useContactMe();
 
   return (
-    <section
-      id="intro"
-      className="relative pt-20 pb-24 sm:py-24 flex items-center"
-    >
+    <section id="intro" className="relative pt-20 pb-24 sm:py-24 flex items-center">
       <div className="relative max-w-screen-lg w-full mx-auto">
         <div className="w-full">
           <div className="flex flex-col gap-5">
@@ -33,7 +32,7 @@ export function HeroSection() {
                   size="xl"
                   className={cn(
                     "bg-primary text-primary-foreground border-none hover:bg-primary/80 dark:bg-white dark:text-black dark:hover:bg-gray-300",
-                    "w-full sm:w-[240px] h-10 px-5 py-0.5 text-base [&_svg]:size-5 sm:h-11 sm:px-6 sm:text-lg sm:[&_svg]:size-6"
+                    "w-full sm:w-[240px] h-10 px-5 py-0.5 text-base [&_svg]:size-5 sm:h-11 sm:px-6 sm:text-lg sm:[&_svg]:size-6",
                   )}
                   asChild
                 >
@@ -48,9 +47,8 @@ export function HeroSection() {
             <div className="flex gap-3 items-start">
               <div data-aos="fade-up" data-aos-delay="200">
                 <p className="text-lg sm:text-xl py-4 text-foreground !leading-relaxed text-wrap-balance break-words">
-                  2+ years of experience turning ideas into beautiful web
-                  applications. Focused on clean code, intuitive design, and
-                  scalable solutions.
+                  2+ years of experience turning ideas into beautiful web applications. Focused on
+                  clean code, intuitive design, and scalable solutions.
                 </p>
               </div>
               <div data-aos="fade-up" data-aos-delay="250">
@@ -64,12 +62,7 @@ export function HeroSection() {
           <div className="flex flex-col xs:flex-row gap-6 mt-6 items-center justify-center sm:justify-start flex-wrap">
             <div className="flex gap-4 flex-col xs:flex-row w-full xs:w-fit">
               <div data-aos="fade-up" data-aos-delay="300">
-                <Button
-                  radius="full"
-                  size="lg"
-                  className="w-full xs:w-fit"
-                  onClick={open}
-                >
+                <Button radius="full" size="lg" className="w-full xs:w-fit" onClick={open}>
                   <Send />
                   Contact Me
                 </Button>

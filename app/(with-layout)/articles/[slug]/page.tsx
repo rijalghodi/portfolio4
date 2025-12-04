@@ -1,15 +1,14 @@
+import { IconArrowLeft } from "@tabler/icons-react";
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/portable-text-renderer";
-import { TableOfContents } from "@/components/ui/portable-text-renderer/table-of-contents";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import { getArticleBySlug } from "@/lib/sanity/sanity-utils";
-import { IconArrowLeft } from "@tabler/icons-react";
-import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { BRAND, metadata as brandMetadata } from "@/lib/brand";
+import { getArticleBySlug } from "@/lib/sanity/sanity-utils";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -46,13 +45,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 type ArticleProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export default async function ArticlePage({ params }: ArticleProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const article = await getArticleBySlug(slug);
 
@@ -80,11 +79,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
             >
               {article?.title}
             </h1>
-            <p
-              data-aos="fade-up"
-              data-aos-delay="50"
-              className="sm:text-xl md:text-center"
-            >
+            <p data-aos="fade-up" data-aos-delay="50" className="sm:text-xl md:text-center">
               {article?.description}
             </p>
             <p
@@ -92,9 +87,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
               data-aos-delay="50"
               className="uppercase text-sm md:text-center font-mono"
             >
-              {new Date(
-                article?.date ?? article?._createdAt
-              ).toLocaleDateString("en", {
+              {new Date(article?.date ?? article?._createdAt).toLocaleDateString("en", {
                 day: "2-digit",
                 month: "short",
                 year: "numeric",

@@ -1,7 +1,8 @@
+import React from "react";
+
 import { Footer } from "@/components/elements/app-footer";
 import { Header } from "@/components/elements/app-header";
 import { RevalidateAffix } from "@/components/elements/revalidate-affix";
-import React from "react";
 type Props = {
   children: React.ReactNode;
 };

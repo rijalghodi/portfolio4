@@ -1,20 +1,16 @@
+import { IconArrowLeft, IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { ProjectPreviewCarousel } from "@/components/elements/project-preview-carousel";
 import { badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/portable-text-renderer";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import { getProjectBySlug } from "@/lib/sanity/sanity-utils";
-import {
-  IconArrowLeft,
-  IconBrandGithub,
-  IconExternalLink,
-} from "@tabler/icons-react";
-import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { BRAND, metadata as brandMetadata } from "@/lib/brand";
+import { getProjectBySlug } from "@/lib/sanity/sanity-utils";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -51,13 +47,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 type ProjectProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export default async function ProjectPage({ params }: ProjectProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   // Fetch project data from the backend route
   const project = await getProjectBySlug(slug);
@@ -91,10 +87,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
                 />
               </figure>
             )}
-            <h1
-              data-aos="fade-up"
-              className="text-3xl sm:text-4xl font-medium leading-tight"
-            >
+            <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-medium leading-tight">
               {project?.name}
             </h1>
             <p data-aos="fade-up" data-aos-delay="50" className="sm:text-lg">
@@ -108,10 +101,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
               {project?.technologies && project?.technologies.length > 0 && (
                 <div className="flex gap-2 flex-wrap items-center">
                   {project?.technologies.map((tech) => (
-                    <div
-                      key={tech.name}
-                      className={badgeVariants({ variant: "outline" })}
-                    >
+                    <div key={tech.name} className={badgeVariants({ variant: "outline" })}>
                       {tech.icon_url && (
                         <Image
                           src={tech.icon_url}
@@ -129,9 +119,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
                 </div>
               )}
               {project?.role && (
-                <div className="text-sm font-semibold font-mono uppercase">
-                  {project.role}
-                </div>
+                <div className="text-sm font-semibold font-mono uppercase">{project.role}</div>
               )}
             </div>
           </header>

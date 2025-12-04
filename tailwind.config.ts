@@ -137,6 +137,6 @@ const config: Config = {
     },
   },
 
-  plugins: [require("tailwindcss-animate")], // eslint-disable-line
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;

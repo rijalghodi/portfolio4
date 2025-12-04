@@ -15,8 +15,9 @@ if (!JWT_SECRET) {
  * @param req - The Next.js API request object
  * @returns The decoded JWT payload if valid, otherwise throws an error
  */
-function getAndVerifyToken(req: NextRequest) {
-  const token = req.cookies.get?.("rijalghodi.dev.token")?.value;
+async function getAndVerifyToken(req: NextRequest) {
+  const cookies = await req.cookies;
+  const token = cookies.get("rijalghodi.dev.token")?.value;
 
   if (!token) {
     throw new Error("Token not found");
@@ -51,7 +52,7 @@ export async function POST(req: NextRequest) {
   try {
     validateRequestMethod(req);
 
-    getAndVerifyToken(req);
+    await getAndVerifyToken(req);
 
     const body = await req.json();
     const { path } = body;

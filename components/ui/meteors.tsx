@@ -1,14 +1,9 @@
 "use client";
-import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
-export const Meteors = ({
-  number,
-  className,
-}: {
-  number?: number;
-  className?: string;
-}) => {
+import { cn } from "@/lib/utils";
+
+export const Meteors = ({ number, className }: { number?: number; className?: string }) => {
   const meteors = new Array(number || 20).fill(true);
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>

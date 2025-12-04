@@ -1,8 +1,9 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
-import { cn, dateToMMYYYY } from "@/lib/utils";
-import { PortableTextBlock } from "next-sanity";
 import Image from "next/image";
+import { PortableTextBlock } from "next-sanity";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn, dateToMMYYYY } from "@/lib/utils";
+
 import AccessibleDiv from "../ui/accessible-div";
 import { PortableTextRenderer } from "../ui/portable-text-renderer/portable-text-renderer";
 
@@ -50,7 +51,8 @@ export function ExperienceCard(props: ExperienceCardProps) {
           </p>
           {props.startDate && (props.stillWorking || props.endDate) && (
             <p>
-              {dateToMMYYYY(props.startDate)} - {props.stillWorking ? "Now" : dateToMMYYYY(props.endDate ?? "")}
+              {dateToMMYYYY(props.startDate)} -{" "}
+              {props.stillWorking ? "Now" : dateToMMYYYY(props.endDate ?? "")}
             </p>
           )}
         </CardDescription>

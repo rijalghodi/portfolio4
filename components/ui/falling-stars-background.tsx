@@ -1,6 +1,7 @@
 "use client";
+import React, { RefObject, useCallback, useEffect, useRef, useState } from "react";
+
 import { cn } from "@/lib/utils";
-import React, { useState, useEffect, useRef, RefObject, useCallback } from "react";
 
 interface StarProps {
   x: number;
@@ -44,7 +45,9 @@ export const FallingStarsBackground: React.FC<FallingStarsBackgroundProps> = ({
           y: Math.random() * height,
           radius: Math.random() * 0.1 + 0.6,
           opacity: Math.random() * 0.5 + 0.3,
-          twinkleSpeed: shouldTwinkle ? minTwinkleSpeed + Math.random() * (maxTwinkleSpeed - minTwinkleSpeed) : null,
+          twinkleSpeed: shouldTwinkle
+            ? minTwinkleSpeed + Math.random() * (maxTwinkleSpeed - minTwinkleSpeed)
+            : null,
           fallSpeed,
         };
       });

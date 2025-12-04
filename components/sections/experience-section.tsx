@@ -1,6 +1,9 @@
 "use client";
-import { dateToMMYYYY } from "@/lib/utils";
+
 import { Building, MapPin } from "lucide-react";
+
+import { dateToMMYYYY } from "@/lib/utils";
+
 import { ExperienceView } from "../elements/experience-card";
 import { PortableTextRenderer } from "../ui/portable-text-renderer/portable-text-renderer";
 import { Timeline } from "../ui/timeline";
@@ -16,7 +19,10 @@ export function ExperienceSection({ experiences }: Props) {
       <div className="max-w-screen-lg w-full mx-auto space-y-8">
         <div className="space-y-6">
           <div data-aos="fade-up">
-            <StarHeading title="My Work Experience" description="Experiences that I've had throughout my career." />
+            <StarHeading
+              title="My Work Experience"
+              description="Experiences that I've had throughout my career."
+            />
           </div>
           <ExperienceTimeline experiences={experiences} />
         </div>

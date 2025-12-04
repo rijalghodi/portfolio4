@@ -8,7 +8,8 @@ export type Heading = {
 };
 
 // Utility function to get value from an object using a path
-const get = (object: Record<string, any>, path: string[]): any => path.reduce((prev, curr) => prev[curr], object);
+const get = (object: Record<string, any>, path: string[]): any =>
+  path.reduce((prev, curr) => prev[curr], object);
 
 // Utility function to generate object path for subheadings
 const getObjectPath = (paths: number[]): string[] =>

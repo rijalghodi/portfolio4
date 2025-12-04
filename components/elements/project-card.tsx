@@ -1,9 +1,11 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { cn } from "@/lib/utils";
+
 import AccessibleDiv from "../ui/accessible-div";
 export type ProjectGlimps = {
   name: string;
@@ -14,11 +16,22 @@ export type ProjectGlimps = {
   role?: string;
   titleTag?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
-export function ProjectCard({ description: shortDesc, name, slug, iconUrl, role, titleTag = "p" }: ProjectGlimps) {
+export function ProjectCard({
+  description: shortDesc,
+  name,
+  slug,
+  iconUrl,
+  role,
+  titleTag = "p",
+}: ProjectGlimps) {
   // const coverImageUrl = null;
   const Wrapper = ({ children }: any) => {
     return slug ? (
-      <Link href={`/projects/${slug}`} onClick={(e) => e.stopPropagation()} className="group relative">
+      <Link
+        href={`/projects/${slug}`}
+        onClick={(e) => e.stopPropagation()}
+        className="group relative"
+      >
         {children}
       </Link>
     ) : (
@@ -51,7 +64,10 @@ export function ProjectCard({ description: shortDesc, name, slug, iconUrl, role,
               )}
             </div>
             <div className="flex justify-between group">
-              <AccessibleDiv tag={titleTag} className="text-foreground font-medium text-xl tracking-normal">
+              <AccessibleDiv
+                tag={titleTag}
+                className="text-foreground font-medium text-xl tracking-normal"
+              >
                 {name}
               </AccessibleDiv>
               <IconArrowRight

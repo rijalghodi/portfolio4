@@ -1,6 +1,7 @@
 "use client";
+import React, { useEffect, useRef, useState } from "react";
+
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState, useRef } from "react";
 
 interface ShootingStar {
   id: number;
@@ -87,7 +88,12 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
           const newY = prevStar.y + prevStar.speed * Math.sin((prevStar.angle * Math.PI) / 180);
           const newDistance = prevStar.distance + prevStar.speed;
           const newScale = 1 + newDistance / 100;
-          if (newX < -20 || newX > window.innerWidth + 20 || newY < -20 || newY > window.innerHeight + 20) {
+          if (
+            newX < -20 ||
+            newX > window.innerWidth + 20 ||
+            newY < -20 ||
+            newY > window.innerHeight + 20
+          ) {
             return null;
           }
           return {

@@ -4,7 +4,6 @@ import { ExperienceSection } from "@/components/sections/experience-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectSection } from "@/components/sections/project-section";
 import { TechSection } from "@/components/sections/tech-section";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import {
   getArticles,
   getExpereinces,
@@ -22,6 +21,8 @@ export default async function Home() {
   const about = await getLatestPinnedAbout();
 
   const experiences = await getExpereinces(1, 4);
+
+  console.log(projects);
 
   return (
     <>
@@ -42,6 +43,7 @@ export default async function Home() {
             slug: project.slug,
             iconUrl: project.icon_url,
             role: project.role,
+            technologies: project.technologies,
           }))}
         />
         <ExperienceSection

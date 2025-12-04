@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ExperienceTimeline } from "@/components/sections/experience-section";
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/portable-text-renderer";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import { getExpereinces, getLatestPinnedAbout } from "@/lib/sanity/sanity-utils";
 
 // export const revalidate = 7 * 24 * 60 * 60; // a week

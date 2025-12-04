@@ -1,6 +1,5 @@
 // import { projects } from '@/data/project';
 import { ProjectCard } from "@/components/elements/project-card";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import { getProjects } from "@/lib/sanity/sanity-utils";
 
 // export const revalidate = 7 * 24 * 60 * 60; // a week
@@ -39,6 +38,7 @@ export default async function Project() {
                   coverImageUrl={project.cover_image_url}
                   role={project.role}
                   titleTag="h2"
+                  technologies={project.technologies}
                 />
               </li>
             ))}

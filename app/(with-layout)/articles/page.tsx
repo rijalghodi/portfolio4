@@ -12,7 +12,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import { getArticles } from "@/lib/sanity/sanity-utils";
 import { IArticle } from "@/types/article";
 

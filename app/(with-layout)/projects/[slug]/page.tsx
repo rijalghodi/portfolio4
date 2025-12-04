@@ -8,7 +8,6 @@ import { ProjectPreviewCarousel } from "@/components/elements/project-preview-ca
 import { badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/portable-text-renderer";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import { BRAND, metadata as brandMetadata } from "@/lib/brand";
 import { getProjectBySlug } from "@/lib/sanity/sanity-utils";
 

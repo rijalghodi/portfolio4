@@ -5,8 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { ITechnology } from "@/types/technology";
 
 import AccessibleDiv from "../ui/accessible-div";
+import { badgeVariants } from "../ui/badge";
 export type ProjectGlimps = {
   name: string;
   description?: string;
@@ -15,6 +17,7 @@ export type ProjectGlimps = {
   coverImageUrl?: string;
   role?: string;
   titleTag?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  technologies?: ITechnology[];
 };
 export function ProjectCard({
   description: shortDesc,
@@ -23,6 +26,7 @@ export function ProjectCard({
   iconUrl,
   role,
   titleTag = "p",
+  technologies,
 }: ProjectGlimps) {
   // const coverImageUrl = null;
   const Wrapper = ({ children }: any) => {
@@ -76,9 +80,26 @@ export function ProjectCard({
               />
             </div>
           </div>
-
           <p className="text-normal">{shortDesc}</p>
           <p className=" font-medium text-xs font-mono uppercase">{role}</p>
+          {technologies && technologies.length > 0 && (
+            <div className="flex gap-2 flex-wrap items-center">
+              {technologies.slice(0, 4).map((tech) => (
+                <div key={tech.name} className={badgeVariants({ variant: "secondary" })}>
+                  {tech.icon_url && (
+                    <Image
+                      src={tech.icon_url}
+                      width={18}
+                      height={18}
+                      alt="tech icon"
+                      className="rounded-full overflow-clip object-fill"
+                    />
+                  )}
+                  <span className="text-muted-foreground text-xs font-semibold">{tech.name}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Wrapper>

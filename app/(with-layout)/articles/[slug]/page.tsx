@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { PortableTextRenderer } from "@/components/ui/portable-text-renderer/portable-text-renderer";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import { BRAND, metadata as brandMetadata } from "@/lib/brand";
 import { getArticleBySlug } from "@/lib/sanity/sanity-utils";
 

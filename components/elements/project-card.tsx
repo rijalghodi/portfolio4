@@ -63,7 +63,7 @@ export function ProjectCard({
                   alt="Icon"
                   width={50}
                   height={50}
-                  className="rounded-full h-10 w-auto overflow-clip object-fill"
+                  className="rounded-md h-10 w-auto overflow-clip object-fill"
                 />
               )}
             </div>

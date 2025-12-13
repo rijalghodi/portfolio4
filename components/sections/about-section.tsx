@@ -49,14 +49,13 @@ export function AboutSection({ cvUrl }: { cvUrl?: string }) {
             </div>
             <div className="flex-1 space-y-4 text-base sm:text-xl text-muted-foreground dark:text-foreground leading-loose">
               <p data-aos="fade-up">
-                I&apos;m a full-stack developer dedicated to turning ideas into creative solutions.
-                I specialize in creating seamless and intuitive user experiences.
+                I build modern web applications using Next.js and React, with strong backend
+                experience delivering production-ready systems.
               </p>
               <p data-aos="fade-up" className="leading-relaxed">
-                My approach focuses on creating scalable, high-performing solutions tailored to both
-                user needs and business objectives. By prioritizing performance, accessibility, and
-                responsiveness, I strive to deliver experiences that not only engage users but also
-                drive tangible results.
+                I work with PERN and MERN stacks and also build backend services using Go, focusing
+                on performance, scalability, and clean architecture to support real user and
+                business needs.
               </p>
             </div>
           </div>

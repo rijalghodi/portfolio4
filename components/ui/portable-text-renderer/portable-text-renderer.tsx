@@ -102,7 +102,7 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({
       ),
     },
     block: {
-      normal: ({ children }) => <p className="mb-3 md:text-lg text-muted-foreground">{children}</p>,
+      normal: ({ children }) => <p className="mb-3 text-muted-foreground">{children}</p>,
       h1: ({ children, value }) => (
         <h1 className="text-4xl font-medium leading-snug mb-4 pt-8" id={value._key}>
           {children}

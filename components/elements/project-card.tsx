@@ -33,7 +33,7 @@ export function ProjectCard({
     return slug ? (
       <Link
         href={`/projects/${slug}`}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e: any) => e.stopPropagation()}
         className="group relative"
       >
         {children}
@@ -63,7 +63,7 @@ export function ProjectCard({
                   alt="Icon"
                   width={50}
                   height={50}
-                  className="rounded-full h-10 w-10 overflow-clip object-fill"
+                  className="rounded-full h-10 w-auto overflow-clip object-fill"
                 />
               )}
             </div>

@@ -1,5 +1,5 @@
 import { IconArrowLeft, IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
-import type { Metadata } from "next";
+import type {Metadata}  from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -82,7 +82,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
                   alt="Icon"
                   width={50}
                   height={50}
-                  className="rounded-full h-10 w-10 overflow-clip object-fill"
+                  className="rounded-full h-10 w-auto overflow-clip object-fill"
                 />
               </figure>
             )}

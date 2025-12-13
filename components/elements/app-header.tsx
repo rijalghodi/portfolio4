@@ -29,10 +29,10 @@ const MENUS: Menu[] = [
     title: "Projects",
     link: "/projects",
   },
-  {
-    title: "Articles",
-    link: "/articles",
-  },
+  // {
+  //   title: "Articles",
+  //   link: "/articles",
+  // },
   {
     title: "About Me",
     link: "/about",

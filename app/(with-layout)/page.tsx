@@ -61,7 +61,7 @@ export default async function Home() {
             stillWorking: ex.still_working,
           }))}
         />
-        <ArticleSection articles={articles} />
+        {/* <ArticleSection articles={articles} /> */}
       </div>
     </>
   );
